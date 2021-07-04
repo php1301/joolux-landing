@@ -27,7 +27,7 @@ cache:
 Get yarn cache directory path:
   stage: cache-check
   script:
-   - echo "::set-output name=dir::$(yarn cache dir)
+   - echo "::set-output name=dir::$(yarn cache dir)"
 
 
 Checkout Branch:
@@ -37,7 +37,7 @@ Checkout Branch:
     GIT_CHECKOUT: "false"
   script:
     - git checkout -B master origin/master
-    - yarn install --cache-folder .yarn
+    - yarn add --cache-folder .yarn
 
 
 
