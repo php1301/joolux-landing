@@ -1,0 +1,49 @@
+image: node:latest
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"'
+      when: always
+
+stages:
+  - build
+  - test
+  - deploy
+
+checkout:
+  stage: build
+  variables:
+    GIT_STRATEGY: fetch
+    GIT_CHECKOUT: "false"
+  script:
+    - git checkout -B master origin/master
+
+Get yarn cache directory path:
+  stage: build
+  script:
+   - echo "::set-output name=dir::$(yarn cache dir)
+
+cache:
+  paths:
+    - node_modules/
+
+Install dependencies:
+   stage: build
+   script:
+       - yarn
+
+
+# Run Lint:
+#    stage: build
+#    script:
+#        - yarn lint
+
+Run tests:
+   stage: test
+   script:
+       - yarn test
+       
+Run e2e test:
+   stage: test
+   script:
+       - yarn cypress:test       
