@@ -1,31 +1,47 @@
 image: node:latest
 
+before_script:
+  - yarn install --cache-folder .yarn
+
 workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"'
       when: always
 
+
 stages:
+  - checkout-master
+  - cache-check
   - build
   - test
   - deploy
 
-checkout:
-  stage: build
+cache:
+  # key: $CI_COMMIT_REF_SLUG
+  key:
+   files:
+      - Gemfile.lock
+      - package.json
+  paths:
+    - node_modules/
+    - .yarn
+
+
+Get yarn cache directory path:
+  stage: cache-check
+  script:
+   - echo "::set-output name=dir::$(yarn cache dir)
+
+
+Checkout Branch:
+  stage: checkout-master
   variables:
     GIT_STRATEGY: fetch
     GIT_CHECKOUT: "false"
   script:
     - git checkout -B master origin/master
 
-Get yarn cache directory path:
-  stage: build
-  script:
-   - echo "::set-output name=dir::$(yarn cache dir)
 
-cache:
-  paths:
-    - node_modules/
 
 Install dependencies:
    stage: build
