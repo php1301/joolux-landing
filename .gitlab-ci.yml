@@ -2,7 +2,7 @@ default:
   image: node:14.17.1
 
 variables:
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/.cache/Cypress'
 
 workflow:
   rules:
