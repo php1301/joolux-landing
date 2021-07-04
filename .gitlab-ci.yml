@@ -50,7 +50,7 @@ Install dependencies:
    stage: build
    script:
        - yarn
-       - yarn cypress:binary
+
 
 
 Run Lint:
@@ -68,4 +68,5 @@ Run e2e test:
    script:
        - npx cypress cache path
        - npx cypress cache list
+       - yarn cypress:binary
        - yarn cypress:test       
