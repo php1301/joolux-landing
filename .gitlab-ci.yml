@@ -2,7 +2,7 @@ default:
   image: node:14.17.1
 
 variables:
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/.cache/Cypress'
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
 workflow:
   rules:
@@ -27,7 +27,7 @@ cache:
   paths:
     - node_modules/
     - .yarn
-    - .cache/Cypress
+    - cache/Cypress
     - build
 
 
@@ -65,4 +65,6 @@ Run tests:
 Run e2e test:
    stage: test
    script:
+       - npx cypress cache path
+       - npx cypress cache list
        - yarn cypress:test       
