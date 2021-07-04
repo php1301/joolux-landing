@@ -64,9 +64,9 @@ Run tests:
        - yarn test
        
 Run e2e test:
+   image: cypress/base:10
    stage: test
    script:
        - npx cypress cache path
        - npx cypress cache list
-       - yarn cypress:binary
        - yarn cypress:test       
