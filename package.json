@@ -18,6 +18,7 @@
         "lint": "eslint --rule \"no-unused-vars: off\" \"**/*.{js,jsx,ts,tsx}\" --fix",
         "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
         "test": "jest -c test/jest.config.js --ci --reporters=default --reporters=jest-junit",
+        "cypress:binary":"cypress install",
         "cypress:open": "cypress open",
         "cypress:run": "cypress run --config video=false",
         "cypress:test": "start-server-and-test test-execute http://localhost:3000 cypress:run"
