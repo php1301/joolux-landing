@@ -1,6 +1,9 @@
 default:
   image: node:14.17.1
 
+variables:
+  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+
 workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"'
@@ -23,6 +26,8 @@ cache:
   paths:
     - node_modules/
     - .yarn
+    - cache/Cypress
+    - build
 
 
 Get yarn cache directory path:
