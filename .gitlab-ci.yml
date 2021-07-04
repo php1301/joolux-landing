@@ -1,4 +1,5 @@
-image: node:latest
+default:
+  image: node:14-alpine
 
 workflow:
   rules:
