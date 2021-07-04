@@ -14,7 +14,7 @@ stages:
   - checkout-master
   - cache-check
   - build
-  - linting
+  - lint
   - test
   - deploy
 
@@ -53,7 +53,7 @@ Install dependencies:
 
 
 Run Lint:
-   stage: build
+   stage: lint
    script:
        - yarn lint
 
