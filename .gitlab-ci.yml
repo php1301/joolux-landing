@@ -52,10 +52,10 @@ Install dependencies:
        - yarn
 
 
-Run Lint:
-   stage: lint
-   script:
-       - yarn lint
+# Run Lint:
+#    stage: lint
+#    script:
+#        - yarn lint
 
 Run tests:
    stage: test
