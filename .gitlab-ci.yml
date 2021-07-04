@@ -1,8 +1,8 @@
 default:
   image: node:14.17.1
 
-variables:
-  CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
+# variables:
+#   CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
 
 workflow:
   rules:
@@ -27,7 +27,7 @@ cache:
   paths:
     - node_modules/
     - .yarn
-    - cache/Cypress
+    # - cache/Cypress
     - build
 
 
@@ -50,12 +50,13 @@ Install dependencies:
    stage: build
    script:
        - yarn
+       - cypress install
 
 
-# Run Lint:
-#    stage: lint
-#    script:
-#        - yarn lint
+Run Lint:
+   stage: lint
+   script:
+       - yarn lint
 
 Run tests:
    stage: test
