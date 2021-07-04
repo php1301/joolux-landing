@@ -1,8 +1,5 @@
 image: node:latest
 
-before_script:
-  - yarn install --cache-folder .yarn
-
 workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"'
@@ -40,6 +37,7 @@ Checkout Branch:
     GIT_CHECKOUT: "false"
   script:
     - git checkout -B master origin/master
+    - yarn install --cache-folder .yarn
 
 
 
