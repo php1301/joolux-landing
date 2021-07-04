@@ -14,11 +14,11 @@ stages:
   - deploy
 
 cache:
-  # key: $CI_COMMIT_REF_SLUG
-  key:
-   files:
-      - Gemfile.lock
-      - package.json
+  key: $CI_COMMIT_REF_SLUG
+  # key:
+  #  files:
+  #     - Gemfile.lock
+  #     - package.json
   paths:
     - node_modules/
     - .yarn
@@ -37,8 +37,6 @@ Checkout Branch:
     GIT_CHECKOUT: "false"
   script:
     - git checkout -B master origin/master
-    - yarn add --cache-folder .yarn
-
 
 
 Install dependencies:
