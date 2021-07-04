@@ -14,6 +14,7 @@ stages:
   - checkout-master
   - cache-check
   - build
+  - linting
   - test
   - deploy
 
@@ -26,7 +27,7 @@ cache:
   paths:
     - node_modules/
     - .yarn
-    - cache/Cypress
+    - .cache/Cypress
     - build
 
 
@@ -51,10 +52,10 @@ Install dependencies:
        - yarn
 
 
-# Run Lint:
-#    stage: build
-#    script:
-#        - yarn lint
+Run Lint:
+   stage: build
+   script:
+       - yarn lint
 
 Run tests:
    stage: test
