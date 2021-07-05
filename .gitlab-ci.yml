@@ -100,7 +100,7 @@ Run e2e test:
          ttf-wqy-microhei \
          xfonts-wqy \
          # clean up
-            && rm -rf /var/lib/apt/lists/*
+         && rm -rf /var/lib/apt/lists/*
        - yarn cypress:test       
 
        
