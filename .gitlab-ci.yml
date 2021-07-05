@@ -61,6 +61,7 @@ Run Lint:
      - job: Install dependencies
        artifacts: true     
    script:
+       - ls
        - yarn lint
 
 Run build:
