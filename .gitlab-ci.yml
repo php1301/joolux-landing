@@ -45,13 +45,13 @@ Install dependencies:
   #  files:
   #     - Gemfile.lock
   #     - package.json
-   paths:
-     - node_modules/
-     - .yarn
-     # - cache/Cypress
-     - build
+     paths:
+       - node_modules/
+       - .yarn
+       # - cache/Cypress
+       - build
    script:
-       - yarn
+     - yarn
 
 
 
