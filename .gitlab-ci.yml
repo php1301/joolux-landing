@@ -59,7 +59,7 @@ Run Lint:
    script:
        - yarn lint
 
-Run e2e test:build:
+Run build:
    stage: build
    script:
        - yarn build
