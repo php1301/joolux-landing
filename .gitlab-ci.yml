@@ -77,7 +77,6 @@ Run tests:
 Run e2e test:
    image: cypress/base:10
    stage: test
-   needs: ["Run e2e test:build"]
    script:
        - npx cypress cache path
        - npx cypress cache list
