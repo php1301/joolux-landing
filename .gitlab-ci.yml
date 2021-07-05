@@ -19,17 +19,7 @@ stages:
   - test
   - deploy
 
-cache:
-  key: $CI_COMMIT_REF_SLUG
-  # key:
-  #  files:
-  #     - Gemfile.lock
-  #     - package.json
-  paths:
-    - node_modules/
-    - .yarn
-    # - cache/Cypress
-    - build
+
 
 
 Get yarn cache directory path:
@@ -49,6 +39,17 @@ Checkout Branch:
 
 Install dependencies:
    stage: install
+   cache:
+     key: $CI_COMMIT_REF_SLUG
+  # key:
+  #  files:
+  #     - Gemfile.lock
+  #     - package.json
+   paths:
+     - node_modules/
+     - .yarn
+     # - cache/Cypress
+     - build
    script:
        - yarn
 
@@ -63,6 +64,9 @@ Run build:
    stage: build
    script:
        - yarn build
+   artifacts:
+     paths:
+       - .next/
 
 Run tests:
    stage: test
@@ -77,6 +81,9 @@ Run tests:
 Run e2e test:
    image: cypress/base:10
    stage: test
+   needs: 
+     - job: Run build
+       artifacts: true
    script:
        - npx cypress cache path
        - npx cypress cache list
