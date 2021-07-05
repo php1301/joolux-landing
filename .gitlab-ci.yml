@@ -13,8 +13,9 @@ workflow:
 stages:
   - checkout-master
   - cache-check
-  - build
+  - install
   - lint
+  - build
   - test
   - deploy
 
@@ -47,7 +48,7 @@ Checkout Branch:
 
 
 Install dependencies:
-   stage: build
+   stage: install
    script:
        - yarn
 
@@ -59,7 +60,7 @@ Run Lint:
        - yarn lint
 
 Run e2e test:build:
-   stage: test
+   stage: build
    script:
        - yarn build
 
