@@ -57,11 +57,17 @@ Install dependencies:
 
 Run Lint:
    stage: lint
+   needs: 
+     - job: Install dependencies
+       artifacts: true     
    script:
        - yarn lint
 
 Run build:
    stage: build
+   needs: 
+     - job: Install dependencies
+       artifacts: true  
    script:
        - yarn build
    artifacts:
@@ -70,6 +76,9 @@ Run build:
 
 Run tests:
    stage: test
+   needs: 
+     - job: Install dependencies
+       artifacts: true   
    script:
        - yarn test
    artifacts:
@@ -83,6 +92,8 @@ Run e2e test:
    stage: test
    needs: 
      - job: Run build
+       artifacts: true
+     - job: Install dependencies
        artifacts: true
    script:
        - npx cypress cache path
