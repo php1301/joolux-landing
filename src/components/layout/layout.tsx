@@ -43,7 +43,7 @@ const Layout: React.FC = ({ children }) => {
                 }}
             />
             <Header />
-            <Button onClick={() => onAcceptCookies()} type="button">
+            {/* <Button onClick={() => onAcceptCookies()} type="button">
                 <a
                     data-test="docs-btn-anchor"
                     href="https://pankod.github.io/superplate/"
@@ -51,9 +51,9 @@ const Layout: React.FC = ({ children }) => {
                 >
                     Docs
                 </a>
-            </Button>
-            <Footer />
+            </Button> */}
             {children}
+            <Footer />
         </div>
     );
 };

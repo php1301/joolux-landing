@@ -1,13 +1,28 @@
 import React from "react";
-import { NextjsIcon } from "@components/icons";
+import { JooLuxIcon } from "@components/icons";
+import Link from "@components/ui/link";
+import cn from "classnames";
+import { siteSettings } from "@settings/site-settings";
 
-export const Logo: React.FC = () => {
+export const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
+    className,
+    ...props
+}) => {
     return (
-        <NextjsIcon
-            data-test="icon"
-            className="text-white mx-auto"
-            width="96"
-            height="58"
-        />
+        <Link
+            href={siteSettings.logo.href}
+            className={cn(
+                "inline-flex focus:outline-none site-logo text-xl font-black text-secondary",
+                className,
+            )}
+            {...props}
+        >
+            <JooLuxIcon
+                data-test="icon"
+                // className="text-white mx-auto"
+                width="295"
+                height="107"
+            />
+        </Link>
     );
 };
