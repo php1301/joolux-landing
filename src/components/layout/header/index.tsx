@@ -4,7 +4,6 @@ import { useTranslation } from "next-i18next";
 import { Logo } from "@components";
 import { SearchIcon } from "@components/icons";
 import { useUI } from "@contexts/ui.context";
-import { siteSettings } from "@settings/site-settings";
 import { addActiveScroll } from "@utils/add-active-scroll";
 import { ROUTES } from "@utils/routes";
 
@@ -13,7 +12,6 @@ const CartButton = dynamic(() => import("@components/cart/cart-button"), {
     ssr: false,
 });
 type DivElementRef = React.MutableRefObject<HTMLDivElement>;
-const { site_header } = siteSettings;
 
 export const Header: React.FC = () => {
     const {

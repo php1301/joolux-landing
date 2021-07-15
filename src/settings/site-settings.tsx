@@ -26,38 +26,43 @@ export const siteSettings = {
         menu: [
             {
                 id: 1,
-                path: "/",
+                path: "/search",
+                label: "menu-search",
+            },
+            {
+                id: 2,
+                path: "/other",
                 label: "menu-demos",
                 subMenu: [
                     {
                         id: 1,
                         path: "/",
-                        label: "menu-modern",
+                        label: "modern",
                     },
                     {
                         id: 2,
                         path: "/standard",
-                        label: "menu-standard",
+                        label: "standard",
                     },
                     {
                         id: 3,
                         path: "/minimal",
-                        label: "menu-minimal",
+                        label: "minimal",
                     },
                     {
                         id: 4,
                         path: "/vintage",
-                        label: "menu-vintage",
+                        label: "vintage",
                     },
                     {
                         id: 5,
                         path: "/classic",
-                        label: "menu-classic",
+                        label: "classic",
                     },
                 ],
             },
             {
-                id: 2,
+                id: 3,
                 path: "/search?q=men-wear",
                 label: "menu-men-wear",
                 columns: [
@@ -325,7 +330,7 @@ export const siteSettings = {
                 ],
             },
             {
-                id: 3,
+                id: 4,
                 path: "/search?q=women-wear",
                 label: "menu-women-wear",
                 columns: [
@@ -593,7 +598,7 @@ export const siteSettings = {
                 ],
             },
             {
-                id: 4,
+                id: 5,
                 path: "/search?q=casual-wear",
                 label: "menu-casual-wear",
                 columns: [
@@ -857,90 +862,6 @@ export const siteSettings = {
                                 ],
                             },
                         ],
-                    },
-                ],
-            },
-            {
-                id: 5,
-                path: "/search",
-                label: "menu-search",
-            },
-            {
-                id: 6,
-                path: "/",
-                label: "menu-pages",
-                subMenu: [
-                    {
-                        id: 1,
-                        path: "/",
-                        label: "menu-users",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/my-account",
-                                label: "menu-my-account",
-                            },
-                            {
-                                id: 2,
-                                path: "/signin",
-                                label: "menu-sign-in",
-                            },
-                            {
-                                id: 3,
-                                path: "/signup",
-                                label: "menu-sign-up",
-                            },
-                            {
-                                id: 4,
-                                path: "/forget-password",
-                                label: "menu-forget-password",
-                            },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        path: "/faq",
-                        label: "menu-faq",
-                    },
-                    {
-                        id: 3,
-                        path: "/privacy",
-                        label: "menu-privacy-policy",
-                    },
-                    {
-                        id: 4,
-                        path: "/terms",
-                        label: "menu-terms-condition",
-                    },
-                    {
-                        id: 5,
-                        path: "/contact-us",
-                        label: "menu-contact-us",
-                    },
-                    {
-                        id: 6,
-                        path: "/checkout",
-                        label: "menu-checkout",
-                    },
-                    {
-                        id: 7,
-                        path: "/collections/mens-collection",
-                        label: "menu-collection",
-                    },
-                    {
-                        id: 8,
-                        path: "/category/man",
-                        label: "menu-category",
-                    },
-                    {
-                        id: 9,
-                        path: "/order",
-                        label: "menu-order",
-                    },
-                    {
-                        id: 10,
-                        path: "/404",
-                        label: "menu-404",
                     },
                 ],
             },
@@ -1473,85 +1394,6 @@ export const siteSettings = {
                 id: 5,
                 path: "/search",
                 label: "menu-search",
-            },
-            {
-                id: 6,
-                path: "/",
-                label: "menu-pages",
-                subMenu: [
-                    {
-                        id: 1,
-                        path: "/",
-                        label: "menu-users",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/my-account",
-                                label: "menu-my-account",
-                            },
-                            {
-                                id: 2,
-                                path: "/signin",
-                                label: "menu-sign-in",
-                            },
-                            {
-                                id: 3,
-                                path: "/signup",
-                                label: "menu-sign-up",
-                            },
-                            {
-                                id: 4,
-                                path: "/forget-password",
-                                label: "menu-forget-password",
-                            },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        path: "/faq",
-                        label: "menu-faq",
-                    },
-                    {
-                        id: 3,
-                        path: "/privacy",
-                        label: "menu-privacy-policy",
-                    },
-                    {
-                        id: 4,
-                        path: "/terms",
-                        label: "menu-terms-condition",
-                    },
-                    {
-                        id: 5,
-                        path: "/contact-us",
-                        label: "menu-contact-us",
-                    },
-                    {
-                        id: 6,
-                        path: "/checkout",
-                        label: "menu-checkout",
-                    },
-                    {
-                        id: 7,
-                        path: "/collections/mens-collection",
-                        label: "menu-collection",
-                    },
-                    {
-                        id: 8,
-                        path: "/category/man",
-                        label: "menu-category",
-                    },
-                    {
-                        id: 9,
-                        path: "/order",
-                        label: "menu-order",
-                    },
-                    {
-                        id: 10,
-                        path: "/404",
-                        label: "menu-404",
-                    },
-                ],
             },
         ],
         languageMenu: [

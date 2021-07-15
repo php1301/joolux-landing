@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <Container>
             <Subscription />
-            <Main />
+            {/* <Main /> */}
             <I18NExample />
             <Cards />
         </Container>
