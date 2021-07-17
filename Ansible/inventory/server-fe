@@ -1,11 +1,12 @@
 [server-fe]
-13.250.49.68
+127.0.0.1
 
-[server-fe:vars]
-ansible_user=ubuntu
-ansible_connection=ssh
-host_key_checking = False
-ansible_ssh_private_key_file=private_key
+#[server-fe:vars]
+ansible_connection=local
+#ansible_user=ubuntu
+#ansible_connection=ssh
+#host_key_checking = False
+#ansible_ssh_private_key_file=private_key
 
 #[all:vars]
 #ansible_connection=ssh
