@@ -1,4 +1,4 @@
-- hosts: nordic_coder
+- hosts: server-fe
   become: yes
   tasks:
 
