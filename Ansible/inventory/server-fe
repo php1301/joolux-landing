@@ -2,7 +2,6 @@
 127.0.0.1
 
 #[server-fe:vars]
-ansible_connection=local
 #ansible_user=ubuntu
 #ansible_connection=ssh
 #host_key_checking = False

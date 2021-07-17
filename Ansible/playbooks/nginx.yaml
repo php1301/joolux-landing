@@ -1,4 +1,5 @@
 - hosts: server-fe
+  connection: local
   become: yes
   tasks:
 
