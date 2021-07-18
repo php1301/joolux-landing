@@ -1,4 +1,5 @@
 import React from "react";
+import { GetStaticProps } from "next";
 import { useAmp } from "next/amp";
 export const config = {
     amp: false,
@@ -6,19 +7,27 @@ export const config = {
 };
 import { Layout } from "@components/layout/layout";
 import { Container, Main, Cards, Subscription } from "@components";
-import { I18NExample } from "@components/examples/translate";
+import HeroBlock from "@containers/hero-block";
+import BrandBlock from "@containers/brand-block";
+import QualityBlock from "@containers/quality-block";
+// import { I18NExample } from "@components/examples/translate";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // Các pages sẽ không cần gắn types như :React.FC
 const Home = () => {
     const isAmp = useAmp();
     return (
-        <Container>
+        <>
             <Subscription />
-            {/* <Main /> */}
-            <I18NExample />
-            <Cards />
-        </Container>
+            {/* <Main />
+            <I18NExample /> */}
+            <Container>
+                <HeroBlock />
+                <QualityBlock />
+                <BrandBlock />
+            </Container>
+            {/* <Cards /> */}
+        </>
     );
 };
 
@@ -42,11 +51,15 @@ src="https://amp.dev/static/inline-examples/images/mountains.webp"
 }
 Home.Layout = Layout;
 export default Home;
-export async function getStaticProps({ locale }) {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return {
         props: {
-            ...(await serverSideTranslations(locale!, ["common", "home"])),
-            // Will be passed to the page component as props
+            ...(await serverSideTranslations(locale!, [
+                "common",
+                "forms",
+                "menu",
+                "footer",
+            ])),
         },
     };
-}
+};

@@ -32,6 +32,7 @@
             "@i18n": ["./i18n"],
             "@test/*": ["test/*"],
             "@test": ["test"],
+            "@containers/*": ["src/containers/*"],
             "@contexts/*": ["src/contexts/*"],
             "@framework/*": ["src/framework/basic-rest/*"],
             "@settings/*": ["src/settings/*"],

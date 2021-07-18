@@ -31,13 +31,13 @@ const Layout: React.FC = ({ children }) => {
                         "Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
                     images: [
                         {
-                            url: "/assets/images/og-image-01.png",
+                            url: "https://joolux.com/og-image.jpg",
                             width: 800,
                             height: 600,
                             alt: "Og Image Alt",
                         },
                         {
-                            url: "/assets/images/og-image-02.png",
+                            url: "https://joolux.com/og-image.jpg",
                             width: 900,
                             height: 800,
                             alt: "Og Image Alt Second",

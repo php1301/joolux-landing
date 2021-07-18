@@ -1,4 +1,6 @@
 import React from "react";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Term() {
     return (
@@ -7,3 +9,17 @@ export default function Term() {
         </div>
     );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale!, [
+                "common",
+                "forms",
+                "menu",
+                "terms",
+                "footer",
+            ])),
+        },
+    };
+};

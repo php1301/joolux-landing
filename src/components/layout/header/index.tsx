@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
         isAuthorized,
     } = useUI();
 
-    const { t } = useTranslation();
+    const { t } = useTranslation("common");
     const siteHeaderRef = useRef() as DivElementRef;
     addActiveScroll(siteHeaderRef);
     function handleLogin() {
