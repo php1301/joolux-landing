@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 const QualityBlock: FC = () => (
-    <div className="md:mx-[142px] max-w-[1234px]">
+    <div className="mx-auto max-w-[1234px]">
         <div className="flex flex-wrap">
             <div className="w-full md:w-1/3 px-4 mb-10">
                 <div className="icon-container">

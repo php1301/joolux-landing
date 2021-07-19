@@ -56,10 +56,10 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                     >
                         Dịch vụ khác
                     </Link>
-                    {data[0]?.subMenu && Array.isArray(data[0].subMenu) && (
+                    {data[1]?.subMenu && Array.isArray(data[1].subMenu) && (
                         <div className="subMenu shadow-header bg-gray-200 absolute start-0 opacity-0 group-hover:opacity-100">
                             <ul className="text-body text-sm py-5">
-                                {data[0].subMenu.map(
+                                {data[1].subMenu.map(
                                     (menu: any, index: number) => {
                                         const dept: number = 1;
                                         const menuName: string = `sidebar-menu-${dept}-${index}`;

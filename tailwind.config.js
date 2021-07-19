@@ -87,6 +87,9 @@ module.exports = {
             body: ["'Open Sans', sans-serif"],
             satisfy: ["'Satisfy', cursive"],
             segoe: ["'Segoe UI', sans-serif"],
+            brand: [
+                "'Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif",
+            ],
         },
     },
     plugins: [

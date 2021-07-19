@@ -10,6 +10,8 @@ import { Container, Main, Cards, Subscription } from "@components";
 import HeroBlock from "@containers/hero-block";
 import BrandBlock from "@containers/brand-block";
 import QualityBlock from "@containers/quality-block";
+import AssuranceBlock from "@containers/assurance-block";
+import BlogBlock from "@containers/blog-block";
 // import { I18NExample } from "@components/examples/translate";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -25,6 +27,8 @@ const Home = () => {
                 <HeroBlock />
                 <QualityBlock />
                 <BrandBlock />
+                <AssuranceBlock />
+                <BlogBlock />
             </Container>
             {/* <Cards /> */}
         </>
