@@ -97,7 +97,7 @@ const BlogBlock: FC = () => (
                     data-chext-overflow
                     style={{}}
                 >
-                    <span size={16} className="createIconSvgWrapper mr-2">
+                    <span className="createIconSvgWrapper mr-2">
                         <svg
                             fillRule="evenodd"
                             clipRule="evenodd"
