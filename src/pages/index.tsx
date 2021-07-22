@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { useAmp } from "next/amp";
 export const config = {
     amp: false,
@@ -16,7 +16,7 @@ import BlogBlock from "@containers/blog-block";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // Các pages sẽ không cần gắn types như :React.FC
-const Home = () => {
+const Home: NextPage & { Layout: typeof Layout } = () => {
     const isAmp = useAmp();
     return (
         <>

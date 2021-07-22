@@ -473,6 +473,6 @@
 
 /* Breadcrumb truncate last child */
 
-.chawkbazarBreadcrumb li:last-child {
+.breadcrumb-search li:last-child {
 	@apply truncate;
 }

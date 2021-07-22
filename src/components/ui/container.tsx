@@ -1,7 +1,7 @@
 import cn from "classnames";
 interface Props {
     className?: string;
-    children?: any;
+    children?: React.ReactNode | undefined;
     el?: HTMLElement;
     clean?: boolean;
 }
