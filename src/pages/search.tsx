@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -9,7 +8,7 @@ import { Subscription } from "@components/common/subscription";
 // import ShopDiscount from "@components/shop/discount";
 import { ShopFilters } from "@components/shop/filters";
 // import { ProductGrid } from "@components/product/product-grid";
-// import SearchTopBar from "@components/shop/top-bar";
+import SearchTopBar from "@components/shop/top-bar";
 import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
 import { ROUTES } from "@utils/routes";
@@ -42,10 +41,26 @@ const Search: NextPage & { Layout: typeof Layout } = () => {
                         <ShopFilters />
                     </StickyBox>
                 </div>
-                <div className="w-full lg:-ms-9"></div>
+                <div className="w-full lg:-ms-9">
+                    <SearchTopBar />
+                </div>
             </div>
+            <Subscription />
         </Container>
     );
 };
 Search.Layout = Layout;
 export default Search;
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale!, [
+                "common",
+                "forms",
+                "menu",
+                "footer",
+            ])),
+        },
+    };
+};
