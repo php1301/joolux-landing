@@ -1,17 +1,13 @@
 import { NextSeo } from "next-seo";
 import { Header } from "@components/layout/header/index";
 import { Footer } from "@components/layout/footer/index";
-import { useTranslation } from "next-i18next";
-import { useAcceptCookies } from "@utils/use-accept-cookies";
+import MobileNavigation from "@components/layout/mobile/mobile";
 import HeaderMenu from "@components/layout/header/header-menu";
 import { siteSettings } from "@settings/site-settings";
-import { Button } from "@components/ui/button";
 
 // File Layout này sẽ được các Pages . đến để appply Layout dynamically
 const Layout: React.FC = ({ children }) => {
     const { site_header } = siteSettings;
-    const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
-    const { t } = useTranslation("common");
     return (
         <div className="flex flex-col min-h-screen">
             <NextSeo
@@ -21,14 +17,14 @@ const Layout: React.FC = ({ children }) => {
                         content: "width=device-width, initial-scale=1.0",
                     },
                 ]}
-                title="WebDev React - React Next E-commerce Template"
-                description="Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS."
+                title="Joolux"
+                description="Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.."
                 canonical="https://webdevstudios.org"
                 openGraph={{
                     url: "https://webdevstudios.org",
-                    title: "wdssuper - React Next E-commerce Template",
+                    title: "Joolux",
                     description:
-                        "Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
+                        "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",
                     images: [
                         {
                             url: "https://joolux.com/og-image.jpg",
@@ -61,6 +57,7 @@ const Layout: React.FC = ({ children }) => {
             </Button> */}
             {children}
             <Footer />
+            <MobileNavigation />
         </div>
     );
 };
