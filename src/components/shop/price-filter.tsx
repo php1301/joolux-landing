@@ -48,7 +48,9 @@ export const PriceFilter = () => {
     const { t } = useTranslation("common");
     const router = useRouter();
     const { pathname, query } = router;
-    const selectedPrices = query?.price ? (query.price as string) : "";
+    const selectedPrices = query?.price
+        ? (query.price as string)
+        : "price=0-50";
     const [formState, setFormState] = React.useState<string>(selectedPrices);
     React.useEffect(() => {
         setFormState(selectedPrices);
@@ -69,7 +71,6 @@ export const PriceFilter = () => {
         );
     }
     const items = priceFilterItems;
-
     return (
         <div className="block border-b border-gray-300 pb-7 mb-7">
             <h3 className="text-heading text-sm md:text-base font-semibold mb-7">
