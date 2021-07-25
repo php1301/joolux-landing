@@ -5,9 +5,9 @@ import { USFlag } from "@components/icons/USFlag";
 import { DEFlag } from "@components/icons/DEFlag";
 import { ESFlag } from "@components/icons/ESFlag";
 export const siteSettings = {
-    name: "WebDevPage",
+    name: "Joolux",
     description:
-        "Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
+        "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",
     author: {
         name: "Webdev Studios",
         websiteUrl: "https://webdevstudios.org",
@@ -26,45 +26,36 @@ export const siteSettings = {
         menu: [
             {
                 id: 1,
-                path: "/search",
-                label: "menu-search",
+                path: "/hang-moi-ve",
+                label: "Hàng mới về",
             },
             {
                 id: 2,
-                path: "/other",
-                label: "menu-demos",
+                path: "/dich-vu",
+                label: "Dịch vụ khác",
                 subMenu: [
                     {
                         id: 1,
-                        path: "/",
-                        label: "modern",
+                        path: "/dich-vu/kiem-dinh-hang-hieu",
+                        label: "Kiểm định hàng hiệu",
                     },
                     {
                         id: 2,
-                        path: "/standard",
-                        label: "standard",
+                        path: "/dich-vu/cham-soc-hang-hieu",
+                        label: "Chăm sóc và chế tác hàng hiệu",
                     },
                     {
                         id: 3,
                         path: "/minimal",
-                        label: "minimal",
-                    },
-                    {
-                        id: 4,
-                        path: "/vintage",
-                        label: "vintage",
-                    },
-                    {
-                        id: 5,
-                        path: "/classic",
-                        label: "classic",
+                        label: "Cho thuê hàng hiệu (upcoming)",
                     },
                 ],
             },
             {
                 id: 3,
-                path: "/search?q=men-wear",
-                label: "menu-men-wear",
+                path: "/hang-moi-ve",
+                label: "Thương hiệu",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 columns: [
                     {
                         id: 1,
@@ -72,49 +63,44 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=top-wear",
-                                label: "menu-top-wear",
+                                label: "Thương hiệu nổi tiếng",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=t-shit-shirtrt",
-                                        label: "menu-t-shirt",
+                                        path: "/hang-moi-ve?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=casual-shirts",
-                                        label: "menu-casual-shirts",
+                                        path: "/hang-moi-ve?brands=gucci",
+                                        label: "Gucci",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=formal-shirts",
-                                        label: "menu-formal-shirts",
+                                        path: "/hang-moi-ve?brands=chanel",
+                                        label: "Chanel",
                                     },
                                     {
                                         id: 4,
-                                        path: "/search?q=blazwers-coats",
-                                        label: "menu-blazwers-coats",
+                                        path: "/hang-moi-ve?brands=hermes",
+                                        label: "Hermès",
                                     },
                                     {
                                         id: 5,
-                                        path: "/search?q=suits",
-                                        label: "menu-suits",
+                                        path: "/hang-moi-ve?brands=frederique-constant",
+                                        label: "Frederique Constant",
                                     },
                                     {
                                         id: 6,
-                                        path: "/search?q=jackets",
-                                        label: "menu-jackets",
+                                        path: "/hang-moi-ve?brands=longines",
+                                        label: "Longines",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=adidas",
+                                        label: "adidas",
                                     },
                                 ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=belt-scarves",
-                                label: "menu-belt-scarves",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=watches-wearables",
-                                label: "menu-watches-wearables",
                             },
                         ],
                     },
@@ -123,50 +109,45 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=western-wear",
-                                label: "menu-western-wear",
+                                path: "/hang-moi-ve?brands=adidas",
+                                label: "\n",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=dresses",
-                                        label: "menu-dresses",
+                                        path: "/hang-moi-ve?brands=Nike",
+                                        label: "Nike",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=jumpsuits",
-                                        label: "menu-jumpsuits",
+                                        path: "/hang-moi-ve?brands=adidas",
+                                        label: "Dior",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=tops-t-shirt",
-                                        label: "menu-tops-shirts",
+                                        path: "/hang-moi-ve?brands=dolce-gabbana",
+                                        label: "Dolce & Gabbana",
                                     },
                                     {
                                         id: 4,
-                                        path: "/search?q=shorts-skirts",
-                                        label: "menu-shorts-skirts",
+                                        path: "/hang-moi-ve?brands=valentino",
+                                        label: "Valentino",
                                     },
                                     {
                                         id: 5,
-                                        path: "/search?q=shurgs",
-                                        label: "menu-shurgs",
+                                        path: "/hang-moi-ve?brands=burberry",
+                                        label: "Burberry",
                                     },
                                     {
                                         id: 6,
-                                        path: "/search?q=blazers",
-                                        label: "menu-blazers",
+                                        path: "/hang-moi-ve?brands=prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=zenith",
+                                        label: "Zenith",
                                     },
                                 ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=plus-size",
-                                label: "menu-plus-size",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sunglasses-frames",
-                                label: "menu-sunglasses-frames",
                             },
                         ],
                     },
@@ -176,154 +157,19 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=footwear",
-                                label: "menu-footwear",
+                                label: "    ",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=flats",
-                                        label: "menu-flats",
+                                        path: "/hang-moi-ve?brands=fendi",
+                                        label: "Fendi",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=casual-shoes",
-                                        label: "menu-casual-shoes",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=heels",
-                                        label: "menu-heels",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/search?q=boots",
-                                        label: "menu-boots",
+                                        path: "/hang-moi-ve?brands=saint-laurent",
+                                        label: "Saint Laurent",
                                     },
                                 ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=sports-active-wear",
-                                label: "menu-sports-active-wear",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=clothing",
-                                        label: "menu-clothing",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=footwear",
-                                        label: "menu-footwear",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=sports-accessories",
-                                        label: "menu-sports-accessories",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 4,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=lingerie-sleepwear",
-                                label: "menu-lingerie-sleepwear",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=bra",
-                                        label: "menu-bra",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=briefs",
-                                        label: "menu-briefs",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=sleepwear",
-                                        label: "menu-sleepwear",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=belt-scarves",
-                                label: "menu-belt-scarves",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=makeup",
-                                        label: "menu-makeup",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=skincare",
-                                        label: "menu-skincare",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=premium-beauty",
-                                        label: "menu-premium-beauty",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/search?q=lipsticks",
-                                        label: "menu-lipsticks",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 5,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=gadgets",
-                                label: "menu-gadgets",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=smart-wearables",
-                                        label: "menu-smart-wearables",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=headphones",
-                                        label: "menu-headphones",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=jewellers",
-                                label: "menu-jewellers",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=fashion-jewellers",
-                                        label: "menu-fashion-jewellers",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=fine-jewellers",
-                                        label: "menu-fine-jewellers",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=backpacks",
-                                label: "menu-backpacks",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=handbags-wallets",
-                                label: "menu-handbags-wallets",
                             },
                         ],
                     },
@@ -331,55 +177,54 @@ export const siteSettings = {
             },
             {
                 id: 4,
-                path: "/search?q=women-wear",
-                label: "menu-women-wear",
+                path: "/tui-xach",
+                label: "Túi xách",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 columns: [
                     {
                         id: 1,
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=gadgets",
-                                label: "menu-gadgets",
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=smart-wearables",
-                                        label: "menu-smart-wearables",
+                                        path: "/tui-xach",
+                                        label: "Tất cả",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=headphones",
-                                        label: "menu-headphones",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=jewellers",
-                                label: "menu-jewellers",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=fashion-jewellers",
-                                        label: "menu-fashion-jewellers",
+                                        path: "/tui-xach?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
                                     },
                                     {
-                                        id: 2,
-                                        path: "/search?q=fine-jewellers",
-                                        label: "menu-fine-jewellers",
+                                        id: 3,
+                                        path: "/tui-xach?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/tui-xach?brands=dolce-gabbana",
+                                        label: "Dolce & Gabbana",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/tui-xach?brands=chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/tui-xach?brands=hermes",
+                                        label: "Hermès",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/tui-xach?brands=dior",
+                                        label: "Dior",
                                     },
                                 ],
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=backpacks",
-                                label: "menu-backpacks",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=handbags-wallets",
-                                label: "menu-handbags-wallets",
                             },
                         ],
                     },
@@ -388,50 +233,45 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=top-wear",
-                                label: "menu-top-wear",
+                                path: "/search?q=western-wear",
+                                label: "\n",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=t-shit-shirtrt",
-                                        label: "menu-t-shirt",
+                                        path: "/tui-xach?brands=prada",
+                                        label: "Prada",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=casual-shirts",
-                                        label: "menu-casual-shirts",
+                                        path: "/tui-xach?brands=burberry",
+                                        label: "Burberry",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=formal-shirts",
-                                        label: "menu-formal-shirts",
+                                        path: "/tui-xach?brands=celine",
+                                        label: "Celine",
                                     },
                                     {
                                         id: 4,
-                                        path: "/search?q=blazwers-coats",
-                                        label: "menu-blazwers-coats",
+                                        path: "/tui-xach?brands=fendi",
+                                        label: "Fendi",
                                     },
                                     {
                                         id: 5,
-                                        path: "/search?q=suits",
-                                        label: "menu-suits",
+                                        path: "/tui-xach?brands=goyard",
+                                        label: "Goyard",
                                     },
                                     {
                                         id: 6,
-                                        path: "/search?q=jackets",
-                                        label: "menu-jackets",
+                                        path: "/tui-xach?brands=yves-saint-laurent",
+                                        label: "Yves Saint Laurent",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/tui-xach?brands=saint-laurent",
+                                        label: "Saint Laurent",
                                     },
                                 ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=belt-scarves",
-                                label: "menu-belt-scarves",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=watches-wearables",
-                                label: "menu-watches-wearables",
                             },
                         ],
                     },
@@ -441,155 +281,12 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=footwear",
-                                label: "menu-footwear",
+                                label: "    ",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=flats",
-                                        label: "menu-flats",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=casual-shoes",
-                                        label: "menu-casual-shoes",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=heels",
-                                        label: "menu-heels",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/search?q=boots",
-                                        label: "menu-boots",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=sports-active-wear",
-                                label: "menu-sports-active-wear",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=clothing",
-                                        label: "menu-clothing",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=footwear",
-                                        label: "menu-footwear",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=sports-accessories",
-                                        label: "menu-sports-accessories",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 4,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "menu-western-wear",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=dresses",
-                                        label: "menu-dresses",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=jumpsuits",
-                                        label: "menu-jumpsuits",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=tops-t-shirt",
-                                        label: "menu-tops-shirts",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/search?q=shorts-skirts",
-                                        label: "menu-shorts-skirts",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/search?q=shurgs",
-                                        label: "menu-shurgs",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/search?q=blazers",
-                                        label: "menu-blazers",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=plus-size",
-                                label: "menu-plus-size",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sunglasses-frames",
-                                label: "menu-sunglasses-frames",
-                            },
-                        ],
-                    },
-                    {
-                        id: 5,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=lingerie-sleepwear",
-                                label: "menu-lingerie-sleepwear",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=bra",
-                                        label: "menu-bra",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=briefs",
-                                        label: "menu-briefs",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=sleepwear",
-                                        label: "menu-sleepwear",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=belt-scarves",
-                                label: "menu-belt-scarves",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=makeup",
-                                        label: "menu-makeup",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=skincare",
-                                        label: "menu-skincare",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=premium-beauty",
-                                        label: "menu-premium-beauty",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/search?q=lipsticks",
-                                        label: "menu-lipsticks",
+                                        path: "/tui-xach?brands=balenciaga",
+                                        label: "Balenciaga",
                                     },
                                 ],
                             },
@@ -599,55 +296,54 @@ export const siteSettings = {
             },
             {
                 id: 5,
-                path: "/search?q=casual-wear",
-                label: "menu-casual-wear",
+                path: "/giay-sneaker",
+                label: "GIÀY & SNEAKER",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 columns: [
                     {
                         id: 1,
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=gadgets",
-                                label: "menu-gadgets",
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=smart-wearables",
-                                        label: "menu-smart-wearables",
+                                        path: "/giay-sneaker",
+                                        label: "Tất cả",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=headphones",
-                                        label: "menu-headphones",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=jewellers",
-                                label: "menu-jewellers",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=fashion-jewellers",
-                                        label: "menu-fashion-jewellers",
+                                        path: "/giay-sneaker?brands=prada",
+                                        label: "Prada",
                                     },
                                     {
-                                        id: 2,
-                                        path: "/search?q=fine-jewellers",
-                                        label: "menu-fine-jewellers",
+                                        id: 3,
+                                        path: "/giay-sneaker?brands=christian-dior",
+                                        label: "Christian Dior",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/giay-sneaker?brands=adidas",
+                                        label: "Adidas",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/giay-sneaker?brands=chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/giay-sneaker?brands=nike",
+                                        label: "Nike",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/giay-sneaker?brands=puma",
+                                        label: "Puma",
                                     },
                                 ],
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=backpacks",
-                                label: "menu-backpacks",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=handbags-wallets",
-                                label: "menu-handbags-wallets",
                             },
                         ],
                     },
@@ -656,50 +352,45 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=top-wear",
-                                label: "menu-top-wear",
+                                path: "/search?q=western-wear",
+                                label: "\n",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=t-shit-shirtrt",
-                                        label: "menu-t-shirt",
+                                        path: "/giay-sneaker?brands=new-balance",
+                                        label: "New Balance",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=casual-shirts",
-                                        label: "menu-casual-shirts",
+                                        path: "/giay-sneaker?brands=hermes",
+                                        label: "Hermès",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=formal-shirts",
-                                        label: "menu-formal-shirts",
+                                        path: "/giay-sneaker?brands=dior",
+                                        label: "Dior",
                                     },
                                     {
                                         id: 4,
-                                        path: "/search?q=blazwers-coats",
-                                        label: "menu-blazwers-coats",
+                                        path: "/giay-sneaker?brands=gucci",
+                                        label: "Gucci",
                                     },
                                     {
                                         id: 5,
-                                        path: "/search?q=suits",
-                                        label: "menu-suits",
+                                        path: "/giay-sneaker?brands=fendi",
+                                        label: "Fendi",
                                     },
                                     {
                                         id: 6,
-                                        path: "/search?q=jackets",
-                                        label: "menu-jackets",
+                                        path: "/giay-sneaker?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/giay-sneaker?brands=balenciaga",
+                                        label: "Balenciaga",
                                     },
                                 ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=belt-scarves",
-                                label: "menu-belt-scarves",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=watches-wearables",
-                                label: "menu-watches-wearables",
                             },
                         ],
                     },
@@ -709,49 +400,175 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=footwear",
-                                label: "menu-footwear",
+                                label: "    ",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=flats",
-                                        label: "menu-flats",
+                                        path: "/giay-sneaker?brands=salvatore-ferragamo",
+                                        label: "Salvatore Ferragamo",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=casual-shoes",
-                                        label: "menu-casual-shoes",
+                                        path: "/giay-sneaker?brands=dolce-gabbana",
+                                        label: "Dolce & Gabbana",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=heels",
-                                        label: "menu-heels",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/search?q=boots",
-                                        label: "menu-boots",
+                                        path: "/giay-sneaker?brands=under-armour",
+                                        label: "Under Armour",
                                     },
                                 ],
                             },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 6,
+                path: "/dong-ho-cao-cap",
+                label: "Đồng hồ",
+
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
                             {
-                                id: 2,
-                                path: "/search?q=sports-active-wear",
-                                label: "menu-sports-active-wear",
+                                id: 1,
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=clothing",
-                                        label: "menu-clothing",
+                                        path: "/dong-ho-cao-cap",
+                                        label: "Tất cả",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=footwear",
-                                        label: "menu-footwear",
+                                        path: "/dong-ho-cao-cap?brands=casio",
+                                        label: "Casio",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=sports-accessories",
-                                        label: "menu-sports-accessories",
+                                        path: "/dong-ho-cao-cap?brands=tag-heuer",
+                                        label: "Tag Heuer",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/dong-ho-cao-cap?brands=fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/dong-ho-cao-cap?brands=omega",
+                                        label: "Omega",
+                                    },
+                                    {
+                                        id: 6,
+
+                                        path: "/dong-ho-cao-cap?brands=longines",
+                                        label: "Longines",
+                                    },
+                                    {
+                                        id: 7,
+
+                                        path: "/dong-ho-cao-cap?brands=burberry",
+                                        label: "Burberry",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/dong-ho-cao-cap?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/dong-ho-cao-cap?brands=mont-blanc",
+                                        label: "Mont Blanc",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/dong-ho-cao-cap?brands=frederique-constant",
+                                        label: "Frederique Constant",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/dong-ho-cao-cap?brands=edox",
+                                        label: "Edox",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/dong-ho-cao-cap?brands=versace",
+                                        label: "Versace",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/dong-ho-cao-cap?brands=seiko",
+                                        label: "Seiko",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/dong-ho-cao-cap?brands=citizen",
+                                        label: "Citizen",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/dong-ho-cao-cap?brands=eterna",
+                                        label: "Eterna",
+                                    },
+                                    {
+                                        id: 2,
+
+                                        path: "/dong-ho-cao-cap?brands=oris",
+                                        label: "Oris",
+                                    },
+                                    {
+                                        id: 3,
+
+                                        path: "/dong-ho-cao-cap?brands=mido",
+                                        label: "Mido",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/dong-ho-cao-cap?brands=maurice-lacroix",
+                                        label: "Maurice Lacroix",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/dong-ho-cao-cap?brands=orient",
+                                        label: "Orient",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/dong-ho-cao-cap?brands=victorinox",
+                                        label: "Victorinox",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/dong-ho-cao-cap?brands=tissot",
+                                        label: "Tissot",
                                     },
                                 ],
                             },
@@ -763,101 +580,234 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "menu-western-wear",
+                                label: "\n",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=dresses",
-                                        label: "menu-dresses",
+                                        path: "/dong-ho-cao-cap?brands=raymond-weil",
+                                        label: "Raymond Weil",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=jumpsuits",
-                                        label: "menu-jumpsuits",
+                                        path: "/dong-ho-cao-cap?brands=zenith",
+                                        label: "Zenith",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=tops-t-shirt",
-                                        label: "menu-tops-shirts",
+
+                                        path: "/dong-ho-cao-cap?brands=hublot",
+                                        label: "Hublot",
                                     },
                                     {
                                         id: 4,
-                                        path: "/search?q=shorts-skirts",
-                                        label: "menu-shorts-skirts",
+
+                                        path: "/dong-ho-cao-cap?brands=rolex",
+                                        label: "Rolex",
                                     },
                                     {
-                                        id: 5,
-                                        path: "/search?q=shurgs",
-                                        label: "menu-shurgs",
+                                        path: "/dong-ho-cao-cap?brands=hermes",
+                                        label: "Hermès",
                                     },
                                     {
                                         id: 6,
-                                        path: "/search?q=blazers",
-                                        label: "menu-blazers",
+
+                                        path: "/dong-ho-cao-cap?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
                                     },
                                 ],
                             },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 7,
+                path: "/phu-kien",
+                label: "Phụ kiện",
+
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
                             {
-                                id: 2,
-                                path: "/search?q=plus-size",
-                                label: "menu-plus-size",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sunglasses-frames",
-                                label: "menu-sunglasses-frames",
+                                id: 1,
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien",
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=oliver-peoples",
+                                        label: "Oliver Peoples",
+                                    },
+                                    {
+                                        id: 3,
+
+                                        path: "/phu-kien?brands=oakley",
+                                        label: "Oakley",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=randolph-engineering",
+                                        label: "Randolph Engineering",
+                                    },
+                                    {
+                                        id: 5,
+
+                                        path: "/phu-kien?brands=spy+",
+                                        label: "Spy+",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=ermenegildo-zegna",
+                                        label: "Ermenegildo Zegna",
+                                    },
+                                    {
+                                        id: 7,
+
+                                        path: "/phu-kien?brands=tom-ford",
+                                        label: "Tom Ford",
+                                    },
+                                ],
                             },
                         ],
                     },
                     {
-                        id: 5,
+                        id: 2,
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=lingerie-sleepwear",
-                                label: "menu-lingerie-sleepwear",
+                                path: "/search?q=western-wear",
+                                label: "\n",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/search?q=bra",
-                                        label: "menu-bra",
+                                        path: "/phu-kien?brands=ray-ban",
+                                        label: "Ray Ban",
                                     },
                                     {
                                         id: 2,
-                                        path: "/search?q=briefs",
-                                        label: "menu-briefs",
+                                        path: "/phu-kien?brands=fendi",
+                                        label: "Fendi",
                                     },
                                     {
                                         id: 3,
-                                        path: "/search?q=sleepwear",
-                                        label: "menu-sleepwear",
-                                    },
-                                ],
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=belt-scarves",
-                                label: "menu-belt-scarves",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/search?q=makeup",
-                                        label: "menu-makeup",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/search?q=skincare",
-                                        label: "menu-skincare",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/search?q=premium-beauty",
-                                        label: "menu-premium-beauty",
+                                        path: "/phu-kien?brands=kenzo",
+                                        label: "Kenzo",
                                     },
                                     {
                                         id: 4,
-                                        path: "/search?q=lipsticks",
-                                        label: "menu-lipsticks",
+                                        path: "/phu-kien?brands=etnia-barcelona",
+                                        label: "ETNIA Barcelona",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/phu-kien?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=persol",
+                                        label: "Persol",
+                                    },
+                                    {
+                                        id: 7,
+
+                                        path: "/phu-kien?brands=zink",
+                                        label: "Zink",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien?brands=versace",
+                                        label: "Versace",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=hugo-boss",
+                                        label: "Hugo Boss",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/phu-kien?brands=ferragamo",
+                                        label: "Ferragamo",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=tod%27s",
+                                        label: "TOD'S",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/phu-kien?brands=salvatore-ferragamo",
+                                        label: "Salvatore Ferragamo",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=givenchy",
+                                        label: "Givenchy",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/phu-kien?brands=balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 4,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien?brands=emilio-pucci",
+                                        label: "Emilio Pucci",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/phu-kien?brands=mont-blanc",
+                                        label: "Mont Blanc",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=dior",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/phu-kien?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=hermes",
+                                        label: "Hermès",
                                     },
                                 ],
                             },
@@ -869,531 +819,794 @@ export const siteSettings = {
         mobileMenu: [
             {
                 id: 1,
-                path: "/",
-                label: "menu-demos",
+                path: "/hang-moi-ve",
+                label: "Hàng mới về",
+            },
+            {
+                id: 2,
+                path: "/dich-vu",
+                label: "Dịch vụ khác",
                 subMenu: [
                     {
                         id: 1,
-                        path: "/",
-                        label: "menu-modern",
+                        path: "/dich-vu/kiem-dinh-hang-hieu",
+                        label: "Kiểm định hàng hiệu",
                     },
                     {
                         id: 2,
-                        path: "/standard",
-                        label: "menu-standard",
+                        path: "/dich-vu/cham-soc-hang-hieu",
+                        label: "Chăm sóc và chế tác hàng hiệu",
                     },
                     {
                         id: 3,
                         path: "/minimal",
-                        label: "menu-minimal",
-                    },
-                    {
-                        id: 4,
-                        path: "/vintage",
-                        label: "menu-vintage",
-                    },
-                    {
-                        id: 5,
-                        path: "/classic",
-                        label: "menu-classic",
-                    },
-                ],
-            },
-            {
-                id: 2,
-                path: "/search?q=men-wear",
-                label: "menu-men-wear",
-                subMenu: [
-                    {
-                        id: 1,
-                        path: "/search?q=top-wear",
-                        label: "menu-top-wear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=t-shit-shirtrt",
-                                label: "menu-t-shirt",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=casual-shirts",
-                                label: "menu-casual-shirts",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=formal-shirts",
-                                label: "menu-formal-shirts",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=blazwers-coats",
-                                label: "menu-blazwers-coats",
-                            },
-                            {
-                                id: 5,
-                                path: "/search?q=suits",
-                                label: "menu-suits",
-                            },
-                            {
-                                id: 6,
-                                path: "/search?q=jackets",
-                                label: "menu-jackets",
-                            },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        path: "/search?q=belt-scarves",
-                        label: "menu-belt-scarves",
-                    },
-                    {
-                        id: 3,
-                        path: "/search?q=watches-wearables",
-                        label: "menu-watches-wearables",
-                    },
-                    {
-                        id: 4,
-                        path: "/search?q=western-wear",
-                        label: "menu-western-wear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=dresses",
-                                label: "menu-dresses",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=jumpsuits",
-                                label: "menu-jumpsuits",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=tops-t-shirt",
-                                label: "menu-tops-shirts",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=shorts-skirts",
-                                label: "menu-shorts-skirts",
-                            },
-                            {
-                                id: 5,
-                                path: "/search?q=shurgs",
-                                label: "menu-shurgs",
-                            },
-                            {
-                                id: 6,
-                                path: "/search?q=blazers",
-                                label: "menu-blazers",
-                            },
-                        ],
-                    },
-                    {
-                        id: 5,
-                        path: "/search?q=plus-size",
-                        label: "menu-plus-size",
-                    },
-                    {
-                        id: 6,
-                        path: "/search?q=sunglasses-frames",
-                        label: "menu-sunglasses-frames",
-                    },
-                    {
-                        id: 7,
-                        path: "/search?q=footwear",
-                        label: "menu-footwear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=flats",
-                                label: "menu-flats",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=casual-shoes",
-                                label: "menu-casual-shoes",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=heels",
-                                label: "menu-heels",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=boots",
-                                label: "menu-boots",
-                            },
-                        ],
-                    },
-                    {
-                        id: 8,
-                        path: "/search?q=sports-active-wear",
-                        label: "menu-sports-active-wear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=clothing",
-                                label: "menu-clothing",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=footwear",
-                                label: "menu-footwear",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sports-accessories",
-                                label: "menu-sports-accessories",
-                            },
-                        ],
-                    },
-                    {
-                        id: 9,
-                        path: "/search?q=lingerie-sleepwear",
-                        label: "menu-lingerie-sleepwear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=bra",
-                                label: "menu-bra",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=briefs",
-                                label: "menu-briefs",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sleepwear",
-                                label: "menu-sleepwear",
-                            },
-                        ],
-                    },
-                    {
-                        id: 10,
-                        path: "/search?q=belt-scarves",
-                        label: "menu-belt-scarves",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=makeup",
-                                label: "menu-makeup",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=skincare",
-                                label: "menu-skincare",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=premium-beauty",
-                                label: "menu-premium-beauty",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=lipsticks",
-                                label: "menu-lipsticks",
-                            },
-                        ],
-                    },
-                    {
-                        id: 11,
-                        path: "/search?q=gadgets",
-                        label: "menu-gadgets",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=smart-wearables",
-                                label: "menu-smart-wearables",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=headphones",
-                                label: "menu-headphones",
-                            },
-                        ],
-                    },
-                    {
-                        id: 12,
-                        path: "/search?q=jewellers",
-                        label: "menu-jewellers",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=fashion-jewellers",
-                                label: "menu-fashion-jewellers",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=fine-jewellers",
-                                label: "menu-fine-jewellers",
-                            },
-                        ],
-                    },
-                    {
-                        id: 13,
-                        path: "/search?q=backpacks",
-                        label: "menu-backpacks",
-                    },
-                    {
-                        id: 14,
-                        path: "/search?q=handbags-wallets",
-                        label: "menu-handbags-wallets",
+                        label: "Cho thuê hàng hiệu (upcoming)",
                     },
                 ],
             },
             {
                 id: 3,
-                path: "/search?q=women-wear",
-                label: "menu-women-wear",
-            },
-            {
-                id: 4,
-                path: "/search?q=casual-wear",
-                label: "menu-casual-wear",
-                subMenu: [
+                path: "/hang-moi-ve",
+                label: "Thương hiệu",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                columns: [
                     {
                         id: 1,
-                        path: "/search?q=top-wear",
-                        label: "menu-top-wear",
-                        subMenu: [
+                        columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=t-shit-shirtrt",
-                                label: "menu-t-shirt",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=casual-shirts",
-                                label: "menu-casual-shirts",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=formal-shirts",
-                                label: "menu-formal-shirts",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=blazwers-coats",
-                                label: "menu-blazwers-coats",
-                            },
-                            {
-                                id: 5,
-                                path: "/search?q=suits",
-                                label: "menu-suits",
-                            },
-                            {
-                                id: 6,
-                                path: "/search?q=jackets",
-                                label: "menu-jackets",
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/hang-moi-ve?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/hang-moi-ve?brands=chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/hang-moi-ve?brands=hermes",
+                                        label: "Hermès",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/hang-moi-ve?brands=frederique-constant",
+                                        label: "Frederique Constant",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/hang-moi-ve?brands=longines",
+                                        label: "Longines",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=adidas",
+                                        label: "adidas",
+                                    },
+                                ],
                             },
                         ],
                     },
                     {
                         id: 2,
-                        path: "/search?q=belt-scarves",
-                        label: "menu-belt-scarves",
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?brands=adidas",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?brands=Nike",
+                                        label: "Nike",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/hang-moi-ve?brands=adidas",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/hang-moi-ve?brands=dolce-gabbana",
+                                        label: "Dolce & Gabbana",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/hang-moi-ve?brands=valentino",
+                                        label: "Valentino",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/hang-moi-ve?brands=burberry",
+                                        label: "Burberry",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/hang-moi-ve?brands=prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=zenith",
+                                        label: "Zenith",
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         id: 3,
-                        path: "/search?q=watches-wearables",
-                        label: "menu-watches-wearables",
-                    },
-                    {
-                        id: 4,
-                        path: "/search?q=western-wear",
-                        label: "menu-western-wear",
-                        subMenu: [
+                        columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=dresses",
-                                label: "menu-dresses",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=jumpsuits",
-                                label: "menu-jumpsuits",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=tops-t-shirt",
-                                label: "menu-tops-shirts",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=shorts-skirts",
-                                label: "menu-shorts-skirts",
-                            },
-                            {
-                                id: 5,
-                                path: "/search?q=shurgs",
-                                label: "menu-shurgs",
-                            },
-                            {
-                                id: 6,
-                                path: "/search?q=blazers",
-                                label: "menu-blazers",
-                            },
-                        ],
-                    },
-                    {
-                        id: 5,
-                        path: "/search?q=plus-size",
-                        label: "menu-plus-size",
-                    },
-                    {
-                        id: 6,
-                        path: "/search?q=sunglasses-frames",
-                        label: "menu-sunglasses-frames",
-                    },
-                    {
-                        id: 7,
-                        path: "/search?q=footwear",
-                        label: "menu-footwear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=flats",
-                                label: "menu-flats",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=casual-shoes",
-                                label: "menu-casual-shoes",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=heels",
-                                label: "menu-heels",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=boots",
-                                label: "menu-boots",
-                            },
-                        ],
-                    },
-                    {
-                        id: 8,
-                        path: "/search?q=sports-active-wear",
-                        label: "menu-sports-active-wear",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=clothing",
-                                label: "menu-clothing",
-                            },
-                            {
-                                id: 2,
                                 path: "/search?q=footwear",
-                                label: "menu-footwear",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sports-accessories",
-                                label: "menu-sports-accessories",
+                                label: "    ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?brands=fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/hang-moi-ve?brands=saint-laurent",
+                                        label: "Saint Laurent",
+                                    },
+                                ],
                             },
                         ],
                     },
+                ],
+            },
+            {
+                id: 4,
+                path: "/tui-xach",
+                label: "Túi xách",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                columns: [
                     {
-                        id: 9,
-                        path: "/search?q=lingerie-sleepwear",
-                        label: "menu-lingerie-sleepwear",
-                        subMenu: [
+                        id: 1,
+                        columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=bra",
-                                label: "menu-bra",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=briefs",
-                                label: "menu-briefs",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=sleepwear",
-                                label: "menu-sleepwear",
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/tui-xach",
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/tui-xach?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/tui-xach?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/tui-xach?brands=dolce-gabbana",
+                                        label: "Dolce & Gabbana",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/tui-xach?brands=chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/tui-xach?brands=hermes",
+                                        label: "Hermès",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/tui-xach?brands=dior",
+                                        label: "Dior",
+                                    },
+                                ],
                             },
                         ],
                     },
                     {
-                        id: 10,
-                        path: "/search?q=belt-scarves",
-                        label: "menu-belt-scarves",
-                        subMenu: [
+                        id: 2,
+                        columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=makeup",
-                                label: "menu-makeup",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=skincare",
-                                label: "menu-skincare",
-                            },
-                            {
-                                id: 3,
-                                path: "/search?q=premium-beauty",
-                                label: "menu-premium-beauty",
-                            },
-                            {
-                                id: 4,
-                                path: "/search?q=lipsticks",
-                                label: "menu-lipsticks",
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/tui-xach?brands=prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/tui-xach?brands=burberry",
+                                        label: "Burberry",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/tui-xach?brands=celine",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/tui-xach?brands=fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/tui-xach?brands=goyard",
+                                        label: "Goyard",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/tui-xach?brands=yves-saint-laurent",
+                                        label: "Yves Saint Laurent",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/tui-xach?brands=saint-laurent",
+                                        label: "Saint Laurent",
+                                    },
+                                ],
                             },
                         ],
                     },
                     {
-                        id: 11,
-                        path: "/search?q=gadgets",
-                        label: "menu-gadgets",
-                        subMenu: [
+                        id: 3,
+                        columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=smart-wearables",
-                                label: "menu-smart-wearables",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=headphones",
-                                label: "menu-headphones",
-                            },
-                        ],
-                    },
-                    {
-                        id: 12,
-                        path: "/search?q=jewellers",
-                        label: "menu-jewellers",
-                        subMenu: [
-                            {
-                                id: 1,
-                                path: "/search?q=fashion-jewellers",
-                                label: "menu-fashion-jewellers",
-                            },
-                            {
-                                id: 2,
-                                path: "/search?q=fine-jewellers",
-                                label: "menu-fine-jewellers",
+                                path: "/search?q=footwear",
+                                label: "    ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/tui-xach?brands=balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                ],
                             },
                         ],
-                    },
-                    {
-                        id: 13,
-                        path: "/search?q=backpacks",
-                        label: "menu-backpacks",
-                    },
-                    {
-                        id: 14,
-                        path: "/search?q=handbags-wallets",
-                        label: "menu-handbags-wallets",
                     },
                 ],
             },
             {
                 id: 5,
-                path: "/search",
-                label: "menu-search",
+                path: "/giay-sneaker",
+                label: "GIÀY & SNEAKER",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/giay-sneaker",
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/giay-sneaker?brands=prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/giay-sneaker?brands=christian-dior",
+                                        label: "Christian Dior",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/giay-sneaker?brands=adidas",
+                                        label: "Adidas",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/giay-sneaker?brands=chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/giay-sneaker?brands=nike",
+                                        label: "Nike",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/giay-sneaker?brands=puma",
+                                        label: "Puma",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/giay-sneaker?brands=new-balance",
+                                        label: "New Balance",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/giay-sneaker?brands=hermes",
+                                        label: "Hermès",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/giay-sneaker?brands=dior",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/giay-sneaker?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/giay-sneaker?brands=fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/giay-sneaker?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/giay-sneaker?brands=balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=footwear",
+                                label: "    ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/giay-sneaker?brands=salvatore-ferragamo",
+                                        label: "Salvatore Ferragamo",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/giay-sneaker?brands=dolce-gabbana",
+                                        label: "Dolce & Gabbana",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/giay-sneaker?brands=under-armour",
+                                        label: "Under Armour",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 6,
+                path: "/dong-ho-cao-cap",
+                label: "Đồng hồ",
+
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/dong-ho-cao-cap",
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/dong-ho-cao-cap?brands=casio",
+                                        label: "Casio",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/dong-ho-cao-cap?brands=tag-heuer",
+                                        label: "Tag Heuer",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/dong-ho-cao-cap?brands=fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/dong-ho-cao-cap?brands=omega",
+                                        label: "Omega",
+                                    },
+                                    {
+                                        id: 6,
+
+                                        path: "/dong-ho-cao-cap?brands=longines",
+                                        label: "Longines",
+                                    },
+                                    {
+                                        id: 7,
+
+                                        path: "/dong-ho-cao-cap?brands=burberry",
+                                        label: "Burberry",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/dong-ho-cao-cap?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/dong-ho-cao-cap?brands=mont-blanc",
+                                        label: "Mont Blanc",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/dong-ho-cao-cap?brands=frederique-constant",
+                                        label: "Frederique Constant",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/dong-ho-cao-cap?brands=edox",
+                                        label: "Edox",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/dong-ho-cao-cap?brands=versace",
+                                        label: "Versace",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/dong-ho-cao-cap?brands=seiko",
+                                        label: "Seiko",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/dong-ho-cao-cap?brands=citizen",
+                                        label: "Citizen",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/dong-ho-cao-cap?brands=eterna",
+                                        label: "Eterna",
+                                    },
+                                    {
+                                        id: 2,
+
+                                        path: "/dong-ho-cao-cap?brands=oris",
+                                        label: "Oris",
+                                    },
+                                    {
+                                        id: 3,
+
+                                        path: "/dong-ho-cao-cap?brands=mido",
+                                        label: "Mido",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/dong-ho-cao-cap?brands=maurice-lacroix",
+                                        label: "Maurice Lacroix",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/dong-ho-cao-cap?brands=orient",
+                                        label: "Orient",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/dong-ho-cao-cap?brands=victorinox",
+                                        label: "Victorinox",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/dong-ho-cao-cap?brands=tissot",
+                                        label: "Tissot",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 4,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/dong-ho-cao-cap?brands=raymond-weil",
+                                        label: "Raymond Weil",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/dong-ho-cao-cap?brands=zenith",
+                                        label: "Zenith",
+                                    },
+                                    {
+                                        id: 3,
+
+                                        path: "/dong-ho-cao-cap?brands=hublot",
+                                        label: "Hublot",
+                                    },
+                                    {
+                                        id: 4,
+
+                                        path: "/dong-ho-cao-cap?brands=rolex",
+                                        label: "Rolex",
+                                    },
+                                    {
+                                        path: "/dong-ho-cao-cap?brands=hermes",
+                                        label: "Hermès",
+                                    },
+                                    {
+                                        id: 6,
+
+                                        path: "/dong-ho-cao-cap?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 7,
+                path: "/phu-kien",
+                label: "Phụ kiện",
+
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=top-wear",
+                                label: "Thương hiệu nổi tiếng",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien",
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=oliver-peoples",
+                                        label: "Oliver Peoples",
+                                    },
+                                    {
+                                        id: 3,
+
+                                        path: "/phu-kien?brands=oakley",
+                                        label: "Oakley",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=randolph-engineering",
+                                        label: "Randolph Engineering",
+                                    },
+                                    {
+                                        id: 5,
+
+                                        path: "/phu-kien?brands=spy+",
+                                        label: "Spy+",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=ermenegildo-zegna",
+                                        label: "Ermenegildo Zegna",
+                                    },
+                                    {
+                                        id: 7,
+
+                                        path: "/phu-kien?brands=tom-ford",
+                                        label: "Tom Ford",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien?brands=ray-ban",
+                                        label: "Ray Ban",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/phu-kien?brands=kenzo",
+                                        label: "Kenzo",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=etnia-barcelona",
+                                        label: "ETNIA Barcelona",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/phu-kien?brands=louis-vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=persol",
+                                        label: "Persol",
+                                    },
+                                    {
+                                        id: 7,
+
+                                        path: "/phu-kien?brands=zink",
+                                        label: "Zink",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien?brands=versace",
+                                        label: "Versace",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=hugo-boss",
+                                        label: "Hugo Boss",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/phu-kien?brands=ferragamo",
+                                        label: "Ferragamo",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=tod%27s",
+                                        label: "TOD'S",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/phu-kien?brands=salvatore-ferragamo",
+                                        label: "Salvatore Ferragamo",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=givenchy",
+                                        label: "Givenchy",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/phu-kien?brands=balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 4,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/search?q=western-wear",
+                                label: "\n",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/phu-kien?brands=emilio-pucci",
+                                        label: "Emilio Pucci",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/phu-kien?brands=prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/phu-kien?brands=mont-blanc",
+                                        label: "Mont Blanc",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/phu-kien?brands=dior",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/phu-kien?brands=gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/phu-kien?brands=hermes",
+                                        label: "Hermès",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
             },
         ],
         languageMenu: [
