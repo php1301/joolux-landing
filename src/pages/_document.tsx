@@ -19,7 +19,7 @@ export default class CustomDocument extends Document {
         }
         return (
             // <Html dir={getDirection(locale)}>
-            <Html>
+            <Html lang="vi">
                 <Head />
                 <body>
                     <Main />
