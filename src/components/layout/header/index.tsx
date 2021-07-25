@@ -72,12 +72,16 @@ export const Header: React.FC = () => {
                                         className:
                                             "text-sm xl:text-base text-white font-semibold focus:outeline-none",
                                         children: t("text-sign-in"),
+                                        onClick: handleLogin,
                                     }}
                                 >
                                     {t("text-account")}
                                 </AuthMenu>
                             </div>
-                            <CartButton />
+                            <CartButton
+                                backgroundCart={"white"}
+                                className={"bg-white text-heading"}
+                            />
                         </div>
                     </div>
                 </div>
