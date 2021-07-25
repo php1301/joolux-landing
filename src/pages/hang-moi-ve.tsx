@@ -5,9 +5,8 @@ import StickyBox from "react-sticky-box";
 import Container from "@components/ui/container";
 import { Layout } from "@components/layout/layout";
 import { Subscription } from "@components/common/subscription";
-// import ShopDiscount from "@components/shop/discount";
 import { ShopFilters } from "@components/shop/filters";
-// import { ProductGrid } from "@components/product/product-grid";
+import { ProductGrid } from "@components/product/product-grid";
 import SearchTopBar from "@components/shop/top-bar";
 import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
@@ -26,14 +25,16 @@ const Search: NextPage & { Layout: typeof Layout } = () => {
                                     href={"/"}
                                     activeClassName="font-semibold text-heading"
                                 >
-                                    <a>{t("breadcrumb-home")}</a>
+                                    {/* <a>{t("breadcrumb-home")}</a> */}
+                                    <a>{t("Trang chủ")}</a>
                                 </ActiveLink>
                                 <ActiveLink
                                     href={ROUTES.SEARCH}
                                     activeClassName="font-semibold text-heading"
                                 >
                                     <a className="capitalize">
-                                        {t("breadcrumb-search")}
+                                        {/* {t("breadcrumb-search")} */}
+                                        {t("Hàng mới về")}
                                     </a>
                                 </ActiveLink>
                             </BreadcrumbItems>
@@ -43,6 +44,7 @@ const Search: NextPage & { Layout: typeof Layout } = () => {
                 </div>
                 <div className="w-full lg:-ms-9">
                     <SearchTopBar />
+                    <ProductGrid />
                 </div>
             </div>
             <Subscription />
