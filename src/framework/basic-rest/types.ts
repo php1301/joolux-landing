@@ -14,7 +14,7 @@ export type CategoriesQueryOptionsType = {
     limit?: number;
 };
 export type ProductsQueryOptionsType = {
-    type: string;
+    type?: string;
     text?: string;
     category?: string;
     status?: string;
