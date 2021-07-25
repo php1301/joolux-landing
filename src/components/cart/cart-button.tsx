@@ -2,7 +2,11 @@ import CartIcon from "@components/icons/cart-icon";
 import { useCart } from "@contexts/cart/cart.context";
 import { useUI } from "@contexts/ui.context";
 
-const CartButton: React.FC = () => {
+interface ICartButton {
+    className: string;
+    backgroundCart: "white" | "black";
+}
+const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const { openCart } = useUI();
     const { totalItems } = useCart();
 
@@ -16,8 +20,10 @@ const CartButton: React.FC = () => {
             onClick={handleOpenCart}
             aria-label="cart-button"
         >
-            <CartIcon />
-            <span className="cart-counter-badge flex items-center justify-center bg-white text-heading absolute -top-2.5 xl:-top-3 -end-2.5 xl:-end-3 rounded-full font-bold">
+            <CartIcon color={backgroundCart} />
+            <span
+                className={`cart-counter-badge flex items-center justify-center absolute -top-2.5 xl:-top-3 -end-2.5 xl:-end-3 rounded-full font-bold ${className}`}
+            >
                 {totalItems}
             </span>
         </button>
