@@ -1,12 +1,13 @@
 import Container from "@components/ui/container";
 import { Layout } from "@components/layout/layout";
 import { Subscription } from "@components/common/subscription";
-// import ProductSingleDetails from "@components/product/product-single-details";
+import ProductSingleDetails from "@components/product/product-single-details";
 // import RelatedProducts from "@containers/related-products";
 import Divider from "@components/ui/divider";
 import Breadcrumb from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
+import AssuranceBlock from "@containers/assurance-block";
 
 export default function ProductPage() {
     return (
@@ -16,8 +17,9 @@ export default function ProductPage() {
                 <div className="pt-8">
                     <Breadcrumb />
                 </div>
-                {/* <ProductSingleDetails /> */}
+                <ProductSingleDetails />
                 {/* <RelatedProducts sectionHeading="text-related-products" /> */}
+                <AssuranceBlock />
                 <Subscription />
             </Container>
         </>
