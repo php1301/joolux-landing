@@ -137,17 +137,17 @@
   "meta": [
     {
       "id": 1,
-      "title": "Product Details",
+      "title": "Tình trạng",
       "content": "Our Customer Experience Team is available 7 days a week and we offer 2 ways to get in contact.Email and Chat . We try to reply quickly, so you need not to wait too long for a response!."
     },
     {
       "id": 2,
-      "title": "Additional Information",
+      "title": "Thông tin sản phẩm",
       "content": "Please read the documentation carefully . We also have some online video tutorials regarding this issue . If the problem remains, Please Open a ticket in the support forum"
     },
     {
       "id": 3,
-      "title": "Customer Reviews",
+      "title": "Ý kiến của khách hàng",
       "content": "At first, Please check your internet connection . We also have some online video tutorials regarding this issue . If the problem remains, Please Open a ticket in the support forum."
     }
   ]
