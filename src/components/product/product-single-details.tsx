@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import React, { useState } from "react";
 import { Button } from "@components/ui/button";
 import { Counter } from "@components/common/counter";
@@ -15,6 +16,8 @@ import { useWindowSize } from "@utils/use-window-size";
 import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
 import ProductMetaReview from "@components/product/product-meta-review";
+import VerticalCarousel from "@components/ui/carousel/vertical-carousel";
+import ImageMagnifier from "@components/ui/magnifier-image";
 
 const productGalleryCarouselResponsive = {
     "768": {
@@ -51,7 +54,7 @@ const ProductSingleDetails: React.FC = () => {
     const isSelected = !isEmpty(variations)
         ? !isEmpty(attributes) &&
           Object.keys(variations).every((variation) =>
-              attributes.propertype.hasOwnProperty.call(variation),
+              attributes.hasOwnProperty(variation),
           )
         : true;
 
@@ -86,7 +89,7 @@ const ProductSingleDetails: React.FC = () => {
     }
 
     return (
-        <div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-7 pb-10 lg:pb-14 2xl:pb-20 items-start">
+        <div className="relative block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-7 pb-10 lg:pb-14 2xl:pb-20 items-start">
             {width < 1025 ? (
                 <Carousel
                     pagination={{
@@ -98,36 +101,21 @@ const ProductSingleDetails: React.FC = () => {
                 >
                     {data?.gallery?.map((item, index: number) => (
                         <SwiperSlide key={`product-gallery-key-${index}`}>
-                            <div className="col-span-1 transition duration-150 ease-in hover:opacity-90">
-                                <img
-                                    src={
-                                        item?.original ??
-                                        "/assets/placeholder/products/product-gallery.svg"
-                                    }
-                                    alt={`${data?.name}--${index}`}
-                                    className="object-cover w-full"
-                                />
-                            </div>
+                            <ImageMagnifier
+                                src={
+                                    item?.original ??
+                                    "/assets/placeholder/products/product-gallery.svg"
+                                }
+                                key={`product-gallery-key-${index}`}
+                                className="col-span-1 transition duration-150 ease-in hover:opacity-90"
+                                alt={`${data?.name}--${index}`}
+                            />
                         </SwiperSlide>
                     ))}
                 </Carousel>
             ) : (
                 <div className="col-span-5 grid grid-cols-2 gap-2.5">
-                    {data?.gallery?.map((item, index: number) => (
-                        <div
-                            key={index}
-                            className="col-span-1 transition duration-150 ease-in hover:opacity-90"
-                        >
-                            <img
-                                src={
-                                    item?.original ??
-                                    "/assets/placeholder/products/product-gallery.svg"
-                                }
-                                alt={`${data?.name}--${index}`}
-                                className="object-cover w-full"
-                            />
-                        </div>
-                    ))}
+                    <VerticalCarousel data={data} />
                 </div>
             )}
 
