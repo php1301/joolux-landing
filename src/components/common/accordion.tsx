@@ -10,16 +10,12 @@ type CollapseProps = {
     title?: string;
     content?: any;
     contentKey?: any;
-    expanded: number;
     translatorNS: string;
-    setExpanded: any;
     variant?: "gray" | "transparent";
 };
 
 export const Collapse: React.FC<CollapseProps> = ({
     i,
-    expanded,
-    setExpanded,
     titleKey,
     title,
     content,
@@ -27,30 +23,37 @@ export const Collapse: React.FC<CollapseProps> = ({
     translatorNS,
     variant = "gray",
 }) => {
-    const isOpen = i === expanded;
-
+    const [expanded, setExpanded] = useState<boolean>(i < 2);
     const { t } = useTranslation(translatorNS);
     return (
         <div
             className={cn({
                 "rounded-md bg-gray-200": variant === "gray",
-                "shadow-sm": isOpen,
+                "shadow-sm": expanded,
             })}
         >
             <motion.header
                 initial={false}
-                onClick={() => setExpanded(isOpen ? false : i)}
+                onClick={() => setExpanded(!expanded)}
                 className={cn(
-                    "cursor-pointer flex items-center justify-between transition-colors py-5 md:py-6",
+                    "cursor-pointer flex items-center transition-colors py-5 md:py-6",
                     {
                         "px-6 md:px-8 lg:px-10": variant === "gray",
                         "border-t border-gray-300": variant === "transparent",
                     },
                 )}
             >
+                <div className="flex-shrink-0 relative w-4 h-4 mr-3 flex justify-center items-center">
+                    <div className="w-full h-0.5 bg-heading rounded-sm" />
+                    <div
+                        className={`origin-bottom transform w-0.5 h-full bg-heading rounded-sm absolute bottom-0 transition-transform duration-500 ease-in-out ${
+                            expanded ? "scale-0" : "scale-100"
+                        }`}
+                    />
+                </div>
                 <h2
                     className={cn(
-                        "text-sm font-semibold leading-relaxed text-heading pe-2",
+                        "uppercase text-sm font-semibold leading-relaxed text-heading pe-2",
                         {
                             "md:text-base": variant === "gray",
                             "md:text-base lg:text-lg":
@@ -60,17 +63,9 @@ export const Collapse: React.FC<CollapseProps> = ({
                 >
                     {titleKey ? t(titleKey) : title}
                 </h2>
-                <div className="flex-shrink-0 relative w-4 h-4 flex justify-center items-center">
-                    <div className="w-full h-0.5 bg-heading rounded-sm" />
-                    <div
-                        className={`origin-bottom transform w-0.5 h-full bg-heading rounded-sm absolute bottom-0 transition-transform duration-500 ease-in-out ${
-                            isOpen ? "scale-0" : "scale-100"
-                        }`}
-                    />
-                </div>
             </motion.header>
             <AnimatePresence initial={false}>
-                {isOpen && (
+                {expanded && (
                     <motion.div
                         key="content"
                         initial="from"
@@ -112,8 +107,6 @@ const Accordion: React.FC<AccordionProps> = ({
     translatorNS,
     variant = "gray",
 }) => {
-    const [expanded, setExpanded] = useState<number>(0);
-
     return (
         <>
             {items?.map((item, index) => (
@@ -122,8 +115,6 @@ const Accordion: React.FC<AccordionProps> = ({
                     key={item.titleKey}
                     titleKey={item.titleKey}
                     contentKey={item.contentKey}
-                    expanded={expanded}
-                    setExpanded={setExpanded}
                     variant={variant}
                     translatorNS={translatorNS}
                 />
