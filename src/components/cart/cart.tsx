@@ -1,8 +1,5 @@
 import { FC } from "react";
-import Scrollbar from "@components/common/scrollbar";
 import { useCart } from "@contexts/cart/cart.context";
-import { motion } from "framer-motion";
-import { fadeInOut } from "@utils/motion/fade-in-out";
 import { useUI } from "@contexts/ui.context";
 import usePrice from "@framework/product/use-price";
 import { IoClose } from "react-icons/io5";
@@ -36,27 +33,25 @@ const Cart: FC = () => {
                 </button>
             </div>
             {!isEmpty ? (
-                <Scrollbar className="cart-scrollbar w-full flex-grow">
-                    <div className="w-full px-5 md:px-7">
-                        {items?.map((item) => (
-                            <CartItem item={item} key={item.id} />
-                        ))}
-                    </div>
-                </Scrollbar>
+                // <Scrollbar className=" w-full flex-grow">
+                <div className="w-full px-5 md:px-7">
+                    {items?.map((item) => (
+                        <CartItem item={item} key={item.id} />
+                    ))}
+                </div>
             ) : (
-                <motion.div
-                    layout
+                <div className="px-5 md:px-7 pt-8 pb-5 flex justify-center flex-col items-center">
+                    {/* layout
                     initial="from"
                     animate="to"
                     exit="from"
                     variants={fadeInOut(0.25)}
-                    className="px-5 md:px-7 pt-8 pb-5 flex justify-center flex-col items-center"
-                >
+                > */}
                     <EmptyCart />
                     <h3 className="text-lg text-heading font-bold pt-8">
                         {t("text-empty-cart")}
                     </h3>
-                </motion.div>
+                </div>
             )}
 
             <div
