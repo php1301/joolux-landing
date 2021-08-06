@@ -18,7 +18,7 @@
         "lint": "eslint --rule \"@typescript-eslint/no-unused-vars: off\" \"**/*.{js,jsx,ts,tsx}\" --fix",
         "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
         "test": "jest -c test/jest.config.js --ci --reporters=default --reporters=jest-junit",
-        "cypress:binary":"cypress install",
+        "cypress:binary": "cypress install",
         "cypress:open": "cypress open",
         "cypress:run": "cypress run --config video=false",
         "cypress:test": "start-server-and-test start http://localhost:3000 cypress:run"
@@ -55,6 +55,7 @@
         "react-dom": "^17.0.2",
         "react-hook-form": "^7.8.8",
         "react-icons": "^4.2.0",
+        "react-popper": "^2.2.5",
         "react-query": "^3.17.2",
         "react-rating-stars-component": "^2.2.0",
         "react-redux": "^7.2.4",
