@@ -321,6 +321,44 @@
 	.modal-root .os-content {
 		@apply flex items-center justify-center lg:block;
 	}
+	.cart-dropdown-item {
+		max-height: 400px;
+	}
+	.cart-dropdown-item[data-popper-placement^='top'] > .arrow {
+		bottom: -4px;
+	  }
+	  
+	  .cart-dropdown-item[data-popper-placement^='bottom'] > .arrow {
+		top: -4px;
+	  }
+	  
+	  .cart-dropdown-item[data-popper-placement^='left'] > .arrow {
+		right: -4px;
+	  }
+	  
+	  .cart-dropdown-item[data-popper-placement^='right'] > .arrow {
+		left: -4px;
+	  }
+	  
+	.arrow,
+	.arrow::before {
+	  position: absolute;
+	  width: 8px;
+	  height: 8px;
+	  background: inherit;
+	}
+
+	.arrow {
+		visibility: hidden;
+		transform: translate(-6px, -4px);
+
+	  }
+	  
+	.arrow::before {
+		visibility: visible;
+		content: '';
+		transform: rotate(45deg);
+	  }
 	.cart-counter-badge {
 		min-width: 20px;
 		min-height: 20px;
