@@ -12,6 +12,7 @@ export const ROUTES = {
     ACCOUNT_DETAILS: "/my-account/account-details",
     CHANGE_PASSWORD: "/my-account/change-password",
     SHOP: "/shop",
+    CART: "/cart",
     LOGIN: "/signin",
     SIGN_UP: "/signup",
     SEARCH: "/search",
