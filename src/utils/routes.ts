@@ -16,6 +16,7 @@ export const ROUTES = {
     LOGIN: "/signin",
     SIGN_UP: "/signup",
     SEARCH: "/search",
+    HANG_MOI_VE: "/hang-moi-ve",
     COLLECTIONS: "/collections",
     CATEGORY: "/category",
     ORDER: "/order",
