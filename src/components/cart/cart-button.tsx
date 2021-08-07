@@ -1,10 +1,12 @@
 import { useState } from "react";
 import CartIcon from "@components/icons/cart-icon";
+import cn from "classnames";
 import { useRouter } from "next/router";
 import { useCart } from "@contexts/cart/cart.context";
 import usePrice from "@framework/product/use-price";
 import { ROUTES } from "@utils/routes";
 import Scrollbar from "@components/common/scrollbar";
+import Link from "@components/ui/link";
 import CartItem from "./cart-item";
 import EmptyCart from "./cart-empty";
 import { usePopper } from "react-popper";
@@ -16,8 +18,8 @@ interface ICartButton {
 }
 const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const { t } = useTranslation("common");
-    const { items, total, isEmpty } = useCart();
-    const { price: cartTotal } = usePrice({
+    const { items, total, isEmpty, totalItems } = useCart();
+    const { price: cartTotal, discount } = usePrice({
         amount: total,
         currencyCode: "USD",
     });
@@ -34,7 +36,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
             {
                 name: "offset",
                 options: {
-                    offset: [27, -20],
+                    offset: [25, -20],
                 },
             },
         ],
@@ -42,13 +44,11 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     });
 
     const router = useRouter();
-    const { totalItems } = useCart();
     const handleOpenCart: any = () => {
         router.push(ROUTES.CART, undefined, {
             locale: router.locale,
         });
     };
-
     return (
         <>
             <button
@@ -81,11 +81,6 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                                 {items?.map((item) => (
                                     <>
                                         <CartItem item={item} key={item.id} />
-                                        <CartItem item={item} key={item.id} />
-                                        <CartItem item={item} key={item.id} />
-                                        <CartItem item={item} key={item.id} />
-                                        <CartItem item={item} key={item.id} />
-                                        <CartItem item={item} key={item.id} />
                                     </>
                                 ))}
                             </div>
@@ -112,6 +107,26 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                         }}
                         className="arrow"
                     />
+                    <Link
+                        href={isEmpty === false ? ROUTES.CART : "/"}
+                        className={cn(
+                            "w-full px-5 py-3 md:py-4 flex items-center justify-center bg-heading rounded-md text-sm sm:text-base text-white focus:outline-none transition duration-300 hover:bg-gray-600",
+                            {
+                                "cursor-not-allowed bg-gray-400 hover:bg-gray-400":
+                                    isEmpty,
+                            },
+                        )}
+                    >
+                        <span className="w-full pe-5 -mt-0.5 py-0.5">
+                            {`Discounted: $${discount || "0.00"}`}
+                            <br />
+                            {t("To Cart Page")}
+                        </span>
+                        <span className="ms-auto flex-shrink-0 -mt-0.5 py-0.5">
+                            <span className="border-s border-white pe-5 py-0.5" />
+                            {cartTotal}
+                        </span>
+                    </Link>
                 </div>
             )}
         </>
