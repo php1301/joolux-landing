@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import NextNProgress from "nextjs-progressbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 import { Provider } from "react-redux";
@@ -62,6 +63,14 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                             <ManagedUIContext>
                                 <Layout pageProps={pageProps}>
                                     <DefaultSeo />
+                                    <NextNProgress
+                                        color="#d0af66"
+                                        startPosition={0.3}
+                                        stopDelayMs={200}
+                                        height={3}
+                                        showOnShallow={true}
+                                        options={{ easing: "ease", speed: 500 }}
+                                    />
                                     <Component
                                         {...pageProps}
                                         key={router.route}
