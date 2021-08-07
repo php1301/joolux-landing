@@ -12,7 +12,7 @@ interface MenuProps {
 const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
     const { t } = useTranslation("menu");
     return (
-        <div>
+        <div className="border-b border-gray-300">
             <div className={classNames(`headerMenu relative`, className)}>
                 <nav className="flex items-center">
                     {data?.map((item: any) => {
