@@ -35,6 +35,7 @@ export const BreadcrumbItems = (props: any) => {
         </BreadcrumbItem>
     ));
 
+    // find last element
     const lastIndex = children.length - 1;
 
     children = children.reduce((acc: any, child: string, index: number) => {
