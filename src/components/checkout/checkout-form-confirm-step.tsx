@@ -1,28 +1,28 @@
 import { FC } from "react";
-interface IConfirmStepProps {
-    nextStep?: () => void;
-    prevStep?: () => void;
-    step?: number;
-    formStep?: number;
-}
+import { IConfirmStepProps } from "./types";
+
 const CheckoutFormConfirmStep: FC<IConfirmStepProps> = ({
-    nextStep,
+    handleSubmit,
     prevStep,
     step,
     formStep,
+    values,
+    isLoading,
 }) => {
     return (
         step === formStep && (
             <div>
                 <h6 className="typo-h6 mb-1">Địa chỉ nhận hàng</h6>
                 <h6 className="typo-paragraph  mb-4 leading-relaxed">
-                    Phuc Body
+                    {values.fullname}
                     <br />
-                    14 Tổng Lung, Huyện Cư Kuin, Đăk Lăk
+                    {`${values.address}, ${values.district.split(" - ")[1]}, ${
+                        values.city.split(" - ")[1]
+                    }`}
                     <br />
-                    <b>Điện thoại:</b> 0888700140
+                    <b>Điện thoại:</b> {values.phone}
                     <br />
-                    <b>Email:</b> luudanthanchet@gmail.com
+                    <b>Email:</b> {values.email}
                 </h6>
                 <h6 className="typo-h6 mb-1">Phương thức thanh toán</h6>
                 <h6 className="typo-paragraph ">Chuyển khoản ngân hàng</h6>
@@ -53,6 +53,8 @@ const CheckoutFormConfirmStep: FC<IConfirmStepProps> = ({
                         type="submit"
                         data-testid="checkout-payment-method-confirm-button"
                         className="step-form-button-submit"
+                        onClick={handleSubmit}
+                        disabled={isLoading}
                     >
                         Xác nhận đặt hàng
                     </button>
