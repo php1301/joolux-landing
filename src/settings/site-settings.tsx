@@ -605,6 +605,7 @@ export const siteSettings = {
                                         label: "Rolex",
                                     },
                                     {
+                                        id: 5,
                                         path: "/dong-ho-cao-cap?brands=hermes",
                                         label: "Hermès",
                                     },
@@ -1397,7 +1398,8 @@ export const siteSettings = {
                                         path: "/dong-ho-cao-cap?brands=rolex",
                                         label: "Rolex",
                                     },
-                                    {
+                                    {   
+                                        id: 5,
                                         path: "/dong-ho-cao-cap?brands=hermes",
                                         label: "Hermès",
                                     },
