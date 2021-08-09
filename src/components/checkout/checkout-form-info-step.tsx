@@ -106,6 +106,8 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             <div className="step-form-select-container">
                                 <select
                                     name="city"
+                                    defaultValue=""
+                                    autoComplete="nope"
                                     className={`step-form-select-box w-full ${
                                         errors.city?.message && "border-red-600"
                                     }`}
@@ -116,13 +118,16 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                         handleOnChangeSelect(e);
                                     }}
                                 >
-                                    <option selected value="" disabled hidden>
+                                    <option value="" disabled hidden>
                                         Chọn thành phố
                                     </option>
                                     {city.map((i) => {
                                         return (
                                             <option
-                                                value={formatValueSelect(i)}
+                                                key={i}
+                                                value={`${formatValueSelect(
+                                                    i,
+                                                )} - ${i}`}
                                             >
                                                 {i}
                                             </option>
@@ -169,18 +174,22 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                         errors.district?.message &&
                                         "border-red-600"
                                     }`}
+                                    defaultValue=""
                                     disabled={!districtIndex}
                                     {...register("district", {
                                         required: "Thông tin bắt buộc",
                                     })}
                                 >
-                                    <option selected value="" disabled hidden>
+                                    <option value="" disabled hidden>
                                         Chọn quận/huyện
                                     </option>
                                     {districts[districtIndex]?.map((i) => {
                                         return (
                                             <option
-                                                value={formatValueSelect(i)}
+                                                key={i}
+                                                value={`${formatValueSelect(
+                                                    i,
+                                                )} - ${i}`}
                                             >
                                                 {i}
                                             </option>
