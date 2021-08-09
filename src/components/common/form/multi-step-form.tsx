@@ -58,9 +58,9 @@ const MultiStepForm: FC<{ stepData: any[]; step: number }> = ({
     };
     return (
         <>
-            <p className="text-gray-900 text-15px mb-10">
+            <h6 className="text-gray-900 text-sm mb-10">
                 Bạn đang tiến hành thanh toán không cần tài khoản đăng nhập
-            </p>
+            </h6>
             {renderFormStep()}
         </>
     );
