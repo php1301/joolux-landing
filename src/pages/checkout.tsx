@@ -1,11 +1,21 @@
 import { Layout } from "@components/layout/layout";
 import { NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
+import ProductCardLoader from "@components/ui/loaders/product-card-loader";
+import dynamic from "next/dynamic";
 import Container from "@components/ui/container";
 import { Subscription } from "@components/common/subscription";
 import CheckoutForm from "@components/checkout/checkout-form";
-import CheckoutCard from "@components/checkout/checkout-card";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticProps } from "next";
+const CheckoutCard = dynamic(
+    () => import("@components/checkout/checkout-card"),
+    {
+        ssr: false,
+        loading: () => (
+            <ProductCardLoader uniqueKey={"product-loading-checkout"} />
+        ),
+    },
+);
 const Checkout: NextPage & { Layout: typeof Layout } = () => {
     return (
         <Container>
