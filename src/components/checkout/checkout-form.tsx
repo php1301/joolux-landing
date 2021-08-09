@@ -1,10 +1,17 @@
 import MultiStepForm from "@components/common/form/multi-step-form";
 import React, { FC, useState } from "react";
 import dynamic from "next/dynamic";
-const CheckoutFormInfoStep = dynamic(
-    () => import("@components/checkout/checkout-form-info-step"),
-    { ssr: false },
-);
+import { useForm } from "react-hook-form";
+import { useCheckoutMutation } from "@framework/checkout/use-checkout";
+import { ICheckoutInputType } from "./types";
+// import Router from "next/router";
+// import { ROUTES } from "@utils/routes";
+
+// const CheckoutFormInfoStep = dynamic(
+//     () => import("@components/checkout/checkout-form-info-step"),
+//     { ssr: false },
+// );
+import CheckoutFormInfoStep from "@components/checkout/checkout-form-info-step";
 
 const CheckoutFormMethodStep = dynamic(
     () => import("@components/checkout/checkout-form-method-step"),
@@ -18,12 +25,28 @@ const CheckoutFormConfirmStep = dynamic(
 
 const CheckoutForm: FC = () => {
     const [step, setStep] = useState<number>(1);
+    const { mutate: beginCheckoutTransaction, isLoading } =
+        useCheckoutMutation();
+
+    const {
+        register,
+        handleSubmit,
+        getValues,
+        formState: { errors, touchedFields },
+    } = useForm<ICheckoutInputType>({
+        mode: "all",
+    });
+    function onSubmit(input: ICheckoutInputType) {
+        beginCheckoutTransaction(input);
+        // Router.push(ROUTES.ORDER);
+    }
     const nextStep = () => {
         setStep((prev) => prev + 1);
     };
     const prevStep = () => {
         setStep((prev) => prev - 1);
     };
+    const values = getValues();
     const stepData = [
         {
             id: 1,
@@ -33,6 +56,10 @@ const CheckoutForm: FC = () => {
                     step={step}
                     nextStep={nextStep}
                     prevStep={prevStep}
+                    register={register}
+                    errors={errors}
+                    touchedFields={touchedFields}
+                    handleSubmit={handleSubmit(nextStep)}
                 />
             ),
             stepHeader: "Thông tin và địa chỉ nhận hàng",
@@ -45,6 +72,10 @@ const CheckoutForm: FC = () => {
                     step={step}
                     nextStep={nextStep}
                     prevStep={prevStep}
+                    register={register}
+                    errors={errors}
+                    touchedFields={touchedFields}
+                    handleSubmit={handleSubmit(nextStep)}
                 />
             ),
             stepHeader: "Phương thức thanh toán",
@@ -57,6 +88,11 @@ const CheckoutForm: FC = () => {
                     step={step}
                     nextStep={nextStep}
                     prevStep={prevStep}
+                    values={values}
+                    errors={errors}
+                    touchedFields={touchedFields}
+                    isLoading={isLoading}
+                    handleSubmit={handleSubmit(onSubmit)}
                 />
             ),
             stepHeader: "Xem lại đơn đặt hàng",
