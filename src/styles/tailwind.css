@@ -314,14 +314,18 @@
 	}
 	::-webkit-input-placeholder {
 		/* Chrome/Opera/Safari */
-		color: #707070;
+		color: rgba(16, 16, 16, 0.5);
 	}
 	::-moz-placeholder {
 		/* Firefox 19+ */
-		color: #707070;
+		color: rgba(16, 16, 16, 0.5);
+	}
+	::-ms-placeholder {
+		/* Edge */
+		color: rgba(16, 16, 16, 0.5);
 	}
 	input::placeholder {
-		color: #707070;
+		color: rgba(16, 16, 16, 0.5);
 	}
 	.popupClosed {
 		@apply -top-3.5 md:-top-4 -end-3.5 md:-end-4;
@@ -683,7 +687,6 @@
 		border-width: 1px;
 		border-radius: 0px;
 		outline: 0px;
-		color: #424242;
 		font-size: 0.875rem;
 		appearance: none;
 		border-color: #cfcfcf;
@@ -697,18 +700,12 @@
 		color: #101010;
 		font-size: 0.875rem;
 		appearance: none;
-		border-color: #cfcfcf;
+		border-color: #101010;
 	}
 	.step-form-input-error {
-		border-width: 1px;
-		border-radius: 0px;
-		outline: 0px;
-		color: var(--gray-700);
-		font-size: 0.875rem;
-		appearance: none;
-		border-color: var(--red-600);
-		padding: 10px 14px;
-		height: 40px;
+		margin-top: 2px;
+		font-size: 0.75rem;
+		color: #da1414;
 	}
 	.step-form-select-container {
 		position: relative;
@@ -741,6 +738,20 @@
 		outline: none;
 		height: 40px;
 		border-color: #cfcfcf;
+		color: rgba(16, 16, 16, 0.5);
+	}
+	.step-form-select-box:focus {
+		box-shadow: none;
+		font-size: 0.875rem;
+		border-width: 1px;
+		border-radius: 0px;
+		background-color: #fff;
+		overflow: hidden;
+		padding: 8px 40px 8px 14px;
+		appearance: none;
+		outline: none;
+		height: 40px;
+		border-color: #101010;
 		color: rgba(16, 16, 16, 0.5);
 	}
 	.step-form-radio-group {
