@@ -1,17 +1,47 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import CheckoutRadioBox from "./checkout-radio-box";
+import { IInfoStepProps } from "./types";
+import { city, districts } from "@public/api/geo-city-vn";
 
-interface IInfoStepProps {
-    nextStep?: () => void;
-    prevStep?: () => void;
-    step?: number;
-    formStep?: number;
-}
+const radioList = [
+    {
+        id: 1,
+        labelText: "Nam",
+        value: "male",
+    },
+    {
+        id: 2,
+        labelText: "Nữ",
+        value: "female",
+    },
+    {
+        id: 3,
+        labelText: "Khác",
+        value: "other",
+    },
+];
+const formatValueSelect = (value: string) => {
+    return value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d")
+        .replace(/Đ/g, "D")
+        .replace(/ /g, "")
+        .toUpperCase();
+};
 const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
-    nextStep,
-    prevStep,
     step,
     formStep,
+    register,
+    errors,
+    handleSubmit,
 }) => {
+    const [radioItem, setRadioItem] = useState(1);
+    const [districtIndex, setDistrictIndex] = useState(null);
+
+    const handleOnChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setDistrictIndex(e.target.selectedIndex - 1);
+    };
     return (
         step === formStep && (
             <form action="#">
@@ -22,12 +52,22 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                 Họ và tên{/* */} *
                             </div>
                             <input
+                                {...register("fullname", {
+                                    required: "Thông tin bắt buộc",
+                                })}
                                 type="text"
                                 name="fullname"
                                 defaultValue=""
-                                className="step-form-input w-full"
+                                className={`step-form-input w-full ${
+                                    errors.fullname?.message && "border-red-600"
+                                }`}
                                 placeholder="Nhập họ và tên đầy đủ"
                             />
+                            {errors.fullname?.message && (
+                                <p className="step-form-input-error">
+                                    {errors.fullname?.message}
+                                </p>
+                            )}
                         </label>
                     </div>
                 </div>
@@ -39,11 +79,21 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             </div>
                             <input
                                 type="text"
+                                {...register("address", {
+                                    required: "Thông tin bắt buộc",
+                                })}
                                 name="address"
                                 defaultValue=""
-                                className="step-form-input w-full"
+                                className={`step-form-input w-full ${
+                                    errors.address?.message && "border-red-600"
+                                }`}
                                 placeholder="Vui lòng ghi cụ thể địa chỉ, tòa nhà..."
                             />
+                            {errors.address?.message && (
+                                <p className="step-form-input-error">
+                                    {errors.address?.message}
+                                </p>
+                            )}
                         </label>
                     </div>
                 </div>
@@ -56,101 +106,28 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             <div className="step-form-select-container">
                                 <select
                                     name="city"
-                                    className="step-form-select-box w-full"
+                                    className={`step-form-select-box w-full ${
+                                        errors.city?.message && "border-red-600"
+                                    }`}
+                                    {...register("city", {
+                                        required: "Thông tin bắt buộc",
+                                    })}
+                                    onChange={(e) => {
+                                        handleOnChangeSelect(e);
+                                    }}
                                 >
                                     <option selected value="" disabled hidden>
                                         Chọn thành phố
                                     </option>
-                                    <option value="HANOI">Hà Nội</option>
-                                    <option value="HOCHIMINH">
-                                        Hồ Chí Minh
-                                    </option>
-                                    <option value="DANANG">Đà Nẵng</option>
-                                    <option value="ANGIANG">An Giang</option>
-                                    <option value="BACGIANG">Bắc Giang</option>
-                                    <option value="BACKAN">Bắc Kạn</option>
-                                    <option value="BACLIEU">Bạc Liêu</option>
-                                    <option value="BACNINH">Bắc Ninh</option>
-                                    <option value="BARIAVUNGTAU">
-                                        Bà Rịa Vũng Tàu
-                                    </option>
-                                    <option value="BENTRE">Bến Tre</option>
-                                    <option value="BINHDINH">Bình Định</option>
-                                    <option value="BINHDUONG">
-                                        Bình Dương
-                                    </option>
-                                    <option value="BINHPHUOC">
-                                        Bình Phước
-                                    </option>
-                                    <option value="BINHTHUAN">
-                                        Bình Thuận
-                                    </option>
-                                    <option value="CAMAU">Cà Mau</option>
-                                    <option value="CAOBANG">Cao Bằng</option>
-                                    <option value="DAKLAK">Đăk Lăk</option>
-                                    <option value="DAKNONG">Đắk Nông</option>
-                                    <option value="DIENBIEN">Điện Biên</option>
-                                    <option value="DONGNAI">Đồng Nai</option>
-                                    <option value="DONGTHAP">Đồng Tháp</option>
-                                    <option value="GIALAI">Gia Lai</option>
-                                    <option value="HAGIANG">Hà Giang</option>
-                                    <option value="HAIDUONG">Hải Dương</option>
-                                    <option value="HAIPHONG">Hải Phòng</option>
-                                    <option value="HANAM">HÀ NAM</option>
-                                    <option value="HATINH">Hà Tĩnh</option>
-                                    <option value="HAUGIANG">Hậu Giang</option>
-                                    <option value="HOABINH">Hòa Bình</option>
-                                    <option value="HUNGYEN">Hưng Yên</option>
-                                    <option value="KHANHHOA">Khánh Hòa</option>
-                                    <option value="KIENGIANG">
-                                        Kiên Giang
-                                    </option>
-                                    <option value="KONTUM">Kon Tum</option>
-                                    <option value="LAICHAU">Lai Châu</option>
-                                    <option value="LAMDONG">Lâm Đồng</option>
-                                    <option value="LANGSON">Lạng Sơn</option>
-                                    <option value="LAOCAI">Lào Cai</option>
-                                    <option value="LONGAN">Long An</option>
-                                    <option value="NAMDINH">Nam Định</option>
-                                    <option value="NGHEAN">Nghệ An</option>
-                                    <option value="NINHBINH">Ninh Bình</option>
-                                    <option value="NINHTHUAN">
-                                        Ninh Thuận
-                                    </option>
-                                    <option value="PHUTHO">Phú Thọ</option>
-                                    <option value="PHUYEN">Phú Yên</option>
-                                    <option value="QUANGBINH">
-                                        Quảng Bình
-                                    </option>
-                                    <option value="QUANGNAM">Quảng Nam</option>
-                                    <option value="QUANGNGAI">
-                                        Quảng Ngãi
-                                    </option>
-                                    <option value="QUANGNINH">
-                                        Quảng Ninh
-                                    </option>
-                                    <option value="QUANGTRI">Quảng Trị</option>
-                                    <option value="SOCTRANG">Sóc Trăng</option>
-                                    <option value="SONLA">Sơn La</option>
-                                    <option value="TAYNINH">Tây Ninh</option>
-                                    <option value="THAIBINH">Thái Bình</option>
-                                    <option value="THAINGUYEN">
-                                        Thái Nguyên
-                                    </option>
-                                    <option value="THANHHOA">Thanh Hóa</option>
-                                    <option value="THUATHIENHUE">
-                                        Thừa Thiên Huế
-                                    </option>
-                                    <option value="TIENGIANG">
-                                        Tiền Giang
-                                    </option>
-                                    <option value="TRAVINH">Trà Vinh</option>
-                                    <option value="TUYENQUANG">
-                                        Tuyên Quang
-                                    </option>
-                                    <option value="VINHLONG">Vĩnh Long</option>
-                                    <option value="VINHPHUC">Vĩnh Phúc</option>
-                                    <option value="YENBAI">Yên Bái</option>
+                                    {city.map((i) => {
+                                        return (
+                                            <option
+                                                value={formatValueSelect(i)}
+                                            >
+                                                {i}
+                                            </option>
+                                        );
+                                    })}
                                 </select>
                                 <div className="step-form-select-icon-wrapper">
                                     <span className="createIconSvgWrapper">
@@ -173,6 +150,11 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                     </span>
                                 </div>
                             </div>
+                            {errors.city?.message && (
+                                <p className="step-form-input-error">
+                                    {errors.city?.message}
+                                </p>
+                            )}
                         </label>
                     </div>
                     <div className="w-full sm:w-1/2 px-4 mb-3">
@@ -183,12 +165,27 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             <div className="step-form-select-container">
                                 <select
                                     name="district"
-                                    className="step-form-select-box w-full"
-                                    disabled
+                                    className={`step-form-select-box w-full ${
+                                        errors.district?.message &&
+                                        "border-red-600"
+                                    }`}
+                                    disabled={!districtIndex}
+                                    {...register("district", {
+                                        required: "Thông tin bắt buộc",
+                                    })}
                                 >
                                     <option selected value="" disabled hidden>
                                         Chọn quận/huyện
                                     </option>
+                                    {districts[districtIndex]?.map((i) => {
+                                        return (
+                                            <option
+                                                value={formatValueSelect(i)}
+                                            >
+                                                {i}
+                                            </option>
+                                        );
+                                    })}
                                 </select>
                                 <div className="step-form-select-icon-wrapper">
                                     <span className="createIconSvgWrapper">
@@ -211,6 +208,11 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                     </span>
                                 </div>
                             </div>
+                            {errors.district?.message && (
+                                <p className="step-form-input-error">
+                                    {errors.district?.message}
+                                </p>
+                            )}
                         </label>
                     </div>
                 </div>
@@ -224,58 +226,20 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                 className="step-form-radio-group"
                                 role="radiogroup"
                             >
-                                <label
-                                    role="radio"
-                                    aria-checked="true"
-                                    tabIndex={-1}
-                                    className="step-form-radio-label"
-                                >
-                                    <input
-                                        type="radio"
-                                        className="Radio__HiddenInput-ndekxg-1 kqzECY hidden"
-                                        name="gender"
-                                        defaultValue="male"
-                                        defaultChecked
-                                    />
-                                    <div className="step-form-radio-box" />
-                                    <span className="step-form-radio-text">
-                                        Nam
-                                    </span>
-                                </label>
-                                <label
-                                    role="radio"
-                                    aria-checked="false"
-                                    tabIndex={0}
-                                    className="step-form-radio-label"
-                                >
-                                    <input
-                                        type="radio"
-                                        className="Radio__HiddenInput-ndekxg-1 kqzECY hidden"
-                                        name="gender"
-                                        defaultValue="female"
-                                    />
-                                    <div className="step-form-radio-box" />
-                                    <span className="step-form-radio-text">
-                                        Nữ
-                                    </span>
-                                </label>
-                                <label
-                                    role="radio"
-                                    aria-checked="false"
-                                    tabIndex={0}
-                                    className="step-form-radio-label"
-                                >
-                                    <input
-                                        type="radio"
-                                        className="Radio__HiddenInput-ndekxg-1 kqzECY hidden"
-                                        name="gender"
-                                        defaultValue="other"
-                                    />
-                                    <div className="step-form-radio-box" />
-                                    <span className="step-form-radio-text">
-                                        Khác
-                                    </span>
-                                </label>
+                                {radioList.map((i) => {
+                                    return (
+                                        <CheckoutRadioBox
+                                            key={i.id}
+                                            id={i.id}
+                                            initialCheck={radioItem === i.id}
+                                            register={register}
+                                            name="gender"
+                                            labelText={i.labelText}
+                                            setRadioItem={setRadioItem}
+                                            value={i.value}
+                                        />
+                                    );
+                                })}
                             </div>
                         </label>
                     </div>
@@ -290,9 +254,23 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                 type="text"
                                 name="phone"
                                 defaultValue=""
-                                className="step-form-input w-full"
+                                className={`step-form-input w-full ${
+                                    errors.phone?.message && "border-red-600"
+                                }`}
                                 placeholder="Số điện thoại để nhận hàng"
+                                {...register("phone", {
+                                    required: "Thông tin bắt buộc",
+                                    pattern: {
+                                        value: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/,
+                                        message: "Số điện thoại không hợp lệ",
+                                    },
+                                })}
                             />
+                            {errors.phone?.message && (
+                                <p className="step-form-input-error">
+                                    {errors.phone?.message}
+                                </p>
+                            )}
                         </label>
                     </div>
                     <div className="w-full sm:w-1/2 px-4 mb-3">
@@ -304,9 +282,24 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                 type="text"
                                 name="email"
                                 defaultValue=""
-                                className="step-form-input w-full"
+                                className={`step-form-input w-full ${
+                                    errors.email?.message && "border-red-600"
+                                }`}
                                 placeholder="Địa chỉ email để xác nhận đơn hàng"
+                                {...register("email", {
+                                    required: "Thông tin bắt buộc",
+                                    pattern: {
+                                        // eslint-disable-next-line no-useless-escape
+                                        value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: "Email không hợp lệ",
+                                    },
+                                })}
                             />
+                            {errors.email?.message && (
+                                <p className="step-form-input-error">
+                                    {errors.email?.message}
+                                </p>
+                            )}
                         </label>
                     </div>
                 </div>
@@ -316,7 +309,7 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                         id="customer-info-submit-button"
                         data-testid="customer-info-submit-button"
                         className="step-form-button-submit"
-                        onClick={nextStep}
+                        onClick={handleSubmit}
                     >
                         Xác Nhận Thông Tin
                     </button>
