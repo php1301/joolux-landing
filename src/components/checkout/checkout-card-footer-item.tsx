@@ -1,6 +1,3 @@
-import { ROUTES } from "@utils/routes";
-import Link from "@components/ui/link";
-
 type FooterItemProps = {
     discount: string;
     basePrice: string;
