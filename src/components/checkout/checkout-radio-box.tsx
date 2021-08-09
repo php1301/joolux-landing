@@ -26,7 +26,7 @@ const CheckoutRadioBox: FC<ICheckoutRadioBox> = ({
                 }}
                 {...register(name)}
                 defaultValue={value}
-                checked={initialCheck}
+                defaultChecked={initialCheck}
             />
             <div
                 className={`step-form-radio-box ${
