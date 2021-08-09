@@ -10,7 +10,7 @@ const MultiStepForm: FC<{ stepData: any[]; step: number }> = ({
             stepData &&
             stepData.map((i, index) => {
                 return (
-                    <div className="flex">
+                    <div key={index} className="flex">
                         <div
                             className={`step-tree-rel ${
                                 i.id < step && "after:bg-black"
