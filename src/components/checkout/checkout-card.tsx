@@ -17,6 +17,7 @@ const CheckoutCard: React.FC = () => {
     });
     const { t } = useTranslation("common");
     const [collapseItem, setCollapseItem] = useState<boolean>(false);
+
     // const checkoutFooter = [
     //     {
     //         id: 1,
@@ -101,14 +102,17 @@ const CheckoutCard: React.FC = () => {
                     </svg>
                 </span>
             </button>
-
-            {!isEmpty && !collapseItem ? (
-                items.map((item) => <CheckoutItem item={item} key={item.id} />)
-            ) : (
-                <p className="text-red-500 lg:px-3 py-4">
-                    {isEmpty ? t("text-empty-cart") : ""}
-                </p>
-            )}
+            <div>
+                {!isEmpty && !collapseItem ? (
+                    items.map((item) => (
+                        <CheckoutItem item={item} key={item.id} />
+                    ))
+                ) : (
+                    <p className="text-red-500 lg:px-3 py-4">
+                        {isEmpty ? t("text-empty-cart") : ""}
+                    </p>
+                )}
+            </div>
             {/* {checkoutFooter.map((item: any) => (
                 <CheckoutCardFooterItem item={item} key={item.id} />
             ))} */}
