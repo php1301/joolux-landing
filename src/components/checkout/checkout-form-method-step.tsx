@@ -1,16 +1,28 @@
-import { FC } from "react";
-interface IMethodStepProps {
-    nextStep?: () => void;
-    prevStep?: () => void;
-    step?: number;
-    formStep?: number;
-}
+import { FC, useState } from "react";
+import CheckoutRadioBox from "./checkout-radio-box";
+import { IMethodStepProps } from "./types";
+
+const radioList = [
+    {
+        id: 1,
+        labelText: "Chuyển khoản ngân hàng",
+        value: "banking",
+    },
+    {
+        id: 2,
+        labelText: "Thanh toán bằng MOMO",
+        value: "momo",
+    },
+];
 const CheckoutFormMethodStep: FC<IMethodStepProps> = ({
-    nextStep,
     prevStep,
+    handleSubmit,
     step,
     formStep,
+    register,
 }) => {
+    const [radioItem, setRadioItem] = useState(1);
+
     return (
         step === formStep && (
             <>
@@ -23,24 +35,22 @@ const CheckoutFormMethodStep: FC<IMethodStepProps> = ({
                                     className="step-form-radio-group"
                                     role="radiogroup"
                                 >
-                                    <label
-                                        role="radio"
-                                        aria-checked="true"
-                                        tabIndex={-1}
-                                        className="step-form-radio-label"
-                                    >
-                                        <input
-                                            className="Radio__HiddenInput-ndekxg-1 kqzECY hidden"
-                                            type="radio"
-                                            name="method"
-                                            defaultValue="bank-transfer"
-                                            defaultChecked
-                                        />
-                                        <div className="step-form-radio-box" />
-                                        <span className="step-form-radio-text">
-                                            Chuyển khoản ngân hàng
-                                        </span>
-                                    </label>
+                                    {radioList.map((i) => {
+                                        return (
+                                            <CheckoutRadioBox
+                                                key={i.id}
+                                                id={i.id}
+                                                initialCheck={
+                                                    radioItem === i.id
+                                                }
+                                                register={register}
+                                                name="method"
+                                                labelText={i.labelText}
+                                                setRadioItem={setRadioItem}
+                                                value={i.value}
+                                            />
+                                        );
+                                    })}
                                 </div>
                             </label>
                             <div className="text-15px mt-5">
@@ -107,7 +117,7 @@ const CheckoutFormMethodStep: FC<IMethodStepProps> = ({
                             type="submit"
                             data-testid="checkout-payment-method-confirm-button"
                             className="step-form-button-submit"
-                            onClick={nextStep}
+                            onClick={handleSubmit}
                         >
                             Tiếp Tục
                         </button>
