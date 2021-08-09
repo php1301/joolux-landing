@@ -13,6 +13,8 @@ export interface ICheckoutInputType {
 
 async function checkout(input: ICheckoutInputType) {
     // return http.post(API_ENDPOINTS.ChangeEmail, input);
+    input.city = input.city.split(" - ")[0];
+    input.district = input.district.split(" - ")[0];
     return input;
 }
 export const useCheckoutMutation = () => {
