@@ -79,7 +79,7 @@ const Cart: FC = () => {
                     </div>
                 </form>
             </div>
-            {!isEmpty ? (
+            {!disable ? (
                 // <Scrollbar className=" w-full flex-grow">
                 <div className="w-full px-5 md:px-7">
                     {items?.map((item) => (
