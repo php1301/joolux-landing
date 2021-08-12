@@ -16,7 +16,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const tuple = <T extends string[]>(...args: T) => args;
-const inputTuple = tuple("normal", "solid", "outline");
+const inputTuple = tuple("normal", "solid", "outline", "jl");
 export type InputVariants = typeof inputTuple[number];
 
 const classes = {
@@ -24,6 +24,7 @@ const classes = {
     normal: "bg-gray-100 border-gray-300 focus:shadow focus:bg-white focus:border-primary",
     solid: "bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12",
     outline: "border-gray-300 focus:border-primary",
+    jlInput: "step-form-input border-black w-full",
     shadow: "focus:shadow",
 };
 
@@ -44,11 +45,14 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         ref,
     ) => {
         const rootClassName = cn(
-            classes.root,
+            {
+                [classes.root]: variant !== "jl",
+            },
             {
                 [classes.normal]: variant === "normal",
                 [classes.solid]: variant === "solid",
                 [classes.outline]: variant === "outline",
+                [classes.jlInput]: variant === "jl",
             },
             {
                 [classes.shadow]: shadow,
