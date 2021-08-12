@@ -8,6 +8,8 @@ export interface SignUpInputType {
     email: string;
     password: string;
     name: string;
+    phone: string;
+    otp: string;
 }
 async function signUp(input: SignUpInputType) {
     // return http.post(API_ENDPOINTS.LOGIN, input);
