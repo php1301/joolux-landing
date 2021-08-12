@@ -66,7 +66,7 @@ const Cart: FC = () => {
                     <div className="flex flex-col sm:flex-row items-start justify-end">
                         <Input
                             placeholderKey="Enter coupon code"
-                            type="email"
+                            type="text"
                             variant="solid"
                             className="w-1/2"
                             inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white"
