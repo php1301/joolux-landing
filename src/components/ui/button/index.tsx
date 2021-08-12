@@ -3,7 +3,7 @@ import React, { forwardRef, ButtonHTMLAttributes } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    variant?: "flat" | "slim";
+    variant?: "flat" | "slim" | "jl";
     active?: boolean;
     type?: "submit" | "reset" | "button";
     loading?: boolean;
@@ -23,12 +23,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         } = props;
 
         const rootClassName = cn(
-            "text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none",
+            {
+                "text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none":
+                    variant !== "jl",
+            },
             {
                 "bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart":
                     variant === "flat",
                 "h-11 md:h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white hover:bg-gray-600 hover:shadow-cart":
                     variant === "slim",
+                "step-form-button-submit": variant === "jl",
                 "cursor-not-allowed": loading,
                 "cursor-not-allowed hover:cursor-not-allowed": disabled,
             },
