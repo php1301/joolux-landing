@@ -4,9 +4,12 @@ import PasswordInput from "@components/ui/password-input";
 import { Button } from "@components/ui/button";
 import { useForm } from "react-hook-form";
 import { useLoginMutation, LoginInputType } from "@framework/auth/use-login";
+import Link from "@components/ui/link";
+import { ROUTES } from "@utils/routes";
 import { useUI } from "@contexts/ui.context";
 import { Logo } from "@components/ui/logo";
-import { ImGoogle2, ImFacebook2 } from "react-icons/im";
+import { FcGoogle } from "react-icons/fc";
+import { SiFacebook } from "react-icons/si";
 import { useTranslation } from "next-i18next";
 
 const LoginForm: React.FC = () => {
@@ -47,12 +50,15 @@ const LoginForm: React.FC = () => {
     }
 
     return (
-        <div className="overflow-hidden bg-white mx-auto rounded-lg w-full sm:w-96 md:w-450px border border-gray-300 py-5 px-5 sm:px-8">
+        <div className="overflow-hidden bg-white mx-auto rounded-lg w-full sm:w-96 md:w-450px border border-gray-300 pt-5 px-5 sm:px-8">
             <div className="text-center mb-6 pt-2.5">
                 <div onClick={closeModal}>
                     <Logo />
                 </div>
-                <p className="text-sm md:text-base text-body mt-2 mb-8 sm:mb-10">
+                <div className="p-2 mb-[10px] text-xs text-black bg-[#f5f5f5] -mx-5 sm:-mx-8">
+                    Authenticated Luxury Consignment
+                </div>
+                <p className="text-lg md:text-base text-black font-bold uppercase mt-2 mb-8 sm:mb-10">
                     {t("common:login-helper")}
                 </p>
             </div>
@@ -63,9 +69,9 @@ const LoginForm: React.FC = () => {
             >
                 <div className="flex flex-col space-y-3.5">
                     <Input
-                        labelKey="forms:label-email"
+                        placeholderKey="forms:label-email"
                         type="email"
-                        variant="solid"
+                        variant="jl"
                         {...register("email", {
                             required: `${t("forms:email-required")}`,
                             pattern: {
@@ -76,8 +82,9 @@ const LoginForm: React.FC = () => {
                         errorKey={errors.email?.message}
                     />
                     <PasswordInput
-                        labelKey="forms:label-password"
+                        placeholderKey="forms:label-password"
                         errorKey={errors.password?.message}
+                        variant="jl"
                         {...register("password", {
                             required: `${t("forms:password-required")}`,
                         })}
@@ -114,6 +121,7 @@ const LoginForm: React.FC = () => {
                         <Button
                             type="submit"
                             loading={isLoading}
+                            variant="jl"
                             disabled={isLoading}
                             className="h-11 md:h-12 w-full mt-1.5"
                         >
@@ -131,30 +139,58 @@ const LoginForm: React.FC = () => {
             <Button
                 loading={isLoading}
                 disabled={isLoading}
-                className="h-11 md:h-12 w-full mt-2.5 bg-facebook hover:bg-facebookHover"
+                variant="jl"
+                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
                 onClick={handelSocialLogin}
             >
-                <ImFacebook2 className="text-sm sm:text-base me-1.5" />
+                <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
                 {t("common:text-login-with-facebook")}
             </Button>
             <Button
                 loading={isLoading}
                 disabled={isLoading}
-                className="h-11 md:h-12 w-full mt-2.5 bg-google hover:bg-googleHover"
+                variant="jl"
+                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
                 onClick={handelSocialLogin}
             >
-                <ImGoogle2 className="text-sm sm:text-base me-1.5" />
+                <FcGoogle className="text-sm sm:text-base me-1.5" />
                 {t("common:text-login-with-google")}
             </Button>
-            <div className="text-sm sm:text-base text-body text-center mt-5 mb-1">
-                {t("common:text-no-account")}{" "}
-                <button
-                    type="button"
-                    className="text-sm sm:text-base text-heading underline font-bold hover:no-underline focus:outline-none"
-                    onClick={handleSignUp}
+            <p className="text-[9.8px] md:text-[9px] text-body mt-2 mb-8 sm:mb-10 text-center">
+                By logging into Joolux, you agree to the{" "}
+                <Link
+                    href={ROUTES.TERMS}
+                    className="text-heading underline hover:no-underline focus:outline-none"
                 >
-                    {t("common:text-register")}
-                </button>
+                    {t("common:text-terms")}
+                </Link>{" "}
+                &amp;{" "}
+                <Link
+                    href={ROUTES.POLICY}
+                    className="text-heading underline hover:no-underline focus:outline-none"
+                >
+                    {t("common:text-policy")}
+                </Link>{" "}
+            </p>
+            <div className="bg-[#eee] mt-2 -mx-5 sm:-mx-8">
+                <div className="inline-block text-xs text-body text-center my-2 w-1/2 border-solid border-r-[1px] border-[#333]">
+                    <button
+                        type="button"
+                        className="text-xs text-heading underline font-extralight hover:no-underline focus:outline-none"
+                        onClick={handleSignUp}
+                    >
+                        Member sign up
+                    </button>
+                </div>
+                <div className="inline-block text-xs text-body text-center my-2 w-1/2">
+                    <button
+                        type="button"
+                        className="text-xs text-heading underline font-extralight hover:no-underline focus:outline-none"
+                        onClick={handleSignUp}
+                    >
+                        Sell with us
+                    </button>
+                </div>
             </div>
         </div>
     );
