@@ -31,7 +31,7 @@ const rootClasses = {
     bottom: "p-5 pb-0",
 };
 const containerClasses = {
-    center: "h-auto max-h-full top-1/2 -translate-y-1/2 rounded-lg",
+    center: "h-1/2 max-h-1/2 bottom-1/4 -translate-y-1/2 rounded-lg",
     bottom: "h-full max-h-70vh bottom-0 rounded-ts-2xl rounded-te-2xl",
 };
 const closeBtnClasses = {
@@ -113,7 +113,7 @@ const Modal: FC<ModalProps> = ({
                             >
                                 <div
                                     ref={modalInnerRef}
-                                    className="overflow-y-auto h-full rounded-lg"
+                                    className="h-full rounded-lg"
                                     style={{ maxHeight: "calc(100vh - 140px)" }}
                                 >
                                     {children}
