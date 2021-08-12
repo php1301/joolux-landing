@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 import { Provider } from "react-redux";
 import { ManagedUIContext } from "@contexts/ui.context";
+import ManagedModal from "@components/common/modal/managed-modal";
 import store from "@redux/store";
 
 import { ToastContainer } from "react-toastify";
@@ -77,6 +78,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                                     />
                                     <ToastContainer />
                                 </Layout>{" "}
+                                <ManagedModal />
                             </ManagedUIContext>
                         </Provider>
                     </Hydrate>
