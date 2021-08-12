@@ -8,14 +8,20 @@ export interface IPasswordInputProps
     extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     inputClassName?: string;
-    labelKey: string;
+    labelKey?: string;
+    placeholderKey?: string;
     name: string;
     shadow?: boolean;
     errorKey?: string | undefined;
+    variant?: "normal" | "solid" | "outline" | "jl";
 }
-
 const classes = {
     root: "py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border border-gray-500 text-input text-xs lg:text-sm font-body rounded-md placeholder-gray-600  transition duration-200 ease-in-out bg-white border border-gray-100 focus:outline-none focus:border-heading h-11 md:h-12",
+    normal: "bg-gray-100 border-gray-300 focus:shadow focus:bg-white focus:border-primary",
+    solid: "bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12",
+    outline: "border-gray-300 focus:border-primary",
+    jlInput: "step-form-input border-black w-full",
+    shadow: "focus:shadow",
 };
 
 const PasswordInput = React.forwardRef<HTMLInputElement, IPasswordInputProps>(
@@ -23,7 +29,9 @@ const PasswordInput = React.forwardRef<HTMLInputElement, IPasswordInputProps>(
         {
             className = "block",
             inputClassName,
+            variant = "normal",
             labelKey,
+            placeholderKey,
             name,
             shadow = "false",
             errorKey,
@@ -33,7 +41,21 @@ const PasswordInput = React.forwardRef<HTMLInputElement, IPasswordInputProps>(
     ) => {
         const [show, setShow] = useState<boolean>(false);
 
-        const rootClassName = cn(classes.root, inputClassName);
+        const rootClassName = cn(
+            {
+                [classes.root]: variant !== "jl",
+            },
+            {
+                [classes.normal]: variant === "normal",
+                [classes.solid]: variant === "solid",
+                [classes.outline]: variant === "outline",
+                [classes.jlInput]: variant === "jl",
+            },
+            {
+                [classes.shadow]: shadow,
+            },
+            inputClassName,
+        );
         const { t } = useTranslation();
 
         return (
@@ -53,6 +75,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, IPasswordInputProps>(
                         type={show ? "text" : "password"}
                         ref={ref}
                         className={rootClassName}
+                        placeholder={t(placeholderKey)}
                         autoComplete="off"
                         autoCapitalize="off"
                         spellCheck="false"
