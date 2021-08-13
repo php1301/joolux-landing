@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Input } from "@components/ui/input";
 import PasswordInput from "@components/ui/password-input";
 import { Button } from "@components/ui/button";
@@ -24,9 +24,12 @@ const SignUpForm: React.FC = () => {
         handleSubmit,
         formState: { errors },
         getValues,
+        watch,
     } = useForm<SignUpInputType>({
         mode: "all",
     });
+    const newPassword = useRef({});
+    newPassword.current = watch("password", "");
     const phoneNumber = getValues("phone");
     const handleGetOtp = () => {
         if (phoneNumber && !errors.phone?.message) {
@@ -54,12 +57,20 @@ const SignUpForm: React.FC = () => {
     const prevStep = () => setStep((step) => step - 1);
     const nextStep = () => setStep((step) => step + 1);
 
-    function onSubmit({ name, email, password, phone, otp }: SignUpInputType) {
+    function onSubmit({
+        name,
+        email,
+        password,
+        confirmPassword,
+        phone,
+        otp,
+    }: SignUpInputType) {
         if (step !== 1) {
             signUp({
                 name,
                 email,
                 password,
+                confirmPassword,
                 phone,
                 otp,
             });
@@ -69,7 +80,7 @@ const SignUpForm: React.FC = () => {
         }
     }
     return (
-        <div className="overflow-hidden pt-5 px-5 sm:px-8 bg-white mx-auto rounded-lg w-full sm:w-96 md:w-450px border border-gray-300">
+        <div className="overflow-hidden pt-5 px-5 sm:px-8 bg-white mx-auto w-full sm:w-96 md:w-450px border border-gray-300">
             <div className="text-center mb-6 pt-2.5">
                 <div onClick={closeModal}>
                     <Logo />
@@ -107,7 +118,7 @@ const SignUpForm: React.FC = () => {
                                 type="email"
                                 variant="jl"
                                 {...register("email", {
-                                    required: `${t("forms:email-required")}`,
+                                    required: `${t("Thông tin bắt buộc")}`,
                                     pattern: {
                                         value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                         message: t("forms:email-error"),
@@ -116,19 +127,27 @@ const SignUpForm: React.FC = () => {
                                 errorKey={errors.email?.message}
                             />
                             <PasswordInput
-                                placeholderKey="forms:label-password"
+                                placeholderKey="Mật khẩu"
                                 variant="jl"
                                 errorKey={errors.password?.message}
                                 {...register("password", {
-                                    required: `${t("forms:password-required")}`,
+                                    required: `${t("Thông tin bắt buộc")}`,
+                                    minLength: {
+                                        value: 8,
+                                        message:
+                                            "Mật khẩu phải có ít nhất 8 kí tự",
+                                    },
                                 })}
                             />
                             <PasswordInput
-                                placeholderKey="Password Confirmation"
+                                placeholderKey="Xác nhận mật khẩu"
                                 variant="jl"
-                                errorKey={errors.password?.message}
-                                {...register("password", {
-                                    required: `${t("forms:password-required")}`,
+                                errorKey={errors.confirmPassword?.message}
+                                {...register("confirmPassword", {
+                                    required: `${t("Thông tin bắt buộc")}`,
+                                    validate: (value) =>
+                                        value === newPassword.current ||
+                                        "Mật khẩu xác nhận chưa giống",
                                 })}
                             />
                         </>
