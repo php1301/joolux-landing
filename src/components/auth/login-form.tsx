@@ -50,7 +50,7 @@ const LoginForm: React.FC = () => {
     }
 
     return (
-        <div className="overflow-hidden bg-white mx-auto rounded-lg w-full sm:w-96 md:w-450px border border-gray-300 pt-5 px-5 sm:px-8">
+        <div className="overflow-hidden bg-white mx-auto w-full sm:w-96 md:w-450px border border-gray-300 pt-5 px-5 sm:px-8">
             <div className="text-center mb-6 pt-2.5">
                 <div onClick={closeModal}>
                     <Logo />
