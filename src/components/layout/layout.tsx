@@ -2,6 +2,7 @@ import { NextSeo } from "next-seo";
 import { Header } from "@components/layout/header/index";
 import { Footer } from "@components/layout/footer/index";
 import MobileNavigation from "@components/layout/mobile/mobile";
+import Search from "@components/common/search";
 import HeaderMenu from "@components/layout/header/header-menu";
 import { siteSettings } from "@settings/site-settings";
 
@@ -58,6 +59,7 @@ const Layout: React.FC = ({ children }) => {
             {children}
             <Footer />
             <MobileNavigation />
+            <Search />
         </div>
     );
 };
