@@ -11,6 +11,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
     errorKey?: string;
     type?: string;
+    labelClass?: string;
     shadow?: boolean;
     variant?: InputVariants;
 }
@@ -40,6 +41,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             shadow = false,
             type = "text",
             inputClassName,
+            labelClass = "mb-3",
             ...rest
         },
         ref,
@@ -65,7 +67,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 {labelKey && (
                     <label
                         htmlFor={name}
-                        className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer"
+                        className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer ${labelClass}`}
                     >
                         {t(labelKey)}
                     </label>
