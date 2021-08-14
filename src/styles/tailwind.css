@@ -605,7 +605,15 @@
 		background-color: #101010;
 		color: #fff;
 	}
-
+	.product-paginate li:not(.active, .break-me) a {
+		@apply text-sm inline-flex px-[6px] h-8 w-8 text-gray-600 bg-white border border-solid border-[#cfcfcf] leading-8 mx-1 justify-center items-center cursor-pointer;
+	}
+	.product-paginate .active a{
+		@apply text-sm inline-flex px-[6px] h-8 w-8 text-gray-600 bg-white border border-solid border-[#101010] leading-8 mx-1  justify-center items-center cursor-pointer;
+	}
+	  /* #react-paginate li {
+		display: inline-block;
+	  } */
 
 	/* Checkout form */
 	.step-tree-rel {
