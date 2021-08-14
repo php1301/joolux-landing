@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import { Logo } from "@components";
 import { SearchIcon } from "@components/icons";
 import { useUI } from "@contexts/ui.context";
+import { IoPersonCircleSharp } from "react-icons/io5";
 import { addActiveScroll } from "@utils/add-active-scroll";
 import { ROUTES } from "@utils/routes";
 
@@ -75,7 +76,7 @@ export const Header: React.FC = () => {
                                         onClick: handleLogin,
                                     }}
                                 >
-                                    {t("text-account")}
+                                    <IoPersonCircleSharp className="w-7 h-7 text-white" />
                                 </AuthMenu>
                             </div>
                             <CartButton
