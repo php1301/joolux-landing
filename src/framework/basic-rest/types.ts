@@ -15,6 +15,7 @@ export type CategoriesQueryOptionsType = {
 };
 export type ProductsQueryOptionsType = {
     type?: string;
+    page?: number;
     text?: string;
     category?: string;
     status?: string;
