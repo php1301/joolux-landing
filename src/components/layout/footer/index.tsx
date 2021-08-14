@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 // import {
 //     PankodIcon,
 //     GithubIcon,
@@ -8,6 +9,18 @@ import React from "react";
 // } from "@components/icons";
 
 export const Footer: React.FC = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<{ email: string }>({
+        mode: "all",
+    });
+
+    function onSubmit(input) {
+        // Router.push(ROUTES.ORDER);
+        console.log(input);
+    }
     return (
         <footer className="bg-black text-white text-[15px] footer-container">
             <div className="footer-wrapper">
@@ -391,19 +404,35 @@ export const Footer: React.FC = () => {
                             <div className="font-semibold mb-3">
                                 Đăng kí nhận thông tin
                             </div>
-                            <form action="#" className="flex w-full">
+                            <form
+                                onSubmit={handleSubmit(onSubmit)}
+                                className="flex w-full"
+                            >
                                 <label className="block w-full mb-0">
                                     <input
                                         type="text"
                                         name="email"
                                         defaultValue=""
-                                        className="footer-email-input w-full border-white bg-transparent text-white"
+                                        className="footer-email-input w-full border-white bg-transparent text-white h-10"
                                         placeholder="Nhập email của bạn"
+                                        {...register("email", {
+                                            required: "Thông tin bắt buộc",
+                                            pattern: {
+                                                // eslint-disable-next-line no-useless-escape
+                                                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                                message: "Email không hợp lệ",
+                                            },
+                                        })}
                                     />
+                                    {errors.email?.message && (
+                                        <p className="step-form-input-error">
+                                            {errors.email?.message}
+                                        </p>
+                                    )}
                                 </label>
                                 <button
                                     type="submit"
-                                    className="footer-submit-email-button flex-none px-7 bg-white text-black"
+                                    className="footer-submit-email-button flex-none px-7 bg-white text-black h-10"
                                     data-testid="email-subscription-button"
                                 >
                                     Đăng Ký
