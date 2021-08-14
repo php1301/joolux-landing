@@ -1,9 +1,10 @@
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticProps } from "next";
 import { Layout } from "@components/layout/layout";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ErrorInformation from "@components/404/error-information";
+import { GetStaticProps } from "next";
 
 export default function ErrorPage() {
-    return <h2>Error</h2>;
+    return <ErrorInformation />;
 }
 
 ErrorPage.Layout = Layout;
