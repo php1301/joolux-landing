@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GetStaticProps, NextPage } from "next";
-import { useAmp } from "next/amp";
+// import { useAmp } from "next/amp";
 export const config = {
     amp: false,
     hybrid: false,
 };
+import { useUI } from "@contexts/ui.context";
 import { Layout } from "@components/layout/layout";
-import { Container, Main, Cards, Subscription } from "@components";
+import { Container, Subscription } from "@components";
 import HeroBlock from "@containers/hero-block";
 import BrandBlock from "@containers/brand-block";
 import QualityBlock from "@containers/quality-block";
@@ -17,7 +18,14 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // Các pages sẽ không cần gắn types như :React.FC
 const Home: NextPage & { Layout: typeof Layout } = () => {
-    const isAmp = useAmp();
+    const { openModal, setModalView } = useUI();
+    useEffect(() => {
+        setModalView("NEWSLETTER_VIEW");
+        setTimeout(() => {
+            openModal();
+        }, 2000);
+    }, []);
+    // const isAmp = useAmp();
     return (
         <>
             <Subscription />
