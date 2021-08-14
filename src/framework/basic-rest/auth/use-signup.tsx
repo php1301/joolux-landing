@@ -7,6 +7,7 @@ import { useMutation } from "react-query";
 export interface SignUpInputType {
     email: string;
     password: string;
+    confirmPassword: string;
     name: string;
     phone: string;
     otp: string;
