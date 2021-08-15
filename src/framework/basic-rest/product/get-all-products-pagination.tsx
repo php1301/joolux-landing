@@ -6,19 +6,17 @@ import { useQuery } from "react-query";
 
 type PaginatedProducts = {
     products: Product[];
-    totalPages: {
-        totalPage: number;
-    };
 };
 
-const fetchProducts = async (page = 0) => {
-    const { data } = await http.get(API_ENDPOINTS.PRODUCTS);
-    const { data: totalPages } = await http.get(
-        "https://api.joolux-client.ml/admin/products/pages",
+const fetchProducts = async (page) => {
+    // const { data } = await http.get(API_ENDPOINTS.PRODUCTS);
+    const { data } = await http.get(
+        `https://api.joolux-client.ml/admin/products/get-overview?page=${page.toString()}`,
     );
+    console.log(data);
     return {
         products: data,
-        totalPages,
+        // mock: data2,
     };
 };
 
@@ -26,7 +24,7 @@ const useProductsPaginationQuery = (options: ProductsQueryOptionsType) => {
     return useQuery<PaginatedProducts, Error>(
         [API_ENDPOINTS.PRODUCTS, options],
         () => fetchProducts(options?.page),
-        { keepPreviousData: true, staleTime: 5000 },
+        // { keepPreviousData: true, staleTime: 5000 },
     );
 };
 
