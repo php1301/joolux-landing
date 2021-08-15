@@ -11,6 +11,7 @@ export interface SignUpInputType {
     name: string;
     phone: string;
     otp: string;
+    captcha: string;
 }
 async function signUp(input: SignUpInputType) {
     // return http.post(API_ENDPOINTS.LOGIN, input);
