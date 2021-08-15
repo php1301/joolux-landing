@@ -1,117 +1,42 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
+import ReactPaginate from "react-paginate";
+import { useProductsTotalPages } from "@framework/product/get-product-total-pages";
 
 interface IPagination {
-    totalPages?: number;
-    limit?: number;
+    setPageNum: any;
+    temp_total?: number;
 }
-const Pagination: FC<IPagination> = ({ totalPages = 20, limit = 5 }) => {
-    const [pageNum, setPageNum] = useState(1);
-    const onPageChange = (i) => {
-        setPageNum(i);
+const Pagination: FC<IPagination> = ({ setPageNum, temp_total }) => {
+    const onPageChange = ({ selected }) => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        setPageNum(() => {
+            return selected + 1;
+        });
     };
-    useEffect(() => {
-        const offset = (pageNum - 1) * limit;
-        console.log(offset);
-    }, [pageNum]);
-    // const totalPages = Math.ceil(totalRecords / limit);
-    const range = (from, to, step = 1) => {
-        let i = from;
-        const range = [];
-
-        while (i <= to) {
-            range.push(i);
-            i += step;
-        }
-
-        return range;
-    };
-    const pagesArray = range(1, totalPages);
-    console.log(pageNum, totalPages);
+    const { isFetching: isLoading, data, error } = useProductsTotalPages();
+    if (error) return <p>{error.message}</p>;
     return (
-        <div className="container flex justify-center mx-auto">
-            <ul className="flex">
-                <li>
-                    <button
-                        onClick={() => {
-                            setPageNum(1);
-                        }}
-                        className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100"
-                    >
-                        {"<<"}
-                    </button>
-                    <button
-                        onClick={() => {
-                            setPageNum((page) => (page > 1 ? page - 1 : page));
-                        }}
-                        className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100"
-                    >
-                        {"<"}
-                    </button>
-                </li>
-                {pagesArray?.length > 0 &&
-                    pagesArray.slice(pageNum - 1, pageNum + 3).map((i) => {
-                        return (
-                            <li key={i}>
-                                {i !== pageNum ? (
-                                    <button
-                                        onClick={() => {
-                                            onPageChange(i);
-                                        }}
-                                        className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 "
-                                    >
-                                        {i}
-                                    </button>
-                                ) : (
-                                    <button className="h-10 px-5 text-white bg-gray-600 border border-r-0 border-gray-600">
-                                        {i}
-                                    </button>
-                                )}
-                            </li>
-                        );
-                    })}
-                {pageNum + 4 < totalPages && (
-                    <li>
-                        <button className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100">
-                            {"..."}
-                        </button>
-                    </li>
-                )}
-                {/* <li>
-                    <button className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 ">
-                        1
-                    </button>
-                </li>
-                <li>
-                    <button className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100">
-                        2
-                    </button>
-                </li>
-                <li>
-                    <button className="h-10 px-5 text-white bg-gray-600 border border-r-0 border-gray-600 ">
-                        3
-                    </button>
-                </li> */}
-                <li>
-                    <button
-                        onClick={() => {
-                            setPageNum((page) =>
-                                page < totalPages ? page + 1 : page,
-                            );
-                        }}
-                        className="h-10 px-5 text-gray-600 bg-white border border-gray-600 hover:bg-gray-100"
-                    >
-                        {">"}
-                    </button>
-                    <button
-                        onClick={() => {
-                            setPageNum(totalPages);
-                        }}
-                        className="h-10 px-5 text-gray-600 bg-white border border-gray-600 hover:bg-gray-100"
-                    >
-                        {">>"}
-                    </button>
-                </li>
-            </ul>
+        <div className="container flex justify-start mx-auto product-paginate mt-6">
+            <ReactPaginate
+                previousLabel={"<"}
+                previousLinkClassName="inline-flex h-8 w-8 text-gray-600 bg-white border border-solid border-[#cfcfcf] leading-8 mx-1 justify-center items-center cursor-pointer text-sm"
+                nextLinkClassName="inline-flex h-8 w-8 text-gray-600 bg-white border border-solid border-[#cfcfcf] leading-8 mx-1 justify-center items-center cursor-pointer text-sm"
+                nextLabel={">"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={
+                    !isLoading ? data?.totalPages?.totalPage : temp_total
+                }
+                // limit={10}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={3}
+                // pageLinkClassName="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100"
+                // activeLinkClassName="h-10 px-5 text-white bg-gray-600 border border-r-0 border-gray-600"
+                onPageChange={onPageChange}
+                breakLinkClassName="text-sm inline-flex px-[6px] h-8 w-8 text-gray-600 bg-white leading-8 mx-1 justify-center items-center"
+                containerClassName={"flex w-1/2 items-center"}
+                activeClassName={"active"}
+            />
         </div>
     );
 };
