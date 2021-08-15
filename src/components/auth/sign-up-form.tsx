@@ -12,6 +12,7 @@ import { SiFacebook } from "react-icons/si";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
+import ReCaptchaComponent from "./captcha-validate";
 const SignUpForm: React.FC = () => {
     const [step, setStep] = useState(1);
     const [initialTime, setInitialTime] = useState(0);
@@ -25,6 +26,8 @@ const SignUpForm: React.FC = () => {
         formState: { errors },
         getValues,
         watch,
+        setValue,
+        setError,
     } = useForm<SignUpInputType>({
         mode: "all",
     });
@@ -64,8 +67,17 @@ const SignUpForm: React.FC = () => {
         confirmPassword,
         phone,
         otp,
+        captcha,
     }: SignUpInputType) {
         if (step !== 1) {
+            if (!getValues("captcha")) {
+                setError("captcha", {
+                    type: "manual",
+                    message: "Vui lòng xác nhận Captcha",
+                });
+                console.log(errors);
+                return;
+            }
             signUp({
                 name,
                 email,
@@ -73,6 +85,7 @@ const SignUpForm: React.FC = () => {
                 confirmPassword,
                 phone,
                 otp,
+                captcha,
             });
             console.log(name, email, password, "sign form values");
         } else {
@@ -159,7 +172,7 @@ const SignUpForm: React.FC = () => {
                                     placeholderKey="Nhập số điện thoại"
                                     type="text"
                                     variant="jl"
-                                    inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white"
+                                    inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white w-48"
                                     {...register("phone", {
                                         required: "Thông tin bắt buộc",
                                         pattern: {
@@ -191,18 +204,27 @@ const SignUpForm: React.FC = () => {
                                     </span>
                                 </Button>
                             </div>
-                            <div className="flex flex-col sm:flex-row items-start justify-between">
+                            <div className="flex flex-col sm:flex-row items-start justify-between w-">
                                 <Input
                                     placeholderKey="Nhập mã OTP"
                                     type="text"
                                     variant="jl"
-                                    inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white"
+                                    inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white w-48"
                                     {...register("otp", {
                                         required: "Thông tin bắt buộc",
                                     })}
                                     errorKey={errors.otp?.message}
                                 />
                             </div>
+                            <ReCaptchaComponent
+                                setValue={setValue}
+                                error={errors}
+                            />
+                            {errors?.captcha?.message && (
+                                <p className="step-form-input-error">
+                                    {errors?.captcha?.message}
+                                </p>
+                            )}
                         </>
                     )}
                     {step === 1 ? (
@@ -262,32 +284,37 @@ const SignUpForm: React.FC = () => {
                     )}
                 </div>
             </form>
-            <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
-                <hr className="w-full border-gray-300" />
-                <span className="absolute -top-2.5 px-2 bg-white">
-                    {t("common:text-or")}
-                </span>
-            </div>
-            <Button
-                loading={isLoading}
-                disabled={isLoading}
-                variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
-                // onClick={handelSocialLogin}
-            >
-                <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
-                {t("common:text-login-with-facebook")}
-            </Button>
-            <Button
-                loading={isLoading}
-                disabled={isLoading}
-                variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
-                // onClick={handelSocialLogin}
-            >
-                <FcGoogle className="text-sm sm:text-base me-1.5" />
-                {t("common:text-login-with-google")}
-            </Button>
+            {step === 1 && (
+                <>
+                    <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
+                        <hr className="w-full border-gray-300" />
+                        <span className="absolute -top-2.5 px-2 bg-white">
+                            {t("common:text-or")}
+                        </span>
+                    </div>
+
+                    <Button
+                        loading={isLoading}
+                        disabled={isLoading}
+                        variant="jl"
+                        className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                        // onClick={handelSocialLogin}
+                    >
+                        <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
+                        {t("common:text-login-with-facebook")}
+                    </Button>
+                    <Button
+                        loading={isLoading}
+                        disabled={isLoading}
+                        variant="jl"
+                        className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                        // onClick={handelSocialLogin}
+                    >
+                        <FcGoogle className="text-sm sm:text-base me-1.5" />
+                        {t("common:text-login-with-google")}
+                    </Button>
+                </>
+            )}
             <p className="text-[9.8px] md:text-[9px] text-body mt-2 mb-8 sm:mb-10 text-center">
                 By joining into Joolux, you agree to the{" "}
                 <Link
