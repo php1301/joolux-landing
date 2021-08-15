@@ -3,8 +3,8 @@ import ContentLoader from "react-content-loader";
 const ProductCardLoader = (props: any) => (
     <ContentLoader
         speed={2}
-        width={334}
-        height={545}
+        width={254}
+        height={254}
         viewBox="0 0 334 545"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
