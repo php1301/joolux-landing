@@ -3,12 +3,12 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import NextNProgress from "nextjs-progressbar";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { Hydrate } from "react-query/hydration";
 import { Provider } from "react-redux";
 import { ManagedUIContext } from "@contexts/ui.context";
 import ManagedModal from "@components/common/modal/managed-modal";
 import store from "@redux/store";
-
 import { ToastContainer } from "react-toastify";
 // import "tailwindcss/tailwind.css";
 import { AnimatePresence } from "framer-motion";
@@ -70,8 +70,12 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                                         stopDelayMs={200}
                                         height={3}
                                         showOnShallow={true}
-                                        options={{ easing: "ease", speed: 500 }}
+                                        options={{
+                                            easing: "ease",
+                                            speed: 500,
+                                        }}
                                     />
+                                    <ReactQueryDevtools initialIsOpen={false} />
                                     <Component
                                         {...pageProps}
                                         key={router.route}
