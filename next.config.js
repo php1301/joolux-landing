@@ -36,6 +36,9 @@ const config = {
     publicRuntimeConfig: {
         localeSubpaths,
     },
+    images: {
+        domains: ["assets.vercel.com", "old.joolux.com"],
+    },
 };
 
 module.exports = withPlugins([[withBundleAnalyzer, withPWA]], config);
