@@ -11,7 +11,7 @@ interface IProductProps {
     className?: string;
     contactClassName?: string;
     imageContentClassName?: string;
-    variant?: "grid" | "gridSlim" | "list" | "listSmall";
+    variant?: "grid" | "gridSlim" | "list" | "listSmall" | "jl";
     imgWidth?: number | string;
     imgHeight?: number | string;
     imgLoading?: "eager" | "lazy";
@@ -23,12 +23,11 @@ const ProductCard: FC<IProductProps> = ({
     contactClassName = "",
     imageContentClassName = "",
     variant = "list",
-    imgWidth = 340,
-    imgHeight = 440,
+    imgWidth = 254,
+    imgHeight = 254,
     imgLoading,
 }) => {
     const router = useRouter();
-
     // Cách làm skeletion image
     const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
     const { price, basePrice, discount } = usePrice({
@@ -49,7 +48,10 @@ const ProductCard: FC<IProductProps> = ({
     return (
         <div
             className={cn(
-                "group box-border overflow-hidden flex rounded-md cursor-pointer",
+                {
+                    "group box-border overflow-hidden flex rounded-md cursor-pointer px-3 mb-6":
+                        variant !== "jl",
+                },
                 {
                     "pe-0 pb-2 lg:pb-3 flex-col items-start bg-white transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product":
                         variant === "grid",
@@ -59,40 +61,46 @@ const ProductCard: FC<IProductProps> = ({
                         variant === "listSmall",
                     "flex-row items-center transition-transform ease-linear bg-gray-200 pe-2 lg:pe-3 2xl:pe-4":
                         variant === "list",
+                    "h-full pb-4 border-b border-[#cfcfcf] rounded-none":
+                        variant === "jl",
                 },
                 className,
             )}
-            onClick={navigateToProductPage}
-            role="button"
             title={product?.name}
         >
             <div
                 className={cn(
-                    "flex",
                     {
-                        "mb-3 md:mb-3.5": variant === "grid",
-                        "mb-3 md:mb-3.5 pb-0": variant === "gridSlim",
-                        "flex-shrink-0 w-32 sm:w-44 md:w-36 lg:w-44":
+                        "flex mb-3 md:mb-3.5": variant === "grid",
+                        "flex mb-3 md:mb-3.5 pb-0": variant === "gridSlim",
+                        "flex flex-shrink-0 w-32 sm:w-44 md:w-36 lg:w-44":
                             variant === "listSmall",
                     },
                     imageContentClassName,
                 )}
             >
                 <Image
-                    src={product?.image?.thumbnail ?? placeholderImage}
+                    src={
+                        product?._media_image
+                            ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${product?._media_image}`
+                            : placeholderImage
+                    }
                     width={imgWidth}
                     height={imgHeight}
                     loading={imgLoading}
                     quality={100}
                     alt={product?.name || "Product Image"}
-                    className={cn("bg-gray-300 object-cover rounded-s-md", {
-                        "w-full rounded-md transition duration-200 ease-in group-hover:rounded-b-none":
-                            variant === "grid",
-                        "rounded-md transition duration-150 ease-linear transform group-hover:scale-105":
-                            variant === "gridSlim",
-                        "rounded-s-md transition duration-200 ease-linear transform group-hover:scale-105":
-                            variant === "list",
-                    })}
+                    className={cn(
+                        "bg-gray-300 object-cover rounded-s-md cursor-pointer",
+                        {
+                            "w-full rounded-md transition duration-200 ease-in group-hover:rounded-b-none":
+                                variant === "grid",
+                            "rounded-md transition duration-150 ease-linear transform group-hover:scale-105":
+                                variant === "gridSlim",
+                            "rounded-s-md transition duration-200 ease-linear transform group-hover:scale-105":
+                                variant === "list",
+                        },
+                    )}
                 />
             </div>
             <div
@@ -107,7 +115,7 @@ const ProductCard: FC<IProductProps> = ({
                     contactClassName,
                 )}
             >
-                <h2
+                {/* <h2
                     className={cn("text-heading font-semibold truncate mb-1", {
                         "text-sm md:text-base": variant === "grid",
                         "md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg":
@@ -119,26 +127,53 @@ const ProductCard: FC<IProductProps> = ({
                     })}
                 >
                     {product?.name}
-                </h2>
-                {product?.description && (
+                </h2> */}
+                <a
+                    className="text-15px text-primary hover:text-secondary transition-color duration-200"
+                    onClick={navigateToProductPage}
+                    role="button"
+                >
+                    <h6 className="typo-h6 font-semibold truncate">
+                        {product?.brand}
+                    </h6>
+                    <div className="font-light truncate font-[15px]">
+                        {product?.name}
+                    </div>
+                </a>
+                {/* {product?.description && (
                     <p className="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
                         {product?.description}
                     </p>
-                )}
-                <div
+                )} */}
+                {/* <div
                     className={`text-heading font-semibold text-sm sm:text-base mt-1.5 space-s-2 ${
                         variant === "grid"
                             ? "lg:text-lg lg:mt-2.5"
                             : "sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3"
                     }`}
-                >
-                    <span className="inline-block">{price}</span>
+                > */}
+                {/* <span className="inline-block">{price}</span>
                     {discount && (
                         <del className="sm:text-base font-normal text-gray-800">
                             {basePrice}
                         </del>
-                    )}
+                    )} */}
+                <div className="flex flex-wrap items-center">
+                    <div className="text-15px font-semibold mr-2">
+                        {product?.price}&nbsp;₫
+                    </div>
                 </div>
+                <div className="text-xs font-extralight mt-2 truncate">
+                    {/* {D: 22 cm x R: 6 cm x C: 17 cm} */}
+                    {product?.TX_cao
+                        ? `D:${product?.TX_Dai} x R:${product?.TX_rong} x C:${product?.TX_cao}`
+                        : product?.size
+                        ? `Cỡ giày: ${product?.size}`
+                        : product?.DH_DuongKinhMat
+                        ? `Kích thước mặt: ${product?.DH_DuongKinhMat}`
+                        : ""}
+                </div>
+                {/* </div> */}
             </div>
         </div>
     );
