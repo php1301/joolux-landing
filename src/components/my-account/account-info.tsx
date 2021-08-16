@@ -1,10 +1,14 @@
 /* eslint-disable no-useless-escape */
 import { Button } from "@components/ui/button";
 import { motion } from "framer-motion";
+import ContentFeedLoader from "@components/ui/loaders/content-feed-loader";
 import { fadeInTop } from "@utils/motion/fade-in-top";
 import { useTranslation } from "next-i18next";
+import { useUserProfileQuery } from "@framework/user/get-user-profile";
 const AccountInfo: React.FC<{ setPage: any }> = ({ setPage }) => {
     const { t } = useTranslation();
+    const { data, error, isLoading } = useUserProfileQuery();
+    console.log(data);
     return (
         <motion.div
             layout
@@ -18,77 +22,94 @@ const AccountInfo: React.FC<{ setPage: any }> = ({ setPage }) => {
             <h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
                 {t("common:text-account-details")}
             </h2>
-            <div className="w-full mx-auto flex flex-col justify-center ">
-                <div className="flex flex-col space-y-4 sm:space-y-5">
-                    <div className="flex flex-col sm:flex-row sm:space-s-3 space-y-4 sm:space-y-0">
-                        <div className="w-full sm:w-1/2 mr-3">
-                            <div
-                                className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
-                            >
-                                {t("forms:label-first-name")}
+            {error && <p>{error.message}</p>}
+            {isLoading ? (
+                <ContentFeedLoader />
+            ) : (
+                <div className="w-full mx-auto flex flex-col justify-center ">
+                    <div className="flex flex-col space-y-4 sm:space-y-5">
+                        <div className="flex flex-col sm:flex-row sm:space-s-3 space-y-4 sm:space-y-0">
+                            <div className="w-full sm:w-1/2 mr-3">
+                                <div
+                                    className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
+                                >
+                                    {t("forms:label-first-name")}
+                                </div>
+                                <p>{data?.userProfile?.firstname}</p>
                             </div>
-                            <p>Phúc</p>
-                        </div>
-                        <div className="w-full sm:w-1/2">
-                            <div
-                                className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
-                            >
-                                {t("forms:label-last-name")}
+                            <div className="w-full sm:w-1/2">
+                                <div
+                                    className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
+                                >
+                                    {t("forms:label-last-name")}
+                                </div>
+                                <p>{data?.userProfile?.lastname}</p>
                             </div>
-                            <p>Phạm</p>
                         </div>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:space-s-3 space-y-4 sm:space-y-0">
-                        <div className="w-full sm:w-1/2 mr-3">
-                            <div
-                                className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
-                            >
-                                {t("forms:label-phone")}
+                        <div className="flex flex-col sm:flex-row sm:space-s-3 space-y-4 sm:space-y-0">
+                            <div className="w-full sm:w-1/2 mr-3">
+                                <div
+                                    className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
+                                >
+                                    {t("forms:label-phone")}
+                                </div>
+                                <p>{data?.userProfile?.phone}</p>
                             </div>
-                            <p>090807060504</p>
-                        </div>
-                        <div className="w-full sm:w-1/2">
-                            <div
-                                className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
-                            >
-                                {t("Địa chỉ")}
+                            <div className="w-full sm:w-1/2">
+                                <div
+                                    className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
+                                >
+                                    {t("Địa chỉ")}
+                                </div>
+                                <p>{`${
+                                    data?.userProfile?.address
+                                        ? data.userProfile?.address + " "
+                                        : ""
+                                }${
+                                    data?.userProfile?.district
+                                        ? data.userProfile?.district + " "
+                                        : ""
+                                }${
+                                    data?.userProfile?.city
+                                        ? data.userProfile.city + " "
+                                        : ""
+                                }`}</p>
                             </div>
-                            <p>123 Điện Biên Phủ Quận 1</p>
                         </div>
-                    </div>
-                    {/* <div className="relative flex flex-col"> */}
-                    <div className="flex flex-col sm:flex-row sm:space-s-3 space-y-4 sm:space-y-0">
-                        <div className="w-full sm:w-1/2 mr-3">
-                            <div
-                                className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
-                            >
-                                {t("common:text-gender")}
+                        {/* <div className="relative flex flex-col"> */}
+                        <div className="flex flex-col sm:flex-row sm:space-s-3 space-y-4 sm:space-y-0">
+                            <div className="w-full sm:w-1/2 mr-3">
+                                <div
+                                    className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
+                                >
+                                    {t("common:text-gender")}
+                                </div>
+                                <p>{data?.userProfile?.gender}</p>
                             </div>
-                            <p>Nam</p>
-                        </div>
-                        <div className="w-full sm:w-1/2">
-                            <div
-                                className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
-                            >
-                                {t("forms:label-email-star")}
+                            <div className="w-full sm:w-1/2">
+                                <div
+                                    className={`block text-gray-600 font-semibold text-sm leading-none cursor-pointer border-solid border-b border-[#101010] pb-2 mb-3`}
+                                >
+                                    {t("forms:label-email-star")}
+                                </div>
+                                <p>{data?.userProfile?.email}</p>
                             </div>
-                            <p>abc@gmail.com</p>
                         </div>
-                    </div>
-                    <div className="relative">
-                        <Button
-                            type="button"
-                            onClick={() => {
-                                setPage(2);
-                            }}
-                            variant="jl"
-                            className="h-12 mt-3 w-full sm:w-40"
-                        >
-                            Sửa thông tin
-                        </Button>
+                        <div className="relative">
+                            <Button
+                                type="button"
+                                onClick={() => {
+                                    setPage(2);
+                                }}
+                                variant="jl"
+                                className="h-12 mt-3 w-full sm:w-40"
+                            >
+                                Sửa thông tin
+                            </Button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </motion.div>
     );
 };
