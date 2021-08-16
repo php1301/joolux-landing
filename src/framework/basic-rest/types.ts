@@ -1,5 +1,17 @@
 import { QueryKey } from "react-query";
 
+export type UserProfile = {
+    firstname: string;
+    lastname: string;
+    address: string;
+    city: string;
+    district: string;
+    phone: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    gender: string;
+};
 export type CollectionsQueryOptionsType = {
     text?: string;
     collection?: string;
