@@ -8,6 +8,7 @@ export const config = {
 import { useUI } from "@contexts/ui.context";
 import { Layout } from "@components/layout/layout";
 import { Container, Subscription } from "@components";
+import { useRouter } from "next/router";
 import HeroBlock from "@containers/hero-block";
 import BrandBlock from "@containers/brand-block";
 import QualityBlock from "@containers/quality-block";
@@ -18,8 +19,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 // Các pages sẽ không cần gắn types như :React.FC
 const Home: NextPage & { Layout: typeof Layout } = () => {
-    const { openModal, setModalView } = useUI();
+    const { openModal, setModalView, unauthorize, isAuthorized } = useUI();
+    const { query } = useRouter();
     useEffect(() => {
+        if (query.logoutExpired && isAuthorized) {
+            unauthorize();
+        }
         setModalView("NEWSLETTER_VIEW");
         setTimeout(() => {
             openModal();
