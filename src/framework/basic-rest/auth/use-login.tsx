@@ -1,6 +1,8 @@
 import { useUI } from "@contexts/ui.context";
-// import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
-// import http from "@framework/utils/http";
+import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import http from "@framework/utils/http";
+// import Router from "next/router";
+import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useMutation } from "react-query";
 
@@ -9,25 +11,61 @@ export interface LoginInputType {
     password: string;
     remember_me: boolean;
 }
-async function login(input: LoginInputType) {
-    // return http.post(API_ENDPOINTS.LOGIN, input);
+export interface LoginResponseType {
+    accessToken?: string;
+    refreshToken?: string;
+}
+async function login(input: LoginInputType): Promise<LoginResponseType> {
+    const {
+        data: { accessToken, refreshToken },
+    } = await http.post(
+        `https://api.joolux-client.ml${API_ENDPOINTS.LOGIN}`,
+        input,
+    );
     return {
-        token: `${input.email}.${input.remember_me}`
-            .split("")
-            .reverse()
-            .join(""),
+        // token: `${input.email}.${input.remember_me}`
+        //     .split("")
+        //     .reverse()
+        //     .join(""),
+        // accessToken: "",
+        // refreshToken: "",
+        accessToken,
+        refreshToken,
     };
 }
 export const useLoginMutation = () => {
     const { authorize, closeModal } = useUI();
-    return useMutation((input: LoginInputType) => login(input), {
-        onSuccess: (data) => {
-            Cookies.set("auth_token", data.token);
-            authorize();
-            closeModal();
+    // return useMutation<any, Error, LoginInputType>(
+    return useMutation<LoginResponseType, Error, LoginInputType>(
+        async (input: LoginInputType) => login(input),
+        {
+            onSuccess: (data: LoginResponseType) => {
+                toast("Đăng nhập thành công", {
+                    type: "success",
+                    progressClassName: "fancy-progress-bar",
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                });
+                Cookies.set("access_token", data.accessToken);
+                Cookies.set("refresh_token", data.refreshToken);
+                authorize();
+                closeModal();
+            },
+            onError: (error: Error) => {
+                console.log(error.message, "Sign In error");
+                toast("Có lỗi đăng nhập", {
+                    type: "error",
+                    progressClassName: "fancy-progress-bar",
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                });
+            },
         },
-        onError: (data) => {
-            console.log(data, "login error response");
-        },
-    });
+    );
 };
