@@ -1,8 +1,14 @@
 import Cookies from "js-cookie";
 
-export const getToken = () => {
+export const getAccessToken = () => {
     if (typeof window === undefined) {
         return null;
     }
-    return Cookies.get("auth_token");
+    return Cookies.get("access_token");
+};
+export const getRefreshToken = () => {
+    if (typeof window === undefined) {
+        return null;
+    }
+    return Cookies.get("refresh_token");
 };
