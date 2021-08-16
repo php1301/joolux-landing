@@ -10,6 +10,7 @@ export interface LoginInputType {
     password: string;
     remember_me: boolean;
 }
+
 async function logout() {
     // return http.post(API_ENDPOINTS.LOGIN, input);
     return {
@@ -21,7 +22,7 @@ export const useLogoutMutation = () => {
     const { unauthorize } = useUI();
     return useMutation(() => logout(), {
         onSuccess: (_data) => {
-            Cookies.remove("auth_token");
+            Cookies.remove("access_token");
             unauthorize();
             Router.push("/");
         },
