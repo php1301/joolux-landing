@@ -1,5 +1,5 @@
 import React from "react";
-import { getToken } from "@framework/utils/get-token";
+import { getAccessToken } from "@framework/utils/get-token";
 import { CartProvider } from "./cart/cart.context";
 
 export interface State {
@@ -16,7 +16,7 @@ export interface State {
 }
 
 const initialState = {
-    isAuthorized: getToken() ? true : false,
+    isAuthorized: getAccessToken() ? true : false,
     displaySidebar: false,
     displayFilter: false,
     displayModal: false,
