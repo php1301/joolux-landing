@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Logo } from "@components/ui/logo";
 import { useUI } from "@contexts/ui.context";
 import { useSignUpMutation, SignUpInputType } from "@framework/auth/use-signup";
+import { useGetOtpMutation } from "@framework/auth/use-get-otp";
 import { FcGoogle } from "react-icons/fc";
 import { SiFacebook } from "react-icons/si";
 import Link from "@components/ui/link";
@@ -19,6 +20,7 @@ const SignUpForm: React.FC = () => {
     const [startTimer, setStartTimer] = useState(false);
     const { t } = useTranslation();
     const { mutate: signUp, isLoading } = useSignUpMutation();
+    const { mutate: getOtp } = useGetOtpMutation();
     const { setModalView, openModal, closeModal } = useUI();
     const {
         register,
@@ -28,6 +30,7 @@ const SignUpForm: React.FC = () => {
         watch,
         setValue,
         setError,
+        clearErrors,
     } = useForm<SignUpInputType>({
         mode: "all",
     });
@@ -35,9 +38,21 @@ const SignUpForm: React.FC = () => {
     newPassword.current = watch("password", "");
     const phoneNumber = getValues("phone");
     const handleGetOtp = () => {
-        if (phoneNumber && !errors.phone?.message) {
-            setInitialTime(5);
-            setStartTimer(true);
+        if (!getValues("captcha")) {
+            setError("captcha", {
+                type: "manual",
+                message: "Vui lòng xác nhận Captcha",
+            });
+            console.log(errors);
+        } else {
+            clearErrors("captcha");
+            if (phoneNumber && !errors.phone?.message) {
+                const recaptcha = getValues("captcha");
+                const phone = `84${getValues("phone")}`;
+                setInitialTime(5);
+                setStartTimer(true);
+                getOtp({ recaptcha, phone });
+            }
         }
     };
 
@@ -70,14 +85,6 @@ const SignUpForm: React.FC = () => {
         captcha,
     }: SignUpInputType) {
         if (step !== 1) {
-            if (!getValues("captcha")) {
-                setError("captcha", {
-                    type: "manual",
-                    message: "Vui lòng xác nhận Captcha",
-                });
-                console.log(errors);
-                return;
-            }
             signUp({
                 name,
                 email,
@@ -86,6 +93,7 @@ const SignUpForm: React.FC = () => {
                 phone,
                 otp,
                 captcha,
+                sessionInfo: localStorage.getItem("session_otp"),
             });
             console.log(name, email, password, "sign form values");
         } else {
@@ -212,6 +220,11 @@ const SignUpForm: React.FC = () => {
                                     inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white w-48"
                                     {...register("otp", {
                                         required: "Thông tin bắt buộc",
+                                        minLength: {
+                                            value: 6,
+                                            message:
+                                                "Không đúng định dạng mã OTP",
+                                        },
                                     })}
                                     errorKey={errors.otp?.message}
                                 />
