@@ -19,52 +19,69 @@ export const homeOneBanner = {
 export const homeOneHeroBanner = [
     {
         id: 1,
-        title: "winter collection",
-        slug: "winter-collection",
+        title: "Journey Of Luxury",
+        // slug: "winter-collection",
         image: {
             mobile: {
-                url: "/assets/images/hero/banner-mobile-1.jpg",
+                url: "/assets/images/hero/banner-1-jl.jpg",
                 width: 480,
                 height: 275,
             },
             desktop: {
-                url: "/assets/images/hero/banner-1.jpg",
-                width: 1800,
-                height: 800,
+                url: "/assets/images/hero/banner-1-jl.jpg",
+                width: 1550,
+                height: 550,
             },
         },
     },
     {
         id: 2,
-        title: "gift collection",
-        slug: "gift-collection",
+        title: "Giải pháp Entrupy",
+        slug: "kiem-dinh-hang-hieu?tab=service",
         image: {
             mobile: {
-                url: "/assets/images/hero/banner-mobile-2.jpg",
+                url: "/assets/images/hero/banner-2-jl.jpg",
                 width: 480,
                 height: 275,
             },
             desktop: {
-                url: "/assets/images/hero/banner-2.jpg",
-                width: 1800,
-                height: 800,
+                url: "/assets/images/hero/banner-2-jl.jpg",
+                width: 1550,
+                height: 550,
             },
         },
     },
     {
         id: 3,
-        title: "party collection",
-        slug: "party-collection",
+        title: "Kí gửi hàng hiệu",
+        slug: "ki-gui-hang-hieu",
         image: {
             mobile: {
-                url: "/assets/images/hero/banner-mobile-3.jpg",
+                url: "/assets/images/hero/banner-3-jl.jpg",
                 width: 480,
                 height: 275,
             },
             desktop: {
-                url: "/assets/images/hero/banner-3.jpg",
-                width: 1800,
-                height: 800,
+                url: "/assets/images/hero/banner-3-jl.jpg",
+                width: 1550,
+                height: 550,
+            },
+        },
+    },
+    {
+        id: 4,
+        title: "Chăm sóc hàng hiệu",
+        slug: "cham-soc-hang-hieu",
+        image: {
+            mobile: {
+                url: "/assets/images/hero/banner-4-jl.jpg",
+                width: 480,
+                height: 275,
+            },
+            desktop: {
+                url: "/assets/images/hero/banner-4-jl.jpg",
+                width: 1550,
+                height: 550,
             },
         },
     },
