@@ -9,7 +9,9 @@ import { IoClose } from "react-icons/io5";
 
 const data = {
     title: "common:text-subscribe-heading",
-    description: "common:text-subscribe-description",
+    // description: "common:text-subscribe-description",
+    description:
+        "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",
     buttonText: "common:button-subscribe",
 };
 
@@ -40,14 +42,14 @@ export const Subscription: React.FC<Props> = ({
         console.log(input, "data");
     }
     const closeBtnClasses = {
-        center: "top-4 end-4",
+        center: "top-1 end-1",
         bottom: "top-1/4 start-1/2 transform -translate-y-1/2 -translate-x-1/2",
     };
 
     return (
         show && (
             <div
-                className={`${className} flex flex-col xl:flex-row justify-center xl:justify-between items-center rounded-lg bg-gray-200 py-10 md:py-14 lg:py-16 relative`}
+                className={`${className} flex flex-col md:flex-row justify-center md:justify-between items-center bg-[#e7e7e7] py-5 md:py-8 lg:py-8 relative max-h-[128px]`}
             >
                 <button
                     onClick={() => {
@@ -55,26 +57,26 @@ export const Subscription: React.FC<Props> = ({
                     }}
                     aria-label="Close panel"
                     className={cn(
-                        "absolute z-10 inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-transparent shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md",
+                        "absolute  z-10 inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 bg-transparent shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md",
                         closeBtnClasses["center"],
                     )}
                 >
                     <IoClose className="text-xl" />
                 </button>
-                <div className="-mt-1.5 lg:-mt-2 xl:-mt-0.5 text-center xl:text-start mb-7 md:mb-8 lg:mb-9 xl:mb-0">
-                    <Text
+                <div className="-mt-1.5 lg:-mt-2 xl:-mt-0.5 text-start mb-7 md:mb-4 lg:mb-5 xl:mb-0 lg:w-1/2">
+                    {/* <Text
                         variant="mediumHeading"
                         className="mb-2 md:mb-2.5 lg:mb-3 xl:mb-3.5"
                     >
                         {t(`${title}`)}
-                    </Text>
-                    <p className="text-body text-xs md:text-sm leading-6 md:leading-7">
+                    </Text> */}
+                    <h6 className="text-body text-xs font-normal md:text-sm leadin-5 typo-h6">
                         {t(`${description}`)}
-                    </p>
+                    </h6>
                 </div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="flex-shrink-0 w-full sm:w-96 md:w-[545px]"
+                    className="flex-shrink-0 w-full sm:w-96 md:w-[475px]"
                     noValidate
                 >
                     <div className="flex flex-col sm:flex-row items-start justify-end">
@@ -83,7 +85,7 @@ export const Subscription: React.FC<Props> = ({
                             type="email"
                             variant="jl"
                             className="w-full"
-                            inputClassName="px-4 lg:px-7 h-10 lg:h-12 text-center sm:text-start bg-white"
+                            inputClassName="px-4 lg:px-7 h-10 lg:h-12 text-center sm:text-start bg-white max-w-[400px]"
                             {...register("subscription_email", {
                                 required: "forms:email-required",
                                 pattern: {

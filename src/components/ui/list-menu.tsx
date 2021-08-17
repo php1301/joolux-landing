@@ -6,7 +6,7 @@ const ListMenu = ({ dept, data, hasSubMenu, menuIndex }: any) => {
     return (
         <li className="relative">
             <Link
-                href={data.path}
+                href={data?.path}
                 className="flex items-center justify-between py-2 ps-5 xl:ps-7 pe-3 xl:pe-3.5 hover:text-heading hover:bg-gray-300"
             >
                 {t(data.label)}

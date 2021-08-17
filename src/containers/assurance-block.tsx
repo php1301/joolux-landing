@@ -1,15 +1,15 @@
 import React, { FC } from "react";
 
 const AssuranceBlock: FC = () => (
-    <div className="max-w-[1234px] mx-auto pt-4">
-        <div className="border-t border-gray-200 mb-8 md:mb-14" />
+    <div className="max-w-[1234px] mx-auto pt-4 px-8">
+        <div className="border-t border-[#e7e7e7] mb-8 md:mb-14" />
         <div className="flex flex-wrap">
             <div className="w-full lg:w-1/4 px-4 mb-10">
                 <h2 className="h2-branding font-brand text-black">
                     Joolux cam kết luôn hỗ trợ bạn
                 </h2>
             </div>
-            <div className="w-full md:w-1/3 lg:w-1/4 px-4 flex lg:justify-end mb-10">
+            <div className="w-full smJl:w-1/3 lg:w-1/4 px-4 flex lg:justify-end mb-10">
                 <div className="icon-container">
                     <div className="mb-2 mr-4 text-black w-[10%]">
                         <span className="createIcon">
@@ -73,7 +73,7 @@ const AssuranceBlock: FC = () => (
                     </div>
                 </div>
             </div>
-            <div className="w-full md:w-1/3 lg:w-1/4 px-4 flex lg:justify-end mb-10">
+            <div className="w-full smJl:w-1/3 lg:w-1/4 px-4 flex lg:justify-end mb-10">
                 <div className="icon-container">
                     <div className="mb-2 mr-4 text-black w-[10%]">
                         <span className="createIcon">
@@ -181,7 +181,7 @@ const AssuranceBlock: FC = () => (
                     </div>
                 </div>
             </div>
-            <div className="w-full md:w-1/3 lg:w-1/4 px-4 flex lg:justify-end sm:mb-10 mb-4">
+            <div className="w-full smJl:w-1/3 lg:w-1/4 px-4 flex lg:justify-end smJl:mb-10 mb-4">
                 <div className="icon-container">
                     <div className="mb-2 mr-4 text-black w-[10%]">
                         <span className="createIcon">

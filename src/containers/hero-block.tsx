@@ -7,7 +7,7 @@ import { SwiperSlide } from "swiper/react";
 
 const breakpoints = {
     "1500": {
-        slidesPerView: 2,
+        slidesPerView: 1,
     },
     "0": {
         slidesPerView: 1,
@@ -17,7 +17,7 @@ const breakpoints = {
 const HeroBlock: React.FC = () => {
     const { width } = useWindowSize();
     return (
-        <div className="heroBannerOne relative max-w-[1920px] mb-5 md:mb-12 lg:mb-14 2xl:mb-16 mx-auto overflow-hidden px-4 md:px-8 2xl:px-0">
+        <div className="heroBannerOne relative max-w-[1920px] mb-5 md:mb-12 lg:mb-14 2xl:mb-16 mx-auto overflow-hidden px-0">
             <Carousel
                 breakpoints={breakpoints}
                 centeredSlides={width < 1500 ? false : true}
@@ -35,7 +35,8 @@ const HeroBlock: React.FC = () => {
                     >
                         <BannerCard
                             banner={banner}
-                            href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+                            href={`${ROUTES.SERVICES}/${banner.slug}`}
+                            variant="default"
                         />
                     </SwiperSlide>
                 ))}

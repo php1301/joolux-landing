@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
 const QualityBlock: FC = () => (
-    <div className="mx-auto max-w-[1234px]">
+    <div className="mx-auto max-w-[1234px] px-5">
         <div className="flex flex-wrap">
-            <div className="w-full md:w-1/3 px-4 mb-10">
+            <div className="w-full smJl:w-1/3 px-4 mb-10">
                 <div className="icon-container">
                     <div className="mb-2 mr-4 text-black w-[10%]">
                         <span className="createIcon">
@@ -55,7 +55,7 @@ const QualityBlock: FC = () => (
                     </div>
                 </div>
             </div>
-            <div className="w-full md:w-1/3 px-4 mb-10">
+            <div className="w-full smJl:w-1/3 px-4 mb-10">
                 <div className="icon-container">
                     <div className="mb-2 mr-4 text-black w-[10%]">
                         <span className="createIcon">
@@ -104,7 +104,7 @@ const QualityBlock: FC = () => (
                     </div>
                 </div>
             </div>
-            <div className="w-full md:w-1/3 px-4 mb-10">
+            <div className="w-full smJl:w-1/3 px-4 mb-10">
                 <div className="icon-container">
                     <div className="mb-2 mr-4 text-black w-[10%]">
                         <span className="createIcon">

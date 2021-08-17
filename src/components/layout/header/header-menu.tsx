@@ -26,7 +26,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                                 >
                                     <Link
                                         href={item.path}
-                                        className="uppercase font-bold inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 relative group-hover:text-black"
+                                        className="uppercase font-semibold inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 relative group-hover:text-black"
                                     >
                                         {t(item.label)}
                                     </Link>
@@ -46,7 +46,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                     >
                         <Link
                             href={"/ky-gui"}
-                            className="uppercase font-bold inline-flex items-center text-sm xl:text-base text-secondary px-3 xl:px-4 py-2 relative group-hover:text-black"
+                            className="uppercase font-semibold inline-flex items-center text-sm xl:text-base text-secondary px-3 xl:px-4 py-2 relative group-hover:text-black"
                         >
                             Ký gửi
                         </Link>
@@ -57,7 +57,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                     >
                         <Link
                             href={"/other"}
-                            className="uppercase font-bold inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 relative group-hover:text-black"
+                            className="uppercase font-semibold inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 relative group-hover:text-black"
                         >
                             Dịch vụ khác
                         </Link>

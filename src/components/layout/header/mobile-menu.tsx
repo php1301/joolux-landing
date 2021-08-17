@@ -68,14 +68,14 @@ export default function MobileMenu() {
         data.label && (
             <li className={`mb-0.5 ${className}`}>
                 <div className="flex items-center justify-between">
-                    <Link
-                        href={data.path}
+                    <div
+                        onClick={() => handleArrowClick(menuName)}
                         className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out"
                     >
-                        <span className="block w-full" onClick={closeSidebar}>
+                        <span className="block w-full">
                             {t(`${data.label}`)}
                         </span>
-                    </Link>
+                    </div>
                     {hasSubMenu && (
                         <div
                             className="cursor-pointer w-16 md:w-20 h-8 text-lg flex-shrink-0 flex items-center justify-center"
@@ -150,7 +150,7 @@ export default function MobileMenu() {
                             {site_header.mobileMenu.map((menu, index) => {
                                 const dept: number = 1;
                                 const menuName: string = `sidebar-menu-${dept}-${index}`;
-
+                                console.log(menu);
                                 return (
                                     <ListMenu
                                         dept={dept}

@@ -40,13 +40,13 @@ export const Header: React.FC = () => {
             <header
                 id="siteHeader"
                 ref={siteHeaderRef}
-                className="w-full h-16 sm:h-20 lg:h-24 relative z-20"
+                className="w-full h-16 sm:h-20 lg:h-24 relative z-20 px-8 lg:mx-auto"
             >
-                <div className="innerSticky text-gray-700 body-font w-full h-16 sm:h-20 lg:h-24 z-20 ps-4 md:ps-0 lg:ps-6 pe-4 lg:pe-6 transition duration-200 ease-in-out">
+                <div className="innerSticky text-gray-700 body-font w-full h-16 sm:h-20 lg:h-24 z-20 ps-4 md:ps-0 lg:ps-14 pe-4 lg:pe-6 transition duration-200 ease-in-out">
                     <div className="flex items-center justify-center mx-auto max-w-[1920px] h-full w-full">
                         <button
                             aria-label="Menu"
-                            className="menuBtn hidden md:flex lg:hidden flex-col items-center justify-center px-5 2xl:px-7 flex-shrink-0 h-full outline-none focus:outline-none"
+                            className="menuBtn hidden md:flex lg:hidden flex-col items-center justify-center px-5 2xl:px-7 flex-shrink-0 h-full outline-none focus:outline-none transform -translate-x-7"
                             onClick={handleMobileMenu}
                         >
                             <span className="menuIcon">

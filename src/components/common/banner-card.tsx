@@ -30,7 +30,7 @@ const BannerCard: FC<IBannerProps> = ({
     const { title, image } = banner;
     const selectedImage = getImage(width, image);
     return (
-        <div className={cn(className, "mx-auto")}>
+        <div className={cn(className, "mx-auto flex justify-center")}>
             <Link
                 href={href}
                 // https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover
