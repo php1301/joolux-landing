@@ -9,7 +9,7 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 	html, body {
-		@apply text-body font-body antialiased;
+		@apply text-body font-htmlJl antialiased;
 	}
 	p {
 		@apply mb-5;
@@ -244,7 +244,7 @@
 	}
 	.icon-card-content {
 		flex-basis: 0%;
-		padding-right: 10%;
+		/* padding-right: 10%; */
 	}
 	/* Exclusive Year Section css */
 	.exclusiveYear {
