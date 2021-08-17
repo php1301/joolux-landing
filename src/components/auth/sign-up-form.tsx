@@ -84,7 +84,7 @@ const SignUpForm: React.FC = () => {
         otp,
         captcha,
     }: SignUpInputType) {
-        if (step !== 1) {
+        if (step === 3) {
             signUp({
                 name,
                 email,
@@ -133,20 +133,23 @@ const SignUpForm: React.FC = () => {
             >
                 <div className="flex flex-col space-y-4">
                     {step === 1 && (
+                        <Input
+                            placeholderKey="forms:label-email"
+                            type="email"
+                            variant="jl"
+                            {...register("email", {
+                                required: `${t("Thông tin bắt buộc")}`,
+                                pattern: {
+                                    value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                    message: t("forms:email-error"),
+                                },
+                            })}
+                            errorKey={errors.email?.message}
+                        />
+                    )}
+                    {step === 2 && (
                         <>
-                            <Input
-                                placeholderKey="forms:label-email"
-                                type="email"
-                                variant="jl"
-                                {...register("email", {
-                                    required: `${t("Thông tin bắt buộc")}`,
-                                    pattern: {
-                                        value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                        message: t("forms:email-error"),
-                                    },
-                                })}
-                                errorKey={errors.email?.message}
-                            />
+                            {" "}
                             <PasswordInput
                                 placeholderKey="Mật khẩu"
                                 variant="jl"
@@ -173,7 +176,7 @@ const SignUpForm: React.FC = () => {
                             />
                         </>
                     )}
-                    {step !== 1 && (
+                    {step === 3 && (
                         <>
                             <div className="flex flex-col sm:flex-row justify-between">
                                 <Input
@@ -240,7 +243,7 @@ const SignUpForm: React.FC = () => {
                             )}
                         </>
                     )}
-                    {step === 1 ? (
+                    {step !== 3 && (
                         <div className="relative">
                             <Button
                                 type="submit"
@@ -252,7 +255,8 @@ const SignUpForm: React.FC = () => {
                                 Tiếp tục
                             </Button>
                         </div>
-                    ) : (
+                    )}{" "}
+                    {step !== 1 && (
                         // <div className="mt-5 flex items-center">
                         //     <Button
                         //         type="button"
@@ -284,16 +288,18 @@ const SignUpForm: React.FC = () => {
                             >
                                 Quay lại
                             </Button>
-                            <Button
-                                type="submit"
-                                loading={isLoading}
-                                variant="jl"
-                                disabled={isLoading}
-                                className="h-11 md:h-12 w-full mt-1.5"
-                            >
-                                {t("common:text-register")}
-                            </Button>
                         </>
+                    )}
+                    {step === 3 && (
+                        <Button
+                            type="submit"
+                            loading={isLoading}
+                            variant="jl"
+                            disabled={isLoading}
+                            className="h-11 md:h-12 w-full mt-1.5"
+                        >
+                            {t("common:text-register")}
+                        </Button>
                     )}
                 </div>
             </form>
