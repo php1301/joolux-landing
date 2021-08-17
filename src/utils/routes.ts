@@ -18,6 +18,7 @@ export const ROUTES = {
     SEARCH: "/search",
     HANG_MOI_VE: "/hang-moi-ve",
     COLLECTIONS: "/collections",
+    SERVICES: "/dich-vu",
     CATEGORY: "/category",
     ORDER: "/order",
 };
