@@ -130,7 +130,7 @@ const LoginForm: React.FC = () => {
                     </div>
                 </div>
             </form>
-            <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
+            <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5 hidden">
                 <hr className="w-full border-gray-300" />
                 <span className="absolute -top-2.5 px-2 bg-white">
                     {t("common:text-or")}
@@ -140,7 +140,7 @@ const LoginForm: React.FC = () => {
                 loading={isLoading}
                 disabled={isLoading}
                 variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white hidden"
                 onClick={handelSocialLogin}
             >
                 <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
@@ -150,7 +150,7 @@ const LoginForm: React.FC = () => {
                 loading={isLoading}
                 disabled={isLoading}
                 variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white hidden"
                 onClick={handelSocialLogin}
             >
                 <FcGoogle className="text-sm sm:text-base me-1.5" />

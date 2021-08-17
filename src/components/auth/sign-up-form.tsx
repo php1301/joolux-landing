@@ -303,7 +303,7 @@ const SignUpForm: React.FC = () => {
                     )}
                 </div>
             </form>
-            {step === 1 && (
+            {step === 4 && (
                 <>
                     <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
                         <hr className="w-full border-gray-300" />
