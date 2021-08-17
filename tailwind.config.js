@@ -3,6 +3,15 @@ module.exports = {
     purge: ["./src/**/*.{js,jsx,ts,tsx}"],
     darkMode: false,
     theme: {
+        screens: {
+            sm: "480px",
+            smJl: "640px",
+            md: "768px",
+            lg: "1025px",
+            xl: "1280px",
+            "2xl": "1500px",
+            "3xl": "1780px",
+        },
         extend: {
             colors: {
                 body: "#5A5A5A",
@@ -38,12 +47,6 @@ module.exports = {
             },
             fontSize: {
                 "10px": ".625rem",
-            },
-            screens: {
-                sm: "480px",
-                lg: "1025px",
-                "2xl": "1500px",
-                "3xl": "1780px",
             },
             spacing: {
                 "430px": "430px",
@@ -89,6 +92,9 @@ module.exports = {
             segoe: ["'Segoe UI', sans-serif"],
             brand: [
                 "'Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif",
+            ],
+            htmlJl: [
+                "Nunito Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'",
             ],
         },
     },
