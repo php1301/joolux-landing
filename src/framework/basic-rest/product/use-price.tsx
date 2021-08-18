@@ -30,14 +30,24 @@ export function formatVariantPrice({
     locale: string;
 }) {
     const hasDiscount = baseAmount > amount;
-    const formatDiscount = new Intl.NumberFormat(locale, { style: "percent" });
+    const formatDiscount = new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: currencyCode,
+    });
     const discount = hasDiscount
-        ? formatDiscount.format((baseAmount - amount) / baseAmount)
+        ? formatDiscount
+              .format((baseAmount - amount) / baseAmount)
+              .replaceAll(",", ".")
+              .replace(/[£$₫]/g, "")
         : null;
 
-    const price = formatPrice({ amount, currencyCode, locale });
+    const price = formatPrice({ amount, currencyCode, locale })
+        .replaceAll(",", ".")
+        .replace(/[£$₫]/g, "");
     const basePrice = hasDiscount
         ? formatPrice({ amount: baseAmount, currencyCode, locale })
+              .replaceAll(",", ".")
+              .replace(/[£$₫]/g, "")
         : null;
 
     return { price, basePrice, discount };
