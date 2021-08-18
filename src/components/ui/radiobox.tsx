@@ -2,11 +2,12 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 interface RadioBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
     labelKey: string | React.ReactElement;
+    variant?: "jl" | "default";
 }
 export const RadioBox = React.forwardRef<HTMLInputElement, RadioBoxProps>(
-    ({ labelKey, ...rest }, ref) => {
+    ({ labelKey, variant = "default", ...rest }, ref) => {
         const { t } = useTranslation("forms");
-        return (
+        return variant !== "jl" ? (
             <label className="group flex items-center text-heading text-sm cursor-pointer">
                 <input
                     type="radio"
@@ -17,6 +18,21 @@ export const RadioBox = React.forwardRef<HTMLInputElement, RadioBoxProps>(
                 <span className="ms-2 text-sm text-heading relative">
                     {t(`${labelKey}`)}
                 </span>
+            </label>
+        ) : (
+            <label
+                role="radio"
+                // aria-checked={initialCheck}
+                // tabIndex={-1}
+                className="step-form-radio-label"
+            >
+                <input type="radio" className="hidden" ref={ref} {...rest} />
+                <div
+                    className={`step-form-radio-box ${
+                        !rest.checked && "before:opacity-0"
+                    }`}
+                />
+                <span className="step-form-radio-text">{t(`${labelKey}`)}</span>
             </label>
         );
     },
