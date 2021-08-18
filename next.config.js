@@ -32,7 +32,23 @@ const config = {
         // your project has ESLint errors.
         ignoreDuringBuilds: true,
     },
-    // rewrites: async () => nextI18NextRewrites(localeSubpaths),
+    // rewrites: async () => {
+    //     return {
+    //         beforeFiles: [
+    //             {
+    //                 source: "/hang-moi-ve",
+    //                 has: [
+    //                     {
+    //                         type: "query",
+    //                         key: "category",
+    //                         value: "%2C", // Named capture group to match anything on the value
+    //                     },
+    //                 ],
+    //                 destination: "/hang-moi-ve/:cmsId",
+    //             },
+    //         ],
+    //     };
+    // },
     publicRuntimeConfig: {
         localeSubpaths,
     },
