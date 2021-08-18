@@ -1,8 +1,10 @@
 import { useCategoriesQuery } from "@framework/category/get-all-categories";
+import { Input } from "@components/ui/input";
 import { CheckBox } from "@components/ui/checkbox";
 import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "next-i18next";
+import { prepareUrlAs } from "@utils/prepare-url";
 
 export const CategoryFilter = () => {
     const { t } = useTranslation("common");
@@ -12,7 +14,7 @@ export const CategoryFilter = () => {
         limit: 10,
     });
     const selectedCategories = query?.category
-        ? (query.category as string).split(",")
+        ? (query.category as string).split("|")
         : [];
     const [formState, setFormState] =
         React.useState<string[]>(selectedCategories);
@@ -29,19 +31,37 @@ export const CategoryFilter = () => {
             ? formState.filter((i) => i !== value)
             : [...formState, value];
         const { category, ...restQuery } = query;
-        router.push(
+        const { url } = prepareUrlAs(
+            router,
             {
                 pathname,
                 query: {
                     ...restQuery,
                     ...(currentFormState.length
-                        ? { category: currentFormState.join(",") }
+                        ? {
+                              category: currentFormState.join("|"),
+                          }
                         : {}),
                 },
             },
             undefined,
-            { scroll: false },
         );
+        router.push(decodeURI(url), undefined, { scroll: false });
+        // router.push(
+        //     {
+        //         pathname,
+        //         query: {
+        //             ...restQuery,
+        //             ...(currentFormState.length
+        //                 ? {
+        //                       category: currentFormState.join(","),
+        //                   }
+        //                 : {}),
+        //         },
+        //     },
+        //     undefined,
+        //     { scroll: false },
+        // );
     }
     const items = data?.categories.data;
     return (
@@ -49,7 +69,15 @@ export const CategoryFilter = () => {
             <h3 className="text-heading text-sm md:text-base font-semibold mb-7">
                 {t("text-category")}
             </h3>
-            <div className="mt-2 flex flex-col space-y-4">
+            <Input
+                className="block relative mb-4"
+                placeholderKey="Tìm Thương Hiệu"
+                name="category-search"
+                inputClassName="px-8"
+                variant="jl"
+                hasIcon
+            />
+            <div className="mt-2 flex flex-col space-y-2">
                 {items?.map((item: any) => (
                     <CheckBox
                         key={item.id}
@@ -57,6 +85,7 @@ export const CategoryFilter = () => {
                         name={item.name.toLowerCase()}
                         checked={formState.includes(item.slug)}
                         value={item.slug}
+                        variant="jl"
                         onChange={handleItemClick}
                     />
                 ))}
