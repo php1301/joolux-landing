@@ -31,9 +31,9 @@ const ProductCard: FC<IProductProps> = ({
     // Cách làm skeletion image
     const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
     const { price, basePrice, discount } = usePrice({
-        amount: product.sale_price ? product.sale_price : product.price,
-        baseAmount: product.price,
-        currencyCode: "USD",
+        amount: parseInt(product.price as unknown as string),
+        baseAmount: parseInt(product.price as unknown as string),
+        currencyCode: "VND",
     });
     // function handlePopupView() {
     //     setModalData({ data: product });
@@ -61,7 +61,7 @@ const ProductCard: FC<IProductProps> = ({
                         variant === "listSmall",
                     "flex-row items-center transition-transform ease-linear bg-gray-200 pe-2 lg:pe-3 2xl:pe-4":
                         variant === "list",
-                    "h-full pb-4 border-b border-[#cfcfcf] rounded-none":
+                    "h-full pb-4 border-b border-[#cfcfcf] rounded-none relative":
                         variant === "jl",
                 },
                 className,
@@ -77,6 +77,9 @@ const ProductCard: FC<IProductProps> = ({
                             variant === "listSmall",
                     },
                     imageContentClassName,
+                    ` ${
+                        product?.qty === 0 ? "opacity-50 cusor-not-allowed" : ""
+                    }`,
                 )}
             >
                 <Image
@@ -103,6 +106,11 @@ const ProductCard: FC<IProductProps> = ({
                     )}
                 />
             </div>
+            {product?.qty === 0 && (
+                <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-[#e7e7e7] text-black">
+                    Tạm hết hàng
+                </div>
+            )}
             <div
                 className={cn(
                     "w-full overflow-hidden",
@@ -160,7 +168,7 @@ const ProductCard: FC<IProductProps> = ({
                     )} */}
                 <div className="flex flex-wrap items-center">
                     <div className="text-15px font-semibold mr-2">
-                        {product?.price}&nbsp;₫
+                        {price}&nbsp;₫
                     </div>
                 </div>
                 <div className="text-xs font-extralight mt-2 truncate">
