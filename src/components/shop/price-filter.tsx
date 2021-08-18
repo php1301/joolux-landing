@@ -80,6 +80,7 @@ export const PriceFilter = () => {
                 {items?.map((item: any) => (
                     <RadioBox
                         key={item.id}
+                        variant="jl"
                         labelKey={item.name}
                         name={item.name.toLowerCase()}
                         checked={item.slug === formState}
