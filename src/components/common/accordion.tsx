@@ -23,7 +23,7 @@ export const Collapse: React.FC<CollapseProps> = ({
     translatorNS,
     variant = "gray",
 }) => {
-    const [expanded, setExpanded] = useState<boolean>(i < 2);
+    const [expanded, setExpanded] = useState<boolean>(i < 4);
     const { t } = useTranslation(translatorNS);
     return (
         <div
