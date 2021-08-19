@@ -6,17 +6,24 @@ import { useQuery } from "react-query";
 
 type PaginatedProducts = {
     products: Product[];
+    pagination: {
+        hasNextPage: number;
+        hasPreviousPage: number;
+        total: number;
+        totalPage: number;
+    };
 };
 
-const fetchProducts = async (page) => {
-    // const { data } = await http.get(API_ENDPOINTS.PRODUCTS);
-    const { data } = await http.get(
+const fetchProducts = async (page = 1) => {
+    const {
+        data: { products, pagination },
+    } = await http.get(
         `https://api.joolux-client.ml/admin/products/get-overview?page=${page.toString()}`,
     );
-    console.log(data);
+    console.log(products, pagination);
     return {
-        products: data,
-        // mock: data2,
+        products,
+        pagination,
     };
 };
 
