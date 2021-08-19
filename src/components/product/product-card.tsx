@@ -41,12 +41,17 @@ const ProductCard: FC<IProductProps> = ({
     //     return openModal();
     // }
     function navigateToProductPage() {
-        router.push(`${ROUTES.PRODUCT}/${product.slug}`, undefined, {
-            locale: router.locale,
-        });
+        router.push(
+            `${ROUTES.PRODUCT}/i/${product.urlKey}/${product._id}`,
+            undefined,
+            {
+                locale: router.locale,
+            },
+        );
     }
     return (
         <div
+            onClick={navigateToProductPage}
             className={cn(
                 {
                     "group box-border overflow-hidden flex rounded-md cursor-pointer px-3 mb-6":
@@ -171,14 +176,14 @@ const ProductCard: FC<IProductProps> = ({
                         {price}&nbsp;₫
                     </div>
                 </div>
-                <div className="text-xs font-extralight mt-2 truncate">
+                <div className="text-xs font-normal mt-2 truncate">
                     {/* {D: 22 cm x R: 6 cm x C: 17 cm} */}
                     {product?.TX_cao
                         ? `D:${product?.TX_Dai} x R:${product?.TX_rong} x C:${product?.TX_cao}`
                         : product?.size
                         ? `Cỡ giày: ${product?.size}`
                         : product?.DH_DuongKinhMat
-                        ? `Kích thước mặt: ${product?.DH_DuongKinhMat}`
+                        ? `Kích thước mặt: ${product?.DH_DuongKinhMat}mm`
                         : ""}
                 </div>
                 {/* </div> */}
