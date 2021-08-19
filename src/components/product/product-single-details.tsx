@@ -90,7 +90,7 @@ const ProductSingleDetails: React.FC<{
         },
         {
             id: 5,
-            title: "Tình trạng sản phẩm",
+            title: "Chính sách đổi trả",
             content: <ProductPolicy />,
         },
         {
