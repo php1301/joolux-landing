@@ -40,6 +40,12 @@ export type QueryOptionsType = {
     limit?: number;
 };
 
+export type RelatedProductsQueryOptionsType = {
+    id: string;
+    brand: string;
+    category: string;
+}
+
 export type QueryParamsType = {
     queryKey: QueryKey;
     pageParam?: string;
@@ -82,6 +88,17 @@ export type Tag = {
     name: string;
     slug: string;
 };
+
+export interface Reviews {
+    total: number;
+    averageRatingScore: number;
+    reviewList: any[];
+}
+
+export interface Offer {
+    inPromotion: boolean;
+}
+
 export type Product = {
     id: number | string;
     name: string;
@@ -89,16 +106,95 @@ export type Product = {
     price: number;
     quantity: number;
     sale_price?: number;
-    image: Attachment;
+    // image: Attachment;
     sku?: string;
     gallery?: Attachment[];
     category?: Category;
     tag?: Tag[];
     meta?: any[];
     description?: string;
+    status: string;
     variations?: object;
+    details: {
+        id: number;
+        columnName: string;
+        value: string;
+        highlight: boolean;
+    }[];
+    reviews: Reviews;
+    offer: Offer;
+    images: any[];
+    gender: string;
+    tags: any[];
+    properties: any[];
+    isDeleted: number;
+    // category: string[];
+    rootCategory: string[];
+    approved: boolean;
+    _id: string;
+    // sku: string;
+    attribute: string;
+    type: string;
+    productWebsite: string;
+    createdAt: Date;
+    freeShipping: string;
+    hasOptions: string;
+    image: string;
+    magikfeatured: string;
+    magikCountdowntimer: string;
+    magikCtCatoverride: string;
+    msrpDisplayActualPriceType: string;
+    msrpEnabled: string;
+    // name: string;
+    optionsContainer: string;
+    // price: string;
+    productSocialbar: string;
+    requiredOptions: string;
+    size: string;
+    smallImage: string;
+    specialFromDate: Date;
+    specialPrice: string;
+    thumbnail: string;
+    gioiTinh: string;
+    maSpHang: string;
+    brand: string;
+    productInformation: string;
+    TX_cao: string;
+    TX_Dai: string;
+    TX_HinhDang: string;
+    TX_mau: string;
+    TX_rong: string;
+    xuatXu: string;
+    updatedAt: Date;
+    urlKey: string;
+    urlPath: string;
+    visibility: string;
+    qty: number;
+    min_qty: number;
+    use_config_min_qty: string;
+    is_qty_decimal: string;
+    backorders: string;
+    use_config_backorders: string;
+    min_sale_qty: string;
+    use_config_min_sale_qty: string;
+    max_sale_qty: string;
+    use_config_max_sale_qty: string;
+    is_in_stock: string;
+    use_config_notify_stock_qty: string;
+    manage_stock: string;
+    use_config_manage_stock: string;
+    stock_status_changed_auto: string;
+    use_config_qty_increments: string;
+    qty_increments: string;
+    use_config_enable_qty_inc: string;
+    enable_qty_increments: string;
+    is_decimal_divided: string;
+    _media_image: string;
+    _media_position: string;
+    _media_is_disabled: string;
     [key: string]: unknown;
 };
+
 export type OrderItem = {
     id: number | string;
     name: string;
