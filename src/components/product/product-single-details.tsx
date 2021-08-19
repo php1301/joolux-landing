@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import { Button } from "@components/ui/button";
 import { Counter } from "@components/common/counter";
-import { useRouter } from "next/router";
-import { useProductQuery } from "@framework/product/get-product";
+
 import { getVariations } from "@framework/utils/get-variations";
 import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
 import { generateCartItem } from "@utils/generate-cart-item";
 import { ProductAttributes } from "./product-attributes";
 import isEmpty from "lodash/isEmpty";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import Link from "@components/ui/link";
 import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
@@ -18,6 +18,14 @@ import { SwiperSlide } from "swiper/react";
 import ProductMetaReview from "@components/product/product-meta-review";
 import VerticalCarousel from "@components/ui/carousel/vertical-carousel";
 import ImageMagnifier from "@components/ui/magnifier-image";
+import { ROUTES } from "@utils/routes";
+import ProductStatus from "./product-status";
+import ProductShipping from "./product-shipping";
+import ReviewForm from "@components/common/form/review-form";
+import ProductDescription from "./product-description";
+import ProductNumber from "./product-number";
+import ProductPolicy from "./product-policy";
+import { Product } from "@framework/types";
 
 const productGalleryCarouselResponsive = {
     "768": {
@@ -28,12 +36,10 @@ const productGalleryCarouselResponsive = {
     },
 };
 
-const ProductSingleDetails: React.FC = () => {
-    const {
-        query: { slug },
-    } = useRouter();
+const ProductSingleDetails: React.FC<{
+    data: Product;
+}> = ({ data }) => {
     const { width } = useWindowSize();
-    const { data, isLoading } = useProductQuery(slug as string);
     const { addItemToCart } = useCart();
     const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
     const [quantity, setQuantity] = useState(1);
@@ -41,15 +47,15 @@ const ProductSingleDetails: React.FC = () => {
 
     const { price, basePrice, discount } = usePrice(
         data && {
-            amount: data.sale_price ? data.sale_price : data.price,
-            baseAmount: data.price,
-            currencyCode: "USD",
+            amount: data.sale_price
+                ? parseInt(data.sale_price as unknown as string)
+                : parseInt(data.price as unknown as string),
+            baseAmount: parseInt(data.price as unknown as string),
+            currencyCode: "VND",
         },
     );
 
-    if (isLoading) return <p>Loading...</p>;
     const variations = getVariations(data?.variations); // attributes.slug
-
     // Duyệt coi đã chọn attribute nào chưa, filter bằng slug
     const isSelected = !isEmpty(variations)
         ? !isEmpty(attributes) &&
@@ -57,7 +63,42 @@ const ProductSingleDetails: React.FC = () => {
               attributes.hasOwnProperty(variation),
           )
         : true;
-
+    const productMetaData = [
+        {
+            id: 1,
+            title: "Tình trạng sản phẩm",
+            content: <ProductStatus status={data?.status} />,
+        },
+        {
+            id: 2,
+            title: "Thông tin sản phẩm",
+            content: (
+                <ProductDescription
+                    description={data?.productInformation || "Chưa có"}
+                />
+            ),
+        },
+        {
+            id: 3,
+            title: "Chi tiết sản phẩm",
+            content: <ProductNumber details={data?.details} />,
+        },
+        {
+            id: 4,
+            title: "Thông tin giao hàng",
+            content: <ProductShipping />,
+        },
+        {
+            id: 5,
+            title: "Tình trạng sản phẩm",
+            content: <ProductPolicy />,
+        },
+        {
+            id: 6,
+            title: "Nhận xét",
+            content: <ReviewForm />,
+        },
+    ];
     function addToCart() {
         if (!isSelected) return;
         // to show btn feedback while product carting
@@ -121,21 +162,93 @@ const ProductSingleDetails: React.FC = () => {
 
             <div className="col-span-4 pt-8 lg:pt-0">
                 <div className="pb-7 mb-7 border-b border-gray-300">
-                    <h2 className="text-heading text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-black mb-3.5">
+                    <h4 className="text-2xl leading-[1.333] font-semibold">
+                        {data?.brand}
+                    </h4>
+                    <p className="text-xl my-2 font-normal text-gray-700">
                         {data?.name}
-                    </h2>
-                    <p className="text-body text-sm lg:text-base leading-6 lg:leading-8">
-                        {data?.description}
                     </p>
-                    <div className="flex items-center mt-5">
-                        <div className="text-heading font-bold text-base md:text-xl lg:text-2xl 2xl:text-4xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
-                            {price}
+                    <Link
+                        href={`${ROUTES.SERVICES}/kiem-dinh-hang-hieu?tab=entrupy`}
+                        target="_blank"
+                        className="text-green-500 flex items-start"
+                    >
+                        <img
+                            src="https://joolux.com/img/entrupy/verified-by-entrupy.jpg"
+                            alt="Được kiểm định bởi Joolux bằng công nghệ Entrupy và chuyên gia"
+                            className="mr-2"
+                            height="22px"
+                            width="22px"
+                        />{" "}
+                        Được kiểm định bởi Joolux bằng công nghệ Entrupy và
+                        chuyên gia
+                    </Link>
+                    <div className="flex items-center mt-6 mb-8">
+                        <div className="text-2xl font-bold mr-4">
+                            {price}&nbsp;₫
                         </div>
                         {discount && (
                             <span className="line-through font-segoe text-gray-400 text-sm md:text-base lg:text-lg xl:text-xl ps-2">
                                 {basePrice}
                             </span>
                         )}
+                    </div>
+                    <div className="text-heading font-bold text-base md:text-xl lg:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
+                        Số lượng
+                    </div>
+                    <div className="flex items-center space-s-4 justify-between md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 border-b border-gray-300 pt-3 pb-8">
+                        <Counter
+                            quantity={quantity}
+                            onIncrement={() => setQuantity((prev) => prev + 1)}
+                            onDecrement={() =>
+                                setQuantity((prev) =>
+                                    prev !== 1 ? prev - 1 : 1,
+                                )
+                            }
+                            disableDecrement={quantity === 1}
+                        />
+                        <div className="flex ml-auto flex-1">
+                            <BsHeart color="pink" className="mr-3" size={24} />
+                            {/* <BsHeartFill
+                                color="red"
+                                className="mr-3"
+                                size={24}
+                            /> */}
+                            <h3 className="h-6 text-base md:text-lg text-heading font-normal capitalize">
+                                Thêm vào yêu thích
+                            </h3>
+                        </div>
+                    </div>
+                    <div className="flex items-center space-s-4 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 pt-3">
+                        <Button
+                            onClick={addToCart}
+                            variant="jl"
+                            className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white ${
+                                !isSelected && "hover:opacity-65 hover:bg-white"
+                            }`}
+                            iconCart
+                            disabled={!isSelected}
+                            loading={addToCartLoader}
+                        >
+                            <span className="py-2 3xl:px-8">
+                                Thêm vào giỏ hàng
+                            </span>
+                        </Button>
+                    </div>
+                    <div className="flex items-center space-s-4 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 pt-3">
+                        <Button
+                            onClick={addToCart}
+                            variant="jl"
+                            className={`w-full md:w-6/12 xl:w-full ${
+                                !isSelected && "bg-gray-400 hover:bg-gray-400"
+                            }`}
+                            disabled={!isSelected}
+                            loading={addToCartLoader}
+                        >
+                            <span className="py-2 3xl:px-8">
+                                Thanh toán ngay
+                            </span>
+                        </Button>
                     </div>
                 </div>
 
@@ -152,27 +265,7 @@ const ProductSingleDetails: React.FC = () => {
                         );
                     })}
                 </div>
-                <div className="flex items-center space-s-4 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 border-b border-gray-300 py-8">
-                    <Counter
-                        quantity={quantity}
-                        onIncrement={() => setQuantity((prev) => prev + 1)}
-                        onDecrement={() =>
-                            setQuantity((prev) => (prev !== 1 ? prev - 1 : 1))
-                        }
-                        disableDecrement={quantity === 1}
-                    />
-                    <Button
-                        onClick={addToCart}
-                        variant="slim"
-                        className={`w-full md:w-6/12 xl:w-full ${
-                            !isSelected && "bg-gray-400 hover:bg-gray-400"
-                        }`}
-                        disabled={!isSelected}
-                        loading={addToCartLoader}
-                    >
-                        <span className="py-2 3xl:px-8">Thêm vào giỏ hàng</span>
-                    </Button>
-                </div>
+
                 <div className="py-6">
                     <ul className="text-sm space-y-5 pb-1">
                         <li>
@@ -212,7 +305,7 @@ const ProductSingleDetails: React.FC = () => {
                     </ul>
                 </div>
 
-                <ProductMetaReview data={data} />
+                <ProductMetaReview data={productMetaData} />
             </div>
         </div>
     );
