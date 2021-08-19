@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useMemo } from "react";
 import { useRouter } from "next/router";
 import ProductCard from "@components/product/product-card";
 // import { Button } from "@components/ui/button";
@@ -16,25 +16,24 @@ export const ProductGrid: FC<IProductGridProps> = ({
     className = "",
     temp_total,
 }) => {
-    const [pageNum, setPageNum] = useState(1);
     const { query } = useRouter();
-
-    const {
-        isFetching: isLoading,
-        data,
-        error,
-    } = useProductsPaginationQuery({ page: pageNum, ...query });
+    const { isLoading, data, error } = useProductsPaginationQuery({
+        page: query?.page as unknown as number,
+        ...query,
+    });
 
     if (error) return <p>{error.message}</p>;
+    const { pagination, products } = data ?? {};
+    // const memoizedValue = useMemo(() => pagination, [pagination]);
     return (
         <>
             <div
                 className={`grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8 ${className} transition-opacity duration-300`}
             >
-                {isLoading && !data?.products?.length ? (
+                {isLoading ? (
                     <ProductFeedLoader limit={20} uniqueKey="search-product" />
                 ) : (
-                    data?.products?.map((product) => {
+                    products?.map((product) => {
                         return (
                             <ProductCard
                                 key={`product--key${product._id}`}
@@ -57,7 +56,10 @@ export const ProductGrid: FC<IProductGridProps> = ({
                     </Button>
                 )}
             </div> */}
-            <Pagination temp_total={temp_total} setPageNum={setPageNum} />
+            <Pagination
+                temp_total={temp_total}
+                pagination={!isLoading && pagination}
+            />
         </>
     );
 };
