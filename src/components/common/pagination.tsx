@@ -1,20 +1,40 @@
 import React, { FC } from "react";
 import ReactPaginate from "react-paginate";
-import { useProductsTotalPages } from "@framework/product/get-product-total-pages";
+import { useRouter } from "next/router";
+import { prepareUrlAs } from "@utils/prepare-url";
 
 interface IPagination {
-    setPageNum: any;
+    pagination: {
+        hasNextPage: number;
+        hasPreviousPage: number;
+        total: number;
+        totalPage: number;
+    };
     temp_total?: number;
 }
-const Pagination: FC<IPagination> = ({ setPageNum, temp_total }) => {
+const Pagination: FC<IPagination> = ({ temp_total, pagination }) => {
+    const router = useRouter();
+    const { pathname, query } = router;
+    const { page, ...restQuery } = query;
+
     const onPageChange = ({ selected }) => {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-        setPageNum(() => {
-            return selected + 1;
-        });
+        // setPageNum(() => {
+        //     return selected + 1;
+        // });
+        const { url } = prepareUrlAs(
+            router,
+            {
+                pathname,
+                query: {
+                    ...restQuery,
+                    page: selected + 1,
+                },
+            },
+            undefined,
+        );
+        router.push(decodeURI(url), undefined, { scroll: false });
     };
-    const { isFetching: isLoading, data, error } = useProductsTotalPages();
-    if (error) return <p>{error.message}</p>;
     return (
         <div className="container flex justify-start mx-auto product-paginate mt-6">
             <ReactPaginate
@@ -25,11 +45,13 @@ const Pagination: FC<IPagination> = ({ setPageNum, temp_total }) => {
                 breakLabel={"..."}
                 breakClassName={"break-me"}
                 pageCount={
-                    !isLoading ? data?.totalPages?.totalPage : temp_total
+                    pagination.totalPage ?? temp_total
+                    // !isLoading ? data?.totalPages?.totalPage : temp_total
                 }
                 // limit={10}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={3}
+                forcePage={(query?.page as unknown as number) - 1 || 0}
                 // pageLinkClassName="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 hover:bg-gray-100"
                 // activeLinkClassName="h-10 px-5 text-white bg-gray-600 border border-r-0 border-gray-600"
                 onPageChange={onPageChange}
