@@ -3,6 +3,7 @@ import ProductCard from "@components/product/product-card";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import { useRelatedProductsQuery } from "@framework/product/get-related-products";
 import Alert from "@components/ui/alert";
+import Link from "@components/ui/link";
 
 interface ProductsProps {
     sectionHeading: string;
@@ -24,10 +25,10 @@ const RelatedProducts: React.FC<ProductsProps> = ({
         category,
         id,
     });
-
+    if (error) return <p>{error}</p>;
     return (
         isFetched &&
-        data.length !== 0 && (
+        data?.length !== 0 && (
             <div className={className}>
                 <SectionHeader
                     sectionHeading={sectionHeading}
@@ -46,17 +47,16 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                     ) : (
                         data?.map((product: any) => (
                             <ProductCard
-                                key={`product--key${product.id}`}
+                                key={`product--key${product._id}`}
                                 product={product}
-                                imgWidth={340}
                                 variant="jl"
-                                imgHeight={440}
+                                bottomBorder="border-none"
                             />
                         ))
                     )}
                 </div>
                 <div className="text-center">
-                    <a className="inline-flex">
+                    <Link href="/hang-moi-ve" className="inline-flex">
                         <button
                             type="button"
                             className="blog-button mt-2 md:flex hidden"
@@ -66,7 +66,7 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                         >
                             Xem Thêm
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         )
