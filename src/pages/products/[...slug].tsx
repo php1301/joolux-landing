@@ -7,26 +7,30 @@ import { useProductQuery } from "@framework/product/get-product";
 import ProductSingleDetails from "@components/product/product-single-details";
 import RelatedProducts from "@containers/related-products";
 import Divider from "@components/ui/divider";
-import Breadcrumb from "@components/common/breadcrumb";
+import { VietnameseBreadcrumb } from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
 import AssuranceBlock from "@containers/assurance-block";
 
 export default function ProductPage() {
     const { query } = useRouter();
-    const { data, isLoading } = useProductQuery(query.slug[2] as string);
+    const { data, isLoading } = useProductQuery(query.slug[1] as string);
 
     return (
         <div className="relative flex-grow">
             <Divider className="mb-0" />
             <Container>
-                <div className="pt-8">
-                    <Breadcrumb />
-                </div>
                 {isLoading ? (
                     <ProductFlashSaleGridFeedLoader />
-                ) : (
+                ) : data ? (
                     <>
+                        <div className="pt-8">
+                            <VietnameseBreadcrumb
+                                type={data?.details[18].value}
+                                typeLink={data?.details[18].slug}
+                                name={data?.name}
+                            />
+                        </div>
                         <ProductSingleDetails data={data} />
                         <RelatedProducts
                             brand={data?.brand}
@@ -35,6 +39,8 @@ export default function ProductPage() {
                             sectionHeading="text-related-products"
                         />
                     </>
+                ) : (
+                    <div>Có lỗi xảy ra</div>
                 )}
                 <AssuranceBlock />
                 <Subscription />
