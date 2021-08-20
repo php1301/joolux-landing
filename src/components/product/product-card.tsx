@@ -15,6 +15,7 @@ interface IProductProps {
     imgWidth?: number | string;
     imgHeight?: number | string;
     imgLoading?: "eager" | "lazy";
+    bottomBorder?: string;
 }
 
 const ProductCard: FC<IProductProps> = ({
@@ -26,13 +27,15 @@ const ProductCard: FC<IProductProps> = ({
     imgWidth = 254,
     imgHeight = 254,
     imgLoading,
+    bottomBorder,
 }) => {
     const router = useRouter();
     // Cách làm skeletion image
     const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
     const { price, basePrice, discount } = usePrice({
-        amount: parseInt(product.price as unknown as string),
-        baseAmount: parseInt(product.price as unknown as string),
+        amount: product?.price && parseInt(product?.price as unknown as string),
+        baseAmount:
+            product?.price && parseInt(product?.price as unknown as string),
         currencyCode: "VND",
     });
     // function handlePopupView() {
@@ -42,7 +45,7 @@ const ProductCard: FC<IProductProps> = ({
     // }
     function navigateToProductPage() {
         router.push(
-            `${ROUTES.PRODUCT}/i/${product.urlKey}/${product._id}`,
+            `${ROUTES.PRODUCT}/${product.urlKey}/${product._id}`,
             undefined,
             {
                 locale: router.locale,
@@ -70,6 +73,7 @@ const ProductCard: FC<IProductProps> = ({
                         variant === "jl",
                 },
                 className,
+                bottomBorder,
             )}
             title={product?.name}
         >
@@ -178,10 +182,15 @@ const ProductCard: FC<IProductProps> = ({
                 </div>
                 <div className="text-xs font-normal mt-2 truncate">
                     {/* {D: 22 cm x R: 6 cm x C: 17 cm} */}
-                    {product?.TX_cao
-                        ? `D:${product?.TX_Dai} x R:${product?.TX_rong} x C:${product?.TX_cao}`
+                    {product?.TX_cao || product.TX_rong || product.TX_Dai
+                        ? `${product?.TX_Dai && `D: ${product?.TX_Dai} x `}${
+                              product?.TX_rong && `R: ${product?.TX_rong} x `
+                          }
+                          ${product?.TX_cao && `C: ${product?.TX_cao}`}`
                         : product?.size
-                        ? `Cỡ giày: ${product?.size}`
+                        ? product?.MK_loai_kinh
+                            ? `Kích cỡ: ${product?.size}`
+                            : `Cỡ giày: ${product?.size}`
                         : product?.DH_DuongKinhMat
                         ? `Kích thước mặt: ${product?.DH_DuongKinhMat}mm`
                         : ""}
