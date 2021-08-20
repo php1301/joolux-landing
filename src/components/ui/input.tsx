@@ -94,7 +94,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                     <div className="absolute top-0 left-0 h-full flex items-center px-2">
                         <span className="createIconSvgWrapper">
                             <svg
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 clip-rule="evenodd"
                                 stroke-linejoin="round"
                                 stroke-miterlimit="1.414"
