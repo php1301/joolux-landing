@@ -86,4 +86,51 @@ const Breadcrumb: React.FC<{ separator?: string }> = ({ separator = "/" }) => {
     );
 };
 
+export const VietnameseBreadcrumb: React.FC<{
+    separator?: string;
+    type?: string;
+    typeLink?: string;
+    name?: string;
+}> = ({ separator = "/", type, typeLink, name }) => {
+    const { t } = useTranslation("common");
+    return (
+        <BreadcrumbItems separator={separator}>
+            <ActiveLink href={"/"} activeClassName="font-semibold text-heading">
+                <a>{t("breadcrumb-home")}</a>
+            </ActiveLink>
+            <ActiveLink
+                href={"/hang-moi-ve"}
+                activeClassName="font-semibold text-heading"
+            >
+                <a>Hàng mới về</a>
+            </ActiveLink>
+            {type && (
+                <ActiveLink
+                    href={`/${typeLink}`}
+                    activeClassName="font-semibold text-heading"
+                >
+                    <a>{type}</a>
+                </ActiveLink>
+            )}
+            {name && (
+                <span className="font-semibold text-heading">
+                    <a>{name}</a>
+                </span>
+            )}
+            {/* 
+            {breadcrumbs?.map((breadcrumb: any) => (
+                <ActiveLink
+                    href={breadcrumb.href}
+                    activeClassName="font-semibold text-heading"
+                    key={breadcrumb.href}
+                >
+                    <a className="capitalize">
+                        {convertBreadcrumbTitle(breadcrumb.breadcrumb)}
+                    </a>
+                </ActiveLink>
+            ))} */}
+        </BreadcrumbItems>
+    );
+};
+
 export default Breadcrumb;
