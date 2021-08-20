@@ -39,7 +39,8 @@ export const Collapse: React.FC<CollapseProps> = ({
                     "cursor-pointer flex items-center transition-colors py-5 md:py-6",
                     {
                         "px-6 md:px-8 lg:px-10": variant === "gray",
-                        "border-t border-gray-300": variant === "transparent",
+                        "border-b-2 border-[#101010]":
+                            variant === "transparent",
                     },
                 )}
             >
