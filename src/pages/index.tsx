@@ -16,9 +16,15 @@ import AssuranceBlock from "@containers/assurance-block";
 import BlogBlock from "@containers/blog-block";
 // import { I18NExample } from "@components/examples/translate";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import http from "@framework/utils/http";
+import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import NewestProducts from "@containers/newest-products";
+import { Product } from "@framework/types";
 
 // Các pages sẽ không cần gắn types như :React.FC
-const Home: NextPage & { Layout: typeof Layout } = () => {
+const Home: NextPage<{ data: Product[] }> & { Layout: typeof Layout } = ({
+    data,
+}) => {
     const { openModal, setModalView, unauthorize, isAuthorized } = useUI();
     const { query } = useRouter();
     useEffect(() => {
@@ -41,6 +47,7 @@ const Home: NextPage & { Layout: typeof Layout } = () => {
                 <QualityBlock />
                 <BrandBlock />
                 <AssuranceBlock />
+                <NewestProducts data={data} />
                 <BlogBlock />
             </Container>
             {/* <Cards /> */}
@@ -69,6 +76,9 @@ src="https://amp.dev/static/inline-examples/images/mountains.webp"
 Home.Layout = Layout;
 export default Home;
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const { data } = await http.get(
+        `https://api.joolux-client.ml${API_ENDPOINTS.NEW_ARRIVAL_PRODUCTS}`,
+    );
     return {
         props: {
             ...(await serverSideTranslations(locale!, [
@@ -77,6 +87,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
                 "menu",
                 "footer",
             ])),
+            data,
         },
+        revalidate: 10,
     };
 };
