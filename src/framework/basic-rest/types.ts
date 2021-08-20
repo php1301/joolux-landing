@@ -44,7 +44,7 @@ export type RelatedProductsQueryOptionsType = {
     id: string;
     brand: string;
     category: string;
-}
+};
 
 export type QueryParamsType = {
     queryKey: QueryKey;
@@ -120,10 +120,11 @@ export type Product = {
         columnName: string;
         value: string;
         highlight: boolean;
+        slug: string;
     }[];
     reviews: Reviews;
     offer: Offer;
-    images: any[];
+    images: string[];
     gender: string;
     tags: any[];
     properties: any[];
@@ -140,6 +141,7 @@ export type Product = {
     freeShipping: string;
     hasOptions: string;
     image: string;
+    MK_loai_kinh: string;
     magikfeatured: string;
     magikCountdowntimer: string;
     magikCtCatoverride: string;
