@@ -7,21 +7,21 @@ const ProductNumber: FC<{
         columnName: string;
         value: string;
         highlight: boolean;
+        slug: string;
     }[];
 }> = ({ details }) => {
-    if (details[3]?.value && details[4]?.value && details[5]?.value) {
-        details[16].value = `Dài: ${details[3].value} x Rộng: ${details[4].value} x Cao: ${details[5].value}`;
+    if (details[4]?.value && details[5]?.value && details[6]?.value) {
+        details[17].value = `Dài: ${details[4].value} x Rộng: ${details[6].value} x Cao: ${details[5].value}`;
     }
-    console.log(details);
     return (
         <div className="py-6">
             <ul className="text-sm space-y-5 pb-1">
                 {details?.length &&
                     details?.map((item) => {
                         if (
-                            item?.id !== 4 &&
                             item?.id !== 5 &&
-                            item?.id !== 6
+                            item?.id !== 6 &&
+                            item?.id !== 7
                         ) {
                             return (
                                 item.value && (
@@ -29,16 +29,32 @@ const ProductNumber: FC<{
                                         <span className="transition hover:underline hover:text-heading">
                                             {item?.columnName}:{" "}
                                         </span>
-                                        <Link
-                                            href="/"
-                                            className={`font-semibold inline-block pe-2 ${
-                                                item.highlight
-                                                    ? "text-secondary"
-                                                    : "text-heading"
-                                            }`}
-                                        >
-                                            {item?.value}
-                                        </Link>
+                                        {item.highlight ? (
+                                            <Link
+                                                href={
+                                                    item.id === 1
+                                                        ? `/hang-moi-ve?brands=${item.slug}`
+                                                        : `/${item.slug}`
+                                                }
+                                                className={`font-semibold inline-block pe-2 ${
+                                                    item.highlight
+                                                        ? "text-secondary"
+                                                        : "text-heading"
+                                                }`}
+                                            >
+                                                {item?.value}
+                                            </Link>
+                                        ) : (
+                                            <span
+                                                className={`font-semibold inline-block pe-2 ${
+                                                    item.highlight
+                                                        ? "text-secondary"
+                                                        : "text-heading"
+                                                }`}
+                                            >
+                                                {item?.value}
+                                            </span>
+                                        )}
                                     </li>
                                 )
                             );
