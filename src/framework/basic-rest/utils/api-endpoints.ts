@@ -17,7 +17,7 @@ export const API_ENDPOINTS = {
     PRODUCT: "/api/product.json",
     RELATED_PRODUCTS: "/api/related_products.json",
     BEST_SELLER_PRODUCTS: "/products_best_seller.json",
-    NEW_ARRIVAL_PRODUCTS: "/products_new_arrival.json",
+    NEW_ARRIVAL_PRODUCTS: "/admin/products/homepage-newest",
     FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
     SEARCH: "/api/search.json",
     ORDERS: "/api/orders.json",
