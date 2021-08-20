@@ -14,7 +14,6 @@ export function formatPrice({
         style: "currency",
         currency: currencyCode,
     });
-
     return formatCurrency.format(amount);
 }
 
@@ -37,16 +36,15 @@ export function formatVariantPrice({
     const discount = hasDiscount
         ? formatDiscount
               .format((baseAmount - amount) / baseAmount)
-              .replaceAll(",", ".")
+              .replace(/[,]/g, ".")
               .replace(/[£$₫]/g, "")
         : null;
-
     const price = formatPrice({ amount, currencyCode, locale })
-        .replaceAll(",", ".")
+        .replace(/[,]/g, ".")
         .replace(/[£$₫]/g, "");
     const basePrice = hasDiscount
         ? formatPrice({ amount: baseAmount, currencyCode, locale })
-              .replaceAll(",", ".")
+              .replace(/[,]/g, ".")
               .replace(/[£$₫]/g, "")
         : null;
 
@@ -62,6 +60,7 @@ export default function usePrice(
 ) {
     const { amount, baseAmount, currencyCode } = data ?? {};
     const locale = "en";
+    console.log(data);
     const value = useMemo(() => {
         if (typeof amount !== "number" || !currencyCode) return "";
 
