@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export default function ImageMagnifier({
     src,
-    magnifierHeight = 100,
-    magnifieWidth = 100,
+    magnifierHeight = 250,
+    magnifieWidth = 250,
     zoomLevel = 1.5,
     alt,
     className,
