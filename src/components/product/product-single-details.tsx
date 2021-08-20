@@ -45,6 +45,28 @@ const ProductSingleDetails: React.FC<{
     const [quantity, setQuantity] = useState(1);
     const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 
+    // const gallery = [
+    //     {
+    //         id: 1,
+    //         thumbnail: "/assets/images/products/p-20-1.png",
+    //         original: "/assets/images/products/p-20-1.png",
+    //     },
+    //     {
+    //         id: 2,
+    //         thumbnail: "/assets/images/products/p-20-2.png",
+    //         original: "/assets/images/products/p-20-2.png",
+    //     },
+    //     {
+    //         id: 3,
+    //         thumbnail: "/assets/images/products/p-20-3.png",
+    //         original: "/assets/images/products/p-20-3.png",
+    //     },
+    //     {
+    //         id: 4,
+    //         thumbnail: "/assets/images/products/p-20-4.png",
+    //         original: "/assets/images/products/p-20-4.png",
+    //     },
+    // ];
     const { price, basePrice, discount } = usePrice(
         data && {
             amount: data.sale_price
@@ -140,11 +162,11 @@ const ProductSingleDetails: React.FC<{
                     className="product-gallery"
                     buttonClassName="hidden"
                 >
-                    {data?.gallery?.map((item, index: number) => (
+                    {data?.images.map((item, index: number) => (
                         <SwiperSlide key={`product-gallery-key-${index}`}>
                             <ImageMagnifier
                                 src={
-                                    item?.original ??
+                                    `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item}` ||
                                     "/assets/placeholder/products/product-gallery.svg"
                                 }
                                 key={`product-gallery-key-${index}`}
@@ -156,12 +178,12 @@ const ProductSingleDetails: React.FC<{
                 </Carousel>
             ) : (
                 <div className="col-span-5 grid grid-cols-2 gap-2.5">
-                    <VerticalCarousel data={data} />
+                    <VerticalCarousel gallery={data?.images} />
                 </div>
             )}
 
-            <div className="col-span-4 pt-8 lg:pt-0">
-                <div className="pb-7 mb-7 border-b border-gray-300">
+            <div className="col-span-4 pt-8 lg:pt-0 mr-8 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48">
+                <div className="my-3">
                     <h4 className="text-2xl leading-[1.333] font-semibold">
                         {data?.brand}
                     </h4>
@@ -196,7 +218,7 @@ const ProductSingleDetails: React.FC<{
                     <div className="text-heading font-bold text-base md:text-xl lg:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
                         Số lượng
                     </div>
-                    <div className="flex items-center space-s-4 justify-between md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 border-b border-gray-300 pt-3 pb-8">
+                    <div className="flex items-center space-s-4 justify-between pt-3 pb-8">
                         <Counter
                             quantity={quantity}
                             onIncrement={() => setQuantity((prev) => prev + 1)}
@@ -219,7 +241,7 @@ const ProductSingleDetails: React.FC<{
                             </h3>
                         </div>
                     </div>
-                    <div className="flex items-center space-s-4 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 pt-3">
+                    <div className="flex items-center space-s-4  pt-3">
                         <Button
                             onClick={addToCart}
                             variant="jl"
@@ -235,7 +257,7 @@ const ProductSingleDetails: React.FC<{
                             </span>
                         </Button>
                     </div>
-                    <div className="flex items-center space-s-4 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 pt-3">
+                    <div className="flex items-center space-s-4 pt-3">
                         <Button
                             onClick={addToCart}
                             variant="jl"
@@ -252,7 +274,7 @@ const ProductSingleDetails: React.FC<{
                     </div>
                 </div>
 
-                <div className="pb-3 border-b border-gray-300">
+                {/* <div className="pb-3 border-b border-gray-300">
                     {Object.keys(variations).map((variation) => {
                         return (
                             <ProductAttributes
@@ -303,7 +325,7 @@ const ProductSingleDetails: React.FC<{
                             </li>
                         )}
                     </ul>
-                </div>
+                </div> */}
 
                 <ProductMetaReview data={productMetaData} />
             </div>
