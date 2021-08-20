@@ -9,7 +9,7 @@ export const fetchProduct = async (id: string) => {
         `https://api.joolux-client.ml/admin/products/information?id=${id}`,
     );
     console.log(data2);
-    return data2?.product;
+    return data2;
 };
 
 export const useProductQuery = (slug: string) => {
