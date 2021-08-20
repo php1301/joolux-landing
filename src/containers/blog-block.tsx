@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
 const BlogBlock: FC = () => (
-    <div className="mx-auto max-w-[1234px] text-center pt-4 sm:pb-16 pb-10 px-5">
-        <div className="border-t border-gray-200 mb-8" />
+    <div className="mx-auto max-w-[1234px] text-center pt-4 smJl:pb-16 pb-10 px-8">
+        <div className="border-t border-[#e7e7e7] mb-8" />
         <h5
             className="font-semibold leading-[1.33] text-lg mb-7"
             data-chext-position
@@ -11,8 +11,8 @@ const BlogBlock: FC = () => (
         >
             Blog
         </h5>
-        <div className="flex flex-wrap  sm:mb-8 text-left">
-            <div className="px-4 w-1/2 md:w-1/4 mb-4">
+        <div className="flex flex-wrap  smJl:mb-8 text-left">
+            <div className="pr-4 w-1/2 md:w-1/4 mb-4">
                 <a href="/blog/ngoc-thanh-tam-xa-kho-hang-hieu-ung-ho-quy-vaccine">
                     <div className="blog-thumb-image">
                         <div className="blog-lazyload-image h-full">
@@ -30,7 +30,7 @@ const BlogBlock: FC = () => (
                     href="/blog/ngoc-thanh-tam-xa-kho-hang-hieu-ung-ho-quy-vaccine"
                 >
                     <h6
-                        className="font-semibold leading-[1.333] mt-5 mb-2 text-15px"
+                        className="font-semibold leading-[1.333] mt-5 mb-2 text-[15px]"
                         data-chext-position
                         data-chext-overflow
                         style={{}}
@@ -83,7 +83,7 @@ const BlogBlock: FC = () => (
                     href="/blog/loat-tui-hieu-sang-tay-giam-gia-sau-thoi-dich"
                 >
                     <h6
-                        className="font-semibold leading-[1.333] mt-5 mb-2 text-15px"
+                        className="font-semibold leading-[1.333] mt-5 mb-2 text-[15px]"
                         data-chext-position
                         data-chext-overflow
                         style={{}}
@@ -136,7 +136,7 @@ const BlogBlock: FC = () => (
                     href="/blog/omega-speedmaster-silver-snoopy-anniversary-50-ky-niem-cac-su-menh-apollo"
                 >
                     <h6
-                        className="font-semibold leading-[1.333] mt-5 mb-2 text-15px"
+                        className="font-semibold leading-[1.333] mt-5 mb-2 text-[15px]"
                         data-chext-position
                         data-chext-overflow
                         style={{}}
@@ -172,7 +172,7 @@ const BlogBlock: FC = () => (
                     05/01/2021
                 </div>
             </div>
-            <div className="px-4 w-1/2 md:w-1/4 mb-4">
+            <div className="pl-4 w-1/2 md:w-1/4 mb-4">
                 <a href="/blog/thuong-hieu-xa-xi-louis-vuitton-mang-vu-tru-vao-bst-nu-trang-sieu-cao-cap">
                     <div className="blog-thumb-image">
                         <div className="blog-lazyload-image h-full">
@@ -190,7 +190,7 @@ const BlogBlock: FC = () => (
                     href="/blog/thuong-hieu-xa-xi-louis-vuitton-mang-vu-tru-vao-bst-nu-trang-sieu-cao-cap"
                 >
                     <h6
-                        className="font-semibold leading-[1.333] mt-5 mb-2 text-15px"
+                        className="font-semibold leading-[1.333] mt-5 mb-2 text-[15px]"
                         data-chext-position
                         data-chext-overflow
                         style={{}}
