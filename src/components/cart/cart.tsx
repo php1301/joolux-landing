@@ -7,7 +7,6 @@ import { useUI } from "@contexts/ui.context";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import usePrice from "@framework/product/use-price";
-import RelatedProducts from "@containers/related-products";
 import { ROUTES } from "@utils/routes";
 import CartItem from "./cart-item";
 import EmptyCart from "./cart-empty";
@@ -15,6 +14,7 @@ import Container from "@components/ui/container";
 import Link from "@components/ui/link";
 import CartToCheckout from "./cart-to-checkout";
 import { Subscription } from "@components/common/subscription";
+import CartRecommendProducts from "./cart-recommend-products";
 
 type FormValues = {
     couponValue: string;
@@ -35,7 +35,8 @@ const Cart: FC = () => {
         basePrice,
     } = usePrice({
         amount: total,
-        currencyCode: "USD",
+        baseAmount: total,
+        currencyCode: "VND",
     });
     const {
         register,
@@ -147,13 +148,13 @@ const Cart: FC = () => {
                 <CartToCheckout
                     totalItems={totalUniqueItems}
                     cartTotal={cartTotal}
-                    discount={discount || "$0.00"}
+                    discount={discount}
                     basePrice={basePrice || cartTotal}
                 />
             ) : (
                 <div className="relative flex-grow">
                     <Container>
-                        <RelatedProducts sectionHeading="Hàng mới về" />
+                        <CartRecommendProducts />
                     </Container>
                 </div>
             )}
