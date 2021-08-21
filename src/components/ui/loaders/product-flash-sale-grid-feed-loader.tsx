@@ -8,7 +8,10 @@ const ProductFlashSaleGridFeedLoader = ({ limit = 3 }: Props) => {
     return (
         <>
             {Array.from({ length: limit }).map((_, idx) => (
-                <ProductFlashSaleGridLoader key={idx} uniqueKey={idx} />
+                <ProductFlashSaleGridLoader
+                    key={idx}
+                    uniqueKey={idx.toString()}
+                />
             ))}
         </>
     );
