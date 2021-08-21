@@ -1,3 +1,4 @@
+import Link from "@components/ui/link";
 import React, { FC } from "react";
 
 const BlogBlock: FC = () => (
@@ -51,7 +52,7 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            aria-labelledby="title"
+                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -104,7 +105,7 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            aria-labelledby="title"
+                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -158,7 +159,7 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            aria-labelledby="title"
+                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -212,7 +213,7 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            aria-labelledby="title"
+                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -227,7 +228,7 @@ const BlogBlock: FC = () => (
                 </div>
             </div>
         </div>
-        <a className="inline-flex">
+        <Link href="/blog" className="inline-flex">
             <button
                 type="button"
                 className="blog-button mt-2 md:flex hidden"
@@ -237,8 +238,8 @@ const BlogBlock: FC = () => (
             >
                 Xem Thêm
             </button>
-        </a>
-        <a className="flex w-full">
+        </Link>
+        <Link href="/blog" className="flex w-full">
             <button
                 type="button"
                 className="blog-button-show-all md:hidden border-primary text-primary"
@@ -248,7 +249,7 @@ const BlogBlock: FC = () => (
             >
                 Xem Tất Cả
             </button>
-        </a>
+        </Link>
     </div>
 );
 export default BlogBlock;

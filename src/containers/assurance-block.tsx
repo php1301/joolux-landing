@@ -19,7 +19,7 @@ const AssuranceBlock: FC = () => (
                                 strokeLinejoin="round"
                                 strokeMiterlimit="1.414"
                                 xmlns="http://www.w3.org/2000/svg"
-                                aria-labelledby="title"
+                                icon-container
                                 viewBox="0 0 24 24"
                                 preserveAspectRatio="xMidYMid meet"
                                 className="createIcon__InlineSvg-sc-7pbd21-0 ftOWGU"
@@ -56,9 +56,9 @@ const AssuranceBlock: FC = () => (
                         </span>
                     </div>
                     <div className="flex-grow flex-shrink icon-card-content ">
-                        <h5 className="font-semibold leading-[1.33]  text-base text-black mb-2">
+                        <p className="font-semibold leading-[1.33]  text-base text-black mb-2">
                             Miễn Phí Vận Chuyển
-                        </h5>
+                        </p>
                         <p className="text-sm leading-relaxed text-gray-700">
                             Tất cả các sản phẩm giao dịch qua Joolux đều được
                             miễn phí vận chuyển đến tay khách hàng tại các thành
@@ -83,7 +83,7 @@ const AssuranceBlock: FC = () => (
                                 strokeLinejoin="round"
                                 strokeMiterlimit="1.414"
                                 xmlns="http://www.w3.org/2000/svg"
-                                aria-labelledby="title"
+                                icon-container
                                 viewBox="0 0 24 24"
                                 preserveAspectRatio="xMidYMid meet"
                                 className="createIcon__InlineSvg-sc-7pbd21-0 ftOWGU"
@@ -164,9 +164,9 @@ const AssuranceBlock: FC = () => (
                         </span>
                     </div>
                     <div className="flex-grow flex-shrink icon-card-content ">
-                        <h5 className="font-semibold leading-[1.33] text-base text-black mb-2">
+                        <p className="font-semibold leading-[1.33] text-base text-black mb-2">
                             Đổi Trả Linh Hoạt
-                        </h5>
+                        </p>
                         <p className="text-sm leading-relaxed text-gray-700">
                             Cam kết đổi trả 100% với sản phẩm bị lỗi trong quá
                             trình vận chuyển hoặc không đúng với mô tả trên
@@ -191,7 +191,7 @@ const AssuranceBlock: FC = () => (
                                 strokeLinejoin="round"
                                 strokeMiterlimit="1.414"
                                 xmlns="http://www.w3.org/2000/svg"
-                                aria-labelledby="title"
+                                icon-container
                                 viewBox="0 0 24 24"
                                 preserveAspectRatio="xMidYMid meet"
                                 className="createIcon__InlineSvg-sc-7pbd21-0 ftOWGU"
@@ -205,9 +205,9 @@ const AssuranceBlock: FC = () => (
                         </span>
                     </div>
                     <div className="flex-grow flex-shrink icon-card-content ">
-                        <h5 className="font-semibold leading-[1.33]  text-base text-black mb-2">
+                        <p className="font-semibold leading-[1.33]  text-base text-black mb-2">
                             Hỗ Trợ Nhanh Chóng
-                        </h5>
+                        </p>
                         <p className="text-sm leading-relaxed text-gray-700">
                             Chúng tôi luôn sẵn sàng hỗ trợ giải đáp nhanh chóng
                             để mang đến sự hài lòng cho khách hàng.

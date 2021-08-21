@@ -53,7 +53,11 @@ const config = {
         localeSubpaths,
     },
     images: {
-        domains: ["assets.vercel.com", "old.joolux.com"],
+        domains: [
+            "assets.vercel.com",
+            "old.joolux.com",
+            "images.ctfassets.net",
+        ],
     },
 };
 

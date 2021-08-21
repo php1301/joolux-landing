@@ -20,9 +20,9 @@ const Layout: React.FC = ({ children }) => {
                 ]}
                 title="Joolux"
                 description="Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.."
-                canonical="https://webdevstudios.org"
+                canonical="https://joolux-client.ml"
                 openGraph={{
-                    url: "https://webdevstudios.org",
+                    url: "https://joolux-client.ml",
                     title: "Joolux",
                     description:
                         "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",

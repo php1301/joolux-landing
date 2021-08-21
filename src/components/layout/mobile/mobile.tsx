@@ -73,6 +73,7 @@ const BottomNavigation: React.FC = () => {
                     className="flex-shrink-0"
                     btnProps={{
                         className: "flex-shrink-0 focus:outline-none",
+                        "aria-label": "user-page",
                         children: <UserIcon />,
                         onClick: handleLogin,
                     }}

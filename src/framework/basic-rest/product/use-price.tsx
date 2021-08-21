@@ -60,7 +60,6 @@ export default function usePrice(
 ) {
     const { amount, baseAmount, currencyCode } = data ?? {};
     const locale = "en";
-    console.log(data);
     const value = useMemo(() => {
         if (typeof amount !== "number" || !currencyCode) return "";
 

@@ -548,7 +548,22 @@
 		font-size: 14px;
 	}
 
-	/* Other */
+
+	/* Brand blog  */
+	.brand-image {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.brand-image div {
+		position: unset!important;
+	}
+	.brand-image img {
+		position: unset!important;
+		width: 100%;
+        height: auto!important;
+	}
+    /* Other */
 	.h2-branding {
 		font-size: 2.25rem;
 		font-weight: 400;

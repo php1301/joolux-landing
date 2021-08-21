@@ -10,7 +10,7 @@ export const siteSettings = {
         "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",
     author: {
         name: "Webdev Studios",
-        websiteUrl: "https://webdevstudios.org",
+        websiteUrl: "https://joolux-client.ml",
         address: "",
     },
     logo: {

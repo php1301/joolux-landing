@@ -11,6 +11,7 @@ export const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
     return (
         <Link
             href={siteSettings.logo.href}
+            aria-label="joolux-logo"
             className={cn(
                 "inline-flex focus:outline-none site-logo text-xl font-black text-secondary",
                 className,
