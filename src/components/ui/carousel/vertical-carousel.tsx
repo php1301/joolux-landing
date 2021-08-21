@@ -47,6 +47,7 @@ export default function VerticalCarousel({ gallery }) {
                     </div>
                     <Swiper
                         centeredSlidesBounds
+                        key="swiper-thumbs"
                         slidesPerView={4}
                         watchOverflow
                         height={460}
@@ -61,19 +62,19 @@ export default function VerticalCarousel({ gallery }) {
                     >
                         <div className="swiper-wrapper">
                             {gallery?.map((item, index: number) => (
-                                <>
-                                    <SwiperSlide>
-                                        <img
-                                            src={
-                                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item}` ||
-                                                "/assets/placeholder/products/product-gallery.svg"
-                                            }
-                                            key={`product-gallery-key-${index}`}
-                                            className="col-span-1 transition duration-150 ease-in hover:opacity-90"
-                                            alt={`${index}`}
-                                        />
-                                    </SwiperSlide>
-                                </>
+                                <SwiperSlide
+                                    key={`product-gallery-thumb-key-${index}`}
+                                >
+                                    <img
+                                        key={`product-gallery-thumb-image-${index}`}
+                                        src={
+                                            `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item}` ||
+                                            "/assets/placeholder/products/product-gallery.svg"
+                                        }
+                                        className="col-span-1 transition duration-150 ease-in hover:opacity-90"
+                                        alt={`${index}`}
+                                    />
+                                </SwiperSlide>
                             ))}
                         </div>
                     </Swiper>
@@ -109,6 +110,7 @@ export default function VerticalCarousel({ gallery }) {
                 </div>
                 <Swiper
                     watchOverflow
+                    key="swiper-banner"
                     watchSlidesVisibility
                     watchSlidesProgress
                     preventInteractionOnTransition
@@ -120,13 +122,13 @@ export default function VerticalCarousel({ gallery }) {
                 >
                     <div className="swiper-wrapper">
                         {gallery?.map((item, index: number) => (
-                            <SwiperSlide>
+                            <SwiperSlide key={`product-gallery-key-${index}`}>
                                 <ImageMagnifier
+                                    key={`product-gallery-magnifier-${index}`}
                                     src={
                                         `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item}` ||
                                         "/assets/placeholder/products/product-gallery.svg"
                                     }
-                                    key={`product-gallery-key-${index}`}
                                     className="col-span-1 transition duration-150 ease-in hover:opacity-90"
                                     alt={`${index}`}
                                 />
