@@ -21,7 +21,7 @@ export default function ProductPage() {
             <Divider className="mb-0" />
             <Container>
                 {isLoading ? (
-                    <ProductFlashSaleGridFeedLoader />
+                    <ProductFlashSaleGridFeedLoader limit={1} />
                 ) : data ? (
                     <>
                         <div className="pt-8">
