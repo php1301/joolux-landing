@@ -4,7 +4,7 @@ const ProductFlashSaleGridLoader = (props: any) => (
     <ContentLoader
         speed={2}
         width={315}
-        height={542}
+        height={500}
         viewBox="0 0 315 542"
         backgroundColor="#f9f9f9"
         foregroundColor="#ecebeb"
