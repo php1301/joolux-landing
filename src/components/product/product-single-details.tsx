@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Button } from "@components/ui/button";
 import { Counter } from "@components/common/counter";
-
 import { getVariations } from "@framework/utils/get-variations";
 import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
@@ -169,7 +168,7 @@ const ProductSingleDetails: React.FC<{
                                     `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item}` ||
                                     "/assets/placeholder/products/product-gallery.svg"
                                 }
-                                key={`product-gallery-key-${index}`}
+                                key={`product-row-gallery-key-${index}`}
                                 className="col-span-1 transition duration-150 ease-in hover:opacity-90"
                                 alt={`${data?.name}--${index}`}
                             />
@@ -259,13 +258,13 @@ const ProductSingleDetails: React.FC<{
                     </div>
                     <div className="flex items-center space-s-4 pt-3">
                         <Button
-                            onClick={addToCart}
+                            // onClick={addToCart}
                             variant="jl"
                             className={`w-full md:w-6/12 xl:w-full ${
                                 !isSelected && "bg-gray-400 hover:bg-gray-400"
                             }`}
                             disabled={!isSelected}
-                            loading={addToCartLoader}
+                            // loading={addToCartLoader}
                         >
                             <span className="py-2 3xl:px-8">
                                 Thanh toán ngay
