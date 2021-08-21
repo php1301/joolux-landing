@@ -1,9 +1,9 @@
-import isEmpty from "lodash/isEmpty";
+// import isEmpty from "lodash/isEmpty";
 
 interface Item {
-    id: string | number;
+    _id: string | number;
     name: string;
-    slug: string;
+    urlKey: string;
     // image: {
     //     thumbnail: string;
     //     [key: string]: unknown;
@@ -14,13 +14,11 @@ interface Item {
     [key: string]: unknown;
 }
 export function generateCartItem(item: Item, attributes: object) {
-    const { id, name, slug, image, price, sale_price } = item;
+    const { _id, name, urlKey, image, price, sale_price } = item;
     return {
-        id: !isEmpty(attributes)
-            ? `${id}.${Object.values(attributes).join(".")}`
-            : id,
+        id: _id,
         name,
-        slug,
+        slug: urlKey,
         image: image,
         price: sale_price ? sale_price : price,
         attributes,
