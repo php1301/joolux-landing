@@ -1,4 +1,4 @@
-import { ProductsQueryOptionsType, Product } from "@framework/types";
+import { Product } from "@framework/types";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import http from "@framework/utils/http";
 import { useQuery } from "react-query";
@@ -7,7 +7,7 @@ type NewestProducts = {
     data: Product[];
 };
 
-const fetchProducts = async () => {
+const fetchNewestProducts = async () => {
     const { data } = await http.get(
         `https://api.joolux-client.ml${API_ENDPOINTS.NEW_ARRIVAL_PRODUCTS}`,
     );
@@ -16,11 +16,11 @@ const fetchProducts = async () => {
     };
 };
 
-const useProductsQuery = (options: ProductsQueryOptionsType) => {
+const useFetchNewestProductsQuery = () => {
     return useQuery<NewestProducts, Error>(
-        [API_ENDPOINTS.PRODUCTS, options],
-        fetchProducts,
+        [API_ENDPOINTS.NEW_ARRIVAL_PRODUCTS],
+        fetchNewestProducts,
     );
 };
 
-export { useProductsQuery, fetchProducts };
+export { useFetchNewestProductsQuery, fetchNewestProducts };
