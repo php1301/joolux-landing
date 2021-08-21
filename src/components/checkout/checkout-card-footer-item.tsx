@@ -16,7 +16,7 @@ export const CheckoutCardFooterItem: React.FC<FooterItemProps> = ({
                 <div className="w-3/5 px-2">
                     {`Tạm tính ${totalItems} sản phẩm):`}
                 </div>
-                <div className="w-2/5 px-2 text-right">{basePrice}</div>
+                <div className="w-2/5 px-2 text-right">{basePrice}&nbsp;₫</div>
             </div>
             <div className="flex -mx-2 text-15px">
                 <div className="w-1/2 px-2">Phí vận chuyển:</div>
@@ -24,7 +24,9 @@ export const CheckoutCardFooterItem: React.FC<FooterItemProps> = ({
             </div>
             <div className="flex -mx-2 text-15px">
                 <div className="w-1/2 px-2">Tổng tiền đã giảm:</div>
-                <div className="w-1/2 px-2 text-right">{discount}</div>
+                <div className="w-1/2 px-2 text-right">
+                    {discount || 0}&nbsp;₫
+                </div>
             </div>
             <div className="flex -mx-2 text-15px mt-4">
                 <div className="w-1/2 px-2">
