@@ -33,11 +33,13 @@ export function removeItemOrQuantity(
 ) {
     return items.reduce((acc: Item[], item) => {
         if (item.id === id) {
+            if (item.quantity === 0) {
+                return [...acc];
+            }
             const newQuantity = item.quantity! - quantity;
-
             return newQuantity > 0
                 ? [...acc, { ...item, quantity: newQuantity }]
-                : [...acc];
+                : [...acc, { ...item, quantity: 0 }];
         }
         return [...acc, item];
     }, []);
