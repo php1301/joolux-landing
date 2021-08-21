@@ -13,7 +13,8 @@ const CheckoutCard: React.FC = () => {
         discount,
     } = usePrice({
         amount: total,
-        currencyCode: "USD",
+        baseAmount: total,
+        currencyCode: "VND",
     });
     const { t } = useTranslation("common");
     const [collapseItem, setCollapseItem] = useState<boolean>(false);
@@ -40,7 +41,7 @@ const CheckoutCard: React.FC = () => {
             <h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
                 {t("text-your-order")}
             </h2>
-            <div className="flex p-4 rounded-md mt-6 md:mt-7 xl:mt-9 bg-gray-150 text-sm font-semibold text-heading">
+            <div className="flex p-4 mt-6 md:mt-7 xl:mt-9 bg-gray-150 text-sm font-semibold text-heading">
                 <span>{t("text-product")}</span>
                 <span className="ms-auto flex-shrink-0">
                     {t("text-sub-total")}
@@ -117,7 +118,7 @@ const CheckoutCard: React.FC = () => {
             <CheckoutCardFooterItem
                 totalItems={totalUniqueItems}
                 subtotal={subtotal}
-                discount={discount || "$0.00"}
+                discount={discount}
                 basePrice={basePrice || subtotal}
             />
         </div>
