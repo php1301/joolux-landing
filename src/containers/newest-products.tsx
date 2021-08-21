@@ -36,7 +36,11 @@ const NewestProducts: React.FC<ProductsProps> = ({
                         ))}
                     </div>
                     <div className="text-center">
-                        <Link href="/hang-moi-ve" className="inline-flex">
+                        <Link
+                            href="/hang-moi-ve"
+                            className="inline-flex"
+                            aria-label="newest-product-show-more"
+                        >
                             <button
                                 type="button"
                                 className="blog-button mt-2 md:flex hidden"
@@ -46,7 +50,11 @@ const NewestProducts: React.FC<ProductsProps> = ({
                                 Xem Thêm
                             </button>
                         </Link>
-                        <Link href="/hang-moi-ve" className="flex w-full">
+                        <Link
+                            href="/hang-moi-ve"
+                            className="flex w-full"
+                            aria-label="newest-products-show-all"
+                        >
                             <button
                                 type="button"
                                 className="blog-button-show-all md:hidden border-primary text-primary"

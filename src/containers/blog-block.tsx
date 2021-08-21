@@ -224,7 +224,7 @@ const BlogBlock: FC = () => (
                 </div>
             </div>
         </div>
-        <Link href="/blog" className="inline-flex">
+        <Link href="/blog" className="inline-flex" aria-label="blog-show-more">
             <button
                 type="button"
                 className="blog-button mt-2 md:flex hidden"
@@ -235,7 +235,7 @@ const BlogBlock: FC = () => (
                 Xem Thêm
             </button>
         </Link>
-        <Link href="/blog" className="flex w-full">
+        <Link href="/blog" className="flex w-full" aria-label="blog-show-all">
             <button
                 type="button"
                 className="blog-button-show-all md:hidden border-primary text-primary"
