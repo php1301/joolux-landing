@@ -10,7 +10,9 @@ enum StatusDescription {
 const ProductStatus: FC<{ status: string }> = ({ status }) => {
     return (
         <div className="pt-2 pb-4">
-            < className="text-lg font-semibold leading-[1.333]">{status}</>
+            <div className="text-lg font-semibold leading-[1.333]">
+                {status}
+            </div>
             <h6 className="typo-h6 leading-[1.5] text-[#101010] text-sm font-normal">
                 {StatusDescription[status?.replaceAll(" ", "")]}
             </h6>
