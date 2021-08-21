@@ -46,17 +46,16 @@ const NewestProducts: React.FC<ProductsProps> = ({
                                 Xem Thêm
                             </button>
                         </Link>
-                        <a className="flex w-full">
+                        <Link href="/hang-moi-ve" className="flex w-full">
                             <button
                                 type="button"
                                 className="blog-button-show-all md:hidden border-primary text-primary"
                                 data-chext-position
                                 data-chext-overflow
-                                style={{}}
                             >
                                 Xem Tất Cả
                             </button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
