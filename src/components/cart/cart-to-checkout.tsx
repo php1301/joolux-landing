@@ -29,7 +29,6 @@ const CartToCheckout: FC<ICartToCheckOutProps> = ({
                                             strokeLinejoin="round"
                                             strokeMiterlimit="1.414"
                                             xmlns="http://www.w3.org/2000/svg"
-                                            icon-container
                                             viewBox="0 0 24 24"
                                             preserveAspectRatio="xMidYMid meet"
                                             className="createIconSvg"
@@ -81,7 +80,6 @@ const CartToCheckout: FC<ICartToCheckOutProps> = ({
                                             strokeLinejoin="round"
                                             strokeMiterlimit="1.414"
                                             xmlns="http://www.w3.org/2000/svg"
-                                            icon-container
                                             viewBox="0 0 24 24"
                                             preserveAspectRatio="xMidYMid meet"
                                             className="createIconSvg"

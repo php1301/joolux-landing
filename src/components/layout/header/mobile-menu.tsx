@@ -172,6 +172,7 @@ export default function MobileMenu() {
                             href={item.link}
                             className={`text-heading p-5 opacity-60 first:-ms-4 transition duration-300 ease-in hover:opacity-100 ${item.className}`}
                             target="_blank"
+                            aria-label={item.title}
                             key={index}
                         >
                             <span className="sr-only">

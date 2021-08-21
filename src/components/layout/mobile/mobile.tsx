@@ -60,7 +60,7 @@ const BottomNavigation: React.FC = () => {
                 >
                     <SearchIcon color={"black"} />
                 </button>
-                <Link href="/" className="flex-shrink-0">
+                <Link href="/" aria-label="home-icon" className="flex-shrink-0">
                     <HomeIcon />
                 </Link>
                 <CartButton

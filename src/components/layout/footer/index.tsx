@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
             <div className="footer-wrapper">
                 <div className="flex lg:mb-6 md:mb-2 mb-0">
                     <div className="hidden lg:block pr-12 mr-2px">
-                        <a href="/">
+                        <a href="/" aria-label="footer-logo">
                             <svg
                                 width="50px"
                                 height="50px"
@@ -305,6 +305,7 @@ export const Footer: React.FC = () => {
                                         <a
                                             href="https://www.facebook.com/jooluxvn/"
                                             target="_blank"
+                                            aria-label="footer-facebook"
                                             rel="noreferrer noopener"
                                             className="mr-4 hover:text-secondary transition-colors duration-200"
                                         >
@@ -315,7 +316,6 @@ export const Footer: React.FC = () => {
                                                     strokeLinejoin="round"
                                                     strokeMiterlimit="1.414"
                                                     xmlns="http://www.w3.org/2000/svg"
-                                                    icon-container
                                                     viewBox="0 0 24 24"
                                                     preserveAspectRatio="xMidYMid meet"
                                                     className="footer-icon"
@@ -333,6 +333,7 @@ export const Footer: React.FC = () => {
                                             href="https://www.instagram.com/jooluxvn/"
                                             target="_blank"
                                             rel="noreferrer noopener"
+                                            aria-label="footer-instagram"
                                             className="hover:text-secondary transition-colors duration-200"
                                         >
                                             <span className="footer-icon-wrapper">
@@ -342,7 +343,6 @@ export const Footer: React.FC = () => {
                                                     strokeLinejoin="round"
                                                     strokeMiterlimit="1.414"
                                                     xmlns="http://www.w3.org/2000/svg"
-                                                    icon-container
                                                     viewBox="0 0 24 24"
                                                     preserveAspectRatio="xMidYMid meet"
                                                     className="footer-icon"

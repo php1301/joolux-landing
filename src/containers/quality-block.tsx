@@ -13,7 +13,6 @@ const QualityBlock: FC = () => (
                                 strokeLinejoin="round"
                                 strokeMiterlimit="1.414"
                                 xmlns="http://www.w3.org/2000/svg"
-                                icon-container
                                 viewBox="0 0 24 24"
                                 preserveAspectRatio="xMidYMid meet"
                                 className="createIcon__InlineSvg-sc-7pbd21-0 ftOWGU"
@@ -38,9 +37,9 @@ const QualityBlock: FC = () => (
                         </span>
                     </div>
                     <div className="flex-grow flex-shrink icon-card-content ">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-base mb-2">
+                        <p className="font-semibold leading-[1.33] jqBAH text-base mb-2">
                             Hàng Chính Hãng
-                        </h5>
+                        </p>
                         <p className="text-sm leading-relaxed text-gray-700">
                             Tất cả các sản phẩm trên Joolux đều được qua quy
                             trình kiểm định bằng công nghệ và đội ngũ chuyên gia
@@ -65,7 +64,6 @@ const QualityBlock: FC = () => (
                                 strokeLinejoin="round"
                                 strokeMiterlimit="1.414"
                                 xmlns="http://www.w3.org/2000/svg"
-                                icon-container
                                 viewBox="0 0 24 24"
                                 preserveAspectRatio="xMidYMid meet"
                                 className="createIcon__InlineSvg-sc-7pbd21-0 ftOWGU"
@@ -87,9 +85,9 @@ const QualityBlock: FC = () => (
                         </span>
                     </div>
                     <div className="flex-grow flex-shrink icon-card-content ">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-base mb-2">
+                        <p className="font-semibold leading-[1.33] jqBAH text-base mb-2">
                             Giá Tốt Nhất
-                        </h5>
+                        </p>
                         <p className="text-sm leading-relaxed text-gray-700">
                             Chúng tôi luôn nỗ lực để mang đến cho khách hàng
                             những sản phẩm chất lượng nhất với giá tốt nhất trên
@@ -114,7 +112,6 @@ const QualityBlock: FC = () => (
                                 strokeLinejoin="round"
                                 strokeMiterlimit="1.414"
                                 xmlns="http://www.w3.org/2000/svg"
-                                icon-container
                                 viewBox="0 0 24 24"
                                 preserveAspectRatio="xMidYMid meet"
                                 className="createIcon__InlineSvg-sc-7pbd21-0 ftOWGU"
@@ -146,9 +143,9 @@ const QualityBlock: FC = () => (
                         </span>
                     </div>
                     <div className="flex-grow flex-shrink icon-card-content ">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-base mb-2">
+                        <p className="font-semibold leading-[1.33] jqBAH text-base mb-2">
                             Đa Dạng Dịch Vụ
-                        </h5>
+                        </p>
                         <p className="text-sm leading-relaxed text-gray-700">
                             Joolux mong muốn mang đến cho khách hàng một trải
                             nghiệm trọn vẹn thông qua các dịch vụ đa dạng: ký

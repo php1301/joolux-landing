@@ -1,26 +1,26 @@
 import Link from "@components/ui/link";
 import React, { FC } from "react";
-
+import Image from "next/image";
 const BlogBlock: FC = () => (
-    <div className="mx-auto max-w-[1234px] text-center pt-4 smJl:pb-16 pb-10 px-8">
+    <div className="mx-auto max-w-[1234px] text-center pt-4 smJl:pb-16 pb-10 lg:px-8">
         <div className="border-t border-[#e7e7e7] mb-8" />
-        <h5
+        <h1
             className="font-semibold leading-[1.33] text-lg mb-7"
             data-chext-position
             data-chext-overflow
             style={{}}
         >
             Blog
-        </h5>
-        <div className="flex flex-wrap  smJl:mb-8 text-left">
-            <div className="pr-4 w-1/2 md:w-1/4 mb-4">
+        </h1>
+        <div className="flex flex-wrap -mx-4 smJl:mb-8 text-left">
+            <div className="px-4 w-1/2 md:w-1/4 mb-4">
                 <a href="/blog/ngoc-thanh-tam-xa-kho-hang-hieu-ung-ho-quy-vaccine">
                     <div className="blog-thumb-image">
                         <div className="blog-lazyload-image h-full">
-                            <img
+                            <Image
                                 className="w-full h-full object-cover"
                                 alt="blog"
-                                style={{ opacity: 1 }}
+                                layout="fill"
                                 src="https://images.ctfassets.net/b7g5dqsgeo8w/101Jjh6DafJno6ny96K31j/2bd0b0bfc733811c938438433e0fc040/hi__nh_thumnail.jpg"
                             />
                         </div>
@@ -52,7 +52,6 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -70,10 +69,10 @@ const BlogBlock: FC = () => (
                 <a href="/blog/loat-tui-hieu-sang-tay-giam-gia-sau-thoi-dich">
                     <div className="blog-thumb-image">
                         <div className="blog-lazyload-image h-full">
-                            <img
+                            <Image
                                 className="w-full h-full object-cover"
                                 alt="blog"
-                                style={{ opacity: 1 }}
+                                layout="fill"
                                 src="https://images.ctfassets.net/b7g5dqsgeo8w/4fxPx5FkiC9eZVdyVYAlOD/a220c8bb100b2371aff542ec6f980cb5/thumbnail.jpg"
                             />
                         </div>
@@ -105,7 +104,6 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -123,10 +121,10 @@ const BlogBlock: FC = () => (
                 <a href="/blog/omega-speedmaster-silver-snoopy-anniversary-50-ky-niem-cac-su-menh-apollo">
                     <div className="blog-thumb-image">
                         <div className="blog-lazyload-image h-full">
-                            <img
+                            <Image
                                 className="w-full h-full object-cover"
                                 alt="blog"
-                                style={{ opacity: 1 }}
+                                layout="fill"
                                 src="https://images.ctfassets.net/b7g5dqsgeo8w/d2hslKcth5B7msnWyFusS/224d33eaad7fbe0bc1f79694416265e7/1-Omega-Silver-Snoopy-Speedmaster-50th-Anniversary.jpg"
                             />
                         </div>
@@ -159,7 +157,6 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"
@@ -173,14 +170,14 @@ const BlogBlock: FC = () => (
                     05/01/2021
                 </div>
             </div>
-            <div className="pl-4 w-1/2 md:w-1/4 mb-4">
+            <div className="px-4 w-1/2 md:w-1/4 mb-4">
                 <a href="/blog/thuong-hieu-xa-xi-louis-vuitton-mang-vu-tru-vao-bst-nu-trang-sieu-cao-cap">
                     <div className="blog-thumb-image">
                         <div className="blog-lazyload-image h-full">
-                            <img
+                            <Image
                                 className="w-full h-full object-cover"
                                 alt="blog"
-                                style={{ opacity: 1 }}
+                                layout="fill"
                                 src="https://images.ctfassets.net/b7g5dqsgeo8w/2KVkSQVAVzwKxIs2mihOvO/cdc0994459698de9448b88f829ae8423/louis-vuitton-stellar-times-joolux-journey-of-luxury-thumb.jpg"
                             />
                         </div>
@@ -213,7 +210,6 @@ const BlogBlock: FC = () => (
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             xmlns="http://www.w3.org/2000/svg"
-                            icon-container
                             viewBox="0 0 24 24"
                             preserveAspectRatio="xMidYMid meet"
                             className="createIconSvg"

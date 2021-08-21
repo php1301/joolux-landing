@@ -18,9 +18,9 @@ const BrandBlock: FC = () => (
                         </div>
                     </div>
                     <div className="p-4">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                        <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
                             Louis Vuitton
-                        </h5>
+                        </p>
                         <p className="text-sm text-gray-700">Mua ngay</p>
                     </div>
                 </a>
@@ -40,9 +40,9 @@ const BrandBlock: FC = () => (
                         </div>
                     </div>
                     <div className="p-4">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                        <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
                             Christian Dior
-                        </h5>
+                        </p>
                         <p className="text-sm text-gray-700">Mua ngay</p>
                     </div>
                 </a>
@@ -62,9 +62,9 @@ const BrandBlock: FC = () => (
                         </div>
                     </div>
                     <div className="p-4">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                        <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
                             Túi hiệu công sở
-                        </h5>
+                        </p>
                         <p className="text-sm text-gray-700">Mua ngay</p>
                     </div>
                 </a>
@@ -84,9 +84,9 @@ const BrandBlock: FC = () => (
                         </div>
                     </div>
                     <div className="p-4">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                        <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
                             Túi hiệu dạo phố
-                        </h5>
+                        </p>
                         <p className="text-sm text-gray-700">Mua ngay</p>
                     </div>
                 </a>
@@ -106,9 +106,9 @@ const BrandBlock: FC = () => (
                         </div>
                     </div>
                     <div className="p-4">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                        <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
                             Giai điệu ngày hè
-                        </h5>
+                        </p>
                         <p className="text-sm text-gray-700">Mua ngay</p>
                     </div>
                 </a>
@@ -128,9 +128,9 @@ const BrandBlock: FC = () => (
                         </div>
                     </div>
                     <div className="p-4">
-                        <h5 className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                        <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
                             Ví hiệu thời trang
-                        </h5>
+                        </p>
                         <p className="text-sm text-gray-700">Mua ngay</p>
                     </div>
                 </a>
