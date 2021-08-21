@@ -131,7 +131,7 @@ const CartToCheckout: FC<ICartToCheckOutProps> = ({
                                     {`Giỏ hàng (tạm tính ${totalItems} sản phẩm):`}
                                 </div>
                                 <div className="cart-row-value">
-                                    {basePrice}
+                                    {basePrice}&nbsp;₫
                                 </div>
                             </div>
                             <div className="flex -mx-2">
@@ -144,14 +144,16 @@ const CartToCheckout: FC<ICartToCheckOutProps> = ({
                                 <div className="cart-row-label">
                                     Tổng tiền đã giảm:{" "}
                                 </div>
-                                <div className="cart-row-value">{discount}</div>
+                                <div className="cart-row-value">
+                                    {discount || 0}&nbsp;₫
+                                </div>
                             </div>
                             <div className="flex -mx-2">
                                 <div className="cart-row-label mb-0">
                                     Thành tiền:
                                 </div>
                                 <div className="cart-row-value text-secondary font-bold">
-                                    {cartTotal}
+                                    {cartTotal}&nbsp;₫
                                 </div>
                             </div>
                         </div>
