@@ -21,7 +21,8 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const { items, total, isEmpty, totalItems } = useCart();
     const { price: cartTotal, discount } = usePrice({
         amount: total,
-        currencyCode: "USD",
+        baseAmount: total,
+        currencyCode: "VND",
     });
     const [referenceElement, setReferenceElement] = useState(null);
     const [popperElement, setPopperElement] = useState(null);
@@ -118,13 +119,13 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                         )}
                     >
                         <span className="w-full pe-5 -mt-0.5 py-0.5">
-                            {`Discounted: $${discount || "0.00"}`}
+                            {`Đã giảm: ${discount || 0} ₫`}
                             <br />
                             {t("To Cart Page")}
                         </span>
                         <span className="ms-auto flex-shrink-0 -mt-0.5 py-0.5">
                             <span className="border-s border-white pe-5 py-0.5" />
-                            {cartTotal}
+                            {cartTotal}&nbsp;₫
                         </span>
                     </Link>
                 </div>
