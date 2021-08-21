@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 // import {
 //     PankodIcon,
 //     GithubIcon,
@@ -184,18 +185,21 @@ export const Footer: React.FC = () => {
                         </div>
                         <div className="px-4 w-full md:w-1/2 lg:w-1/4 order-6 md:order-4 lg:order-none">
                             <div className="flex items-center mb-3">
-                                <img
-                                    src="https://joolux.com/img/tradeStamp.png"
-                                    width={56}
-                                    height={56}
-                                    className="mr-6"
-                                    alt="tradeStamp"
-                                />
-                                <img
-                                    src="https://joolux.com/img/tradeStampConfirm.png"
-                                    className="footer-stamp-confirm"
-                                    alt="Con dấu đăng ký kinh doanh"
-                                />
+                                <div className="mr-6">
+                                    <Image
+                                        src="https://joolux.com/img/tradeStamp.png"
+                                        width={56}
+                                        height={56}
+                                        alt="tradeStamp"
+                                    />
+                                </div>
+                                <div className="footer-stamp-confirm">
+                                    <Image
+                                        src="https://joolux.com/img/tradeStampConfirm.png"
+                                        layout="fill"
+                                        alt="Con dấu đăng ký kinh doanh"
+                                    />
+                                </div>
                             </div>
                             <p className="text-gray-500 text-xs mb-8">
                                 Đăng ký kinh doanh số 0313621164 do Sở Kế hoạch

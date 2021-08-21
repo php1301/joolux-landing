@@ -57,6 +57,7 @@ const config = {
             "assets.vercel.com",
             "old.joolux.com",
             "images.ctfassets.net",
+            "joolux.com",
         ],
     },
 };

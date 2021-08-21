@@ -515,11 +515,24 @@
 		color: inherit;
 		fill: currentcolor;
 	}
-	.footer-stamp-confirm{
+
+	.footer-stamp-confirm {
 		flex: 1 1 0%;
 		max-width: 148px;
 		min-width: 0px;
 		object-fit: contain;
+		width: 100%;
+		height: auto;
+	}
+
+	.footer-stamp-confirm div {
+		position: unset!important;
+
+	}
+	.footer-stamp-confirm img {
+		position: unset!important;
+		width: 100%;
+        height: auto!important;
 	}
 	.footer-email-input {
 		border-width: 1px;
