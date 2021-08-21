@@ -18,15 +18,19 @@ type CartItemProps = {
 const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
     const { t } = useTranslation("common");
     const { addItemToCart, removeItemFromCart, clearItemFromCart } = useCart();
-    const { price } = usePrice({
-        amount: item.price,
-        currencyCode: "USD",
+    const { price: unitPrice } = usePrice({
+        amount: item?.price && parseInt(item?.price as unknown as string),
+        baseAmount: item?.price && parseInt(item?.price as unknown as string),
+        currencyCode: "VND",
     });
-    // Gán price này bằng biến khác tên totalPrice
     const { price: totalPrice } = usePrice({
-        amount: item.itemTotal,
-        currencyCode: "USD",
+        amount:
+            item?.itemTotal && parseInt(item?.itemTotal as unknown as string),
+        baseAmount:
+            item?.itemTotal && parseInt(item?.itemTotal as unknown as string),
+        currencyCode: "VND",
     });
+
     return (
         <motion.div
             layout
@@ -39,7 +43,11 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
         >
             <div className="relative flex w-24 md:w-28 h-24 md:h-28 rounded-md overflow-hidden bg-gray-200 flex-shrink-0 cursor-pointer me-4">
                 <Image
-                    src={item?.image ?? "/assets/placeholder/cart-item.svg"}
+                    src={
+                        (item?.image &&
+                            `${process.env.NEXT_PUBLIC_BASE_IMAGE}${item?.image}`) ??
+                        "/assets/placeholder/cart-item.svg"
+                    }
                     width={112}
                     height={112}
                     loading="eager"
@@ -57,14 +65,14 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
 
             <div className="flex flex-col w-full overflow-hidden">
                 <Link
-                    href={`${ROUTES.PRODUCT}/${item?.slug}`}
+                    href={`${ROUTES.PRODUCT}/${item.slug}/${item.id}`}
                     className="truncate text-sm text-heading mb-1.5 -mt-1"
                 >
                     {generateCartItemName(item.name, item.attributes)}
                 </Link>
                 <span className="text-sm text-gray-400 mb-2.5">
                     {t("text-unit-price")} : &nbsp;
-                    {price}
+                    {unitPrice}&nbsp;₫
                 </span>
 
                 <div className="flex items-end justify-between">
@@ -75,7 +83,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
                         variant="dark"
                     />
                     <span className="font-semibold text-sm md:text-base text-heading leading-5">
-                        {totalPrice}
+                        {totalPrice}&nbsp;₫
                     </span>
                 </div>
             </div>
