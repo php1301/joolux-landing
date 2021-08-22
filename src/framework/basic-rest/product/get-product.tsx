@@ -8,7 +8,6 @@ export const fetchProduct = async (id: string) => {
     const { data: data2 } = await http.get(
         `https://api.joolux-client.ml/admin/products/information?id=${id}`,
     );
-    console.log(data2);
     return data2;
 };
 

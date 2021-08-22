@@ -18,7 +18,6 @@ import AssuranceBlock from "@containers/assurance-block";
 export default function ProductPage() {
     const { query, asPath } = useRouter();
     const { data, isLoading } = useProductQuery(query.slug[1]);
-    console.log(asPath);
     return (
         <div className="relative flex-grow">
             <NextSeo

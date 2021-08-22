@@ -5,5 +5,9 @@ module.exports = {
         defaultLocale: "vi",
         localeDetection: false,
     },
+    react: {
+        useSuspense: false,
+        wait: true,
+    },
     localePath: path.resolve("./public/locales"),
 };
