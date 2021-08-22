@@ -1,21 +1,24 @@
 import Container from "@components/ui/container";
+import { NextSeo } from "next-seo";
 import { Layout } from "@components/layout/layout";
 import { Subscription } from "@components/common/subscription";
 import ProductFlashSaleGridFeedLoader from "@components/ui/loaders/product-flash-sale-grid-feed-loader";
 import { useRouter } from "next/router";
-import { useProductQuery } from "@framework/product/get-product";
+import { useProductQuery, fetchProduct } from "@framework/product/get-product";
 import ProductSingleDetails from "@components/product/product-single-details";
 import RelatedProducts from "@containers/related-products";
 import Divider from "@components/ui/divider";
 import { VietnameseBreadcrumb } from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
+import { QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
 import AssuranceBlock from "@containers/assurance-block";
 
 export default function ProductPage() {
-    const { query } = useRouter();
+    const { query, asPath } = useRouter();
     const { data, isLoading } = useProductQuery(query.slug[1] as string);
-
+    console.log(asPath);
     return (
         <div className="relative flex-grow">
             <Divider className="mb-0" />
@@ -24,6 +27,37 @@ export default function ProductPage() {
                     <ProductFlashSaleGridFeedLoader limit={1} />
                 ) : data ? (
                     <>
+                        <NextSeo
+                            additionalMetaTags={[
+                                {
+                                    name: "viewport",
+                                    content:
+                                        "width=device-width, initial-scale=1.0",
+                                },
+                            ]}
+                            title={`${data?.name} | Joolux` || "Joolux"}
+                            description={data?.description || "Pending"}
+                            canonical={asPath}
+                            openGraph={{
+                                url: asPath,
+                                title: `${data?.name} | Joolux` || "Joolux",
+                                description: data?.description || "Pending",
+                                images: [
+                                    {
+                                        url: "https://joolux.com/og-image.jpg",
+                                        width: 800,
+                                        height: 600,
+                                        alt: "Og Image Alt",
+                                    },
+                                    {
+                                        url: "https://joolux.com/og-image.jpg",
+                                        width: 900,
+                                        height: 800,
+                                        alt: "Og Image Alt Second",
+                                    },
+                                ],
+                            }}
+                        />
                         <div className="pt-8">
                             <VietnameseBreadcrumb
                                 type={data?.details[18].value}
@@ -50,7 +84,15 @@ export default function ProductPage() {
 }
 ProductPage.Layout = Layout;
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+    locale,
+    query,
+}) => {
+    const queryClient = new QueryClient();
+
+    await queryClient.prefetchQuery(query.slug[1], async () =>
+        fetchProduct(query.slug[1]),
+    );
     return {
         props: {
             ...(await serverSideTranslations(locale!, [
@@ -59,6 +101,23 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
                 "menu",
                 "footer",
             ])),
+            dehydratedState: dehydrate(queryClient),
         },
     };
 };
+
+// ProductPage.getInitialProps = async ({ locale, query, req }) => {
+//     const queryClient = new QueryClient();
+//     await queryClient.prefetchQuery(query.slug[1], async () =>
+//         fetchProduct(query.slug[1]),
+//     );
+//     return {
+//         // translation: ...(await serverSideTranslations(locale!, [
+//         //     "common",
+//         //     "forms",
+//         //     "menu",
+//         //     "footer",
+//         // ])),
+//         // dehydratedState: dehydrate(queryClient),
+//     };
+// };

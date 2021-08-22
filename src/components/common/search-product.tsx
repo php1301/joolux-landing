@@ -2,12 +2,14 @@ import Link from "@components/ui/link";
 import Image from "next/image";
 import usePrice from "@framework/product/use-price";
 import { ROUTES } from "@utils/routes";
+import { Product } from "@framework/types";
 
 type SearchProductProps = {
     item: any;
+    product?: Product;
 };
 
-const SearchProduct: React.FC<SearchProductProps> = ({ item }) => {
+const SearchProduct: React.FC<SearchProductProps> = ({ item, product }) => {
     const { price, basePrice } = usePrice({
         amount: item.sale_price ? item.sale_price : item.price,
         baseAmount: item.price,
@@ -15,7 +17,8 @@ const SearchProduct: React.FC<SearchProductProps> = ({ item }) => {
     });
     return (
         <Link
-            href={`${ROUTES.PRODUCT}/${item?.slug}`}
+            // href={`${ROUTES.PRODUCT}/${product.urlKey}/${product._id}`}
+            href={`/abc`}
             className="group w-full h-auto flex justify-start items-center"
         >
             <div className="relative flex w-24 h-24 rounded-md overflow-hidden bg-gray-200 flex-shrink-0 cursor-pointer me-4">

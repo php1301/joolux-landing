@@ -5,10 +5,16 @@ import MobileNavigation from "@components/layout/mobile/mobile";
 import Search from "@components/common/search";
 import HeaderMenu from "@components/layout/header/header-menu";
 import { siteSettings } from "@settings/site-settings";
+import { sitePages } from "@settings/site-pages";
+import { useRouter } from "next/router";
 
 // File Layout này sẽ được các Pages . đến để appply Layout dynamically
 const Layout: React.FC = ({ children }) => {
-    const { site_header } = siteSettings;
+    const { site_header, name, description } = siteSettings;
+    const { pathname } = useRouter();
+    const seoTitle = sitePages?.[pathname.substring(1)]?.["page_title"] || name;
+    const seoDescription =
+        sitePages?.[pathname.substring(1)]?.["page_description"] || description;
     return (
         <div className="flex flex-col min-h-screen">
             <NextSeo
@@ -18,14 +24,13 @@ const Layout: React.FC = ({ children }) => {
                         content: "width=device-width, initial-scale=1.0",
                     },
                 ]}
-                title="Joolux"
-                description="Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.."
+                title={seoTitle}
+                description={seoDescription}
                 canonical="https://joolux-client.ml"
                 openGraph={{
                     url: "https://joolux-client.ml",
-                    title: "Joolux",
-                    description:
-                        "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",
+                    title: seoTitle,
+                    description: seoDescription,
                     images: [
                         {
                             url: "https://joolux.com/og-image.jpg",

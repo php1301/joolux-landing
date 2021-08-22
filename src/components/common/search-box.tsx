@@ -1,6 +1,5 @@
 import SearchIcon from "@components/icons/search-icon";
 import React from "react";
-import { useTranslation } from "next-i18next";
 import { IoCloseOutline } from "react-icons/io5";
 
 type SearchProps = {
@@ -8,13 +7,13 @@ type SearchProps = {
     onSubmit: (e: React.SyntheticEvent) => void;
     onClear: (e: React.SyntheticEvent) => void;
     onChange: (e: React.SyntheticEvent) => void;
+    onKeyDown: (e: React.SyntheticEvent) => void;
     name: string;
     value: string;
 };
 
 const SearchBox = React.forwardRef<HTMLInputElement, SearchProps>(
-    ({ className, onSubmit, onClear, ...rest }, ref) => {
-        const { t } = useTranslation("common");
+    ({ className, onSubmit, onClear, onKeyDown, ...rest }, ref) => {
         return (
             <form
                 className="relative pe-12 md:pe-14 bg-white overflow-hidden rounded-md w-full"
@@ -31,6 +30,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchProps>(
                         className="text-heading outline-none w-full h-12 lg:h-14 placeholder-gray-400 text-sm lg:text-base"
                         placeholder="Tìm kiếm"
                         aria-label="Search"
+                        onKeyDown={onKeyDown}
                         autoComplete="off"
                         ref={ref}
                         {...rest}

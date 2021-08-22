@@ -1,15 +1,21 @@
 import { DefaultSeo as NextDefaultSeo } from "next-seo";
 import { siteSettings } from "@settings/site-settings";
-
+import { sitePages } from "@settings/site-pages";
+import { useRouter } from "next/router";
 export const DefaultSeo = () => {
+    const { name, description } = siteSettings;
+    const { pathname, query } = useRouter();
+    const seoTitle = sitePages?.[pathname.substring(1)]?.["page_title"] || name;
+    const seoDescription =
+        sitePages?.[pathname.substring(1)]?.["page_description"] || description;
     return (
         <NextDefaultSeo
-            title={siteSettings.name}
-            description={siteSettings.description}
+            title={(query.q && `${query.q} | Joolux`) || seoTitle}
+            description={seoDescription}
             openGraph={{
                 type: "website",
                 locale: "en_IE",
-                site_name: siteSettings.name,
+                site_name: seoTitle,
             }}
             twitter={{
                 handle: "@handle",

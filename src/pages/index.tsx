@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { GetStaticProps, NextPage } from "next";
+import { SiteLinksSearchBoxJsonLd } from "next-seo";
 // import { useAmp } from "next/amp";
 export const config = {
     amp: false,
@@ -44,6 +45,19 @@ const Home: NextPage & {
     // const isAmp = useAmp();
     return (
         <>
+            <SiteLinksSearchBoxJsonLd
+                url="https:/joolux-client.ml"
+                potentialActions={[
+                    {
+                        target: "https:/joolux-client.ml/hang-moi-ve?q",
+                        queryInput: "Search",
+                    },
+                    {
+                        target: "android-app://com.example/https/joolux-client.ml/hang-moi-ve?q",
+                        queryInput: "Search",
+                    },
+                ]}
+            />
             <Subscription />
             {/* <Main />
             <I18NExample /> */}

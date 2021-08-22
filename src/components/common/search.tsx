@@ -11,6 +11,7 @@ import {
 } from "body-scroll-lock";
 import Scrollbar from "@components/common/scrollbar";
 import SearchProduct from "@components/common/search-product";
+import { useRouter } from "next/router";
 
 export default function Search() {
     const { displaySearch, closeSearch } = useUI();
@@ -18,9 +19,15 @@ export default function Search() {
     const { data, isLoading } = useSearchQuery({
         text: searchText,
     });
-
-    function handleSearch(e: React.SyntheticEvent) {
-        e.preventDefault();
+    const router = useRouter();
+    function handleSearch(
+        e: React.KeyboardEvent & React.FormEvent<HTMLInputElement>,
+    ) {
+        if (e.key === "Enter") {
+            router.push(`/hang-moi-ve?q=${e.currentTarget.value}`);
+            e.preventDefault();
+            console.log("run");
+        }
     }
     function handleAutoSearch(e: React.FormEvent<HTMLInputElement>) {
         setSearchText(e.currentTarget.value);
@@ -66,6 +73,7 @@ export default function Search() {
                         <div className="flex flex-col mx-auto mb-1.5 w-full ">
                             <SearchBox
                                 onSubmit={handleSearch}
+                                onKeyDown={handleSearch}
                                 onChange={handleAutoSearch}
                                 name="search"
                                 value={searchText}

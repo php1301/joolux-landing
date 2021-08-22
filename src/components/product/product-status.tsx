@@ -14,7 +14,7 @@ const ProductStatus: FC<{ status: string }> = ({ status }) => {
                 {status}
             </div>
             <h6 className="typo-h6 leading-[1.5] text-[#101010] text-sm font-normal">
-                {StatusDescription[status?.replaceAll(" ", "")]}
+                {StatusDescription[status?.replace(" ", "")]}
             </h6>
         </div>
     );

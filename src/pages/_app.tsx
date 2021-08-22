@@ -92,4 +92,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     );
 }
 
+// MyApp.getInitialProps = async (appContext) => {
+//     const appProps = await App.getInitialProps(appContext);
+//     return { ...appProps };
+// };
+
 export default appWithTranslation(MyApp);
