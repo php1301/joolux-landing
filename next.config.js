@@ -22,6 +22,12 @@ const localeSubpaths = {
 };
 
 const config = {
+    // webpack5: true,
+    // webpack: (config) => {
+    //     config.resolve.fallback = { fs: false };
+
+    //     return config;
+    // },
     devServer: {
         proxy: {
             "/api": "http://localhost:3000",
