@@ -7,7 +7,7 @@ module.exports = {
     },
     react: {
         useSuspense: false,
-        wait: true,
+        // wait: true,
     },
     localePath: path.resolve("./public/locales"),
 };
