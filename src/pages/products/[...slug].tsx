@@ -17,47 +17,50 @@ import AssuranceBlock from "@containers/assurance-block";
 
 export default function ProductPage() {
     const { query, asPath } = useRouter();
-    const { data, isLoading } = useProductQuery(query.slug[1] as string);
+    const { data, isLoading } = useProductQuery(query.slug[1]);
     console.log(asPath);
     return (
         <div className="relative flex-grow">
+            <NextSeo
+                additionalMetaTags={[
+                    {
+                        name: "viewport",
+                        content: "width=device-width, initial-scale=1.0",
+                    },
+                ]}
+                title={`${data?.name} | Joolux` || "Joolux"}
+                description={data?.description || "Pending"}
+                canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
+                openGraph={{
+                    url: asPath,
+                    title: `${data?.name} | Joolux` || "Joolux",
+                    description: data?.description || "Pending",
+                    images: [
+                        {
+                            url:
+                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${data?.images[0]}` ||
+                                "https://joolux.com/og-image.jpg",
+                            width: 800,
+                            height: 600,
+                            alt: "Og Image Alt",
+                        },
+                        {
+                            url:
+                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${data?.images[0]}` ||
+                                "https://joolux.com/og-image.jpg",
+                            width: 900,
+                            height: 800,
+                            alt: "Og Image Alt Second",
+                        },
+                    ],
+                }}
+            />
             <Divider className="mb-0" />
             <Container>
                 {isLoading ? (
                     <ProductFlashSaleGridFeedLoader limit={1} />
                 ) : data ? (
                     <>
-                        <NextSeo
-                            additionalMetaTags={[
-                                {
-                                    name: "viewport",
-                                    content:
-                                        "width=device-width, initial-scale=1.0",
-                                },
-                            ]}
-                            title={`${data?.name} | Joolux` || "Joolux"}
-                            description={data?.description || "Pending"}
-                            canonical={asPath}
-                            openGraph={{
-                                url: asPath,
-                                title: `${data?.name} | Joolux` || "Joolux",
-                                description: data?.description || "Pending",
-                                images: [
-                                    {
-                                        url: "https://joolux.com/og-image.jpg",
-                                        width: 800,
-                                        height: 600,
-                                        alt: "Og Image Alt",
-                                    },
-                                    {
-                                        url: "https://joolux.com/og-image.jpg",
-                                        width: 900,
-                                        height: 800,
-                                        alt: "Og Image Alt Second",
-                                    },
-                                ],
-                            }}
-                        />
                         <div className="pt-8">
                             <VietnameseBreadcrumb
                                 type={data?.details[18].value}
@@ -89,7 +92,6 @@ export const getServerSideProps: GetServerSideProps = async ({
     query,
 }) => {
     const queryClient = new QueryClient();
-
     await queryClient.prefetchQuery(query.slug[1], async () =>
         fetchProduct(query.slug[1]),
     );

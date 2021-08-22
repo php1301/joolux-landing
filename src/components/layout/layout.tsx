@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 // File Layout này sẽ được các Pages . đến để appply Layout dynamically
 const Layout: React.FC = ({ children }) => {
     const { site_header, name, description } = siteSettings;
-    const { pathname } = useRouter();
+    const { asPath, pathname } = useRouter();
     const seoTitle = sitePages?.[pathname.substring(1)]?.["page_title"] || name;
     const seoDescription =
         sitePages?.[pathname.substring(1)]?.["page_description"] || description;
@@ -26,9 +26,9 @@ const Layout: React.FC = ({ children }) => {
                 ]}
                 title={seoTitle}
                 description={seoDescription}
-                canonical="https://joolux-client.ml"
+                canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
                 openGraph={{
-                    url: "https://joolux-client.ml",
+                    url: process.env.NEXT_PUBLIC_WEBSITE_URL,
                     title: seoTitle,
                     description: seoDescription,
                     images: [

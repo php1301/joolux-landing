@@ -46,14 +46,16 @@ const Home: NextPage & {
     return (
         <>
             <SiteLinksSearchBoxJsonLd
-                url="https:/joolux-client.ml"
+                url={process.env.NEXT_PUBLIC_WEBSITE_URL}
                 potentialActions={[
                     {
-                        target: "https:/joolux-client.ml/hang-moi-ve?q",
+                        target: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/hang-moi-ve?q`,
                         queryInput: "Search",
                     },
                     {
-                        target: "android-app://com.example/https/joolux-client.ml/hang-moi-ve?q",
+                        target: `android-app://com.example/https/${process.env.NEXT_PUBLIC_WEBSITE_URL.substring(
+                            8,
+                        )}/hang-moi-ve?q`,
                         queryInput: "Search",
                     },
                 ]}

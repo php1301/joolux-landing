@@ -16,9 +16,9 @@ export default function ErrorPage() {
                 ]}
                 title={"Trang không tồn tại | Joolux"}
                 description={"Trang trang bạn tìm kiếm không tồn tại"}
-                canonical={"https://joolux-client.ml"}
+                canonical={process.env.NEXT_PUBLIC_WEBSITE_URL}
                 openGraph={{
-                    url: "https://joolux-client.ml",
+                    url: process.env.NEXT_PUBLIC_WEBSITE_URL,
                     title: "Trang không tồn tại | Joolux",
                     description: "Trang không tồn tại",
                     images: [
