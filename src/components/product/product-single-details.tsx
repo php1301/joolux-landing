@@ -25,6 +25,7 @@ import ProductDescription from "./product-description";
 import ProductNumber from "./product-number";
 import ProductPolicy from "./product-policy";
 import { Product } from "@framework/types";
+import { useRouter } from "next/router";
 
 const productGalleryCarouselResponsive = {
     "768": {
@@ -38,11 +39,15 @@ const productGalleryCarouselResponsive = {
 const ProductSingleDetails: React.FC<{
     data: Product;
 }> = ({ data }) => {
+    const router = useRouter();
     const { width } = useWindowSize();
     const { addItemToCart } = useCart();
     const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
     const [quantity, setQuantity] = useState(1);
+    const [favorite, setFavorite] = useState<boolean>(false);
     const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
+    const [immeAddToCartLoader, setImmeAddToCartLoader] =
+        useState<boolean>(false);
 
     // const gallery = [
     //     {
@@ -143,6 +148,19 @@ const ProductSingleDetails: React.FC<{
         console.log(item, "item");
     }
 
+    function immediatelyCheckout() {
+        setImmeAddToCartLoader(true);
+        setTimeout(() => {
+            setImmeAddToCartLoader(false);
+        }, 600);
+
+        const item = generateCartItem(data!, attributes);
+        addItemToCart(item, quantity);
+        router.push("/cart");
+    }
+    function handleFavorite() {
+        setFavorite((fav) => !fav);
+    }
     function handleAttribute(attribute: any) {
         setAttributes((prev) => ({
             ...prev,
@@ -229,12 +247,21 @@ const ProductSingleDetails: React.FC<{
                             disableDecrement={quantity === 1}
                         />
                         <div className="flex ml-auto flex-1">
-                            <BsHeart color="pink" className="mr-3" size={24} />
-                            {/* <BsHeartFill
-                                color="red"
-                                className="mr-3"
-                                size={24}
-                            /> */}
+                            {favorite ? (
+                                <BsHeart
+                                    onClick={handleFavorite}
+                                    color="pink"
+                                    className="mr-3"
+                                    size={24}
+                                />
+                            ) : (
+                                <BsHeartFill
+                                    onClick={handleFavorite}
+                                    color="red"
+                                    className="mr-3"
+                                    size={24}
+                                />
+                            )}
                             <h3 className="h-6 text-base md:text-lg text-heading font-normal capitalize">
                                 Thêm vào yêu thích
                             </h3>
@@ -258,13 +285,13 @@ const ProductSingleDetails: React.FC<{
                     </div>
                     <div className="flex items-center space-s-4 pt-3">
                         <Button
-                            // onClick={addToCart}
+                            onClick={immediatelyCheckout}
                             variant="jl"
                             className={`w-full md:w-6/12 xl:w-full ${
                                 !isSelected && "bg-gray-400 hover:bg-gray-400"
                             }`}
                             disabled={!isSelected}
-                            // loading={addToCartLoader}
+                            loading={immeAddToCartLoader}
                         >
                             <span className="py-2 3xl:px-8">
                                 Thanh toán ngay
