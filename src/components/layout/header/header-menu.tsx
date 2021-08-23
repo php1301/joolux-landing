@@ -32,7 +32,10 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                                     </Link>
                                     {item?.columns &&
                                         Array.isArray(item.columns) && (
-                                            <MegaMenu columns={item.columns} />
+                                            <MegaMenu
+                                                columns={item.columns}
+                                                image={item?.menuImage}
+                                            />
                                         )}
                                 </div>
                             );
@@ -52,7 +55,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                         </Link>
                     </div>
                     <div
-                        className={`menuItem group cursor-pointer py-7 relative`}
+                        className={`menuItem group cursor-pointer py-7`}
                         key={data[0].id}
                     >
                         <Link
@@ -62,7 +65,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                             Dịch vụ khác
                         </Link>
                         {data[1]?.subMenu && Array.isArray(data[1].subMenu) && (
-                            <div className="subMenu shadow-header bg-gray-200 absolute end-0 opacity-0 group-hover:opacity-100">
+                            <div className="subMenu shadow-header bg-white absolute end-0 opacity-0 group-hover:opacity-100">
                                 <ul className="text-body text-sm py-5">
                                     {data[1].subMenu.map(
                                         (menu: any, index: number) => {
