@@ -36,7 +36,7 @@ const Pagination: FC<IPagination> = ({ temp_total, pagination }) => {
         router.push(decodeURI(url), undefined, { scroll: false });
     };
     return (
-        <div className="container flex justify-start mx-auto product-paginate mt-6">
+        <div className="container flex justify-start mx-auto product-paginate mt-6 overflow-x-auto">
             <ReactPaginate
                 previousLabel={"<"}
                 previousLinkClassName="inline-flex h-8 w-8 text-gray-600 bg-white border border-solid border-[#cfcfcf] leading-8 mx-1 justify-center items-center cursor-pointer text-sm"
