@@ -16,11 +16,12 @@ type MegaMenuProps = {
         columnItems: MenuItem[];
     }[]; // ep kieu array
     image?: string;
+    numOfCols: number;
 };
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image, numOfCols }) => {
     const { t } = useTranslation("menu");
-    const numCols = `grid grid-cols-${(columns.length + 2).toString()}`;
+    const numCols = `grid grid-cols-${numOfCols.toString()}`;
     return (
         <div className="megaMenu shadow-header bg-white absolute -start-1 xl:start-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible z-20">
             <ul

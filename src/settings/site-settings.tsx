@@ -56,6 +56,7 @@ export const siteSettings = {
                 path: "/hang-moi-ve",
                 label: "Thương hiệu",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                numOfCols: 5,
                 columns: [
                     {
                         id: 1,
@@ -180,6 +181,7 @@ export const siteSettings = {
                 path: "/tui-xach",
                 label: "Túi xách",
                 menuImage: "https://joolux.com/img/menu/mega-2.jpg",
+                numOfCols: 5,
                 columns: [
                     {
                         id: 1,
@@ -299,6 +301,7 @@ export const siteSettings = {
                 path: "/giay-sneaker",
                 label: "GIÀY & SNEAKER",
                 menuImage: "https://joolux.com/img/menu/mega-3.jpg",
+                numOfCols: 5,
                 columns: [
                     {
                         id: 1,
@@ -428,6 +431,7 @@ export const siteSettings = {
                 path: "/dong-ho-cao-cap",
                 label: "Đồng hồ",
                 menuImage: "https://joolux.com/img/menu/mega-4.jpg",
+                numOfCols: 6,
                 columns: [
                     {
                         id: 1,
@@ -626,6 +630,7 @@ export const siteSettings = {
                 path: "/phu-kien",
                 label: "Phụ kiện",
                 menuImage: "https://joolux.com/img/menu/mega-5.jpg",
+                numOfCols: 7,
                 columns: [
                     {
                         id: 1,
