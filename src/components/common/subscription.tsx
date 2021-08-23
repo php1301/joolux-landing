@@ -17,6 +17,7 @@ const data = {
 
 interface Props {
     className?: string;
+    hasTitle?: boolean;
 }
 
 type FormValues = {
@@ -29,6 +30,7 @@ const defaultValues = {
 
 export const Subscription: React.FC<Props> = ({
     className = "px-5 sm:px-8 md:px-16 2xl:px-24",
+    hasTitle = false,
 }) => {
     const [show, setShow] = useState(true);
     const {
@@ -49,7 +51,7 @@ export const Subscription: React.FC<Props> = ({
     return (
         show && (
             <div
-                className={`${className} flex flex-col md:flex-row justify-center md:justify-between items-center bg-[#e7e7e7] py-5 md:py-8 lg:py-8 relative max-h-[128px]`}
+                className={`${className} flex flex-col md:flex-row justify-center md:justify-between items-center bg-[#e7e7e7] py-5 md:py-8 lg:py-8 relative lg:max-h-[128px]`}
             >
                 <button
                     onClick={() => {
@@ -64,19 +66,21 @@ export const Subscription: React.FC<Props> = ({
                     <IoClose className="text-xl" />
                 </button>
                 <div className="-mt-1.5 lg:-mt-2 xl:-mt-0.5 text-start mb-7 md:mb-4 lg:mb-5 xl:mb-0 lg:w-1/2">
-                    {/* <Text
-                        variant="mediumHeading"
-                        className="mb-2 md:mb-2.5 lg:mb-3 xl:mb-3.5"
-                    >
-                        {t(`${title}`)}
-                    </Text> */}
+                    {hasTitle && (
+                        <Text
+                            variant="jl"
+                            className="mb-2 md:mb-2.5 lg:mb-3 xl:mb-3.5"
+                        >
+                            {t(`${title}`)}
+                        </Text>
+                    )}
                     <h6 className="text-body text-xs font-normal md:text-sm leadin-5 typo-h6">
                         {t(`${description}`)}
                     </h6>
                 </div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="flex-shrink-0 w-full sm:w-96 md:w-[475px]"
+                    className="flex-shrink-0 md:ml-4 w-full sm:w-[26rem] md:w-[475px]"
                     noValidate
                 >
                     <div className="flex flex-col sm:flex-row items-start justify-end">
