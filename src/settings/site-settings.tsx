@@ -110,7 +110,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/hang-moi-ve?brands=adidas",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -157,7 +157,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=footwear",
-                                label: "    ",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -234,7 +234,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -281,7 +281,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=footwear",
-                                label: "    ",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -353,7 +353,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -400,7 +400,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=footwear",
-                                label: "    ",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -484,7 +484,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -531,7 +531,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -580,7 +580,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -683,7 +683,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -731,7 +731,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
@@ -778,7 +778,7 @@ export const siteSettings = {
                             {
                                 id: 1,
                                 path: "/search?q=western-wear",
-                                label: "\n",
+                                label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
