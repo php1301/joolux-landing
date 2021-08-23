@@ -22,14 +22,16 @@ export const sitePages = {
     },
     "dong-ho-cao-cap": {
         page_title: "Đồng hồ | Joolux",
-        page_description: "Không chỉ cho biết thời gian, đồng hồ còn cho biết bạn là ai",
+        page_description:
+            "Không chỉ cho biết thời gian, đồng hồ còn cho biết bạn là ai",
         banner_title_id: "dongHoTitle",
         banner_description_id: "dongHoSubTitle",
         banner: "https://joolux.com/img/menu/mega-4.jpg",
     },
     "phu-kien": {
         page_title: "Phụ kiện | Joolux",
-        page_description: "Một phụ kiện dù nhỏ nhưng góp phần hoàn thiện trang phục của bạn",
+        page_description:
+            "Một phụ kiện dù nhỏ nhưng góp phần hoàn thiện trang phục của bạn",
         banner_title_id: "phuKienTitle",
         banner_description_id: "phuKienSubTitle",
         banner: "https://joolux.com/img/menu/mega-5.jpg",

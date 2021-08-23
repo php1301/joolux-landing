@@ -1,4 +1,5 @@
 import React from "react";
+import cn from "classnames";
 import Link from "@components/ui/link";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
@@ -21,7 +22,6 @@ type MegaMenuProps = {
 
 const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image, numOfCols }) => {
     const { t } = useTranslation("menu");
-    const numCols = `grid grid-cols-${numOfCols.toString()}`;
     return (
         <div className="megaMenu shadow-header bg-white absolute -start-1 xl:start-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible z-20">
             <ul
@@ -37,7 +37,12 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image, numOfCols }) => {
                     </span>
                 </li>{" "}
             </ul>
-            <div className={numCols}>
+            <div
+                className={cn("grid", {
+                    "grid-cols-5": numOfCols === 5,
+                    "grid-cols-6": numOfCols === 6,
+                })}
+            >
                 {columns?.map((column) => (
                     <ul
                         className="bg:white pb-7 2xl:pb-8 pt-6 2xl:pt-7"

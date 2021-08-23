@@ -630,7 +630,7 @@ export const siteSettings = {
                 path: "/phu-kien",
                 label: "Phụ kiện",
                 menuImage: "https://joolux.com/img/menu/mega-5.jpg",
-                numOfCols: 7,
+                numOfCols: 6,
                 columns: [
                     {
                         id: 1,
