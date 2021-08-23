@@ -79,8 +79,8 @@ export default function ProductPage() {
                     <div>Có lỗi xảy ra</div>
                 )}
                 <AssuranceBlock />
-                <Subscription />
             </Container>
+            <Subscription hasTitle/>
         </div>
     );
 }
