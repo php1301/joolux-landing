@@ -12,7 +12,7 @@ import {
     IoClose,
 } from "react-icons/io5";
 import { useTranslation } from "next-i18next";
-
+import { useRouter } from "next/router";
 const social = [
     {
         id: 0,
@@ -38,11 +38,12 @@ const social = [
 ];
 
 export default function MobileMenu() {
+    const router = useRouter();
     const [activeMenus, setActiveMenus] = useState<any>([]);
     const { site_header } = siteSettings;
     const { closeSidebar } = useUI();
     const { t } = useTranslation("menu");
-    const handleArrowClick = (menuName: string) => {
+    const handleArrowClick = (menuName: string, dept: number, path: string) => {
         const newActiveMenus = [...activeMenus];
 
         if (newActiveMenus.includes(menuName)) {
@@ -53,7 +54,9 @@ export default function MobileMenu() {
         } else {
             newActiveMenus.push(menuName);
         }
-
+        if (dept === 3) {
+            router.push(path);
+        }
         setActiveMenus(newActiveMenus);
     };
 
@@ -64,13 +67,14 @@ export default function MobileMenu() {
         menuName,
         menuIndex,
         className = "",
+        path,
     }: any) =>
         data.label && (
             <li className={`mb-0.5 ${className}`}>
                 <div className="flex items-center justify-between">
                     <div
-                        onClick={() => handleArrowClick(menuName)}
-                        className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out"
+                        onClick={() => handleArrowClick(menuName, dept, path)}
+                        className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out cursor-pointer"
                     >
                         <span className="block w-full">
                             {t(`${data.label}`)}
@@ -79,7 +83,9 @@ export default function MobileMenu() {
                     {hasSubMenu && (
                         <div
                             className="cursor-pointer w-16 md:w-20 h-8 text-lg flex-shrink-0 flex items-center justify-center"
-                            onClick={() => handleArrowClick(menuName)}
+                            onClick={() =>
+                                handleArrowClick(menuName, dept, path)
+                            }
                         >
                             <IoIosArrowDown
                                 className={`transition duration-200 ease-in-out transform text-heading ${
@@ -108,7 +114,6 @@ export default function MobileMenu() {
         }
 
         dept = dept + 1;
-
         return (
             <ul className="pt-0.5">
                 {data?.map((menu: any, index: number) => {
@@ -117,6 +122,7 @@ export default function MobileMenu() {
                         <ListMenu
                             dept={dept}
                             data={menu}
+                            path={menu.path}
                             hasSubMenu={menu.subMenu}
                             menuName={menuName}
                             key={menuName}
@@ -150,7 +156,6 @@ export default function MobileMenu() {
                             {site_header.mobileMenu.map((menu, index) => {
                                 const dept: number = 1;
                                 const menuName: string = `sidebar-menu-${dept}-${index}`;
-                                console.log(menu);
                                 return (
                                     <ListMenu
                                         dept={dept}
