@@ -158,7 +158,7 @@ const Cart: FC = () => {
                     </Container>
                 </div>
             )}
-            <Subscription />
+            <Subscription hasTitle />
         </div>
     );
 };
