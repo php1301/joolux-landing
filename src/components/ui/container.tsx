@@ -12,9 +12,13 @@ const Container: React.FC<Props> = ({
     el = "div",
     clean,
 }) => {
-    const rootClassName = cn(className, {
-        "mx-auto max-w-[1920px] px-4 md:px-8 2xl:px-16": !clean,
-    });
+    const rootClassName = cn(
+        className,
+        "max-w-[1920px] px-4 md:px-8 2xl:px-16",
+        {
+            "mx-auto": !clean,
+        },
+    );
 
     const Component: React.ComponentType<React.HTMLAttributes<HTMLDivElement>> =
         el as any;
