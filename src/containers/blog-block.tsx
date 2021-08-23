@@ -2,7 +2,7 @@ import Link from "@components/ui/link";
 import React, { FC } from "react";
 import Image from "next/image";
 const BlogBlock: FC = () => (
-    <div className="mx-auto max-w-[1234px] text-center pt-4 smJl:pb-16 pb-10 lg:px-8">
+    <div className="mx-auto max-w-[1234px] text-center pt-4 smJl:pb-16 pb-10 px-8">
         <div className="border-t border-[#e7e7e7] mb-8" />
         <h1
             className="font-semibold leading-[1.33] text-lg mb-7"
