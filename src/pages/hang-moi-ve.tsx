@@ -18,40 +18,42 @@ const Search: NextPage<{ temp_total: number }> & { Layout: typeof Layout } = ({
 }) => {
     const { t } = useTranslation("common");
     return (
-        <Container>
-            <div className={`flex pt-8 pb-16 lg:pb-20`}>
-                <div className="flex-shrink-0 pe-24 hidden lg:block w-96">
-                    <StickyBox offsetTop={50} offsetBottom={20}>
-                        <div className="pb-7">
-                            <BreadcrumbItems separator="/">
-                                <ActiveLink
-                                    href={"/"}
-                                    activeClassName="font-semibold text-heading"
-                                >
-                                    {/* <a>{t("breadcrumb-home")}</a> */}
-                                    <a>{t("Trang chủ")}</a>
-                                </ActiveLink>
-                                <ActiveLink
-                                    href={ROUTES.SEARCH}
-                                    activeClassName="font-semibold text-heading"
-                                >
-                                    <a className="capitalize">
-                                        {/* {t("breadcrumb-search")} */}
-                                        {t("Hàng mới về")}
-                                    </a>
-                                </ActiveLink>
-                            </BreadcrumbItems>
-                        </div>
-                        <ShopFilters />
-                    </StickyBox>
+        <>
+            <Container clean>
+                <div className={`flex pt-8 pb-16 overflow-hidden lg:pb-20`}>
+                    <div className="flex-shrink-0 pe-24 hidden  lg:block w-96">
+                        <StickyBox offsetTop={50} offsetBottom={20}>
+                            <div className="pb-7">
+                                <BreadcrumbItems separator="/">
+                                    <ActiveLink
+                                        href={"/"}
+                                        activeClassName="font-semibold text-heading"
+                                    >
+                                        {/* <a>{t("breadcrumb-home")}</a> */}
+                                        <a>{t("Trang chủ")}</a>
+                                    </ActiveLink>
+                                    <ActiveLink
+                                        href={ROUTES.SEARCH}
+                                        activeClassName="font-semibold text-heading"
+                                    >
+                                        <a className="capitalize">
+                                            {/* {t("breadcrumb-search")} */}
+                                            {t("Hàng mới về")}
+                                        </a>
+                                    </ActiveLink>
+                                </BreadcrumbItems>
+                            </div>
+                            <ShopFilters />
+                        </StickyBox>
+                    </div>
+                    <div className="w-full lg:-ms-9">
+                        <SearchTopBar />
+                        <ProductGrid temp_total={temp_total} />
+                    </div>
                 </div>
-                <div className="w-full lg:-ms-9">
-                    <SearchTopBar />
-                    <ProductGrid temp_total={temp_total} />
-                </div>
-            </div>
-            <Subscription />
-        </Container>
+            </Container>
+            <Subscription hasTitle />
+        </>
     );
 };
 Search.Layout = Layout;
