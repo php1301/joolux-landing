@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "@components/ui/link";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 interface MenuItem {
     id: number | string;
@@ -14,28 +15,64 @@ type MegaMenuProps = {
         id: number | string;
         columnItems: MenuItem[];
     }[]; // ep kieu array
+    image?: string;
 };
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ columns }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image }) => {
     const { t } = useTranslation("menu");
+    const numCols = `grid grid-cols-${(columns.length + 2).toString()}`;
     return (
-        <div className="megaMenu shadow-header bg-gray-200 absolute -start-20 xl:start-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-            <div className="grid grid-cols-5">
+        <div className="megaMenu shadow-header bg-white absolute -start-1 xl:start-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible z-20">
+            <ul
+                className="even:bg-gray-150 pt-6 2xl:pt-7"
+                key={`image-menu-${image}-${columns[0].columnItems[0].label}`}
+            >
+                <li className="mb-1.5">
+                    <span
+                        // href={columnItem.path}
+                        className="block text-sm py-1.5 text-heading font-semibold px-5 xl:px-8hover:text-heading uppercase font-[15px]"
+                    >
+                        {t(`${columns[0].columnItems[0].label}`)}
+                    </span>
+                </li>{" "}
+            </ul>
+            <div className={numCols}>
                 {columns?.map((column) => (
                     <ul
-                        className="even:bg-gray-150 pb-7 2xl:pb-8 pt-6 2xl:pt-7"
+                        className="bg:white pb-7 2xl:pb-8 pt-6 2xl:pt-7"
                         key={column.id}
                     >
                         {column?.columnItems?.map((columnItem) => (
                             <React.Fragment key={columnItem.id}>
-                                <li className="mb-1.5">
-                                    <Link
-                                        href={columnItem.path}
-                                        className="block text-sm py-1.5 text-heading font-semibold px-5 xl:px-8 2xl:px-10 hover:text-heading hover:bg-gray-300"
-                                    >
-                                        {t(columnItem.label)}
-                                    </Link>
-                                </li>
+                                {/* {columnItem.label ? (
+                                    <li className="mb-1.5">
+                                        <span
+                                            // href={columnItem.path}
+                                            className="block text-sm py-1.5 text-heading font-semibold px-5 xl:px-8hover:text-heading uppercase font-[15px]"
+                                        >
+                                            {t("Thương Hiệu Nổi Tiếng")}
+                                        </span>
+                                    </li>
+                                ) : (
+                                    <>
+                                        <li className="mb-1.5">
+                                            <span
+                                                // href={columnItem.path}
+                                                className="block text-sm py-1.5 text-heading font-semibold px-5 xl:px-8hover:text-heading uppercase font-[15px]"
+                                            >
+                                                {t(columnItem.label || " ")}
+                                            </span>
+                                        </li>
+                                        <li className="mb-1.5">
+                                            <span
+                                                // href={columnItem.path}
+                                                className="block text-sm py-1.5 text-heading font-semibold px-5 xl:px-8hover:text-heading hover:text-secondary uppercase font-[15px]"
+                                            >
+                                                {t(columnItem.label || " ")}
+                                            </span>
+                                        </li>
+                                    </>
+                                )} */}
                                 {columnItem?.columnItemItems?.map(
                                     (item: any) => (
                                         <li
@@ -49,7 +86,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ columns }) => {
                                         >
                                             <Link
                                                 href={item.path}
-                                                className="text-body text-sm block py-1.5 px-5 xl:px-8 2xl:px-10 hover:text-heading hover:bg-gray-300"
+                                                className="text-body text-sm block py-1.5 px-5 xl:px-8hover:text-heading hover:text-secondary"
                                             >
                                                 {t(item.label)}
                                             </Link>
@@ -60,6 +97,14 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ columns }) => {
                         ))}
                     </ul>
                 ))}
+                <ul
+                    className="bg:white pb-7 2xl:pb-8 pt-6 2xl:pt-7 col-span-2"
+                    key={`image-menu-${image}`}
+                >
+                    <li className="mb-1.5">
+                        <Image src={image} width={442} height={218} />
+                    </li>
+                </ul>
             </div>
         </div>
     );
