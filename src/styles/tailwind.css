@@ -112,7 +112,7 @@
 		}
 	}
 	.headerMenu .menuItem>a::before {
-		@apply absolute end-0 w-0 bg-heading -bottom-7;
+		@apply absolute end-0 w-0 bg-heading -bottom-0;
 		content: "";
 		height: 3px;
 		transition: all 0.3s ease-in-out 0s;
