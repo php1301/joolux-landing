@@ -21,6 +21,10 @@ const fetchProducts = async (page = 1) => {
         `https://api.joolux-client.ml/admin/products/get-overview?page=${page.toString()}`,
     );
     console.log(products, pagination);
+    const { data: filter } = await http.get(
+        `https://api.joolux-client.ml/admin/products/get-new-filter    `,
+    );
+    console.log(filter);
     return {
         products,
         pagination,
