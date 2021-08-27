@@ -12,6 +12,8 @@ import SearchTopBar from "@components/shop/top-bar";
 import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
 import { ROUTES } from "@utils/routes";
+import { QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
 
 const Search: NextPage<{ temp_total: number }> & { Layout: typeof Layout } = ({
     temp_total,
