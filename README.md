@@ -1,7 +1,5 @@
 # wdssuperv2
 
-
-
 ## Available Scripts
 
 ### Running the development server.
