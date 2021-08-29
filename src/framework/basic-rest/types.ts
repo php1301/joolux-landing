@@ -32,6 +32,16 @@ export type ProductsQueryOptionsType = {
     category?: string;
     status?: string;
     limit?: number;
+    categories?: string;
+    brands?: string;
+    colors?: string;
+    conditions?: string;
+    genders?: string;
+    statuses?: string;
+    sizes?: string;
+    materials?: string;
+    prices?: string;
+
 };
 export type QueryOptionsType = {
     text?: string;
@@ -196,6 +206,18 @@ export type Product = {
     _media_is_disabled: string;
     [key: string]: unknown;
 };
+
+export interface Filter {
+    categories: { value: string; name: string }[];
+    brands: string[];
+    colors: string[];
+    conditions: string[];
+    genders: string[];
+    statuses: string[];
+    sizes: string[];
+    materials: string[];
+    prices: string[];
+}
 
 export type OrderItem = {
     id: number | string;
