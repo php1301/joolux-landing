@@ -8,7 +8,7 @@
         "build": "next build",
         "start": "next start",
         "test-execute": "yarn build && yarn start",
-        "clean": "rimraf \"{.next,dist,build,out,node_modules}\"",
+        "clean": "rimraf \"{.next,dist,build,out}\"",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "svgr": "npx @svgr/cli -d src/components/icons --ignore-existing --icon --typescript public/icons",
