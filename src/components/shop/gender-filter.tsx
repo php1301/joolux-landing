@@ -7,7 +7,7 @@ export const GenderFilter = ({ gendersFilter }) => {
     const router = useRouter();
     const { pathname, query } = useRouter();
     const selectedGenders = query?.genders
-        ? (query?.genders as string).split(",")
+        ? (query?.genders as string).split("|")
         : [];
     const [formState, setFormState] = React.useState<string[]>(selectedGenders);
     React.useEffect(() => {
