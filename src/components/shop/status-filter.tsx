@@ -2,24 +2,18 @@ import { CheckBox } from "@components/ui/checkbox";
 import { useRouter } from "next/router";
 import React from "react";
 import { prepareUrlAs } from "@utils/prepare-url";
+import { RadioBox } from "@components/ui/radiobox";
 
 export const StatusFilter = ({ statusesFilter }) => {
     const router = useRouter();
-    const { pathname, query } = useRouter();
-    const selectedStatuses = query?.statuses
-        ? (query?.statuses as string).split(",")
-        : [];
-    const [formState, setFormState] =
-        React.useState<string[]>(selectedStatuses);
+    const { pathname, query } = router;
+    const selectedStatus = query?.statuses as string;
+    const [formState, setFormState] = React.useState<string>(selectedStatus);
     React.useEffect(() => {
-        setFormState(selectedStatuses);
+        setFormState(selectedStatus);
     }, [query?.statuses]);
     function handleItemClick(e: React.FormEvent<HTMLInputElement>): void {
         const { value } = e.currentTarget;
-
-        const currentFormState = formState.includes(value)
-            ? formState.filter((i) => i !== value)
-            : [...formState, value];
         const { statuses, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
@@ -27,9 +21,7 @@ export const StatusFilter = ({ statusesFilter }) => {
                 pathname,
                 query: {
                     ...restQuery,
-                    ...(currentFormState.length
-                        ? { statuses: currentFormState.join("|") }
-                        : {}),
+                    ...{ statuses: value },
                 },
             },
             undefined,
@@ -43,11 +35,11 @@ export const StatusFilter = ({ statusesFilter }) => {
             </h3>
             <div className="mt-2 flex flex-col space-y-2">
                 {statusesFilter?.map((item: any) => (
-                    <CheckBox
+                    <RadioBox
                         key={item?.id}
-                        label={item?.name}
+                        labelKey={item?.name}
                         name={item?.name?.toLowerCase()}
-                        checked={formState.includes(item?.name)}
+                        checked={item?.name === formState}
                         value={item?.name}
                         variant="jl"
                         onChange={handleItemClick}
