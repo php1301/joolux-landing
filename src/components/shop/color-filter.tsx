@@ -58,7 +58,7 @@ export const ColorFilter = ({ colorsFilter }) => {
     const [colorsSearch, setColorsSearch] = useState("");
     const [colorsArray, setColorsArray] = useState(colorsFilter);
     const selectedColors = query?.colors
-        ? (query?.colors as string).split(",")
+        ? (query?.colors as string).split("|")
         : [];
     const [formState, setFormState] = React.useState<string[]>(selectedColors);
     React.useEffect(() => {
@@ -107,7 +107,7 @@ export const ColorFilter = ({ colorsFilter }) => {
             <Input
                 className="block relative mb-4"
                 placeholderKey="Tìm Màu Sắc"
-                name="category-search"
+                name="color-search"
                 inputClassName="px-8"
                 variant="jl"
                 hasIcon
