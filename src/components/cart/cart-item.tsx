@@ -51,7 +51,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
                     width={112}
                     height={112}
                     loading="eager"
-                    alt={item.name || "Product Image"}
+                    alt={item?.name || "Product Image"}
                     className="bg-gray-300 object-cover"
                 />
                 <div
@@ -65,10 +65,10 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
 
             <div className="flex flex-col w-full overflow-hidden">
                 <Link
-                    href={`${ROUTES.PRODUCT}/${item.slug}/${item.id}`}
+                    href={`${ROUTES.PRODUCT}/${item?.slug}/${item?.id}`}
                     className="truncate text-sm text-heading mb-1.5 -mt-1"
                 >
-                    {generateCartItemName(item.name, item.attributes)}
+                    {generateCartItemName(item?.name, item?.attributes)}
                 </Link>
                 <span className="text-sm text-gray-400 mb-2.5">
                     {t("text-unit-price")} : &nbsp;
@@ -77,9 +77,9 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
 
                 <div className="flex items-end justify-between">
                     <Counter
-                        quantity={item.quantity}
+                        quantity={item?.quantity}
                         onIncrement={() => addItemToCart(item, 1)}
-                        onDecrement={() => removeItemFromCart(item.id)}
+                        onDecrement={() => removeItemFromCart(item?.id)}
                         variant="dark"
                     />
                     <span className="font-semibold text-sm md:text-base text-heading leading-5">
