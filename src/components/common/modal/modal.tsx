@@ -91,7 +91,7 @@ const Modal: FC<ModalProps> = ({
                             onClick={onClose}
                             aria-label="Close panel"
                             className={cn(
-                                "fixed z-10 inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md",
+                                "fixed z-50 inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md",
                                 closeBtnClasses[variant],
                             )}
                         >
