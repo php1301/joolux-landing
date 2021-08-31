@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Input } from "@components/ui/input";
 import PasswordInput from "@components/ui/password-input";
 import { Button } from "@components/ui/button";
@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { Logo } from "@components/ui/logo";
 import { useUI } from "@contexts/ui.context";
 import { useSignUpMutation, SignUpInputType } from "@framework/auth/use-signup";
+import { useGoogleAuthMutation } from "@framework/auth/use-google-auth";
+import { GoogleLogin } from "react-google-login";
 import { useGetOtpMutation } from "@framework/auth/use-get-otp";
 import { FcGoogle } from "react-icons/fc";
 import { SiFacebook } from "react-icons/si";
@@ -21,6 +23,7 @@ const SignUpForm: React.FC = () => {
     const { t } = useTranslation();
     const { mutate: signUp, isLoading } = useSignUpMutation();
     const { mutate: getOtp } = useGetOtpMutation();
+    const { mutate: authGoogle } = useGoogleAuthMutation();
     const { setModalView, openModal, closeModal } = useUI();
     const {
         register,
@@ -55,18 +58,27 @@ const SignUpForm: React.FC = () => {
             }
         }
     };
+    function handleFacebookSignup() {
+        return (window.location.href =
+            window.location.origin + "/connect/facebook-connect");
+    }
+    function handleGoogleSignup(e) {
+        console.log(e);
+        authGoogle({
+            tokenId: e.tokenId,
+        });
+    }
+    // useEffect(() => {
+    //     if (initialTime > 0) {
+    //         setTimeout(() => {
+    //             setInitialTime(initialTime - 1);
+    //         }, 1000);
+    //     }
 
-    useEffect(() => {
-        if (initialTime > 0) {
-            setTimeout(() => {
-                setInitialTime(initialTime - 1);
-            }, 1000);
-        }
-
-        if (initialTime === 0 && startTimer) {
-            setStartTimer(false);
-        }
-    }, [initialTime, startTimer]);
+    //     if (initialTime === 0 && startTimer) {
+    //         setStartTimer(false);
+    //     }
+    // }, [initialTime, startTimer]);
 
     function handleSignIn() {
         setModalView("LOGIN_VIEW");
@@ -84,7 +96,7 @@ const SignUpForm: React.FC = () => {
         otp,
         captcha,
     }: SignUpInputType) {
-        if (step === 3) {
+        if (step === 2) {
             signUp({
                 name,
                 email,
@@ -243,7 +255,20 @@ const SignUpForm: React.FC = () => {
                             )}
                         </>
                     )}
-                    {step !== 3 && (
+                    {/* {step !== 3 && (
+                        <div className="relative">
+                            <Button
+                                type="submit"
+                                loading={isLoading}
+                                variant="jl"
+                                disabled={isLoading}
+                                className="h-11 md:h-12 w-full mt-1.5"
+                            >
+                                Tiếp tục
+                            </Button>
+                        </div>
+                    )}{" "} */}
+                    {step !== 2 && (
                         <div className="relative">
                             <Button
                                 type="submit"
@@ -256,6 +281,17 @@ const SignUpForm: React.FC = () => {
                             </Button>
                         </div>
                     )}{" "}
+                    {step === 2 && (
+                        <Button
+                            type="submit"
+                            loading={isLoading}
+                            variant="jl"
+                            disabled={isLoading}
+                            className="h-11 md:h-12 w-full mt-1.5"
+                        >
+                            {t("common:text-register")}
+                        </Button>
+                    )}
                     {step !== 1 && (
                         // <div className="mt-5 flex items-center">
                         //     <Button
@@ -290,7 +326,7 @@ const SignUpForm: React.FC = () => {
                             </Button>
                         </>
                     )}
-                    {step === 3 && (
+                    {/* {step === 2 && (
                         <Button
                             type="submit"
                             loading={isLoading}
@@ -300,10 +336,10 @@ const SignUpForm: React.FC = () => {
                         >
                             {t("common:text-register")}
                         </Button>
-                    )}
+                    )} */}
                 </div>
             </form>
-            {step === 4 && (
+            {step === 1 && (
                 <>
                     <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
                         <hr className="w-full border-gray-300" />
@@ -311,27 +347,34 @@ const SignUpForm: React.FC = () => {
                             {t("common:text-or")}
                         </span>
                     </div>
-
                     <Button
                         loading={isLoading}
                         disabled={isLoading}
                         variant="jl"
                         className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
-                        // onClick={handelSocialLogin}
+                        onClick={handleFacebookSignup}
                     >
                         <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
                         {t("common:text-login-with-facebook")}
                     </Button>
-                    <Button
-                        loading={isLoading}
-                        disabled={isLoading}
-                        variant="jl"
-                        className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
-                        // onClick={handelSocialLogin}
-                    >
-                        <FcGoogle className="text-sm sm:text-base me-1.5" />
-                        {t("common:text-login-with-google")}
-                    </Button>
+                    <GoogleLogin
+                        clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY}
+                        render={(renderProps) => (
+                            <Button
+                                loading={isLoading}
+                                disabled={isLoading}
+                                variant="jl"
+                                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                                onClick={renderProps.onClick}
+                            >
+                                <FcGoogle className="text-sm sm:text-base me-1.5" />
+                                {t("common:text-login-with-google")}
+                            </Button>
+                        )}
+                        onSuccess={handleGoogleSignup}
+                        onFailure={handleGoogleSignup}
+                        cookiePolicy={"single_host_origin"}
+                    />
                 </>
             )}
             <p className="text-[9.8px] md:text-[9px] text-body mt-2 mb-8 sm:mb-10 text-center">
