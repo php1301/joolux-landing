@@ -212,6 +212,7 @@ export interface Filter {
     brands: string[];
     colors: string[];
     conditions: string[];
+    promotions: string[];
     genders: string[];
     statuses: string[];
     sizes: string[];
