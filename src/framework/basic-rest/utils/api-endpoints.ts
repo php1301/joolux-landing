@@ -1,5 +1,7 @@
 export const API_ENDPOINTS = {
     LOGIN: "/auth/client/signin",
+    GOOGLE_AUTH: "/auth/client/google-signin",
+    FACEBOOK_AUTH: "/auth/client/facebook-signin",
     SIGNUP: "/auth/client/signup",
     GET_ACCESS_TOKEN: "/auth/getToken",
     GET_OTP: "/auth/get-otp",
