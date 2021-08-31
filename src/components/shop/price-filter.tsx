@@ -2,6 +2,8 @@ import { RadioBox } from "@components/ui/radiobox";
 import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "next-i18next";
+import { prepareUrlAs } from "@utils/prepare-url";
+
 const priceFilterItems = [
     {
         id: "1",
@@ -44,7 +46,7 @@ const priceFilterItems = [
         slug: "1000-",
     },
 ];
-export const PriceFilter = () => {
+export const PriceFilter = ({ pricesFilter }) => {
     const { t } = useTranslation("common");
     const router = useRouter();
     const { pathname, query } = router;
@@ -58,7 +60,8 @@ export const PriceFilter = () => {
     function handleItemClick(e: React.FormEvent<HTMLInputElement>): void {
         const { value } = e.currentTarget;
         const { price, ...restQuery } = query;
-        router.push(
+        const { url } = prepareUrlAs(
+            router,
             {
                 pathname,
                 query: {
@@ -67,24 +70,24 @@ export const PriceFilter = () => {
                 },
             },
             undefined,
-            { scroll: false },
         );
+        router.push(decodeURI(url), undefined, { scroll: true });
     }
-    const items = priceFilterItems;
+    // const items = priceFilterItems;
     return (
         <div className="block border-b border-gray-300 pb-7 mb-7">
-            <h3 className="text-heading text-sm md:text-base font-semibold mb-7">
+            <h3 className="text-heading lg:text-lg md:text-base font-semibold mb-2 uppercase">
                 {t("text-price")}
             </h3>
             <div className="mt-2 flex flex-col space-y-4">
-                {items?.map((item: any) => (
+                {pricesFilter?.map((item: any) => (
                     <RadioBox
-                        key={item.id}
+                        key={item?.id}
                         variant="jl"
-                        labelKey={item.name}
-                        name={item.name.toLowerCase()}
-                        checked={item.slug === formState}
-                        value={item.slug}
+                        labelKey={item?.name}
+                        name={item?.name?.toLowerCase()}
+                        checked={item?.name === formState}
+                        value={item?.name}
                         onChange={handleItemClick}
                     />
                 ))}
