@@ -80,7 +80,7 @@ export default function ProductPage() {
                 )}
                 <AssuranceBlock />
             </Container>
-            <Subscription hasTitle/>
+            <Subscription hasTitle />
         </div>
     );
 }
