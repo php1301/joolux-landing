@@ -79,7 +79,7 @@ export const BrandFilter = ({ brandsFilter }) => {
             <Input
                 className="block relative mb-4"
                 placeholderKey="Tìm Thương Hiệu"
-                name="category-search"
+                name="brand-search"
                 inputClassName="px-8"
                 variant="jl"
                 hasIcon
