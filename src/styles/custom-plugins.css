@@ -56,6 +56,9 @@
 	@apply fixed block visible opacity-100 top-0;
 	transform: translate(-50%, 0);
 }
+.product-drawer .drawer {
+	z-index: 40;
+}
 .overlay {
 	background-color: rgba(0, 0, 0, 0.35);
 	z-index: 21;
