@@ -30,13 +30,13 @@ const SearchProduct: React.FC<SearchProductProps> = ({ item, product }) => {
                     width={96}
                     height={96}
                     loading="eager"
-                    alt={item.name || "Product Image"}
+                    alt={item?.name || "Product Image"}
                     className="bg-gray-200 object-cover"
                 />
             </div>
             <div className="flex flex-col w-full overflow-hidden">
                 <h3 className="truncate text-sm text-heading mb-2">
-                    {item.name}
+                    {item?.name}
                 </h3>
                 <div className="text-heading font-semibold text-sm">
                     {price}
