@@ -1,4 +1,3 @@
-import { Input } from "@components/ui/input";
 import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "next-i18next";
@@ -16,7 +15,7 @@ export const CategoryFilter = ({ categoriesFilter }) => {
     }, [query?.category]);
     function handleItemClick(e: React.FormEvent<HTMLInputElement>): void {
         const { value } = e.currentTarget;
-        const { category, ...restQuery } = query;
+        const { category, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

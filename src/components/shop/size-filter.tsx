@@ -1,13 +1,10 @@
-import { Input } from "@components/ui/input";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
 import { prepareUrlAs } from "@utils/prepare-url";
 import { CheckBox } from "@components/ui/checkbox";
 import Scrollbar from "@components/common/scrollbar";
 
 export const SizeFilter = ({ sizesFilter }) => {
-    const { t } = useTranslation("common");
     const router = useRouter();
     const { pathname, query } = router;
     const [showAllSizes, setShowAllSizes] = useState(false);
@@ -25,7 +22,7 @@ export const SizeFilter = ({ sizesFilter }) => {
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { sizes, ...restQuery } = query;
+        const { sizes, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

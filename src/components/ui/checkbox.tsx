@@ -24,13 +24,7 @@ export const CheckBox = React.forwardRef<HTMLInputElement, ICheckBoxProps>(
             </label>
         ) : (
             <label role="checkbox" className="joolux-checkbox-label">
-                <input
-                    type="checkbox"
-                    className="hidden"
-                    defaultValue="in-stock"
-                    ref={ref}
-                    {...rest}
-                />
+                <input type="checkbox" className="hidden" ref={ref} {...rest} />
                 <div className="joolux-checkbox-group">
                     <span
                         className={`createIconSvgCheckbox joolux-checkbox-icon ${

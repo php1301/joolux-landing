@@ -20,7 +20,7 @@ export const StatusFilter = ({ statusesFilter }) => {
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { statuses, ...restQuery } = query;
+        const { statuses, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

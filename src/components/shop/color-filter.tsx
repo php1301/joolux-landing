@@ -83,7 +83,7 @@ export const ColorFilter = ({ colorsFilter }) => {
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { colors, ...restQuery } = query;
+        const { colors, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

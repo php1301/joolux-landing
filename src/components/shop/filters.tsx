@@ -26,6 +26,7 @@ export const ShopFilters: React.FC<IShopFilters> = ({
     const router = useRouter();
     const { pathname, query } = router;
     const { t } = useTranslation("common");
+    const { page, sort, ...restQuery } = query;
     const {
         brands,
         categories,
@@ -58,15 +59,15 @@ export const ShopFilters: React.FC<IShopFilters> = ({
                     </button>
                 </div>
                 <div className="flex flex-wrap -m-1.5 pt-2">
-                    {!isEmpty(query) &&
-                        Object.values(query)
+                    {!isEmpty(restQuery) &&
+                        Object.values(restQuery)
                             .join("|")
                             .split("|")
                             .map((v, idx) => (
                                 <FilteredItem
                                     itemKey={
-                                        Object.keys(query).find((k) =>
-                                            query[k]?.includes(v),
+                                        Object.keys(restQuery).find((k) =>
+                                            restQuery[k]?.includes(v),
                                         )!
                                     }
                                     itemValue={v}

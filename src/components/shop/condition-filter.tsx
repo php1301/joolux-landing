@@ -50,7 +50,7 @@ export const ConditionFilter = ({ conditionsFilter, modalTooltip, mobile }) => {
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { conditions, ...restQuery } = query;
+        const { conditions, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

@@ -19,7 +19,7 @@ export const GenderFilter = ({ gendersFilter }) => {
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { genders, ...restQuery } = query;
+        const { genders, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

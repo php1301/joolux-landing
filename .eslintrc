@@ -25,7 +25,8 @@
         "@typescript-eslint/no-unused-vars": [
             2,
             {
-                "args": "none"
+                "args": "none",
+                "ignoreRestSiblings": true
             }
         ],
         "prettier/prettier": [

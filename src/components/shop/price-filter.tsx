@@ -59,7 +59,7 @@ export const PriceFilter = ({ pricesFilter }) => {
     }, [query?.price]);
     function handleItemClick(e: React.FormEvent<HTMLInputElement>): void {
         const { value } = e.currentTarget;
-        const { price, ...restQuery } = query;
+        const { price, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {

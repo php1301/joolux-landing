@@ -1,13 +1,11 @@
 import { Input } from "@components/ui/input";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
 import { prepareUrlAs } from "@utils/prepare-url";
 import { CheckBox } from "@components/ui/checkbox";
 import Scrollbar from "@components/common/scrollbar";
 
 export const MaterialFilter = ({ materialsFilter }) => {
-    const { t } = useTranslation("common");
     const router = useRouter();
     const { pathname, query } = router;
     const [showAllMaterials, setShowAllMaterials] = useState(false);
@@ -41,7 +39,7 @@ export const MaterialFilter = ({ materialsFilter }) => {
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { materials, ...restQuery } = query;
+        const { materials, page, ...restQuery } = query;
         const { url } = prepareUrlAs(
             router,
             {
