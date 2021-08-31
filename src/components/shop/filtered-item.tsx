@@ -16,7 +16,7 @@ export const FilteredItem: FC<IFilteredItemProps> = ({
     const { pathname, query } = router;
     function handleClose() {
         const currentItem = (query[itemKey] as string)
-            .split(",")
+            .split("|")
             .filter((i) => i !== itemValue);
         delete query[itemKey];
         router.push({
@@ -24,7 +24,7 @@ export const FilteredItem: FC<IFilteredItemProps> = ({
             query: {
                 ...query,
                 ...(!isEmpty(currentItem)
-                    ? { [itemKey]: currentItem.join(",") }
+                    ? { [itemKey]: currentItem.join("|") }
                     : {}),
             },
         });
