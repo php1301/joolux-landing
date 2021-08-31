@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { Drawer } from "@components/common/drawer/drawer";
 import FilterIcon from "@components/icons/filter-icon";
 import { Text } from "@components/ui/text";
@@ -7,15 +8,21 @@ import ListBox from "@components/ui/list-box";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { getDirection } from "@utils/get-direction";
+import { Filter } from "@framework/types";
 
-const SearchTopBar = () => {
+interface ISerarchTopBar {
+    totalItems: number;
+    filter: Filter;
+}
+
+const SearchTopBar: FC<ISerarchTopBar> = ({ totalItems = 2000, filter }) => {
     const { openFilter, displayFilter, closeFilter } = useUI();
     const { t } = useTranslation("common");
     const { locale } = useRouter();
     const dir = getDirection(locale);
     const contentWrapperCSS = dir === "ltr" ? { left: 0 } : { right: 0 };
     return (
-        <div className="flex justify-between items-center mb-7">
+        <>
             <Text variant="pageHeading" className="hidden lg:inline-flex pb-1">
                 {" "}
             </Text>
@@ -28,15 +35,21 @@ const SearchTopBar = () => {
             </button>
             <div className="flex items-center justify-end">
                 <div className="flex-shrink-0 text-body text-xs md:text-sm leading-4 pe-4 md:me-6 ps-2 hidden lg:block">
-                    9,608 {t("text-items")}
+                    {totalItems} {t("text-items")}
                 </div>
                 <ListBox
                     options={[
-                        { name: "text-sorting-options", value: "options" },
+                        // { name: "text-sorting-options", value: "options" },
                         { name: "text-newest", value: "newest" },
-                        { name: "text-popularity", value: "popularity" },
-                        { name: "text-price-low-high", value: "low-high" },
-                        { name: "text-price-high-low", value: "high-low" },
+                        // { name: "text-popularity", value: "popularity" },
+                        {
+                            name: "text-price-low-high",
+                            value: "lowest-price",
+                        },
+                        {
+                            name: "text-price-high-low",
+                            value: "highest-price",
+                        },
                     ]}
                 />
             </div>
@@ -48,10 +61,11 @@ const SearchTopBar = () => {
                 showMask={true}
                 level={null}
                 contentWrapperStyle={contentWrapperCSS}
+                wrapperClassName="product-drawer"
             >
-                <FilterSidebar />
+                <FilterSidebar filter={filter} totalItems={totalItems} />
             </Drawer>
-        </div>
+        </>
     );
 };
 
