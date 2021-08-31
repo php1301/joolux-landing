@@ -33,7 +33,7 @@ export const ConditionFilter = ({ conditionsFilter, modalTooltip, mobile }) => {
     });
     const { pathname, query } = useRouter();
     const selectedConditions = query?.conditions
-        ? (query?.conditions as string).split(",")
+        ? (query?.conditions as string).split("|")
         : [];
     const [formState, setFormState] =
         React.useState<string[]>(selectedConditions);
