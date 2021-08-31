@@ -10,9 +10,8 @@ interface IPagination {
         total: number;
         totalPage: number;
     };
-    temp_total?: number;
 }
-const Pagination: FC<IPagination> = ({ temp_total, pagination }) => {
+const Pagination: FC<IPagination> = ({ pagination }) => {
     const router = useRouter();
     const { pathname, query } = router;
     const { page, ...restQuery } = query;
@@ -45,7 +44,7 @@ const Pagination: FC<IPagination> = ({ temp_total, pagination }) => {
                 breakLabel={"..."}
                 breakClassName={"break-me"}
                 pageCount={
-                    pagination.totalPage ?? temp_total
+                    pagination.totalPage ?? 130
                     // !isLoading ? data?.totalPages?.totalPage : temp_total
                 }
                 // limit={10}
