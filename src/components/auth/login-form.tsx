@@ -4,6 +4,8 @@ import PasswordInput from "@components/ui/password-input";
 import { Button } from "@components/ui/button";
 import { useForm } from "react-hook-form";
 import { useLoginMutation, LoginInputType } from "@framework/auth/use-login";
+import { useGoogleAuthMutation } from "@framework/auth/use-google-auth";
+import { GoogleLogin } from "react-google-login";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
 import { useUI } from "@contexts/ui.context";
@@ -16,6 +18,7 @@ const LoginForm: React.FC = () => {
     const { t } = useTranslation();
     const { setModalView, openModal, closeModal } = useUI();
     const { mutate: login, isLoading } = useLoginMutation();
+    const { mutate: authGoogle } = useGoogleAuthMutation();
 
     const {
         register,
@@ -33,11 +36,14 @@ const LoginForm: React.FC = () => {
         console.log(email, password, remember_me, "data");
     }
 
-    function handelSocialLogin() {
-        login({
-            email: "demo@demo.com",
-            password: "demo",
-            remember_me: true,
+    function handleFacebookLogin(e) {
+        return (window.location.href =
+            window.location.origin + "/connect/facebook-connect");
+    }
+    function handleGoogleLogin(e) {
+        console.log(e);
+        authGoogle({
+            tokenId: e?.tokenId,
         });
     }
     function handleSignUp() {
@@ -130,7 +136,7 @@ const LoginForm: React.FC = () => {
                     </div>
                 </div>
             </form>
-            <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5 hidden">
+            <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-6 mb-3.5">
                 <hr className="w-full border-gray-300" />
                 <span className="absolute -top-2.5 px-2 bg-white">
                     {t("common:text-or")}
@@ -140,22 +146,30 @@ const LoginForm: React.FC = () => {
                 loading={isLoading}
                 disabled={isLoading}
                 variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white hidden"
-                onClick={handelSocialLogin}
+                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                onClick={handleFacebookLogin}
             >
                 <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
                 {t("common:text-login-with-facebook")}
             </Button>
-            <Button
-                loading={isLoading}
-                disabled={isLoading}
-                variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white hidden"
-                onClick={handelSocialLogin}
-            >
-                <FcGoogle className="text-sm sm:text-base me-1.5" />
-                {t("common:text-login-with-google")}
-            </Button>
+            <GoogleLogin
+                clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY}
+                render={(renderProps) => (
+                    <Button
+                        loading={isLoading}
+                        disabled={isLoading}
+                        variant="jl"
+                        className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
+                        onClick={renderProps.onClick}
+                    >
+                        <FcGoogle className="text-sm sm:text-base me-1.5" />
+                        {t("common:text-login-with-google")}
+                    </Button>
+                )}
+                onSuccess={handleGoogleLogin}
+                onFailure={handleGoogleLogin}
+                cookiePolicy={"single_host_origin"}
+            />
             <p className="text-[9.8px] md:text-[9px] text-body mt-2 mb-8 sm:mb-10 text-center">
                 By logging into Joolux, you agree to the{" "}
                 <Link
