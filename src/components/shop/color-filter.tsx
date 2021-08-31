@@ -1,6 +1,9 @@
 import { CheckBox } from "@components/ui/checkbox";
+import { Input } from "@components/ui/input";
+import Scrollbar from "@components/common/scrollbar";
 import { useRouter } from "next/router";
-import React, { FC } from "react";
+import React, { useState } from "react";
+import { prepareUrlAs } from "@utils/prepare-url";
 import { useTranslation } from "next-i18next";
 const colorFilterItems = [
     {
@@ -47,65 +50,117 @@ const colorFilterItems = [
     },
 ];
 
-export const ColorFilter: FC = () => {
+export const ColorFilter = ({ colorsFilter }) => {
     const { t } = useTranslation("common");
     const router = useRouter();
     const { pathname, query } = useRouter();
-    const selectedColors = query?.color
-        ? (query?.color as string).split(",")
+    const [showAllColors, setShowAllColors] = useState(false);
+    const [colorsSearch, setColorsSearch] = useState("");
+    const [colorsArray, setColorsArray] = useState(colorsFilter);
+    const selectedColors = query?.colors
+        ? (query?.colors as string).split(",")
         : [];
     const [formState, setFormState] = React.useState<string[]>(selectedColors);
     React.useEffect(() => {
         setFormState(selectedColors);
-    }, [query?.color]);
-
+    }, [query?.colors]);
+    function handleAutoSearch(e: React.FormEvent<HTMLInputElement>) {
+        const filtered = colorsFilter.filter((el) => {
+            return (
+                el.name
+                    .toLowerCase()
+                    .indexOf(e.currentTarget.value.toLowerCase()) !== -1
+            );
+        });
+        setColorsArray(filtered);
+    }
+    function clear() {
+        setColorsSearch("");
+    }
     function handleItemClick(e: React.FormEvent<HTMLInputElement>): void {
         const { value } = e.currentTarget;
 
         const currentFormState = formState.includes(value)
             ? formState.filter((i) => i !== value)
             : [...formState, value];
-        const { color, ...restQuery } = query;
-        router.push(
+        const { colors, ...restQuery } = query;
+        const { url } = prepareUrlAs(
+            router,
             {
                 pathname,
                 query: {
                     ...restQuery,
                     ...(currentFormState.length
-                        ? { color: currentFormState.join(",") }
+                        ? { colors: currentFormState.join("|") }
                         : {}),
                 },
             },
             undefined,
-            { scroll: false },
         );
+        router.push(decodeURI(url), undefined, { scroll: true });
     }
-    const items = colorFilterItems;
     return (
-        <div className="block border-b border-gray-300 pb-7">
-            <h3 className="text-heading text-sm md:text-base font-semibold mb-7">
+        <div className="block border-b border-gray-300 pb-7 mb-7">
+            <h3 className="text-heading lg:text-lg md:text-base font-semibold mb-2 uppercase">
                 {t("text-colors")}
             </h3>
-            <div className="mt-2 flex flex-col space-y-4">
-                {items.map((item: any) => (
-                    <CheckBox
-                        key={item.id}
-                        name={item.name.toLowerCase()}
-                        checked={formState.includes(item.slug)}
-                        value={item.slug}
-                        onChange={handleItemClick}
-                        label={
-                            <span className="flex items-center">
-                                <span
-                                    className={`w-5 h-5 rounded-full block me-3 mt-0.5 border border-black border-opacity-20`}
-                                    style={{ backgroundColor: item.hexColor }}
-                                />
-                                {item.name}
-                            </span>
-                        }
-                    />
-                ))}
+            <Input
+                className="block relative mb-4"
+                placeholderKey="Tìm Màu Sắc"
+                name="category-search"
+                inputClassName="px-8"
+                variant="jl"
+                hasIcon
+                // value={brandsSearch}
+                onChange={handleAutoSearch}
+            />
+            <div className="mt-2 flex flex-col space-y-2">
+                {!showAllColors ? (
+                    <>
+                        {colorsArray?.slice(0, 8).map((item: any) => (
+                            <CheckBox
+                                key={item?.id}
+                                label={item?.name}
+                                name={item?.name?.toLowerCase()}
+                                checked={formState.includes(item?.name)}
+                                value={item?.name}
+                                variant="jl"
+                                onChange={handleItemClick}
+                            />
+                        ))}
+                    </>
+                ) : (
+                    <Scrollbar className="os-host-flexbox max-h-48">
+                        <div className="h-auto">
+                            {colorsArray?.map((item: any) => (
+                                <div>
+                                    <CheckBox
+                                        key={item?.id}
+                                        label={item?.name}
+                                        name={item?.name?.toLowerCase()}
+                                        checked={formState.includes(item?.name)}
+                                        value={item?.name}
+                                        variant="jl"
+                                        onChange={handleItemClick}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </Scrollbar>
+                )}
             </div>
+            {!showAllColors && (
+                <button
+                    className="p-0 text-secondary outline-none font-medium text-sm mt-2"
+                    aria-label="Xem tất cả Thương Hiệu"
+                    data-testid="filter-select-showall-button"
+                    onClick={() => {
+                        setShowAllColors(true);
+                    }}
+                >
+                    Xem tất cả
+                </button>
+            )}
         </div>
     );
 };
