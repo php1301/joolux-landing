@@ -12,24 +12,24 @@ export default function ListBox({ options }: { options: Option[] }) {
     const { t } = useTranslation("common");
     const router = useRouter();
     const { pathname, query } = router;
-    const currentSelectedItem = query?.sort_by
-        ? options.find((o) => o.value === query.sort_by)!
+    const currentSelectedItem = query?.sort
+        ? options.find((o) => o.value === query.sort)!
         : options[0];
     const [selectedItem, setSelectedItem] =
         useState<Option>(currentSelectedItem);
     useEffect(() => {
         setSelectedItem(currentSelectedItem);
-    }, [query?.sort_by]);
+    }, [query?.sort]);
     function handleItemClick(values: Option) {
         setSelectedItem(values);
-        const { sort_by, ...restQuery } = query;
+        const { sort, ...restQuery } = query;
         router.push(
             {
                 pathname,
                 query: {
                     ...restQuery,
                     ...(values.value !== options[0].value
-                        ? { sort_by: values.value }
+                        ? { sort: values.value }
                         : {}),
                 },
             },
@@ -44,7 +44,7 @@ export default function ListBox({ options }: { options: Option[] }) {
                 <div className="relative ms-2 lg:ms-0 z-10 min-w-[180px]">
                     <Listbox.Button className="border border-gray-300  text-heading text-[13px] md:text-sm font-semibold  relative w-full py-2 ps-3 pe-10 text-start bg-white rounded-lg shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm cursor-pointer">
                         <span className="block truncate">
-                            {t(selectedItem.name)}
+                            {t(selectedItem?.name)}
                         </span>
                         <span className="absolute inset-y-0 end-0 flex items-center pe-2 pointer-events-none">
                             <HiOutlineSelector
