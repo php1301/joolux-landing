@@ -80,7 +80,7 @@ export const MaterialFilter = ({ materialsFilter }) => {
             <Input
                 className="block relative mb-4"
                 placeholderKey="Tìm Chất Liệu"
-                name="category-search"
+                name="material-search"
                 inputClassName="px-8"
                 variant="jl"
                 hasIcon
