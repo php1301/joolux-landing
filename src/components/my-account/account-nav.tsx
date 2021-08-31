@@ -55,7 +55,7 @@ export default function AccountNav() {
                             }
                         >
                             {item.icon}
-                            <span className="ps-2">{t(`${item.name}`)}</span>
+                            <span className="ps-2">{t(`${item?.name}`)}</span>
                         </a>
                     </Link>
                 );
