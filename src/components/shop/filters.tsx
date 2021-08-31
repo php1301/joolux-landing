@@ -5,11 +5,38 @@ import { PriceFilter } from "./price-filter";
 import { useRouter } from "next/router";
 import isEmpty from "lodash/isEmpty";
 import { useTranslation } from "next-i18next";
+import { Filter } from "@framework/types";
+import { BrandFilter } from "./brand-filter";
+import { GenderFilter } from "./gender-filter";
+import { StatusFilter } from "./status-filter";
+import { ConditionFilter } from "./condition-filter";
+import { MaterialFilter } from "./material-filter";
+import { SizeFilter } from "./size-filter";
 
-export const ShopFilters: React.FC = () => {
+interface IShopFilters {
+    filter: Filter;
+    modalTooltip?: boolean;
+    mobile?: boolean;
+}
+export const ShopFilters: React.FC<IShopFilters> = ({
+    filter,
+    modalTooltip = false,
+    mobile = true,
+}) => {
     const router = useRouter();
     const { pathname, query } = router;
     const { t } = useTranslation("common");
+    const {
+        brands,
+        categories,
+        colors,
+        conditions,
+        genders,
+        materials,
+        prices,
+        sizes,
+        statuses,
+    } = filter ?? {};
     return (
         <div className="pt-1">
             <div className="block border-b border-gray-300 pb-7 mb-7">
@@ -33,8 +60,8 @@ export const ShopFilters: React.FC = () => {
                 <div className="flex flex-wrap -m-1.5 pt-2">
                     {!isEmpty(query) &&
                         Object.values(query)
-                            .join(",")
-                            .split(",")
+                            .join("|")
+                            .split("|")
                             .map((v, idx) => (
                                 <FilteredItem
                                     itemKey={
@@ -48,10 +75,21 @@ export const ShopFilters: React.FC = () => {
                             ))}
                 </div>
             </div>
-
-            <CategoryFilter />
-            <PriceFilter />
-            <ColorFilter />
+            {categories && <CategoryFilter categoriesFilter={categories} />}
+            {brands && <BrandFilter brandsFilter={brands} />}
+            {genders && <GenderFilter gendersFilter={genders} />}
+            {statuses && <StatusFilter statusesFilter={statuses} />}
+            {conditions && (
+                <ConditionFilter
+                    conditionsFilter={conditions}
+                    modalTooltip={modalTooltip}
+                    mobile={mobile}
+                />
+            )}
+            {materials && <MaterialFilter materialsFilter={materials} />}
+            {sizes && <SizeFilter sizesFilter={sizes} />}
+            {prices && <PriceFilter pricesFilter={prices} />}
+            {colors && <ColorFilter colorsFilter={colors} />}
         </div>
     );
 };
