@@ -30,7 +30,7 @@ const BannerCard: FC<IBannerProps> = ({
     const { title, image } = banner;
     const selectedImage = getImage(width, image);
     return (
-        <div className={cn(className, "mx-auto flex justify-center")}>
+        <div className={cn(className, "mx-auto flex justify-center flex-wrap")}>
             <Link
                 href={href}
                 // https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover
@@ -41,12 +41,14 @@ const BannerCard: FC<IBannerProps> = ({
             >
                 <Image
                     src={selectedImage.url}
-                    width={selectedImage.width}
-                    height={selectedImage.height}
+                    // width={selectedImage.width}
+                    // height={selectedImage.height}
+                    layout="fill"
                     alt={title}
-                    quality={100}
+                    objectFit="none"
+                    // quality={100}
                     //  so when we resize the browser window, the aspect ratio of the images is preserved:
-                    className={cn("bg-gray-300 object-cover w-full", {
+                    className={cn("bg-gray-300 object-none w-full", {
                         "rounded-md": variant === "rounded",
                     })}
                 />
