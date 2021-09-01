@@ -18,6 +18,7 @@ export const ProductGrid: FC<IProductGridProps> = ({ products }) => {
                         key={`product--key${product._id}`}
                         product={product}
                         variant="jl"
+                        className="bg-[#f6f5fc] px"
                     />
                 );
             })}
