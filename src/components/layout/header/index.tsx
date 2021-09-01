@@ -4,9 +4,10 @@ import { useTranslation } from "next-i18next";
 import { Logo } from "@components";
 import { SearchIcon } from "@components/icons";
 import { useUI } from "@contexts/ui.context";
-import { IoPersonCircleSharp } from "react-icons/io5";
 import { addActiveScroll } from "@utils/add-active-scroll";
 import { ROUTES } from "@utils/routes";
+import { usePopper } from "react-popper";
+import AccountDropdown from "@components/my-account/account-dropdown";
 
 const AuthMenu = dynamic(() => import("./auth-menu"), { ssr: false });
 const CartButton = dynamic(() => import("@components/cart/cart-button"), {
@@ -64,7 +65,7 @@ export const Header: React.FC = () => {
                             >
                                 <SearchIcon />
                             </button>
-                            <div className="-mt-0.5 flex-shrink-0">
+                            <div className="-mt-0.5 flex-shrink-0 h-7">
                                 <AuthMenu
                                     href={ROUTES.ACCOUNT}
                                     isAuthorized={isAuthorized}
@@ -76,7 +77,7 @@ export const Header: React.FC = () => {
                                         onClick: handleLogin,
                                     }}
                                 >
-                                    <IoPersonCircleSharp className="w-7 h-7 text-white" />
+                                    <AccountDropdown />
                                 </AuthMenu>
                             </div>
                             <CartButton
