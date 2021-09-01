@@ -93,6 +93,7 @@ const ProductCard: FC<IProductProps> = ({
             >
                 <Image
                     src={
+                        // "https://old.joolux.com/media/catalog/product/1/_/1.1_3_2.jpg"
                         product?._media_image
                             ? `${process.env.NEXT_PUBLIC_BASE_IMAGE}${product?._media_image}`
                             : placeholderImage
