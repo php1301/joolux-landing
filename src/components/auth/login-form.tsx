@@ -4,21 +4,19 @@ import PasswordInput from "@components/ui/password-input";
 import { Button } from "@components/ui/button";
 import { useForm } from "react-hook-form";
 import { useLoginMutation, LoginInputType } from "@framework/auth/use-login";
-import { useGoogleAuthMutation } from "@framework/auth/use-google-auth";
-import { GoogleLogin } from "react-google-login";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
 import { useUI } from "@contexts/ui.context";
 import { Logo } from "@components/ui/logo";
-import { FcGoogle } from "react-icons/fc";
-import { SiFacebook } from "react-icons/si";
+import cn from "classnames";
+import { IoClose } from "react-icons/io5";
 import { useTranslation } from "next-i18next";
-
+import FacebookAuth from "./facebook-auth";
+import GoogleAuth from "./google-auth";
 const LoginForm: React.FC = () => {
     const { t } = useTranslation();
     const { setModalView, openModal, closeModal } = useUI();
     const { mutate: login, isLoading } = useLoginMutation();
-    const { mutate: authGoogle } = useGoogleAuthMutation();
 
     const {
         register,
@@ -36,16 +34,6 @@ const LoginForm: React.FC = () => {
         console.log(email, password, remember_me, "data");
     }
 
-    function handleFacebookLogin(e) {
-        return (window.location.href =
-            window.location.origin + "/connect/facebook-connect");
-    }
-    function handleGoogleLogin(e) {
-        console.log(e);
-        authGoogle({
-            tokenId: e?.tokenId,
-        });
-    }
     function handleSignUp() {
         setModalView("SIGN_UP_VIEW");
         return openModal();
@@ -56,7 +44,17 @@ const LoginForm: React.FC = () => {
     }
 
     return (
-        <div className="overflow-hidden bg-white mx-auto w-full sm:w-96 md:w-450px border border-gray-300 pt-5 px-5 sm:px-8">
+        <div className="overflow-hidden bg-white mx-auto w-full sm:w-96 md:w-450px border border-gray-300 pt-5 px-5 sm:px-8 relative">
+            <button
+                onClick={closeModal}
+                aria-label="Close panel"
+                className={cn(
+                    "fixed z-50 inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md",
+                    "top-4 end-4",
+                )}
+            >
+                <IoClose className="text-xl" />
+            </button>
             <div className="text-center mb-6 pt-2.5">
                 <div onClick={closeModal}>
                     <Logo />
@@ -142,34 +140,8 @@ const LoginForm: React.FC = () => {
                     {t("common:text-or")}
                 </span>
             </div>
-            <Button
-                loading={isLoading}
-                disabled={isLoading}
-                variant="jl"
-                className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
-                onClick={handleFacebookLogin}
-            >
-                <SiFacebook className="text-sm sm:text-base me-1.5 text-[#1877f2]" />
-                {t("common:text-login-with-facebook")}
-            </Button>
-            <GoogleLogin
-                clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_KEY}
-                render={(renderProps) => (
-                    <Button
-                        loading={isLoading}
-                        disabled={isLoading}
-                        variant="jl"
-                        className="h-11 md:h-12 w-full mt-2.5 bg-white text-black hover:opacity-80 border-solid border-[1px] border-[#101010] hover:bg-white"
-                        onClick={renderProps.onClick}
-                    >
-                        <FcGoogle className="text-sm sm:text-base me-1.5" />
-                        {t("common:text-login-with-google")}
-                    </Button>
-                )}
-                onSuccess={handleGoogleLogin}
-                onFailure={handleGoogleLogin}
-                cookiePolicy={"single_host_origin"}
-            />
+            <FacebookAuth />
+            <GoogleAuth />
             <p className="text-[9.8px] md:text-[9px] text-body mt-2 mb-8 sm:mb-10 text-center">
                 By logging into Joolux, you agree to the{" "}
                 <Link
