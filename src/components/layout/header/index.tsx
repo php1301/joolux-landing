@@ -6,7 +6,6 @@ import { SearchIcon } from "@components/icons";
 import { useUI } from "@contexts/ui.context";
 import { addActiveScroll } from "@utils/add-active-scroll";
 import { ROUTES } from "@utils/routes";
-import { usePopper } from "react-popper";
 import AccountDropdown from "@components/my-account/account-dropdown";
 
 const AuthMenu = dynamic(() => import("./auth-menu"), { ssr: false });
@@ -44,7 +43,7 @@ export const Header: React.FC = () => {
                 className="w-full h-16 sm:h-20 lg:h-24 relative z-20 px-8 lg:mx-auto"
             >
                 <div className="innerSticky text-gray-700 body-font w-full h-16 sm:h-20 lg:h-24 z-20 ps-4 md:ps-0 lg:ps-14 pe-4 lg:pe-6 transition duration-200 ease-in-out">
-                    <div className="flex items-center justify-center mx-auto max-w-[1920px] h-full w-full">
+                    <div className="flex items-center justify-center mx-auto h-full w-full">
                         <button
                             aria-label="Menu"
                             className="menuBtn hidden md:flex lg:hidden flex-col items-center justify-center px-5 2xl:px-7 flex-shrink-0 h-full outline-none focus:outline-none transform -translate-x-7"
