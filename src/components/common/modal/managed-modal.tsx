@@ -3,7 +3,9 @@ import Modal from "./modal";
 import dynamic from "next/dynamic";
 import Newsletter from "../newsletter";
 const LoginForm = dynamic(() => import("@components/auth/login-form"));
-const SignUpForm = dynamic(() => import("@components/auth/sign-up-form"));
+const SignUpForm = dynamic(
+    () => import("@components/auth/refactor-sign-up-form"),
+);
 const ForgetPasswordForm = dynamic(
     () => import("@components/auth/forget-password-form"),
 );
@@ -16,7 +18,13 @@ const ConditionTooltip = dynamic(
 const ManagedModal: React.FC = () => {
     const { displayModal, closeModal, modalView } = useUI();
     return (
-        <Modal open={displayModal} onClose={closeModal}>
+        <Modal
+            open={displayModal}
+            onClose={closeModal}
+            hiddenClose={
+                modalView === "LOGIN_VIEW" || modalView === "SIGN_UP_VIEW"
+            }
+        >
             {modalView === "LOGIN_VIEW" && <LoginForm />}
             {modalView === "SIGN_UP_VIEW" && <SignUpForm />}
             {modalView === "FORGET_PASSWORD" && <ForgetPasswordForm />}
