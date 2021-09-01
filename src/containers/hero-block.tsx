@@ -17,11 +17,11 @@ const breakpoints = {
 const HeroBlock: React.FC = () => {
     const { width } = useWindowSize();
     return (
-        <div className="heroBannerOne relative max-w-[1920px] mb-5 md:mb-12 lg:mb-14 2xl:mb-16 mx-auto overflow-hidden px-0">
+        <div className="heroBannerOne relative mb-5 md:mb-12 lg:mb-14 2xl:mb-16 mx-auto overflow-hidden px-0">
             <Carousel
                 breakpoints={breakpoints}
                 centeredSlides={width < 1500 ? false : true}
-                autoplay={{ delay: 5000 }}
+                autoplay={{ delay: 3000 }}
                 className="mx-0"
                 buttonClassName="hidden"
                 pagination={{
