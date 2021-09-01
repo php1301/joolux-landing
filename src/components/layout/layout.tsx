@@ -50,7 +50,7 @@ const Layout: React.FC = ({ children }) => {
             <Header />
             <HeaderMenu
                 data={site_header.menu}
-                className="hidden lg:flex md:ms-6 xl:ms-10 max-w-[1920px] md:h-12"
+                className="hidden lg:flex md:ms-6 xl:ms-10 md:h-12"
             />
             {/* <Button onClick={() => onAcceptCookies()} type="button">
                 <a
