@@ -48,9 +48,9 @@ export const useFacebookAuthMutation = () => {
                 Cookies.set("refresh_token", data.refreshToken);
                 authorize();
                 closeModal();
-                setTimeout(() => {
-                    window.location.href = window.location.origin;
-                }, 3000);
+                // setTimeout(() => {
+                //     window.location.href = window.location.origin;
+                // }, 3000);
             },
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
@@ -63,9 +63,9 @@ export const useFacebookAuthMutation = () => {
                     closeOnClick: true,
                     pauseOnHover: true,
                 });
-                setTimeout(() => {
-                    window.location.href = window.location.origin;
-                }, 3000);
+                // setTimeout(() => {
+                //     window.location.href = window.location.origin;
+                // }, 3000);
             },
         },
     );
