@@ -33,7 +33,10 @@ const ProductCard: FC<IProductProps> = ({
     // Cách làm skeletion image
     const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
     const { price, basePrice, discount } = usePrice({
-        amount: product?.price && parseInt(product?.price as unknown as string),
+        amount:
+            (product?.specialPrice &&
+                parseInt(product?.specialPrice as unknown as string)) ||
+            (product?.price && parseInt(product?.price as unknown as string)),
         baseAmount:
             product?.price && parseInt(product?.price as unknown as string),
         currencyCode: "VND",
@@ -52,6 +55,7 @@ const ProductCard: FC<IProductProps> = ({
             },
         );
     }
+    const { hasToContact } = product?.otherSpecialValue ?? {};
     return (
         <div
             onClick={navigateToProductPage}
@@ -69,9 +73,14 @@ const ProductCard: FC<IProductProps> = ({
                         variant === "listSmall",
                     "flex-row items-center transition-transform ease-linear bg-gray-200 pe-2 lg:pe-3 2xl:pe-4":
                         variant === "list",
-                    "h-full pb-4 border-b border-[#cfcfcf] rounded-none relative":
+                    "h-full pb-4 border-b border-[#cfcfcf] rounded-none relative px-2":
                         variant === "jl",
                 },
+                ` ${
+                    product?.qty === 0 || product.is_in_stock === "2"
+                        ? "opacity-70 cursor-not-allowed"
+                        : ""
+                }`,
                 className,
                 bottomBorder,
             )}
@@ -86,9 +95,6 @@ const ProductCard: FC<IProductProps> = ({
                             variant === "listSmall",
                     },
                     imageContentClassName,
-                    ` ${
-                        product?.qty === 0 ? "opacity-50 cusor-not-allowed" : ""
-                    }`,
                 )}
             >
                 <Image
@@ -116,11 +122,32 @@ const ProductCard: FC<IProductProps> = ({
                     )}
                 />
             </div>
-            {product?.qty === 0 && (
+            {product?.qty === 0 && product?.is_in_stock !== "2" && (
                 <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-[#e7e7e7] text-black">
                     Tạm hết hàng
                 </div>
             )}
+            {product?.is_in_stock === "2" && (
+                <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-[#e7e7e7] text-black">
+                    Đang giao dịch
+                </div>
+            )}
+            {product?.specialPrice &&
+                product?.qty !== 0 &&
+                product?.is_in_stock !== "2" &&
+                !hasToContact && (
+                    <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-black text-white">
+                        Khuyến mãi
+                    </div>
+                )}
+            {hasToContact &&
+                product?.qty !== 0 &&
+                product?.is_in_stock !== "2" && (
+                    <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-black text-white">
+                        {hasToContact}
+                    </div>
+                )}
+
             <div
                 className={cn(
                     "w-full overflow-hidden",
@@ -177,8 +204,12 @@ const ProductCard: FC<IProductProps> = ({
                         </del>
                     )} */}
                 <div className="flex flex-wrap items-center">
-                    <div className="text-15px font-semibold mr-2">
-                        {price}&nbsp;₫
+                    <div
+                        className={`text-15px font-semibold mr-2 ${
+                            basePrice && "text-red-400"
+                        }`}
+                    >
+                        {price || basePrice}&nbsp;₫
                     </div>
                 </div>
                 <div className="text-xs font-normal mt-2 truncate">
