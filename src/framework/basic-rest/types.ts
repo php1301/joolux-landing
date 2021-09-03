@@ -41,7 +41,6 @@ export type ProductsQueryOptionsType = {
     sizes?: string;
     materials?: string;
     prices?: string;
-
 };
 export type QueryOptionsType = {
     text?: string;
@@ -118,8 +117,12 @@ export type Product = {
     sale_price?: number;
     // image: Attachment;
     sku?: string;
+    otherSpecialValue: {
+        hasToContact: string;
+    };
     gallery?: Attachment[];
     category?: Category;
+    retailPrice?: number;
     tag?: Tag[];
     meta?: any[];
     description?: string;
@@ -213,6 +216,7 @@ export interface Filter {
     colors: string[];
     conditions: string[];
     promotions: string[];
+    specials: string[];
     genders: string[];
     statuses: string[];
     sizes: string[];
