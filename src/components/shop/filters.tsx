@@ -13,6 +13,7 @@ import { ConditionFilter } from "./condition-filter";
 import { MaterialFilter } from "./material-filter";
 import { SizeFilter } from "./size-filter";
 import { PromotionFilter } from "./promotion-filter";
+import { SpecialFilter } from "./special-filter";
 
 interface IShopFilters {
     filter: Filter;
@@ -34,6 +35,7 @@ export const ShopFilters: React.FC<IShopFilters> = ({
         colors,
         conditions,
         genders,
+        specials,
         materials,
         promotions,
         prices,
@@ -92,6 +94,7 @@ export const ShopFilters: React.FC<IShopFilters> = ({
             {materials && <MaterialFilter materialsFilter={materials} />}
             {sizes && <SizeFilter sizesFilter={sizes} />}
             {promotions && <PromotionFilter promotionsFilter={promotions} />}
+            {specials && <SpecialFilter specialsFilter={specials} />}
             {prices && <PriceFilter pricesFilter={prices} />}
             {colors && <ColorFilter colorsFilter={colors} />}
         </div>
