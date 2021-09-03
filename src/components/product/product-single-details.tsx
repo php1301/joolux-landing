@@ -6,9 +6,9 @@ import { getVariations } from "@framework/utils/get-variations";
 import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
 import { generateCartItem } from "@utils/generate-cart-item";
-import { ProductAttributes } from "./product-attributes";
 import isEmpty from "lodash/isEmpty";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { AiFillPhone } from "react-icons/ai";
 import Link from "@components/ui/link";
 import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
@@ -73,14 +73,21 @@ const ProductSingleDetails: React.FC<{
     // ];
     const { price, basePrice, discount } = usePrice(
         data && {
-            amount: data.sale_price
-                ? parseInt(data.sale_price as unknown as string)
-                : parseInt(data.price as unknown as string),
-            baseAmount: parseInt(data.price as unknown as string),
+            amount: data?.specialPrice
+                ? parseInt(data?.specialPrice as unknown as string)
+                : parseInt(data?.price as unknown as string),
+            baseAmount: parseInt(data?.price as unknown as string),
             currencyCode: "VND",
         },
     );
-
+    const { price: retailPrice } = usePrice(
+        data && {
+            amount: data?.retailPrice,
+            baseAmount: data?.retailPrice,
+            currencyCode: "VND",
+        },
+    );
+    const { hasToContact } = data?.otherSpecialValue ?? {};
     const variations = getVariations(data?.variations); // attributes.slug
     // Duyệt coi đã chọn attribute nào chưa, filter bằng slug
     const isSelected = !isEmpty(variations)
@@ -161,12 +168,15 @@ const ProductSingleDetails: React.FC<{
     function handleFavorite() {
         setFavorite((fav) => !fav);
     }
-    function handleAttribute(attribute: any) {
-        setAttributes((prev) => ({
-            ...prev,
-            ...attribute,
-        }));
+    function contactSeller() {
+        console.log("contact seller clicked");
     }
+    // function handleAttribute(attribute: any) {
+    //     setAttributes((prev) => ({
+    //         ...prev,
+    //         ...attribute,
+    //     }));
+    // }
 
     return (
         <div className="relative block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-7 pb-10 lg:pb-14 2xl:pb-20 items-start">
@@ -223,20 +233,29 @@ const ProductSingleDetails: React.FC<{
                         chuyên gia
                     </Link>
                     <div className="flex items-center mt-6 mb-8">
-                        <div className="text-2xl font-bold mr-4">
+                        <div
+                            className={`text-2xl font-bold mr-4 ${
+                                discount && "text-red-400"
+                            }`}
+                        >
                             {price}&nbsp;₫
                         </div>
                         {discount && (
                             <span className="line-through font-segoe text-gray-400 text-sm md:text-base lg:text-lg xl:text-xl ps-2">
-                                {basePrice}
+                                {basePrice}&nbsp;₫
                             </span>
                         )}
                     </div>
-                    <div className="text-heading font-bold text-base md:text-xl lg:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
-                        Số lượng
+                    <div className="flex items-center mt-6 mb-8">
+                        <div className="text-2xl font-semibold mr-4 text-black">
+                            Giá retail: {retailPrice}&nbsp;₫
+                        </div>
                     </div>
+                    {/* <div className="text-heading font-bold text-base md:text-xl lg:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
+                        Số lượng
+                    </div> */}
                     <div className="flex items-center space-s-4 justify-between pt-3 pb-8">
-                        <Counter
+                        {/* <Counter
                             quantity={quantity}
                             onIncrement={() => setQuantity((prev) => prev + 1)}
                             onDecrement={() =>
@@ -245,19 +264,19 @@ const ProductSingleDetails: React.FC<{
                                 )
                             }
                             disableDecrement={quantity === 1}
-                        />
+                        /> */}
                         <div className="flex ml-auto flex-1">
                             {favorite ? (
-                                <BsHeart
+                                <BsHeartFill
                                     onClick={handleFavorite}
-                                    color="pink"
                                     className="mr-3"
+                                    color="red"
                                     size={24}
                                 />
                             ) : (
-                                <BsHeartFill
+                                <BsHeart
                                     onClick={handleFavorite}
-                                    color="red"
+                                    color="pink"
                                     className="mr-3"
                                     size={24}
                                 />
@@ -267,39 +286,79 @@ const ProductSingleDetails: React.FC<{
                             </h3>
                         </div>
                     </div>
-                    <div className="flex items-center space-s-4  pt-3">
+                    {data?.qty === 0 || data?.is_in_stock === "2" ? (
                         <Button
-                            onClick={addToCart}
                             variant="jl"
-                            className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white ${
-                                !isSelected && "hover:opacity-65 hover:bg-white"
-                            }`}
-                            iconCart
-                            disabled={!isSelected}
+                            className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white opacity-60`}
+                            disabled
                             loading={addToCartLoader}
                         >
                             <span className="py-2 3xl:px-8">
-                                Thêm vào giỏ hàng
+                                {data?.qty === 0 && data?.is_in_stock !== "2"
+                                    ? "Tạm hết hàng"
+                                    : "Đang giao dịch"}
                             </span>
                         </Button>
-                    </div>
-                    <div className="flex items-center space-s-4 pt-3">
-                        <Button
-                            onClick={immediatelyCheckout}
-                            variant="jl"
-                            className={`w-full md:w-6/12 xl:w-full ${
-                                !isSelected && "bg-gray-400 hover:bg-gray-400"
-                            }`}
-                            disabled={!isSelected}
-                            loading={immeAddToCartLoader}
-                        >
-                            <span className="py-2 3xl:px-8">
-                                Thanh toán ngay
-                            </span>
-                        </Button>
-                    </div>
+                    ) : hasToContact ? (
+                        <div className="flex items-center space-s-4 pt-3">
+                            <Button
+                                onClick={contactSeller}
+                                variant="jl"
+                                className={`w-full md:w-6/12 xl:w-full ${
+                                    !isSelected &&
+                                    "bg-gray-400 hover:bg-gray-400"
+                                }`}
+                                disabled={!isSelected}
+                                loading={immeAddToCartLoader}
+                            >
+                                <AiFillPhone
+                                    color="white"
+                                    className="mr-3"
+                                    size={24}
+                                />
+                                <span className="py-2 3xl:px-8">
+                                    Liên hệ người bán
+                                </span>
+                            </Button>
+                        </div>
+                    ) : (
+                        <>
+                            <div className="flex items-center space-s-4  pt-3">
+                                <Button
+                                    onClick={addToCart}
+                                    variant="jl"
+                                    className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white ${
+                                        !isSelected &&
+                                        "hover:opacity-65 hover:bg-white"
+                                    }`}
+                                    iconCart
+                                    disabled={!isSelected}
+                                    loading={addToCartLoader}
+                                >
+                                    <span className="py-2 3xl:px-8">
+                                        Thêm vào giỏ hàng
+                                    </span>
+                                </Button>
+                            </div>
+                            <div className="flex items-center space-s-4 pt-3">
+                                <Button
+                                    onClick={immediatelyCheckout}
+                                    variant="jl"
+                                    className={`w-full md:w-6/12 xl:w-full ${
+                                        !isSelected &&
+                                        "bg-gray-400 hover:bg-gray-400"
+                                    }`}
+                                    disabled={!isSelected}
+                                    loading={immeAddToCartLoader}
+                                >
+                                    <span className="py-2 3xl:px-8">
+                                        Thanh toán ngay
+                                    </span>
+                                </Button>
+                            </div>
+                        </>
+                    )}
                 </div>
-
                 {/* <div className="pb-3 border-b border-gray-300">
                     {Object.keys(variations).map((variation) => {
                         return (
