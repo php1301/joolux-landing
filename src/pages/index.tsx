@@ -30,17 +30,48 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 const Home: NextPage & {
     Layout: typeof Layout;
 } = () => {
-    const { data } = useFetchNewestProductsQuery();
-    const { openModal, setModalView, unauthorize, isAuthorized } = useUI();
+    const { data, isLoading } = useFetchNewestProductsQuery();
+    const {
+        openModal,
+        setPopupBanner,
+        unauthorize,
+        isAuthorized,
+        setModalView,
+    } = useUI();
     const { query } = useRouter();
+    const { collectionBanner, homepageBanner, newestProducts, popupBanner } =
+        data ?? {};
     useEffect(() => {
         if (query.logoutExpired && isAuthorized) {
             unauthorize();
         }
-        setModalView("NEWSLETTER_VIEW");
-        setTimeout(() => {
-            openModal();
-        }, 2000);
+        // if (!localStorage.getItem("showPopup")) {
+        //     setModalView("NEWSLETTER_VIEW");
+        //     setPopupBanner(popupBanner);
+        //     localStorage.setItem("popupId", popupBanner._id);
+        //     setTimeout(() => {
+        //         openModal();
+        //     }, 2000);
+        //     localStorage.setItem("showPopup", "true");
+        // } else {
+        //     if (localStorage.getItem("popupId") !== popupBanner._id) {
+        //         localStorage.setItem("popupId", popupBanner._id);
+        //         setModalView("NEWSLETTER_VIEW");
+        //         setPopupBanner(popupBanner);
+        //         localStorage.setItem("popupId", popupBanner._id);
+        //         setTimeout(() => {
+        //             openModal();
+        //         }, 2000);
+        //     }
+        // }
+        if (localStorage.getItem("popupId") !== popupBanner[0]._id) {
+            localStorage.setItem("popupId", popupBanner[0]._id);
+            setModalView("NEWSLETTER_VIEW");
+            setPopupBanner(popupBanner);
+            setTimeout(() => {
+                openModal();
+            }, 2000);
+        }
     }, []);
     // const isAmp = useAmp();
     return (
@@ -64,11 +95,15 @@ const Home: NextPage & {
             {/* <Main />
             <I18NExample /> */}
             <Container>
-                <HeroBlock />
+                {!isLoading && homepageBanner && (
+                    <HeroBlock homepageBanner={homepageBanner} />
+                )}
                 <QualityBlock />
-                <BrandBlock />
+                {!isLoading && collectionBanner && (
+                    <BrandBlock collectionBanner={collectionBanner} />
+                )}
                 <AssuranceBlock />
-                {data && <NewestProducts data={data?.data} />}
+                {data && <NewestProducts data={newestProducts} />}
                 <BlogBlock />
             </Container>
             {/* <Cards /> */}
