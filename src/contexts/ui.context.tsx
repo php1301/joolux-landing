@@ -1,6 +1,7 @@
 import React from "react";
 import { getAccessToken } from "@framework/utils/get-token";
 import { CartProvider } from "./cart/cart.context";
+import { PopupBanner } from "@framework/types";
 
 export interface State {
     isAuthorized: boolean;
@@ -13,6 +14,7 @@ export interface State {
     modalData: any;
     drawerView: string | null;
     toastText: string;
+    popupBanner: PopupBanner;
 }
 
 const initialState = {
@@ -26,6 +28,7 @@ const initialState = {
     drawerView: null,
     modalData: null,
     toastText: "",
+    popupBanner: null,
 };
 
 type Action =
@@ -84,6 +87,10 @@ type Action =
     | {
           type: "SET_USER_AVATAR";
           value: string;
+      }
+    | {
+          type: "SET_POPUP_BANNER";
+          value: PopupBanner;
       };
 
 type MODAL_VIEWS =
@@ -180,6 +187,12 @@ function uiReducer(state: State, action: Action) {
                 modalView: action.view,
             };
         }
+        case "SET_POPUP_BANNER": {
+            return {
+                ...state,
+                popupBanner: action.value,
+            };
+        }
         case "SET_DRAWER_VIEW": {
             return {
                 ...state,
@@ -239,7 +252,8 @@ export const UIProvider: React.FC = (props) => {
 
     const setUserAvatar = (_value: string) =>
         dispatch({ type: "SET_USER_AVATAR", value: _value });
-
+    const setPopupBanner = (_value: PopupBanner) =>
+        dispatch({ type: "SET_POPUP_BANNER", value: _value });
     const setModalView = (view: MODAL_VIEWS) =>
         dispatch({ type: "SET_MODAL_VIEW", view });
     const setDrawerView = (view: DRAWER_VIEWS) =>
@@ -270,6 +284,7 @@ export const UIProvider: React.FC = (props) => {
             setDrawerView,
             setUserAvatar,
             setModalData,
+            setPopupBanner,
         }),
         [state],
     );
