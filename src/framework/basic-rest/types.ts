@@ -244,3 +244,35 @@ export type Order = {
     shipping_fee: number;
     payment_gateway: string;
 };
+
+export type HomepageBanner = {
+    id: 2;
+    title: string;
+    slug: string;
+    image: {
+        mobile: {
+            url: string;
+            width: number;
+            height: number;
+        };
+        desktop: {
+            url: string;
+            width: number;
+            height: number;
+        };
+    };
+};
+
+export type CollectionBanner = {
+    name: string;
+    slug: string;
+    description: string;
+    image: string;
+};
+
+export type PopupBanner = {
+    _id: string;
+    name: string;
+    description: string;
+    image: string;
+};
