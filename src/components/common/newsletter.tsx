@@ -19,7 +19,7 @@ export default function Newsletter() {
     } = useForm<NewsLetterFormValues>({
         defaultValues,
     });
-    const { closeModal } = useUI();
+    const { closeModal, popupBanner } = useUI();
     function onSubmit(values: NewsLetterFormValues) {
         console.log(values, "news letter");
         closeModal();
@@ -31,7 +31,10 @@ export default function Newsletter() {
                 <div className="flex items-center">
                     <div className="flex-shrink-0 items-center justify-center bg-gray-200 hidden lg:flex lg:w-[520px] xl:w-auto">
                         <Image
-                            src="/assets/images/newsletter.jpg"
+                            src={
+                                popupBanner[0]?.image ||
+                                "https://i.imgur.com/j1w2lWH.jpeg"
+                            }
                             alt="Thumbnail"
                             width={655}
                             height={655}
@@ -43,10 +46,10 @@ export default function Newsletter() {
                             {t("common:text-subscribe-now")}
                         </h4>
                         <h2 className="text-heading text-lg sm:text-xl md:text-2xl leading-8 font-bold mb-5 sm:mb-7 md:mb-9">
-                            {t("common:text-newsletter-title")}
+                            {popupBanner[0].title}
                         </h2>
                         <p className="text-body text-sm leading-6 md:leading-7">
-                            {t("common:text-newsletter-subtitle")}
+                            {popupBanner[0].description}
                         </p>
                         <form
                             className="pt-8 sm:pt-10 md:pt-14 mb-1 sm:mb-0"
