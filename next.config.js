@@ -64,6 +64,8 @@ const config = {
             "old.joolux.com",
             "images.ctfassets.net",
             "joolux.com",
+            "joolux-client.ml",
+            "i.imgur.com",
         ],
     },
 };
