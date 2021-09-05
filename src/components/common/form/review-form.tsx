@@ -6,26 +6,25 @@ import Textarea from "@components/ui/textarea";
 import ReactStars from "react-rating-stars-component";
 import { CheckBox } from "@components/ui/checkbox";
 import { useTranslation } from "next-i18next";
-
-interface IReviewFormValues {
-    name: string;
-    email: string;
-    cookie: string;
-    message: string;
-}
+import {
+    IReviewFormValues,
+    useReviewProductMutation,
+} from "@framework/product/use-review-product";
+import { useState } from "react";
 
 const ReviewForm: React.FC = () => {
+    const [star, setStar] = useState(0);
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<IReviewFormValues>();
-
+    const { mutate: reviewProduct } = useReviewProductMutation();
     function onSubmit(values: IReviewFormValues) {
-        console.log(values, "review");
+        reviewProduct({ ...values, rating: star });
     }
     const ratingChanged = (newRating: any) => {
-        console.log(newRating);
+        setStar(newRating);
     };
     const { t } = useTranslation();
     return (
