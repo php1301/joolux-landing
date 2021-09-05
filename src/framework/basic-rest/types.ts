@@ -41,6 +41,7 @@ export type ProductsQueryOptionsType = {
     sizes?: string;
     materials?: string;
     prices?: string;
+    search?: string;
 };
 export type QueryOptionsType = {
     text?: string;
@@ -186,6 +187,7 @@ export type Product = {
     visibility: string;
     qty: number;
     min_qty: number;
+    onSale: boolean;
     use_config_min_qty: string;
     is_qty_decimal: string;
     backorders: string;
