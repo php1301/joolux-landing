@@ -12,21 +12,28 @@ import {
 import Scrollbar from "@components/common/scrollbar";
 import SearchProduct from "@components/common/search-product";
 import { useRouter } from "next/router";
+import useDebounce from "@utils/use-debounce";
 
 export default function Search() {
     const { displaySearch, closeSearch } = useUI();
     const [searchText, setSearchText] = React.useState("");
-    const { data, isLoading } = useSearchQuery({
-        text: searchText,
-    });
+    const debouncedSearchQuery = useDebounce(searchText, 600);
+    const { data, isLoading } = useSearchQuery(
+        // [API_ENDPOINTS.SEARCH, debouncedSearchQuery],
+        {
+            text: debouncedSearchQuery,
+        },
+    );
     const router = useRouter();
     function handleSearch(
         e: React.KeyboardEvent & React.FormEvent<HTMLInputElement>,
     ) {
         if (e.key === "Enter") {
-            router.push(`/hang-moi-ve?q=${e.currentTarget.value}`);
             e.preventDefault();
-            console.log("run");
+            if (e.currentTarget.value) {
+                router.push(`/hang-moi-ve?search=${e.currentTarget.value}`);
+                closeSearch();
+            }
         }
     }
     function handleAutoSearch(e: React.FormEvent<HTMLInputElement>) {
@@ -49,7 +56,6 @@ export default function Search() {
             clearAllBodyScrollLocks();
         };
     }, [displaySearch]);
-
     return (
         <div ref={ref}>
             <div
@@ -97,13 +103,13 @@ export default function Search() {
                                                 )}
                                             </div>
                                         ) : (
-                                            data?.map((item, index) => (
+                                            data?.map((product, index) => (
                                                 <div
                                                     className=" p-5 border-b border-gray-150 relative last:border-b-0"
                                                     onClick={closeSearch}
                                                 >
                                                     <SearchProduct
-                                                        item={item}
+                                                        product={product}
                                                         key={index}
                                                     />
                                                 </div>
