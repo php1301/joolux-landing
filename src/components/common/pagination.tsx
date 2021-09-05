@@ -44,7 +44,7 @@ const Pagination: FC<IPagination> = ({ pagination }) => {
                 breakLabel={"..."}
                 breakClassName={"break-me"}
                 pageCount={
-                    pagination.totalPage ?? 130
+                    pagination?.totalPage ?? 130
                     // !isLoading ? data?.totalPages?.totalPage : temp_total
                 }
                 // limit={10}
