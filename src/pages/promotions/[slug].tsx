@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
 import { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 // import StickyBox from "react-sticky-box";
@@ -17,27 +18,64 @@ import { ROUTES } from "@utils/routes";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 import {
-    useProductsPaginationQuery,
-    fetchProducts,
-} from "@framework/product/get-all-products-pagination";
+    useFetchCollectionProducts,
+    fetchCollectionProducts,
+} from "@framework/product/get-collection-products";
 import ErrorInformation from "@components/404/error-information";
 
 const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
     const { t } = useTranslation("common");
-    const { query } = useRouter();
-    // const { isLoading, data, error } = useProductsPaginationQuery(
-    //     {
-    //         ...query,
-    //     },
-    //     Object.values(query).join(","),
-    // );
-    // if (error) return <p>{error.message}</p>;
-    // const { pagination, products, filter } = data ?? {};
+    const { query, asPath, pathname } = useRouter();
+    const { isLoading, data, error } = useFetchCollectionProducts(
+        {
+            ...query,
+        },
+        query.slug as unknown as string,
+        Object.values(query).join(","),
+    );
+    if (error) return <p>{error.message}</p>;
+    const { pagination, products, filter, seo } = data ?? {};
+    console.log(pathname);
 
     return (
         <>
             <Container clean>
                 <div className={`flex pt-8 pb-16 overflow-hidden lg:pb-20`}>
+                    <NextSeo
+                        additionalMetaTags={[
+                            {
+                                name: "viewport",
+                                content:
+                                    "width=device-width, initial-scale=1.0",
+                            },
+                        ]}
+                        title={`${seo?.name} | Joolux` || "Joolux"}
+                        description={seo?.description || "Bộ sưu tập"}
+                        canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
+                        openGraph={{
+                            url: asPath,
+                            title: `${seo?.name} | Joolux` || "Joolux",
+                            description: seo?.description || "Pending",
+                            images: [
+                                {
+                                    url:
+                                        `${process.env.NEXT_PUBLIC_BASE_IMAGE}${seo?.image[0]}` ||
+                                        "https://joolux.com/og-image.jpg",
+                                    width: 800,
+                                    height: 600,
+                                    alt: "Og Image Alt",
+                                },
+                                {
+                                    url:
+                                        `${process.env.NEXT_PUBLIC_BASE_IMAGE}${seo?.image[0]}` ||
+                                        "https://joolux.com/og-image.jpg",
+                                    width: 900,
+                                    height: 800,
+                                    alt: "Og Image Alt Second",
+                                },
+                            ],
+                        }}
+                    />
                     <div className="flex-shrink-0 pe-24 hidden  lg:block w-96">
                         <div className="pb-7">
                             <BreadcrumbItems separator="/">
@@ -49,29 +87,33 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                     <a>{t("Trang chủ")}</a>
                                 </ActiveLink>
                                 <ActiveLink
-                                    href={ROUTES.SEARCH}
+                                    href={ROUTES.HANG_MOI_VE}
                                     activeClassName="font-semibold text-heading"
                                 >
                                     <a className="capitalize">
-                                        {/* {t("breadcrumb-search")} */}
                                         {t("Khuyến mãi")}
                                     </a>
                                 </ActiveLink>
+                                <ActiveLink
+                                    href={`${ROUTES.PROMOTIONS}/${seo?.slug}`}
+                                    activeClassName="font-semibold text-heading"
+                                >
+                                    <a className="capitalize">{t(seo?.name)}</a>
+                                </ActiveLink>
                             </BreadcrumbItems>
                         </div>
-                        {/* <ShopFilters filter={filter} /> */}
+                        <ShopFilters filter={filter} />
                     </div>
-                    <h2>{query.slug}</h2>
-                    {/* <div className="w-full lg:-ms-9">
+                    <div className="w-full lg:-ms-9">
                         <div className="flex justify-between items-center mb-7">
                             {!isLoading && (
                                 <SearchTopBar
-                                    totalItems={pagination.total}
+                                    totalItems={pagination?.total}
                                     filter={filter}
                                 />
                             )}
                         </div>
-                        {!isLoading && pagination.total === 0 && (
+                        {!isLoading && pagination?.total === 0 && (
                             <ErrorInformation />
                         )}
                         <div
@@ -83,15 +125,15 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                     uniqueKey="search-product"
                                 />
                             ) : (
-                                pagination.total !== 0 && (
+                                pagination?.total !== 0 && (
                                     <ProductGrid products={products} />
                                 )
                             )}
                         </div>
-                        {!isLoading && pagination.total !== 0 && (
+                        {!isLoading && pagination?.total !== 0 && (
                             <Pagination pagination={pagination} />
                         )}
-                    </div> */}
+                    </div>
                 </div>
             </Container>
             <Subscription hasTitle />
@@ -106,10 +148,10 @@ export const getServerSideProps: GetServerSideProps = async ({
     query,
     resolvedUrl,
 }) => {
-    // const queryClient = new QueryClient();
-    // await queryClient.prefetchQuery(Object.values(query).join(","), async () =>
-    //     fetchProducts(query),
-    // );
+    const queryClient = new QueryClient();
+    await queryClient.prefetchQuery(Object.values(query).join(","), async () =>
+        fetchCollectionProducts(query.slug as unknown as string, query),
+    );
     return {
         props: {
             ...(await serverSideTranslations(locale!, [
@@ -118,7 +160,7 @@ export const getServerSideProps: GetServerSideProps = async ({
                 "menu",
                 "footer",
             ])),
-            // dehydratedState: dehydrate(queryClient),
+            dehydratedState: dehydrate(queryClient),
         },
     };
 };
