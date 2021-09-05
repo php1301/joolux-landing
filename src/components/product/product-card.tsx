@@ -2,10 +2,13 @@ import cn from "classnames";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTES } from "@utils/routes";
-import type { FC } from "react";
+import { FC, useState, useEffect, useCallback } from "react";
 import usePrice from "@framework/product/use-price";
 import { Product } from "@framework/types";
-
+import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
+// import { useIsMount } from "@utils/use-is-mount";
+import debounce from "lodash/debounce";
 interface IProductProps {
     product: Product;
     className?: string;
@@ -30,9 +33,42 @@ const ProductCard: FC<IProductProps> = ({
     bottomBorder,
 }) => {
     const router = useRouter();
+    const { mutate: favoriteProduct } = useFavoriteProductMutation();
     // Cách làm skeletion image
     const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
-    const { price, basePrice, discount } = usePrice({
+    const [favorite, setFavorite] = useState<boolean>(false);
+
+    function handleFavorite() {
+        setFavorite((fav) => !fav);
+        debouncedClick();
+    }
+    // Debounce onclick with other value
+    const debouncedClick = useCallback(
+        debounce(
+            () => {
+                favoriteProduct({ productId: product?._id });
+            },
+            1000,
+            { leading: true, trailing: false, maxWait: 1000 },
+        ),
+        [],
+    );
+
+    // Debounce onClick with state value
+    // https://stackoverflow.com/questions/61785903/problems-with-debounce-in-useeffect
+    // const debounceFavoriteState = useCallback(
+    //     debounce((fav) => {
+    //         console.log(fav);
+    //     }, 1000),
+    //     [],
+    // );
+    // const isMount = useIsMount();
+    // useEffect(() => {
+    //     if (!isMount) {
+    //         debounceFavoriteState(favorite);
+    //     }
+    // }, [favorite]);
+    const { price, basePrice } = usePrice({
         amount:
             (product?.specialPrice &&
                 parseInt(product?.specialPrice as unknown as string)) ||
@@ -58,10 +94,9 @@ const ProductCard: FC<IProductProps> = ({
     const { hasToContact } = product?.otherSpecialValue ?? {};
     return (
         <div
-            onClick={navigateToProductPage}
             className={cn(
                 {
-                    "group box-border overflow-hidden flex rounded-md cursor-pointer px-3 mb-6":
+                    "group box-border overflow-hidden flex rounded-md cursor-default px-3 mb-6":
                         variant !== "jl",
                 },
                 {
@@ -78,7 +113,7 @@ const ProductCard: FC<IProductProps> = ({
                 },
                 ` ${
                     product?.qty === 0 || product.is_in_stock === "2"
-                        ? "opacity-70 cursor-not-allowed"
+                        ? "opacity-70 cursor-default"
                         : ""
                 }`,
                 className,
@@ -87,6 +122,7 @@ const ProductCard: FC<IProductProps> = ({
             title={product?.name}
         >
             <div
+                onClick={navigateToProductPage}
                 className={cn(
                     {
                         "flex mb-3 md:mb-3.5": variant === "grid",
@@ -122,6 +158,17 @@ const ProductCard: FC<IProductProps> = ({
                     )}
                 />
             </div>
+            <div className="absolute w-[28px] top-2 right-2 bg-transparent">
+                {favorite ? (
+                    <BsHeartFill
+                        onClick={handleFavorite}
+                        color="red"
+                        size={24}
+                    />
+                ) : (
+                    <BsHeart onClick={handleFavorite} color="red" size={24} />
+                )}
+            </div>
             {product?.qty === 0 && product?.is_in_stock !== "2" && (
                 <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-[#e7e7e7] text-black">
                     Tạm hết hàng
@@ -132,7 +179,8 @@ const ProductCard: FC<IProductProps> = ({
                     Đang giao dịch
                 </div>
             )}
-            {product?.specialPrice &&
+            {product?.onSale &&
+                product?.specialPrice &&
                 product?.qty !== 0 &&
                 product?.is_in_stock !== "2" &&
                 !hasToContact && (
@@ -206,7 +254,7 @@ const ProductCard: FC<IProductProps> = ({
                 <div className="flex flex-wrap items-center">
                     <div
                         className={`text-15px font-semibold mr-2 ${
-                            basePrice && "text-red-400"
+                            product?.onSale && basePrice && "text-red-400"
                         }`}
                     >
                         {price || basePrice}&nbsp;₫
