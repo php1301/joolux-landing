@@ -1,16 +1,17 @@
 import { QueryOptionsType, Product } from "@framework/types";
-import http from "@framework/utils/http";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import http from "@framework/utils/http";
 import { useQuery } from "react-query";
 
-export const fetchSearchedProducts = async ({ queryKey }: any) => {
-    const [_key, _params] = queryKey;
-    const { data } = await http.get(API_ENDPOINTS.SEARCH);
+export const fetchSearchedProducts = async (text) => {
+    const { data } = await http.get(
+        `https://api.joolux-client.ml/admin/products/search-overview?search=${text}`,
+    );
     return data;
 };
 export const useSearchQuery = (options: QueryOptionsType) => {
     return useQuery<Product[], Error>(
-        [API_ENDPOINTS.SEARCH, options],
-        fetchSearchedProducts,
+        [API_ENDPOINTS.SEARCH, options.text],
+        () => fetchSearchedProducts(options.text),
     );
 };
