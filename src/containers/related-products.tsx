@@ -1,9 +1,11 @@
+import React, { useEffect } from "react";
 import SectionHeader from "@components/common/section-header";
 import ProductCard from "@components/product/product-card";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import { useRelatedProductsQuery } from "@framework/product/get-related-products";
 import Alert from "@components/ui/alert";
 import Link from "@components/ui/link";
+import isEqual from "lodash/isEqual";
 
 interface ProductsProps {
     sectionHeading: string;
@@ -20,12 +22,16 @@ const RelatedProducts: React.FC<ProductsProps> = ({
     category,
     id,
 }) => {
-    const { data, isLoading, error, isFetched } = useRelatedProductsQuery({
-        brand,
-        category,
-        id,
-    });
+    const { data, isLoading, error, isFetched, refetch } =
+        useRelatedProductsQuery({
+            brand,
+            category,
+            id,
+        });
     if (error) return <p>{error}</p>;
+    useEffect(() => {
+        refetch();
+    }, []);
     return (
         isFetched &&
         data?.length !== 0 && (
@@ -49,8 +55,10 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                             <ProductCard
                                 key={`product-related-key${product._id}`}
                                 product={product}
+                                imgWidth={330}
                                 variant="jl"
                                 bottomBorder="border-none"
+                                className="bg-[#f6f5fc]"
                             />
                         ))
                     )}
@@ -72,5 +80,8 @@ const RelatedProducts: React.FC<ProductsProps> = ({
         )
     );
 };
-
-export default RelatedProducts;
+function areEqual(prevProps, nextProps) {
+    return isEqual(prevProps, nextProps);
+}
+const MemorizedRelatedProducts = React.memo(RelatedProducts, areEqual);
+export default MemorizedRelatedProducts;
