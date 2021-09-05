@@ -25,6 +25,8 @@ export const API_ENDPOINTS = {
     POPUP_BANNER: "/admin/homepage-banner-email",
     FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
     SEARCH: "/api/search.json",
+    REVIEW: "/api/reviews",
+    FAVORITE: "/api/favorite",
     ORDERS: "/api/orders.json",
     ORDER: "/api/order.json",
 };
