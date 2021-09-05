@@ -1,7 +1,7 @@
 /* eslint-disable no-prototype-builtins */
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Button } from "@components/ui/button";
-import { Counter } from "@components/common/counter";
+// import { Counter } from "@components/common/counter";
 import { getVariations } from "@framework/utils/get-variations";
 import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
@@ -26,6 +26,8 @@ import ProductNumber from "./product-number";
 import ProductPolicy from "./product-policy";
 import { Product } from "@framework/types";
 import { useRouter } from "next/router";
+import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
+import debounce from "lodash/debounce";
 
 const productGalleryCarouselResponsive = {
     "768": {
@@ -39,11 +41,12 @@ const productGalleryCarouselResponsive = {
 const ProductSingleDetails: React.FC<{
     data: Product;
 }> = ({ data }) => {
+    const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const router = useRouter();
     const { width } = useWindowSize();
     const { addItemToCart } = useCart();
     const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
-    const [quantity, setQuantity] = useState(1);
+    // const [quantity, setQuantity] = useState(1);
     const [favorite, setFavorite] = useState<boolean>(false);
     const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
     const [immeAddToCartLoader, setImmeAddToCartLoader] =
@@ -73,9 +76,10 @@ const ProductSingleDetails: React.FC<{
     // ];
     const { price, basePrice, discount } = usePrice(
         data && {
-            amount: data?.specialPrice
-                ? parseInt(data?.specialPrice as unknown as string)
-                : parseInt(data?.price as unknown as string),
+            amount:
+                data?.onSale && data?.specialPrice
+                    ? parseInt(data?.specialPrice as unknown as string)
+                    : parseInt(data?.price as unknown as string),
             baseAmount: parseInt(data?.price as unknown as string),
             currencyCode: "VND",
         },
@@ -141,7 +145,7 @@ const ProductSingleDetails: React.FC<{
         }, 600);
 
         const item = generateCartItem(data!, attributes);
-        addItemToCart(item, quantity);
+        addItemToCart(item, 1);
         toast("Đã thêm vào giỏ hàng", {
             type: "dark",
             progressClassName: "fancy-progress-bar",
@@ -162,11 +166,24 @@ const ProductSingleDetails: React.FC<{
         }, 600);
 
         const item = generateCartItem(data!, attributes);
-        addItemToCart(item, quantity);
+        addItemToCart(item, 1);
         router.push("/cart");
     }
+
+    // Debounce onclick with other value
+    const debouncedClick = useCallback(
+        debounce(
+            () => {
+                favoriteProduct({ productId: data?._id });
+            },
+            1000,
+            { leading: true, trailing: false, maxWait: 1000 },
+        ),
+        [],
+    );
     function handleFavorite() {
         setFavorite((fav) => !fav);
+        debouncedClick();
     }
     function contactSeller() {
         console.log("contact seller clicked");
@@ -235,22 +252,24 @@ const ProductSingleDetails: React.FC<{
                     <div className="flex items-center mt-6 mb-8">
                         <div
                             className={`text-2xl font-bold mr-4 ${
-                                discount && "text-red-400"
+                                data?.onSale && discount && "text-red-400"
                             }`}
                         >
                             {price}&nbsp;₫
                         </div>
-                        {discount && (
+                        {data?.onSale && discount && (
                             <span className="line-through font-segoe text-gray-400 text-sm md:text-base lg:text-lg xl:text-xl ps-2">
                                 {basePrice}&nbsp;₫
                             </span>
                         )}
                     </div>
-                    <div className="flex items-center mt-6 mb-8">
-                        <div className="text-2xl font-semibold mr-4 text-black">
-                            Giá retail: {retailPrice}&nbsp;₫
+                    {data?.retailPrice && (
+                        <div className="flex items-center mt-6 mb-8">
+                            <div className="text-2xl font-semibold mr-4 text-black">
+                                Giá retail: {retailPrice}&nbsp;₫
+                            </div>
                         </div>
-                    </div>
+                    )}
                     {/* <div className="text-heading font-bold text-base md:text-xl lg:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
                         Số lượng
                     </div> */}
