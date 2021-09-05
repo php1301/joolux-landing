@@ -15,7 +15,7 @@ interface IBannerProps {
 }
 
 function getImage(deviceWidth: number, imgObj: any) {
-    return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
+    return deviceWidth < 480 ? imgObj?.mobile : imgObj?.desktop;
 }
 
 const BannerCard: FC<IBannerProps> = ({
@@ -40,7 +40,10 @@ const BannerCard: FC<IBannerProps> = ({
                 )}
             >
                 <Image
-                    src={selectedImage.url}
+                    src={
+                        selectedImage?.url ||
+                        "/assets/images/hero/banner-2-jl.jpg"
+                    }
                     // width={selectedImage.width}
                     // height={selectedImage.height}
                     layout="fill"
