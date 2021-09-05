@@ -21,8 +21,13 @@ export const useRelatedProductsQuery = (
     options: RelatedProductsQueryOptionsType,
 ) => {
     return useQuery<Product[], Error>(
-        [API_ENDPOINTS.RELATED_PRODUCTS, options],
+        [API_ENDPOINTS.RELATED_PRODUCTS],
         async () =>
             fetchRelatedProducts(options.category, options.brand, options.id),
+        {
+            keepPreviousData: true,
+            staleTime: 5000,
+            enabled: false,
+        },
     );
 };
