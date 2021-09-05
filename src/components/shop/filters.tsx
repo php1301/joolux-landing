@@ -56,7 +56,10 @@ export const ShopFilters: React.FC<IShopFilters> = ({
                         className="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading"
                         aria-label="Clear All"
                         onClick={() => {
-                            router.push(pathname);
+                            const url = query?.slug
+                                ? `${query.slug}`
+                                : pathname;
+                            router.push(url);
                         }}
                     >
                         {t("text-clear-all")}
