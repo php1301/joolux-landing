@@ -65,12 +65,12 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                         <div className="flex justify-between items-center mb-7">
                             {!isLoading && (
                                 <SearchTopBar
-                                    totalItems={pagination.total}
+                                    totalItems={pagination?.total}
                                     filter={filter}
                                 />
                             )}
                         </div>
-                        {!isLoading && pagination.total === 0 && (
+                        {!isLoading && pagination?.total === 0 && (
                             <ErrorInformation />
                         )}
                         <div
@@ -82,12 +82,12 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                     uniqueKey="search-product"
                                 />
                             ) : (
-                                pagination.total !== 0 && (
+                                pagination?.total !== 0 && (
                                     <ProductGrid products={products} />
                                 )
                             )}
                         </div>
-                        {!isLoading && pagination.total !== 0 && (
+                        {!isLoading && pagination?.total !== 0 && (
                             <Pagination pagination={pagination} />
                         )}
                     </div>
