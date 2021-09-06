@@ -8,19 +8,21 @@ interface Item {
     //     thumbnail: string;
     //     [key: string]: unknown;
     // };
-    image: string;
+    images: string[];
     price: number;
-    sale_price?: number;
+    specialPrice?: string;
+    onSale?: boolean;
     [key: string]: unknown;
 }
 export function generateCartItem(item: Item, attributes: object) {
-    const { _id, name, urlKey, image, price, sale_price } = item;
+    const { _id, name, urlKey, images, price, specialPrice, onSale } = item;
     return {
         id: _id,
         name,
         slug: urlKey,
-        image: image,
-        price: sale_price ? sale_price : price,
+        image: images[0],
+        specialPrice: onSale && specialPrice ? parseInt(specialPrice) : price,
+        price: price,
         attributes,
     };
 }
