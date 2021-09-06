@@ -3,7 +3,7 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import http from "@framework/utils/http";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 
 export interface GoogleAuthInputType {
     tokenId: string;
@@ -28,10 +28,11 @@ async function googleAuth(
 }
 export const useGoogleAuthMutation = () => {
     const { authorize, closeModal } = useUI();
+    const queryClient = useQueryClient();
     return useMutation<LoginResponseType, Error, GoogleAuthInputType>(
         async (input: GoogleAuthInputType) => googleAuth(input),
         {
-            onSuccess: (data: LoginResponseType) => {
+            onSuccess: async (data: LoginResponseType) => {
                 toast("Đăng nhập Google thành công", {
                     type: "success",
                     progressClassName: "fancy-progress-bar",
@@ -43,6 +44,9 @@ export const useGoogleAuthMutation = () => {
                 });
                 Cookies.set("access_token", data.accessToken);
                 Cookies.set("refresh_token", data.refreshToken);
+                await queryClient.resetQueries({
+                    active: true,
+                });
                 authorize();
                 closeModal();
             },
