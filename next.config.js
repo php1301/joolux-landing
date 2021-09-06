@@ -66,6 +66,7 @@ const config = {
             "joolux.com",
             "joolux-client.ml",
             "i.imgur.com",
+            "usercontent.funipos.net",
         ],
     },
 };
