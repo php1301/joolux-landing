@@ -10,6 +10,7 @@ import {
     calculateItemTotals,
     calculateTotalItems,
     calculateTotal,
+    calculateSpecialPricetotal,
 } from "./cart.utils";
 
 interface Metadata {
@@ -30,6 +31,7 @@ export interface State {
     totalItems: number;
     totalUniqueItems: number;
     total: number;
+    specialPriceTotal: number;
     meta?: Metadata | null;
 }
 export const initialState: State = {
@@ -38,6 +40,7 @@ export const initialState: State = {
     totalItems: 0,
     totalUniqueItems: 0,
     total: 0,
+    specialPriceTotal: 0,
     meta: null,
 };
 export function cartReducer(state: State, action: Action): State {
@@ -85,6 +88,7 @@ const generateFinalState = (state: State, items: Item[]) => {
         totalItems: calculateTotalItems(items),
         totalUniqueItems,
         total: calculateTotal(items),
+        specialPriceTotal: calculateSpecialPricetotal(items),
         isEmpty: totalUniqueItems === 0,
     };
 };
