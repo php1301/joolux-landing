@@ -6,7 +6,7 @@ import { Product } from "@framework/types";
 
 interface IProductGridProps {
     products: Product[];
-    favorites: string[];
+    favorites?: string[];
 }
 
 export const ProductGrid: FC<IProductGridProps> = ({ products, favorites }) => {
