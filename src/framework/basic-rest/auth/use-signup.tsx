@@ -4,7 +4,7 @@ import http from "@framework/utils/http";
 import Router from "next/router";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { AxiosError } from "axios";
 
 export interface SignUpInputType {
@@ -35,11 +35,12 @@ async function signUp(input: SignUpInputType): Promise<SignUpResponseType> {
 }
 export const useSignUpMutation = () => {
     const { authorize, closeModal } = useUI();
+    const queryClient = useQueryClient();
     // return useMutation<any, Error, LoginInputType>(
     return useMutation<SignUpResponseType, AxiosError, SignUpInputType>(
         async (input: SignUpInputType) => signUp(input),
         {
-            onSuccess: (data: SignUpResponseType) => {
+            onSuccess: async (data: SignUpResponseType) => {
                 console.log(data, "Sign Up Success");
                 toast("Đăng ký thành công bạn sẽ được chuyển hướng", {
                     type: "success",
@@ -54,6 +55,9 @@ export const useSignUpMutation = () => {
                 Cookies.set("access_token", data.accessToken);
                 Cookies.set("refresh_token", data.refreshToken);
                 Router.push("/my-account");
+                await queryClient.resetQueries({
+                    active: true,
+                });
                 authorize();
                 closeModal();
             },
