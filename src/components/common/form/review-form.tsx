@@ -10,9 +10,11 @@ import {
     IReviewFormValues,
     useReviewProductMutation,
 } from "@framework/product/use-review-product";
+import { useUI } from "@contexts/ui.context";
 import { useState } from "react";
 
 const ReviewForm: React.FC = () => {
+    const { setModalView, openModal, isAuthorized } = useUI();
     const [star, setStar] = useState(0);
     const {
         register,
@@ -21,6 +23,10 @@ const ReviewForm: React.FC = () => {
     } = useForm<IReviewFormValues>();
     const { mutate: reviewProduct } = useReviewProductMutation();
     function onSubmit(values: IReviewFormValues) {
+        if (!isAuthorized) {
+            setModalView("LOGIN_VIEW");
+            return openModal();
+        }
         reviewProduct({ ...values, rating: star });
     }
     const ratingChanged = (newRating: any) => {
