@@ -35,7 +35,7 @@ export function formatVariantPrice({
     });
     const discount = hasDiscount
         ? formatDiscount
-              .format((baseAmount - amount) / baseAmount)
+              .format(baseAmount - amount)
               .replace(/[,]/g, ".")
               .replace(/[£$₫]/g, "")
         : null;
