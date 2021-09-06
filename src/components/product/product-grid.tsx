@@ -6,9 +6,10 @@ import { Product } from "@framework/types";
 
 interface IProductGridProps {
     products: Product[];
+    favorites: string[];
 }
 
-export const ProductGrid: FC<IProductGridProps> = ({ products }) => {
+export const ProductGrid: FC<IProductGridProps> = ({ products, favorites }) => {
     // const memoizedValue = useMemo(() => pagination, [pagination]);
     return (
         <>
@@ -16,6 +17,7 @@ export const ProductGrid: FC<IProductGridProps> = ({ products }) => {
                 return (
                     <ProductCard
                         key={`product--key${product._id}`}
+                        isFavorite={favorites.includes(product._id)}
                         product={product}
                         variant="jl"
                         className="bg-[#f6f5fc]"
