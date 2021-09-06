@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInOut } from "@utils/motion/fade-in-out";
 import { IoIosCloseCircle } from "react-icons/io";
-import { Counter } from "@components/common/counter";
+// import { Counter } from "@components/common/counter";
 import { useCart } from "@contexts/cart/cart.context";
 import usePrice from "@framework/product/use-price";
 import { ROUTES } from "@utils/routes";
@@ -18,18 +18,20 @@ type CartItemProps = {
 const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
     const { t } = useTranslation("common");
     const { addItemToCart, removeItemFromCart, clearItemFromCart } = useCart();
-    const { price: unitPrice } = usePrice({
-        amount: item?.price && parseInt(item?.price as unknown as string),
+    const { price: unitPrice, basePrice } = usePrice({
+        amount:
+            item?.specialPrice &&
+            parseInt(item?.specialPrice as unknown as string),
         baseAmount: item?.price && parseInt(item?.price as unknown as string),
         currencyCode: "VND",
     });
-    const { price: totalPrice } = usePrice({
-        amount:
-            item?.itemTotal && parseInt(item?.itemTotal as unknown as string),
-        baseAmount:
-            item?.itemTotal && parseInt(item?.itemTotal as unknown as string),
-        currencyCode: "VND",
-    });
+    // const { price: totalPrice } = usePrice({
+    //     amount:
+    //         item?.itemTotal && parseInt(item?.itemTotal as unknown as string),
+    //     baseAmount:
+    //         item?.itemTotal && parseInt(item?.itemTotal as unknown as string),
+    //     currencyCode: "VND",
+    // });
 
     return (
         <motion.div
@@ -72,18 +74,18 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
                 </Link>
                 <span className="text-sm text-gray-400 mb-2.5">
                     {t("text-unit-price")} : &nbsp;
-                    {unitPrice}&nbsp;₫
+                    {basePrice || unitPrice}&nbsp;₫
                 </span>
 
                 <div className="flex items-end justify-between">
-                    <Counter
+                    {/* <Counter
                         quantity={item?.quantity}
                         onIncrement={() => addItemToCart(item, 1)}
                         onDecrement={() => removeItemFromCart(item?.id)}
                         variant="dark"
-                    />
+                    /> */}
                     <span className="font-semibold text-sm md:text-base text-heading leading-5">
-                        {totalPrice}&nbsp;₫
+                        {unitPrice}&nbsp;₫
                     </span>
                 </div>
             </div>
