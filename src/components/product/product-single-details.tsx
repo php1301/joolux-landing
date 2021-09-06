@@ -1,13 +1,11 @@
 /* eslint-disable no-prototype-builtins */
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@components/ui/button";
 // import { Counter } from "@components/common/counter";
-import { getVariations } from "@framework/utils/get-variations";
+// import { getVariations } from "@framework/utils/get-variations";
 import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
 import { generateCartItem } from "@utils/generate-cart-item";
-import isEmpty from "lodash/isEmpty";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { AiFillPhone } from "react-icons/ai";
 import Link from "@components/ui/link";
 import { toast } from "react-toastify";
@@ -26,8 +24,7 @@ import ProductNumber from "./product-number";
 import ProductPolicy from "./product-policy";
 import { Product } from "@framework/types";
 import { useRouter } from "next/router";
-import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
-import debounce from "lodash/debounce";
+import Favorite from "@components/common/favorite";
 
 const productGalleryCarouselResponsive = {
     "768": {
@@ -40,14 +37,13 @@ const productGalleryCarouselResponsive = {
 
 const ProductSingleDetails: React.FC<{
     data: Product;
-}> = ({ data }) => {
-    const { mutate: favoriteProduct } = useFavoriteProductMutation();
+    isFavorite: boolean;
+}> = ({ data, isFavorite }) => {
     const router = useRouter();
     const { width } = useWindowSize();
-    const { addItemToCart } = useCart();
-    const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
+    const { addItemToCart, isInCart } = useCart();
+    // const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
     // const [quantity, setQuantity] = useState(1);
-    const [favorite, setFavorite] = useState<boolean>(false);
     const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
     const [immeAddToCartLoader, setImmeAddToCartLoader] =
         useState<boolean>(false);
@@ -92,14 +88,9 @@ const ProductSingleDetails: React.FC<{
         },
     );
     const { hasToContact } = data?.otherSpecialValue ?? {};
-    const variations = getVariations(data?.variations); // attributes.slug
+    // const variations = getVariations(data?.variations); // attributes.slug
     // Duyệt coi đã chọn attribute nào chưa, filter bằng slug
-    const isSelected = !isEmpty(variations)
-        ? !isEmpty(attributes) &&
-          Object.keys(variations).every((variation) =>
-              attributes.hasOwnProperty(variation),
-          )
-        : true;
+    const isSelected = isInCart(data?._id);
     const productMetaData = [
         {
             id: 1,
@@ -137,14 +128,14 @@ const ProductSingleDetails: React.FC<{
         },
     ];
     function addToCart() {
-        if (!isSelected) return;
+        if (isSelected) return;
         // to show btn feedback while product carting
         setAddToCartLoader(true);
         setTimeout(() => {
             setAddToCartLoader(false);
         }, 600);
 
-        const item = generateCartItem(data!, attributes);
+        const item = generateCartItem(data!, {});
         addItemToCart(item, 1);
         toast("Đã thêm vào giỏ hàng", {
             type: "dark",
@@ -156,35 +147,21 @@ const ProductSingleDetails: React.FC<{
             pauseOnHover: true,
             draggable: true,
         });
-        console.log(item, "item");
     }
 
     function immediatelyCheckout() {
+        if (isSelected) return;
         setImmeAddToCartLoader(true);
         setTimeout(() => {
             setImmeAddToCartLoader(false);
         }, 600);
 
-        const item = generateCartItem(data!, attributes);
+        const item = generateCartItem(data!, {});
         addItemToCart(item, 1);
         router.push("/cart");
     }
 
     // Debounce onclick with other value
-    const debouncedClick = useCallback(
-        debounce(
-            () => {
-                favoriteProduct({ productId: data?._id });
-            },
-            1000,
-            { leading: true, trailing: false, maxWait: 1000 },
-        ),
-        [],
-    );
-    function handleFavorite() {
-        setFavorite((fav) => !fav);
-        debouncedClick();
-    }
     function contactSeller() {
         console.log("contact seller clicked");
     }
@@ -194,7 +171,6 @@ const ProductSingleDetails: React.FC<{
     //         ...attribute,
     //     }));
     // }
-
     return (
         <div className="relative block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-7 pb-10 lg:pb-14 2xl:pb-20 items-start">
             {width < 1025 ? (
@@ -285,21 +261,11 @@ const ProductSingleDetails: React.FC<{
                             disableDecrement={quantity === 1}
                         /> */}
                         <div className="flex ml-auto flex-1">
-                            {favorite ? (
-                                <BsHeartFill
-                                    onClick={handleFavorite}
-                                    className="mr-3"
-                                    color="red"
-                                    size={24}
-                                />
-                            ) : (
-                                <BsHeart
-                                    onClick={handleFavorite}
-                                    color="pink"
-                                    className="mr-3"
-                                    size={24}
-                                />
-                            )}
+                            <Favorite
+                                isFavorite={isFavorite}
+                                productId={data?._id}
+                                className="mr-3"
+                            />
                             <h3 className="h-6 text-base md:text-lg text-heading font-normal capitalize">
                                 Thêm vào yêu thích
                             </h3>
@@ -323,11 +289,8 @@ const ProductSingleDetails: React.FC<{
                             <Button
                                 onClick={contactSeller}
                                 variant="jl"
-                                className={`w-full md:w-6/12 xl:w-full ${
-                                    !isSelected &&
-                                    "bg-gray-400 hover:bg-gray-400"
-                                }`}
-                                disabled={!isSelected}
+                                className={`w-full md:w-6/12 xl:w-full`}
+                                disabled={false}
                                 loading={immeAddToCartLoader}
                             >
                                 <AiFillPhone
@@ -347,11 +310,11 @@ const ProductSingleDetails: React.FC<{
                                     onClick={addToCart}
                                     variant="jl"
                                     className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white ${
-                                        !isSelected &&
+                                        isSelected &&
                                         "hover:opacity-65 hover:bg-white"
                                     }`}
                                     iconCart
-                                    disabled={!isSelected}
+                                    disabled={isSelected}
                                     loading={addToCartLoader}
                                 >
                                     <span className="py-2 3xl:px-8">
@@ -364,10 +327,10 @@ const ProductSingleDetails: React.FC<{
                                     onClick={immediatelyCheckout}
                                     variant="jl"
                                     className={`w-full md:w-6/12 xl:w-full ${
-                                        !isSelected &&
+                                        isSelected &&
                                         "bg-gray-400 hover:bg-gray-400"
                                     }`}
-                                    disabled={!isSelected}
+                                    disabled={isSelected}
                                     loading={immeAddToCartLoader}
                                 >
                                     <span className="py-2 3xl:px-8">
