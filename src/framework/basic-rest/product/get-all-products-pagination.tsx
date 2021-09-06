@@ -3,6 +3,7 @@ import http from "@framework/utils/http";
 // import shuffle from "lodash/shuffle";
 import { useQuery } from "react-query";
 import _ from "lodash";
+import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 type PaginatedProducts = {
     products: Product[];
     pagination: {
@@ -12,12 +13,13 @@ type PaginatedProducts = {
         totalPage: number;
     };
     filter: Filter;
+    favorites: string[];
 };
 
 const fetchProducts = async (options: ProductsQueryOptionsType) => {
     const allParams = _.omitBy(options, _.isNil);
     const {
-        data: { products, pagination },
+        data: { products, pagination, favorites },
     } = await http.get(
         `https://api.joolux-client.ml/admin/products/get-overview`,
         {
@@ -37,6 +39,7 @@ const fetchProducts = async (options: ProductsQueryOptionsType) => {
         products,
         pagination,
         filter,
+        favorites,
     };
 };
 
@@ -45,9 +48,9 @@ const useProductsPaginationQuery = (
     key: string,
 ) => {
     return useQuery<PaginatedProducts, Error>(
-        key,
+        [API_ENDPOINTS.PRODUCTS, key],
         () => fetchProducts(options),
-        { keepPreviousData: true, staleTime: 5000 },
+        { keepPreviousData: true },
     );
 };
 
