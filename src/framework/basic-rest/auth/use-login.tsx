@@ -4,7 +4,7 @@ import http from "@framework/utils/http";
 // import Router from "next/router";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 
 export interface LoginInputType {
     email: string;
@@ -35,11 +35,12 @@ async function login(input: LoginInputType): Promise<LoginResponseType> {
 }
 export const useLoginMutation = () => {
     const { authorize, closeModal } = useUI();
+    const queryClient = useQueryClient();
     // return useMutation<any, Error, LoginInputType>(
     return useMutation<LoginResponseType, Error, LoginInputType>(
         async (input: LoginInputType) => login(input),
         {
-            onSuccess: (data: LoginResponseType) => {
+            onSuccess: async (data: LoginResponseType) => {
                 toast("Đăng nhập thành công", {
                     type: "success",
                     progressClassName: "fancy-progress-bar",
@@ -51,6 +52,9 @@ export const useLoginMutation = () => {
                 });
                 Cookies.set("access_token", data.accessToken);
                 Cookies.set("refresh_token", data.refreshToken);
+                await queryClient.resetQueries({
+                    active: true,
+                });
                 authorize();
                 closeModal();
             },
