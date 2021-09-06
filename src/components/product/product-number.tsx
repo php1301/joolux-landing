@@ -10,7 +10,7 @@ const ProductNumber: FC<{
         slug: string;
     }[];
 }> = ({ details }) => {
-    if (details[4]?.value && details[5]?.value && details[6]?.value) {
+    if (details?.[4]?.value && details?.[5]?.value && details?.[6]?.value) {
         details[17].value = `Dài: ${details[4].value} x Rộng: ${details[6].value} x Cao: ${details[5].value}`;
     }
     return (
