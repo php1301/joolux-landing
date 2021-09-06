@@ -73,6 +73,11 @@ export const calculateItemTotals = (items: Item[]) =>
         itemTotal: item.price * item.quantity!,
     }));
 
+export const calculateSpecialPricetotal = (items: Item[]) =>
+    items.reduce(
+        (total, item) => total + item.quantity! * item.specialPrice || 0,
+        0,
+    );
 export const calculateTotal = (items: Item[]) =>
     items.reduce((total, item) => total + item.quantity! * item.price, 0);
 
