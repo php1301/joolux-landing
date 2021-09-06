@@ -6,13 +6,14 @@ import { CheckoutCardFooterItem } from "./checkout-card-footer-item";
 import { useTranslation } from "next-i18next";
 
 const CheckoutCard: React.FC = () => {
-    const { items, total, isEmpty, totalUniqueItems } = useCart();
+    const { items, total, isEmpty, totalUniqueItems, specialPriceTotal } =
+        useCart();
     const {
-        price: subtotal,
+        price: subTotal,
         basePrice,
         discount,
     } = usePrice({
-        amount: total,
+        amount: specialPriceTotal || total,
         baseAmount: total,
         currencyCode: "VND",
     });
@@ -117,9 +118,9 @@ const CheckoutCard: React.FC = () => {
             ))} */}
             <CheckoutCardFooterItem
                 totalItems={totalUniqueItems}
-                subtotal={subtotal}
+                subtotal={subTotal}
                 discount={discount}
-                basePrice={basePrice || subtotal}
+                basePrice={basePrice || subTotal}
             />
         </div>
     );
