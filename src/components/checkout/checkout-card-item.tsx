@@ -3,8 +3,8 @@ import { generateCartItemName } from "@utils/generate-cart-item-name";
 import usePrice from "@framework/product/use-price";
 
 export const CheckoutItem: React.FC<{ item: Item }> = ({ item }) => {
-    const { price } = usePrice({
-        amount: item.itemTotal,
+    const { price, basePrice } = usePrice({
+        amount: item.specialPrice || item.itemTotal,
         baseAmount: item.itemTotal,
         currencyCode: "VND",
     });
@@ -26,9 +26,20 @@ export const CheckoutItem: React.FC<{ item: Item }> = ({ item }) => {
                 {generateCartItemName(item.name, item.attributes)}{" "}
                 <span className="text-[#101010] text-base font-semibold">{`X ${item.quantity}`}</span>
             </h6>
+            <div className="flex ms-auto text-heading text-sm ps-2 font-semibold flex-shrink-0">
+                {price}&nbsp;₫
+                {basePrice && (
+                    <del className="ps-2 text-gray-400 font-normal">
+                        {basePrice}&nbsp;₫
+                    </del>
+                )}
+            </div>
+            {/* <div className="flex ms-auto text-heading text-sm ps-2 flex-shrink-0">
+                {basePrice || price}&nbsp;₫
+            </div>
             <div className="flex ms-auto text-heading text-sm ps-2 flex-shrink-0">
                 {price}&nbsp;₫
-            </div>
+            </div> */}
         </div>
     );
 };
