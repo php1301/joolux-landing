@@ -34,7 +34,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
         Object.values(query).join(","),
     );
     if (error) return <p>{error.message}</p>;
-    const { pagination, products, filter, seo } = data ?? {};
+    const { pagination, products, filter, seo, favorites } = data ?? {};
     console.log(pathname);
 
     return (
@@ -126,7 +126,10 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                 />
                             ) : (
                                 pagination?.total !== 0 && (
-                                    <ProductGrid products={products} />
+                                    <ProductGrid
+                                        products={products}
+                                        favorites={favorites}
+                                    />
                                 )
                             )}
                         </div>
