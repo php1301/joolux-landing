@@ -21,6 +21,7 @@ import {
     fetchProducts,
 } from "@framework/product/get-all-products-pagination";
 import ErrorInformation from "@components/404/error-information";
+import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 
 const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
     const { t } = useTranslation("common");
@@ -32,8 +33,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
         Object.values(query).join(","),
     );
     if (error) return <p>{error.message}</p>;
-    const { pagination, products, filter } = data ?? {};
-
+    const { pagination, products, filter, favorites } = data ?? {};
     return (
         <>
             <Container clean>
@@ -83,7 +83,10 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                 />
                             ) : (
                                 pagination?.total !== 0 && (
-                                    <ProductGrid products={products} />
+                                    <ProductGrid
+                                        products={products}
+                                        favorites={favorites}
+                                    />
                                 )
                             )}
                         </div>
@@ -106,8 +109,9 @@ export const getServerSideProps: GetServerSideProps = async ({
     resolvedUrl,
 }) => {
     const queryClient = new QueryClient();
-    await queryClient.prefetchQuery(Object.values(query).join(","), async () =>
-        fetchProducts(query),
+    await queryClient.prefetchQuery(
+        [API_ENDPOINTS.PRODUCTS, Object.values(query).join(",")],
+        async () => fetchProducts(query),
     );
     return {
         props: {
