@@ -17,7 +17,9 @@ import AssuranceBlock from "@containers/assurance-block";
 
 export default function ProductPage() {
     const { query, asPath } = useRouter();
-    const { data, isLoading } = useProductQuery(query.slug[1]);
+    const { data, isLoading, error } = useProductQuery(query?.slug[1]);
+    if (error) return <p>{error.message}</p>;
+    const { product, isFavorite } = data ?? {};
     return (
         <div className="relative flex-grow">
             <NextSeo
@@ -27,17 +29,17 @@ export default function ProductPage() {
                         content: "width=device-width, initial-scale=1.0",
                     },
                 ]}
-                title={`${data?.name} | Joolux` || "Joolux"}
-                description={data?.description || "Pending"}
+                title={`${product?.name} | Joolux` || "Joolux"}
+                description={product?.description || "Pending"}
                 canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
                 openGraph={{
                     url: asPath,
-                    title: `${data?.name} | Joolux` || "Joolux",
-                    description: data?.description || "Pending",
+                    title: `${product?.name} | Joolux` || "Joolux",
+                    description: product?.description || "Pending",
                     images: [
                         {
                             url:
-                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${data?.images[0]}` ||
+                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${product?.images[0]}` ||
                                 "https://joolux.com/og-image.jpg",
                             width: 800,
                             height: 600,
@@ -45,7 +47,7 @@ export default function ProductPage() {
                         },
                         {
                             url:
-                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${data?.images[0]}` ||
+                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${product?.images[0]}` ||
                                 "https://joolux.com/og-image.jpg",
                             width: 900,
                             height: 800,
@@ -62,16 +64,19 @@ export default function ProductPage() {
                     <>
                         <div className="pt-8">
                             <VietnameseBreadcrumb
-                                type={data?.details[18].value}
-                                typeLink={data?.details[18].slug}
-                                name={data?.name}
+                                type={product?.details?.[18]?.value}
+                                typeLink={product?.details?.[18]?.slug}
+                                name={product?.name}
                             />
                         </div>
-                        <ProductSingleDetails data={data} />
+                        <ProductSingleDetails
+                            data={product}
+                            isFavorite={isFavorite}
+                        />
                         <RelatedProducts
-                            brand={data?.brand}
-                            category={data?.attribute}
-                            id={data?._id}
+                            brand={product?.brand}
+                            category={product?.attribute}
+                            id={product?._id}
                             sectionHeading="text-related-products"
                         />
                     </>
@@ -91,8 +96,8 @@ export const getServerSideProps: GetServerSideProps = async ({
     query,
 }) => {
     const queryClient = new QueryClient();
-    await queryClient.prefetchQuery(query.slug[1], async () =>
-        fetchProduct(query.slug[1]),
+    await queryClient.prefetchQuery(query?.slug[1], async () =>
+        fetchProduct(query?.slug[1]),
     );
     return {
         props: {
