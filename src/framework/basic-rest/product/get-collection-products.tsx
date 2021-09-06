@@ -18,6 +18,7 @@ type PaginatedProducts = {
     };
     filter: Filter;
     seo?: CollectionBanner;
+    favorites?: string[];
 };
 
 const fetchCollectionProducts = async (
@@ -26,7 +27,7 @@ const fetchCollectionProducts = async (
 ) => {
     const allParams = _.omitBy(options, _.isNil);
     const {
-        data: { products, pagination, seo },
+        data: { products, pagination, seo, favorites },
     } = await http.get(
         `https://api.joolux-client.ml/admin/products/get-overview/${collection}?seo=true`,
         {
@@ -47,6 +48,7 @@ const fetchCollectionProducts = async (
         pagination,
         filter,
         seo,
+        favorites,
     };
 };
 
@@ -58,7 +60,7 @@ const useFetchCollectionProducts = (
     return useQuery<PaginatedProducts, Error>(
         key,
         () => fetchCollectionProducts(collection, options),
-        { keepPreviousData: true, staleTime: 5000 },
+        { keepPreviousData: true },
     );
 };
 
