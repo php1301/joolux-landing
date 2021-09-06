@@ -44,10 +44,12 @@ const SearchProduct: React.FC<SearchProductProps> = ({ product }) => {
                     {product?.name}
                 </h3>
                 <div className="text-heading font-semibold text-sm">
-                    {price}
-                    <del className="ps-2 text-gray-400 font-normal">
-                        {basePrice}
-                    </del>
+                    {price}&nbsp;₫
+                    {basePrice && (
+                        <del className="ps-2 text-gray-400 font-normal">
+                            {basePrice}&nbsp;₫
+                        </del>
+                    )}
                 </div>
             </div>
         </Link>
