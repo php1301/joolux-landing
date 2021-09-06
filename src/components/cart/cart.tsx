@@ -27,17 +27,18 @@ const defaultValues = {
 const Cart: FC = () => {
     const { t } = useTranslation("common");
     const { closeCart } = useUI();
-    const { items, total, isEmpty, totalUniqueItems } = useCart();
-    const [disable, setDisable] = useState<boolean>(true);
+    const { items, total, isEmpty, totalUniqueItems, specialPriceTotal } =
+        useCart();
     const {
         price: cartTotal,
-        discount,
         basePrice,
+        discount,
     } = usePrice({
-        amount: total,
+        amount: specialPriceTotal || total,
         baseAmount: total,
         currencyCode: "VND",
     });
+    const [disable, setDisable] = useState<boolean>(true);
     const {
         register,
         handleSubmit,
