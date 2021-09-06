@@ -13,7 +13,7 @@ type PaginatedProducts = {
         totalPage: number;
     };
     filter: Filter;
-    favorites: string[];
+    favorites?: string[];
 };
 
 const fetchProducts = async (options: ProductsQueryOptionsType) => {
