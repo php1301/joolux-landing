@@ -1,13 +1,17 @@
 // import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 // import http from "@framework/utils/http";
+import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import http from "@framework/utils/http";
 import { useMutation } from "react-query";
 
 export interface IFavoriteForm {
-    productId: string;
+    product: string;
 }
 async function favoriteProduct(input: IFavoriteForm) {
-    // return http.post(API_ENDPOINTS.ChangeEmail, input);
-    return input;
+    return http.post(
+        `https://api.joolux-client.ml${API_ENDPOINTS.FAVORITE}`,
+        input,
+    );
 }
 
 export const useFavoriteProductMutation = () => {
