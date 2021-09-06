@@ -2,13 +2,11 @@ import cn from "classnames";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTES } from "@utils/routes";
-import { FC, useState, useEffect, useCallback } from "react";
+import { FC } from "react";
 import usePrice from "@framework/product/use-price";
 import { Product } from "@framework/types";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
-import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
-// import { useIsMount } from "@utils/use-is-mount";
-import debounce from "lodash/debounce";
+import Favorite from "@components/common/favorite";
+
 interface IProductProps {
     product: Product;
     className?: string;
@@ -19,6 +17,7 @@ interface IProductProps {
     imgHeight?: number | string;
     imgLoading?: "eager" | "lazy";
     bottomBorder?: string;
+    isFavorite?: boolean;
 }
 
 const ProductCard: FC<IProductProps> = ({
@@ -31,43 +30,12 @@ const ProductCard: FC<IProductProps> = ({
     imgHeight = 254,
     imgLoading,
     bottomBorder,
+    isFavorite,
 }) => {
     const router = useRouter();
-    const { mutate: favoriteProduct } = useFavoriteProductMutation();
     // Cách làm skeletion image
     const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
-    const [favorite, setFavorite] = useState<boolean>(false);
 
-    function handleFavorite() {
-        setFavorite((fav) => !fav);
-        debouncedClick();
-    }
-    // Debounce onclick with other value
-    const debouncedClick = useCallback(
-        debounce(
-            () => {
-                favoriteProduct({ productId: product?._id });
-            },
-            1000,
-            { leading: true, trailing: false, maxWait: 1000 },
-        ),
-        [],
-    );
-
-    // Debounce onClick with state value
-    // https://stackoverflow.com/questions/61785903/problems-with-debounce-in-useeffect
-    // const debounceFavoriteState = useCallback(
-    //     debounce((fav) => {
-    //         console.log(fav);
-    //     }, 1000),
-    //     [],
-    // );
-    // const isMount = useIsMount();
-    // useEffect(() => {
-    //     if (!isMount) {
-    //         debounceFavoriteState(favorite);
-    //     }
-    // }, [favorite]);
     const { price, basePrice } = usePrice({
         amount:
             (product?.specialPrice &&
@@ -159,15 +127,7 @@ const ProductCard: FC<IProductProps> = ({
                 />
             </div>
             <div className="absolute w-[28px] top-2 right-2 bg-transparent">
-                {favorite ? (
-                    <BsHeartFill
-                        onClick={handleFavorite}
-                        color="red"
-                        size={24}
-                    />
-                ) : (
-                    <BsHeart onClick={handleFavorite} color="red" size={24} />
-                )}
+                <Favorite isFavorite={isFavorite} productId={product?._id} />
             </div>
             {product?.qty === 0 && product?.is_in_stock !== "2" && (
                 <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-[#e7e7e7] text-black">
