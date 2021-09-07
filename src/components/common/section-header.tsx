@@ -20,7 +20,7 @@ const SectionHeader: React.FC<Props> = ({
         <div
             className={`flex items-center ${justify} -mt-2 lg:-mt-2.5 ${className}`}
         >
-            <Text variant="mediumHeading">{t(`${sectionHeading}`)}</Text>
+            <Text variant="jlNormal">{t(`${sectionHeading}`)}</Text>
             {categorySlug && (
                 <Link
                     href={categorySlug}

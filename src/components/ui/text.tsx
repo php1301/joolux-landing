@@ -19,7 +19,8 @@ type Variant =
     | "body"
     | "pageHeading"
     | "subHeading"
-    | "jl";
+    | "jl"
+    | "jlNormal";
 
 export const Text: React.FC<Props> = ({
     variant,
@@ -38,6 +39,7 @@ export const Text: React.FC<Props> = ({
         pageHeading: "h1",
         subHeading: "h2",
         jl: "h3",
+        jlNormal: "h3",
     };
 
     const Component:
@@ -65,6 +67,8 @@ export const Text: React.FC<Props> = ({
                         variant === "subHeading",
                     "text-heading font-brand text-2xl font-semibold leading-[1.333]":
                         variant === "jl",
+                    "text-heading text-lg font-semibold leading-[1.333]":
+                        variant === "jlNormal",
                 },
                 className,
             )}
