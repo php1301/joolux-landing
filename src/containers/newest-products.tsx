@@ -28,9 +28,11 @@ const NewestProducts: React.FC<ProductsProps> = ({
                     <div className="grid grid-cols-2 smJl:grid-cols-4 2xl:grid-cols-4 gap-x-3 md:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
                         {data?.map((product: any) => (
                             <ProductCard
+                                allowFavorite={false}
                                 key={`product--key${product._id}`}
                                 product={product}
                                 variant="jl"
+                                className="bg-[#f6f5fc]"
                                 bottomBorder="border-none"
                             />
                         ))}

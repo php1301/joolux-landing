@@ -40,7 +40,7 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                     sectionHeading={sectionHeading}
                     justify={"justify-center"}
                 />
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-4 gap-x-3 md:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
+                <div className="grid grid-cols-2 smJl:grid-cols-3 lg:grid-cols-4 gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
                     {error ? (
                         <div className="col-span-full">
                             <Alert message={error?.message} />
@@ -53,9 +53,11 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                     ) : (
                         data?.map((product: any) => (
                             <ProductCard
+                                allowFavorite={false}
                                 key={`product-related-key${product._id}`}
                                 product={product}
-                                imgWidth={330}
+                                imgWidth={270}
+                                imgHeight={270}
                                 variant="jl"
                                 bottomBorder="border-none"
                                 className="bg-[#f6f5fc]"
@@ -63,7 +65,7 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                         ))
                     )}
                 </div>
-                <div className="text-center">
+                <div className="text-center mt-3">
                     <Link href="/hang-moi-ve" className="inline-flex">
                         <button
                             type="button"
@@ -73,6 +75,20 @@ const RelatedProducts: React.FC<ProductsProps> = ({
                             style={{}}
                         >
                             Xem Thêm
+                        </button>
+                    </Link>
+                    <Link
+                        href="/hang-moi-ve"
+                        className="flex w-full"
+                        aria-label="newest-products-show-all"
+                    >
+                        <button
+                            type="button"
+                            className="blog-button-show-all md:hidden border-primary text-primary"
+                            data-chext-position
+                            data-chext-overflow
+                        >
+                            Xem Tất Cả
                         </button>
                     </Link>
                 </div>
