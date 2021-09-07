@@ -73,17 +73,18 @@ export default function ProductPage() {
                             data={product}
                             isFavorite={isFavorite}
                         />
+                        <AssuranceBlock />
                         <RelatedProducts
                             brand={product?.brand}
                             category={product?.attribute}
                             id={product?._id}
+                            className="mx-auto max-w-[1234px] pt-8 smJl:pb-16 pb-10 border-t border-[#e7e7e7] mb-8 md:mb-14"
                             sectionHeading="text-related-products"
                         />
                     </>
                 ) : (
                     <div>Có lỗi xảy ra</div>
                 )}
-                <AssuranceBlock />
             </Container>
             <Subscription hasTitle />
         </div>
