@@ -18,6 +18,7 @@ interface IProductProps {
     imgLoading?: "eager" | "lazy";
     bottomBorder?: string;
     isFavorite?: boolean;
+    allowFavorite?: boolean;
 }
 
 const ProductCard: FC<IProductProps> = ({
@@ -31,6 +32,7 @@ const ProductCard: FC<IProductProps> = ({
     imgLoading,
     bottomBorder,
     isFavorite,
+    allowFavorite = true,
 }) => {
     const router = useRouter();
     // Cách làm skeletion image
@@ -127,7 +129,12 @@ const ProductCard: FC<IProductProps> = ({
                 />
             </div>
             <div className="absolute w-[28px] top-2 right-2 bg-transparent">
-                <Favorite isFavorite={isFavorite} productId={product?._id} />
+                {allowFavorite && (
+                    <Favorite
+                        isFavorite={isFavorite}
+                        productId={product?._id}
+                    />
+                )}
             </div>
             {product?.qty === 0 && product?.is_in_stock !== "2" && (
                 <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-[#e7e7e7] text-black">
