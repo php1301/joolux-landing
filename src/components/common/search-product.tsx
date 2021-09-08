@@ -19,7 +19,6 @@ const SearchProduct: React.FC<SearchProductProps> = ({ product }) => {
             currencyCode: "VND",
         },
     );
-    console.log(product);
     return (
         <Link
             href={`${ROUTES.PRODUCT}/${product.urlKey}/${product._id}`}

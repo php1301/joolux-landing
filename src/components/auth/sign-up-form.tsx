@@ -46,7 +46,6 @@ const SignUpForm: React.FC = () => {
                 type: "manual",
                 message: "Vui lòng xác nhận Captcha",
             });
-            console.log(errors);
         } else {
             clearErrors("captcha");
             if (phoneNumber && !errors.phone?.message) {
@@ -63,7 +62,6 @@ const SignUpForm: React.FC = () => {
             window.location.origin + "/connect/facebook-connect");
     }
     function handleGoogleSignup(e) {
-        console.log(e);
         authGoogle({
             tokenId: e.tokenId,
         });
@@ -107,7 +105,6 @@ const SignUpForm: React.FC = () => {
                 captcha,
                 sessionInfo: localStorage.getItem("session_otp"),
             });
-            console.log(name, email, password, "sign form values");
         } else {
             nextStep();
         }

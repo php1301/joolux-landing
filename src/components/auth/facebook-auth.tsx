@@ -9,7 +9,6 @@ function FacebookAuth() {
     const { t } = useTranslation();
     const { mutate: authFacebook } = useFacebookAuthMutation();
     async function handleFacebookAuth(e) {
-        console.log(e);
         authFacebook({
             email: e?.email,
             avatar: e?.picture,

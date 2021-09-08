@@ -9,7 +9,6 @@ function GoogleAuth() {
     const { t } = useTranslation();
     const { mutate: authGoogle } = useGoogleAuthMutation();
     function handleGoogleAuth(e) {
-        console.log(e);
         authGoogle({
             tokenId: e?.tokenId,
         });

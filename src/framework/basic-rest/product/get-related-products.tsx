@@ -9,11 +9,9 @@ export const fetchRelatedProducts = async (
     brand: string,
     id: string,
 ) => {
-    const { data } = await http.get(API_ENDPOINTS.RELATED_PRODUCTS);
     const { data: data2 } = await http.get(
         `https://api.joolux-client.ml/admin/products/related?category=${category}&brand=${brand}&id=${id}`,
     );
-    console.log(data2, "related");
     return data2;
 };
 

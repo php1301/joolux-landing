@@ -53,7 +53,6 @@ const SignUpForm: React.FC = () => {
             captcha,
             sessionInfo: localStorage.getItem("session_otp"),
         });
-        console.log(name, email, password, "sign form values");
     }
     return (
         <div className="overflow-hidden pt-5 px-5 sm:px-8 bg-white mx-auto w-full sm:w-96 md:w-450px border border-gray-300 relative">

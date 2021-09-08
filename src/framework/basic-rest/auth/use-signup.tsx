@@ -41,7 +41,6 @@ export const useSignUpMutation = () => {
         async (input: SignUpInputType) => signUp(input),
         {
             onSuccess: async (data: SignUpResponseType) => {
-                console.log(data, "Sign Up Success");
                 toast("Đăng ký thành công bạn sẽ được chuyển hướng", {
                     type: "success",
                     progressClassName: "fancy-progress-bar",

@@ -21,7 +21,6 @@ export default function Newsletter() {
     });
     const { closeModal, popupBanner } = useUI();
     function onSubmit(values: NewsLetterFormValues) {
-        console.log(values, "news letter");
         closeModal();
     }
     const { t } = useTranslation();

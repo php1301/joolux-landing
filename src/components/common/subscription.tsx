@@ -41,7 +41,6 @@ export const Subscription: React.FC<Props> = ({
     const { t } = useTranslation();
     const { title, description, buttonText } = data;
     async function onSubmit(input: FormValues) {
-        console.log(input, "data");
     }
     const closeBtnClasses = {
         center: "top-1 end-1",

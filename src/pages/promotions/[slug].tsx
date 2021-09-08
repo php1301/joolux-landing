@@ -35,7 +35,6 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
     );
     if (error) return <p>{error.message}</p>;
     const { pagination, products, filter, seo, favorites } = data ?? {};
-    console.log(pathname);
 
     return (
         <>

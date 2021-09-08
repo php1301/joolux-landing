@@ -52,7 +52,6 @@ const Cart: FC = () => {
         }
     }, [isEmpty]);
     async function onSubmit(input: FormValues) {
-        console.log(input, "data");
     }
     return (
         <div className="flex flex-col w-full h-full justify-between">

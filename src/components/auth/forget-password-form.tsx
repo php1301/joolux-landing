@@ -33,7 +33,6 @@ const ForgetPasswordForm = () => {
     }
 
     const onSubmit = (values: FormValues) => {
-        console.log(values, "token");
         setRequest(true);
     };
 
