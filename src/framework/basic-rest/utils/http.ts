@@ -49,10 +49,9 @@ const createAxiosResponseInterceptor = () => {
             // Access Token was expired
             if (err.response.status === 401) {
                 try {
-                    console.log("run refresh");
                     axios.interceptors.response.eject(refreshInterceptor);
                     const refreshToken = getRefreshToken();
-                    const rs = await http.get(
+                    const rs = await axios.get(
                         `https://api.joolux-client.ml${API_ENDPOINTS.GET_ACCESS_TOKEN}`,
                         {
                             headers: {
@@ -63,12 +62,8 @@ const createAxiosResponseInterceptor = () => {
                             //   refreshToken: http.getLocalRefreshToken(),
                         },
                     );
-                    console.log(rs);
                     const { token: accessToken } = rs.data;
-
-                    // dispatch(refreshToken(accessToken));
                     Cookies.set("access_token", accessToken);
-
                     return http(originalConfig);
                 } catch (_error) {
                     return Promise.reject(_error);
