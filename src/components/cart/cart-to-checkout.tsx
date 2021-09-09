@@ -8,6 +8,7 @@ interface ICartToCheckOutProps {
     cartTotal: string;
     totalItems: number;
 }
+
 const CartToCheckout: FC<ICartToCheckOutProps> = ({
     discount,
     cartTotal,
@@ -140,14 +141,14 @@ const CartToCheckout: FC<ICartToCheckOutProps> = ({
                                 </div>
                                 <div className="cart-row-value">Đã bao gồm</div>
                             </div>
-                            <div className="flex -mx-2">
+                            {/* <div className="flex -mx-2">
                                 <div className="cart-row-label">
                                     Tổng tiền đã giảm:{" "}
                                 </div>
                                 <div className="cart-row-value">
                                     {discount || 0}&nbsp;₫
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex -mx-2">
                                 <div className="cart-row-label mb-0">
                                     Thành tiền:
