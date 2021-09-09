@@ -13,9 +13,10 @@ const Favorite: FC<{
     const [favorite, setFavorite] = useState<boolean>(isFavorite);
     const { mutate: favoriteProduct } = useFavoriteProductMutation();
 
-    const { setModalView, openModal, isAuthorized } = useUI();
+    const { setModalView, openModal, isAuthorized, setFavoriteData } = useUI();
     function handleFavorite() {
         if (!isAuthorized) {
+            setFavoriteData(productId);
             setModalView("LOGIN_VIEW");
             return openModal();
         }
@@ -29,8 +30,8 @@ const Favorite: FC<{
             () => {
                 favoriteProduct({ product: productId });
             },
-            1000,
-            { leading: true, trailing: false, maxWait: 1000 },
+            500,
+            { leading: true, trailing: false, maxWait: 500 },
         ),
         [],
     );
