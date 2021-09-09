@@ -1,11 +1,8 @@
 import cn from "classnames";
 import { useTranslation } from "next-i18next";
 import { useEffect, useState, FC } from "react";
-import { useForm } from "react-hook-form";
 import { useCart } from "@contexts/cart/cart.context";
 import { useUI } from "@contexts/ui.context";
-import { Input } from "@components/ui/input";
-import { Button } from "@components/ui/button";
 import usePrice from "@framework/product/use-price";
 import { ROUTES } from "@utils/routes";
 import CartItem from "./cart-item";
@@ -15,14 +12,6 @@ import Link from "@components/ui/link";
 import CartToCheckout from "./cart-to-checkout";
 import { Subscription } from "@components/common/subscription";
 import CartRecommendProducts from "./cart-recommend-products";
-
-type FormValues = {
-    couponValue: string;
-};
-
-const defaultValues = {
-    couponValue: "",
-};
 
 const Cart: FC = () => {
     const { t } = useTranslation("common");
@@ -39,11 +28,7 @@ const Cart: FC = () => {
         currencyCode: "VND",
     });
     const [disable, setDisable] = useState<boolean>(true);
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<FormValues>({ defaultValues });
+
     useEffect(() => {
         if (isEmpty) {
             setDisable(true);
@@ -51,34 +36,13 @@ const Cart: FC = () => {
             setDisable(false);
         }
     }, [isEmpty]);
-    async function onSubmit(input: FormValues) {
-    }
+   
     return (
         <div className="flex flex-col w-full h-full justify-between">
             <div className="w-full flex justify-between items-center relative ps-5 md:ps-7 py-4 border-b border-gray-100">
                 <h2 className="font-bold text-xl md:text-2xl m-0 text-heading">
                     {t("text-shopping-cart")}
                 </h2>
-                <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="flex-shrink-1 w-full sm:w-96 md:w-[545px] mr-12"
-                    noValidate
-                >
-                    <div className="flex flex-col sm:flex-row items-start justify-end">
-                        <Input
-                            placeholderKey="Enter coupon code"
-                            type="text"
-                            variant="solid"
-                            className="w-1/2"
-                            inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white"
-                            {...register("couponValue")}
-                            errorKey={errors.couponValue?.message}
-                        />
-                        <Button className="mt-3 sm:mt-0 w-full sm:w-auto sm:ms-2 h-8 md:h-10 flex-shrink-1">
-                            <span className="lg:py-0.5">Redeem Coupon</span>
-                        </Button>
-                    </div>
-                </form>
             </div>
             {!disable ? (
                 // <Scrollbar className=" w-full flex-grow">
