@@ -15,6 +15,7 @@ export interface State {
     drawerView: string | null;
     toastText: string;
     popupBanner: PopupBanner;
+    favoriteData: string;
 }
 
 const initialState = {
@@ -29,6 +30,7 @@ const initialState = {
     modalData: null,
     toastText: "",
     popupBanner: null,
+    favoriteData: "",
 };
 
 type Action =
@@ -91,6 +93,10 @@ type Action =
     | {
           type: "SET_POPUP_BANNER";
           value: PopupBanner;
+      }
+    | {
+          type: "SET_FAVORITE_DATA";
+          value: string;
       };
 
 type MODAL_VIEWS =
@@ -205,6 +211,12 @@ function uiReducer(state: State, action: Action) {
                 modalData: action.data,
             };
         }
+        case "SET_FAVORITE_DATA": {
+            return {
+                ...state,
+                favoriteData: action.value,
+            };
+        }
         case "SET_TOAST_TEXT": {
             return {
                 ...state,
@@ -260,7 +272,8 @@ export const UIProvider: React.FC = (props) => {
         dispatch({ type: "SET_DRAWER_VIEW", view });
     const setModalData = (data: any) =>
         dispatch({ type: "SET_MODAL_DATA", data });
-
+    const setFavoriteData = (data: string) =>
+        dispatch({ type: "SET_FAVORITE_DATA", value: data });
     const value = React.useMemo(
         () => ({
             ...state,
@@ -285,6 +298,7 @@ export const UIProvider: React.FC = (props) => {
             setUserAvatar,
             setModalData,
             setPopupBanner,
+            setFavoriteData,
         }),
         [state],
     );
