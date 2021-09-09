@@ -4,6 +4,7 @@ import http from "@framework/utils/http";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useMutation, useQueryClient } from "react-query";
+import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
 
 export interface GoogleAuthInputType {
     tokenId: string;
@@ -27,7 +28,8 @@ async function googleAuth(
     };
 }
 export const useGoogleAuthMutation = () => {
-    const { authorize, closeModal } = useUI();
+    const { authorize, closeModal, favoriteData } = useUI();
+    const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const queryClient = useQueryClient();
     return useMutation<LoginResponseType, Error, GoogleAuthInputType>(
         async (input: GoogleAuthInputType) => googleAuth(input),
@@ -49,6 +51,7 @@ export const useGoogleAuthMutation = () => {
                 });
                 authorize();
                 closeModal();
+                if (favoriteData) favoriteProduct({ product: favoriteData });
             },
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
