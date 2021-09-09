@@ -15,7 +15,7 @@ const NewestProducts: React.FC<ProductsProps> = ({
     // if (error) return <p>{error}</p>;
     return (
         data && (
-            <div className="max-w-[1234px] mx-auto pt-4 smJl:pb-10 pb-8 px-8">
+            <div className="max-w-[1234px] mx-auto pt-4 pb-4 px-8">
                 <div className="border-t border-[#e7e7e7] mb-8 md:mb-14"></div>
                 <div className={className}>
                     <h1
@@ -37,7 +37,7 @@ const NewestProducts: React.FC<ProductsProps> = ({
                             />
                         ))}
                     </div>
-                    <div className="text-center">
+                    <div className="text-center mt-6">
                         <Link
                             href="/hang-moi-ve"
                             className="inline-flex"
