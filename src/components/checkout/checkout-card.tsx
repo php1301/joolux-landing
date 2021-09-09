@@ -4,7 +4,16 @@ import { useCart } from "@contexts/cart/cart.context";
 import { CheckoutItem } from "@components/checkout/checkout-card-item";
 import { CheckoutCardFooterItem } from "./checkout-card-footer-item";
 import { useTranslation } from "next-i18next";
+import { useForm } from "react-hook-form";
+import { Input } from "@components/ui/input";
+import { Button } from "@components/ui/button";
+type FormValues = {
+    couponValue: string;
+};
 
+const defaultValues = {
+    couponValue: "",
+};
 const CheckoutCard: React.FC = () => {
     const { items, total, isEmpty, totalUniqueItems, specialPriceTotal } =
         useCart();
@@ -17,6 +26,12 @@ const CheckoutCard: React.FC = () => {
         baseAmount: total,
         currencyCode: "VND",
     });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormValues>({ defaultValues });
+    async function onSubmit(input: FormValues) {}
     const { t } = useTranslation("common");
     const [collapseItem, setCollapseItem] = useState<boolean>(false);
 
@@ -122,6 +137,30 @@ const CheckoutCard: React.FC = () => {
                 discount={discount}
                 basePrice={basePrice || subTotal}
             />
+
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex-shrink-1 w-full mt-6"
+                noValidate
+            >
+                <div className="flex flex-col sm:flex-row items-start">
+                    <Input
+                        placeholderKey="Bạn có coupon?"
+                        type="text"
+                        variant="jl"
+                        className="w-1/2"
+                        inputClassName="px-4 lg:px-7 h-8 md:h-10 text-center sm:text-start bg-white"
+                        {...register("couponValue")}
+                        errorKey={errors.couponValue?.message}
+                    />
+                    <Button
+                        variant="jl"
+                        className="mt-3 sm:mt-0 w-full sm:w-auto sm:ms-2 h-8 md:h-10 flex-shrink-1"
+                    >
+                        <span className="lg:py-0.5">Nhập Coupon</span>
+                    </Button>
+                </div>
+            </form>
         </div>
     );
 };
