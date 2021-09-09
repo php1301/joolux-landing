@@ -155,13 +155,13 @@ const ProductCard: FC<IProductProps> = ({
                         Khuyến mãi
                     </div>
                 )}
-            {hasToContact &&
+            {/* {hasToContact &&
                 product?.qty !== 0 &&
                 product?.is_in_stock !== "2" && (
                     <div className="p-1 text-xs text-center absolute min-w-[60px] max-w-[110px] top-2 left-2 bg-black text-white">
                         {hasToContact}
                     </div>
-                )}
+                )} */}
 
             <div
                 className={cn(
