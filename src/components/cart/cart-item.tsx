@@ -72,10 +72,10 @@ const CartItem: React.FC<CartItemProps> = ({ item, className }) => {
                 >
                     {generateCartItemName(item?.name, item?.attributes)}
                 </Link>
-                <span className="text-sm text-gray-400 mb-2.5">
+                {/* <span className="text-sm text-gray-400 mb-2.5">
                     {t("text-unit-price")} : &nbsp;
                     {basePrice || unitPrice}&nbsp;₫
-                </span>
+                </span> */}
 
                 <div className="flex items-end justify-between">
                     {/* <Counter
