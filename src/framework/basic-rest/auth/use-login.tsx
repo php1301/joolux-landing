@@ -5,6 +5,7 @@ import http from "@framework/utils/http";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useMutation, useQueryClient } from "react-query";
+import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
 
 export interface LoginInputType {
     email: string;
@@ -34,7 +35,8 @@ async function login(input: LoginInputType): Promise<LoginResponseType> {
     };
 }
 export const useLoginMutation = () => {
-    const { authorize, closeModal } = useUI();
+    const { mutate: favoriteProduct } = useFavoriteProductMutation();
+    const { authorize, closeModal, favoriteData } = useUI();
     const queryClient = useQueryClient();
     // return useMutation<any, Error, LoginInputType>(
     return useMutation<LoginResponseType, Error, LoginInputType>(
@@ -57,6 +59,7 @@ export const useLoginMutation = () => {
                 });
                 authorize();
                 closeModal();
+                if (favoriteData) favoriteProduct({ product: favoriteData });
             },
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
