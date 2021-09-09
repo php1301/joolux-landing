@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useMutation, useQueryClient } from "react-query";
 import { AxiosError } from "axios";
-
+import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
 export interface SignUpInputType {
     email: string;
     password: string;
@@ -34,7 +34,8 @@ async function signUp(input: SignUpInputType): Promise<SignUpResponseType> {
     };
 }
 export const useSignUpMutation = () => {
-    const { authorize, closeModal } = useUI();
+    const { authorize, closeModal, favoriteData } = useUI();
+    const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const queryClient = useQueryClient();
     // return useMutation<any, Error, LoginInputType>(
     return useMutation<SignUpResponseType, AxiosError, SignUpInputType>(
@@ -59,6 +60,7 @@ export const useSignUpMutation = () => {
                 });
                 authorize();
                 closeModal();
+                if (favoriteData) favoriteProduct({ product: favoriteData });
             },
             onError: (error: AxiosError) => {
                 console.log(error.response, "Sign Up error");
