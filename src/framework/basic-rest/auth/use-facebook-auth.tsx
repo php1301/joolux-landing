@@ -4,6 +4,7 @@ import http from "@framework/utils/http";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useMutation, useQueryClient } from "react-query";
+import { useFavoriteProductMutation } from "@framework/product/use-favorite-product";
 
 export interface FacebookAuthInputType {
     tokenId: string;
@@ -30,7 +31,8 @@ async function facebookAuth(
     };
 }
 export const useFacebookAuthMutation = () => {
-    const { authorize, closeModal } = useUI();
+    const { authorize, closeModal, favoriteData } = useUI();
+    const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const queryClient = useQueryClient();
 
     return useMutation<LoginResponseType, Error, FacebookAuthInputType>(
@@ -53,6 +55,7 @@ export const useFacebookAuthMutation = () => {
                 });
                 authorize();
                 closeModal();
+                if (favoriteData) favoriteProduct({ product: favoriteData });
                 // setTimeout(() => {
                 //     window.location.href = window.location.origin;
                 // }, 3000);
