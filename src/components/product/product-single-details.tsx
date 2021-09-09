@@ -18,7 +18,7 @@ import ImageMagnifier from "@components/ui/magnifier-image";
 import { ROUTES } from "@utils/routes";
 import ProductStatus from "./product-status";
 import ProductShipping from "./product-shipping";
-import ReviewForm from "@components/common/form/review-form";
+// import ReviewForm from "@components/common/form/review-form";
 import ProductDescription from "./product-description";
 import ProductNumber from "./product-number";
 import ProductPolicy from "./product-policy";
@@ -121,11 +121,11 @@ const ProductSingleDetails: React.FC<{
             title: "Chính sách đổi trả",
             content: <ProductPolicy />,
         },
-        {
-            id: 6,
-            title: "Nhận xét",
-            content: <ReviewForm />,
-        },
+        // {
+        //     id: 6,
+        //     title: "Nhận xét",
+        //     content: <ReviewForm />,
+        // },
     ];
     function addToCart() {
         if (isSelected) return;
