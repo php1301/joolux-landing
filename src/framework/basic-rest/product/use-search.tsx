@@ -13,5 +13,8 @@ export const useSearchQuery = (options: QueryOptionsType) => {
     return useQuery<Product[], Error>(
         [API_ENDPOINTS.SEARCH, options.text],
         () => fetchSearchedProducts(options.text),
+        {
+            enabled: !!options.text,
+        },
     );
 };
