@@ -39,7 +39,7 @@ const fetchProducts = async (options: ProductsQueryOptionsType) => {
         products,
         pagination,
         filter,
-        favorites,
+        favorites: favorites || [],
     };
 };
 
