@@ -25,7 +25,7 @@ import ErrorInformation from "@components/404/error-information";
 
 const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
     const { t } = useTranslation("common");
-    const { query, asPath, pathname } = useRouter();
+    const { query, asPath } = useRouter();
     const { isLoading, data, error } = useFetchCollectionProducts(
         {
             ...query,
@@ -148,7 +148,6 @@ export default Search;
 export const getServerSideProps: GetServerSideProps = async ({
     locale,
     query,
-    resolvedUrl,
 }) => {
     const queryClient = new QueryClient();
     await queryClient.prefetchQuery(Object.values(query).join(","), async () =>
