@@ -34,7 +34,7 @@ async function signUp(input: SignUpInputType): Promise<SignUpResponseType> {
     };
 }
 export const useSignUpMutation = () => {
-    const { authorize, closeModal, favoriteData } = useUI();
+    const { authorize, closeModal, favoriteData, setFavoriteData } = useUI();
     const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const queryClient = useQueryClient();
     // return useMutation<any, Error, LoginInputType>(
@@ -60,8 +60,10 @@ export const useSignUpMutation = () => {
                 });
                 authorize();
                 closeModal();
-                if (favoriteData) favoriteProduct({ product: favoriteData });
-            },
+                if (favoriteData) {
+                    favoriteProduct({ product: favoriteData });
+                    setFavoriteData("");
+                }            },
             onError: (error: AxiosError) => {
                 console.log(error.response, "Sign Up error");
                 localStorage.removeItem("session_otp");

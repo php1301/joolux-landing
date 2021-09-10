@@ -31,7 +31,7 @@ async function facebookAuth(
     };
 }
 export const useFacebookAuthMutation = () => {
-    const { authorize, closeModal, favoriteData } = useUI();
+    const { authorize, closeModal, favoriteData, setFavoriteData } = useUI();
     const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const queryClient = useQueryClient();
 
@@ -55,8 +55,10 @@ export const useFacebookAuthMutation = () => {
                 });
                 authorize();
                 closeModal();
-                if (favoriteData) favoriteProduct({ product: favoriteData });
-                // setTimeout(() => {
+                if (favoriteData) {
+                    favoriteProduct({ product: favoriteData });
+                    setFavoriteData("");
+                } // setTimeout(() => {
                 //     window.location.href = window.location.origin;
                 // }, 3000);
             },

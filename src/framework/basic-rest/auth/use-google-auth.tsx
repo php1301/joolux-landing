@@ -28,7 +28,7 @@ async function googleAuth(
     };
 }
 export const useGoogleAuthMutation = () => {
-    const { authorize, closeModal, favoriteData } = useUI();
+    const { authorize, closeModal, favoriteData, setFavoriteData } = useUI();
     const { mutate: favoriteProduct } = useFavoriteProductMutation();
     const queryClient = useQueryClient();
     return useMutation<LoginResponseType, Error, GoogleAuthInputType>(
@@ -51,7 +51,10 @@ export const useGoogleAuthMutation = () => {
                 });
                 authorize();
                 closeModal();
-                if (favoriteData) favoriteProduct({ product: favoriteData });
+                if (favoriteData) {
+                    favoriteProduct({ product: favoriteData });
+                    setFavoriteData("");
+                }
             },
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");

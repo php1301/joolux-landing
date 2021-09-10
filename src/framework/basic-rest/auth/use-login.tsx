@@ -36,7 +36,7 @@ async function login(input: LoginInputType): Promise<LoginResponseType> {
 }
 export const useLoginMutation = () => {
     const { mutate: favoriteProduct } = useFavoriteProductMutation();
-    const { authorize, closeModal, favoriteData } = useUI();
+    const { authorize, closeModal, favoriteData, setFavoriteData } = useUI();
     const queryClient = useQueryClient();
     // return useMutation<any, Error, LoginInputType>(
     return useMutation<LoginResponseType, Error, LoginInputType>(
@@ -59,8 +59,10 @@ export const useLoginMutation = () => {
                 });
                 authorize();
                 closeModal();
-                if (favoriteData) favoriteProduct({ product: favoriteData });
-            },
+                if (favoriteData) {
+                    favoriteProduct({ product: favoriteData });
+                    setFavoriteData("");
+                }            },
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
                 toast("Có lỗi đăng nhập", {
