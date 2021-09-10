@@ -25,7 +25,7 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 
 const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
     const { t } = useTranslation("common");
-    const { query, asPath } = useRouter();
+    const { query } = useRouter();
     const { isLoading, data, error } = useProductsPaginationQuery(
         {
             ...query,
