@@ -43,12 +43,13 @@ const fetchCollectionProducts = async (
             params: allParams,
         },
     );
+    console.log(seo, favorites);
     return {
         products,
         pagination,
         filter,
         seo,
-        favorites,
+        favorites: favorites || [],
     };
 };
 
