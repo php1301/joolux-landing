@@ -21,7 +21,7 @@ const fetchProducts = async (options: ProductsQueryOptionsType) => {
     const {
         data: { products, pagination, favorites },
     } = await http.get(
-        `https://api.joolux-client.ml/admin/products/get-overview`,
+        `https://api.joolux-client.ml/client/products/get-overview`,
         {
             params: {
                 page: options?.page || "1",
@@ -30,7 +30,7 @@ const fetchProducts = async (options: ProductsQueryOptionsType) => {
         },
     );
     const { data: filter } = await http.get(
-        `https://api.joolux-client.ml/admin/products/get-new-filter`,
+        `https://api.joolux-client.ml/client/products/get-new-filter`,
         {
             params: allParams,
         },
