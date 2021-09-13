@@ -9,7 +9,6 @@ const fetchUserProfile = async () => {
     const { data } = await http.get(
         `https://api.joolux-client.ml${API_ENDPOINTS.GET_USER_PROFILE}`,
     );
-    console.log(data, "api");
     return {
         userProfile: data as UserProfile,
     };
@@ -19,7 +18,6 @@ const useUserProfileQuery = () => {
     return useQuery<{ userProfile: UserProfile }, Error>(
         [API_ENDPOINTS.GET_USER_PROFILE],
         fetchUserProfile,
-        // { keepPreviousData: true, staleTime: 5000 },
     );
 };
 
