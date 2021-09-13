@@ -14,6 +14,8 @@ import { MaterialFilter } from "./material-filter";
 import { SizeFilter } from "./size-filter";
 import { PromotionFilter } from "./promotion-filter";
 import { SpecialFilter } from "./special-filter";
+import { useQueryClient } from "react-query";
+import { ROUTES } from "@utils/routes";
 
 interface IShopFilters {
     filter: Filter;
@@ -25,10 +27,11 @@ export const ShopFilters: React.FC<IShopFilters> = ({
     modalTooltip = false,
     mobile = true,
 }) => {
+    const queryClient = useQueryClient();
     const router = useRouter();
-    const { pathname, query } = router;
+    const { query, asPath } = router;
     const { t } = useTranslation("common");
-    const { page, sort, ...restQuery } = query;
+    const { page, sort, category, collection, ...restQuery } = query;
     const {
         brands,
         categories,
@@ -55,11 +58,14 @@ export const ShopFilters: React.FC<IShopFilters> = ({
                     <button
                         className="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading"
                         aria-label="Clear All"
-                        onClick={() => {
-                            const url = query?.slug
-                                ? `${query.slug}`
-                                : pathname;
+                        onClick={async () => {
+                            const url = query.category
+                                ? ROUTES.HANG_MOI_VE
+                                : asPath.split("?")[0];
                             router.push(url);
+                            await queryClient.resetQueries({
+                                active: true,
+                            });
                         }}
                     >
                         {t("text-clear-all")}
