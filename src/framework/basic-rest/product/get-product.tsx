@@ -11,7 +11,7 @@ export const fetchProduct = async (id: string) => {
     const {
         data: { product, isFavorite },
     } = await http.get(
-        `https://api.joolux-client.ml/admin/products/information?id=${id}`,
+        `https://api.joolux-client.ml/client/products/information?id=${id}`,
     );
     return {
         product,
