@@ -1,31 +1,47 @@
-// import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
-// import http from "@framework/utils/http";
-import { useMutation } from "react-query";
+import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import http from "@framework/utils/http";
+import { useMutation, useQueryClient } from "react-query";
+import { toast } from "react-toastify";
+import { useWindowSize } from "@utils/use-window-size";
+import { UserProfile } from "@framework/types";
 
-export interface UpdateUserType {
-    firstName: string;
-    lastName: string;
-    address: string;
-    city: string;
-    district: string;
-    phoneNumber: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    gender: string;
-}
-async function updateUser(input: UpdateUserType) {
-    // return http.post(API_ENDPOINTS.ChangeEmail, input);
-    return input;
+async function updateUser(input: UserProfile) {
+    return http.put(
+        `https://api.joolux-client.ml${API_ENDPOINTS.UPDATE_USER_PROFILE}`,
+        input,
+    );
 }
 
 export const useUpdateUserMutation = () => {
-    return useMutation((input: UpdateUserType) => updateUser(input), {
-        onSuccess: (data) => {
+    const { width } = useWindowSize();
+    const queryClient = useQueryClient();
+    return useMutation((input: UserProfile) => updateUser(input), {
+        onSuccess: async (data) => {
             console.log(data, "UpdateUser success response");
+            toast("Cập nhật thông tin thành công", {
+                type: "dark",
+                progressClassName: "fancy-progress-bar",
+                position: width > 768 ? "bottom-right" : "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+            await queryClient.resetQueries({ active: true });
         },
         onError: (data) => {
             console.log(data, "UpdateUser error response");
+            toast("Cập nhật thông tin không thành công", {
+                type: "error",
+                progressClassName: "fancy-progress-bar",
+                position: width > 768 ? "bottom-right" : "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
         },
     });
 };
