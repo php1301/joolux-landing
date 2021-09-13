@@ -19,10 +19,9 @@ export const CategoryFilter = ({ categoriesFilter }) => {
         const { url } = prepareUrlAs(
             router,
             {
-                pathname,
+                pathname: `/categories/${value}`,
                 query: {
                     ...restQuery,
-                    ...{ category: value },
                 },
             },
             undefined,
@@ -40,8 +39,8 @@ export const CategoryFilter = ({ categoriesFilter }) => {
                         key={item?.id}
                         labelKey={item?.name}
                         name={item?.name?.toLowerCase()}
-                        checked={item?.name === formState}
-                        value={item?.name}
+                        checked={item?.value === formState}
+                        value={item?.value}
                         variant="jl"
                         onChange={handleItemClick}
                     />
