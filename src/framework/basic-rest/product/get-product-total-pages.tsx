@@ -13,7 +13,7 @@ type PaginatedTotalPages = {
 const fetchTotalPages = async () => {
     // const { data } = await http.get(API_ENDPOINTS.PRODUCTS);
     const { data: totalPages } = await http.get(
-        "https://api.joolux-client.ml/admin/products/pages",
+        "https://api.joolux-client.ml/client/products/pages",
     );
     Cookies.set("temp_total", totalPages?.totalPage, { secure: true });
     return {
