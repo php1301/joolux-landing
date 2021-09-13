@@ -29,7 +29,7 @@ const fetchCollectionProducts = async (
     const {
         data: { products, pagination, seo, favorites },
     } = await http.get(
-        `https://api.joolux-client.ml/admin/products/get-overview/${collection}?seo=true`,
+        `https://api.joolux-client.ml/client/products/get-overview/${collection}?seo=true`,
         {
             params: {
                 page: options?.page || "1",
@@ -38,12 +38,11 @@ const fetchCollectionProducts = async (
         },
     );
     const { data: filter } = await http.get(
-        `https://api.joolux-client.ml/admin/products/get-new-filter-collection/${collection}`,
+        `https://api.joolux-client.ml/client/products/get-new-filter-collection/${collection}`,
         {
             params: allParams,
         },
     );
-    console.log(seo, favorites);
     return {
         products,
         pagination,
