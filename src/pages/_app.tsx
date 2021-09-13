@@ -56,7 +56,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const Layout = (Component as any).Layout || Noop;
 
     return (
-        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+        <AnimatePresence
+            exitBeforeEnter
+            // onExitComplete={handleExitComplete}
+        >
             <ApolloProvider client={apolloClient}>
                 <QueryClientProvider client={queryClient}>
                     <Hydrate state={pageProps.dehydratedState}>
