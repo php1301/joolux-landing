@@ -178,7 +178,7 @@ export const siteSettings = {
             },
             {
                 id: 4,
-                path: "/tui-xach",
+                path: "/categories/tui-xach",
                 label: "Túi xách",
                 menuImage: "https://joolux.com/img/menu/mega-2.jpg",
                 numOfCols: 5,
@@ -298,7 +298,7 @@ export const siteSettings = {
             },
             {
                 id: 5,
-                path: "/giay-sneaker",
+                path: "/categories/giay-sneaker",
                 label: "GIÀY & SNEAKER",
                 menuImage: "https://joolux.com/img/menu/mega-3.jpg",
                 numOfCols: 5,
@@ -428,7 +428,7 @@ export const siteSettings = {
             },
             {
                 id: 6,
-                path: "/dong-ho-cao-cap",
+                path: "/categories/dong-ho-cao-cap",
                 label: "Đồng hồ",
                 menuImage: "https://joolux.com/img/menu/mega-4.jpg",
                 numOfCols: 6,
@@ -627,7 +627,7 @@ export const siteSettings = {
             },
             {
                 id: 7,
-                path: "/phu-kien",
+                path: "/categories/phu-kien",
                 label: "Phụ kiện",
                 menuImage: "https://joolux.com/img/menu/mega-5.jpg",
                 numOfCols: 6,
@@ -852,7 +852,7 @@ export const siteSettings = {
             },
             {
                 id: 3,
-                path: "/hang-moi-ve",
+                path: "/categories/hang-moi-ve",
                 label: "Thương hiệu",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
@@ -947,7 +947,7 @@ export const siteSettings = {
             },
             {
                 id: 4,
-                path: "/tui-xach",
+                path: "/categories/tui-xach",
                 label: "Túi xách",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
@@ -1038,7 +1038,7 @@ export const siteSettings = {
             },
             {
                 id: 5,
-                path: "/giay-sneaker",
+                path: "/categories/giay-sneaker",
                 label: "GIÀY & SNEAKER",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
@@ -1138,7 +1138,7 @@ export const siteSettings = {
             },
             {
                 id: 6,
-                path: "/dong-ho-cao-cap",
+                path: "/categories/dong-ho-cao-cap",
                 label: "Đồng hồ",
                 subMenu: [
                     {
@@ -1289,7 +1289,7 @@ export const siteSettings = {
             },
             {
                 id: 7,
-                path: "/phu-kien",
+                path: "/categories/phu-kien",
                 label: "Phụ kiện",
 
                 subMenu: [
