@@ -64,7 +64,6 @@ const ChangePassword: React.FC = () => {
                                     message: "Mật khẩu phải có ít nhất 8 kí tự",
                                 },
                             })}
-                            className="mb-4"
                         />
                         <PasswordInput
                             labelKey="Mật khẩu mới"
