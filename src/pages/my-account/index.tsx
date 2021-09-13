@@ -4,7 +4,8 @@ import AccountLayout from "@components/my-account/account-layout";
 import { ROUTES } from "@utils/routes";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { GetStaticProps, NextPage } from "next";
+import nextCookie from "next-cookies";
+import { GetServerSideProps, NextPage } from "next";
 
 const MyAccount: NextPage & { Layout: typeof Layout } = () => {
     const { t } = useTranslation("common");
@@ -45,7 +46,19 @@ const MyAccount: NextPage & { Layout: typeof Layout } = () => {
 MyAccount.Layout = Layout;
 export default MyAccount;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+    locale,
+    ...ctx
+}) => {
+    const { access_token, refresh_token } = nextCookie(ctx);
+    if (!access_token || !refresh_token) {
+        return {
+            redirect: {
+                destination: "/404",
+                statusCode: 303,
+            },
+        };
+    }
     return {
         props: {
             ...(await serverSideTranslations(locale!, [

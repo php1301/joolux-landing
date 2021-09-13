@@ -2,7 +2,8 @@ import { Layout } from "@components/layout/layout";
 import AccountLayout from "@components/my-account/account-layout";
 import OrdersTable from "@components/my-account/orders-table";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticProps, NextPage } from "next";
+import nextCookie from "next-cookies";
+import { GetServerSideProps, NextPage } from "next";
 
 const UserOrdersPage: NextPage & { Layout: typeof Layout } = () => {
     return (
@@ -15,7 +16,19 @@ const UserOrdersPage: NextPage & { Layout: typeof Layout } = () => {
 UserOrdersPage.Layout = Layout;
 
 export default UserOrdersPage;
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+    locale,
+    ...ctx
+}) => {
+    const { access_token, refresh_token } = nextCookie(ctx);
+    if (!access_token || !refresh_token) {
+        return {
+            redirect: {
+                destination: "/404",
+                statusCode: 303,
+            },
+        };
+    }
     return {
         props: {
             ...(await serverSideTranslations(locale!, [
