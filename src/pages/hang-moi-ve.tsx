@@ -49,7 +49,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                     <a>{t("Trang chủ")}</a>
                                 </ActiveLink>
                                 <ActiveLink
-                                    href={ROUTES.SEARCH}
+                                    href={ROUTES.HANG_MOI_VE}
                                     activeClassName="font-semibold text-heading"
                                 >
                                     <a className="capitalize">
