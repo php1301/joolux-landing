@@ -5,27 +5,42 @@ import { Button } from "@components/ui/button";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { fadeInTop } from "@utils/motion/fade-in-top";
-import {
-    useUpdateUserMutation,
-    UpdateUserType,
-} from "@framework/user/use-update-user";
+import { useUpdateUserMutation } from "@framework/user/use-update-user";
 import { city, districts } from "@public/api/geo-city-vn";
 import { RadioBox } from "@components/ui/radiobox";
 import { useTranslation } from "next-i18next";
-const defaultValues = {};
-const AccountEdit: React.FC<{ setPage: any }> = ({ setPage }) => {
-    const { mutate: updateUser, isLoading } = useUpdateUserMutation();
-    const [districtIndex, setDistrictIndex] = useState(null);
+import { UserProfile } from "@framework/types";
+const AccountEdit: React.FC<{ setPage: any; details: UserProfile }> = ({
+    setPage,
+    details,
+}) => {
+    const { mutate: updateUser, isLoading, isError } = useUpdateUserMutation();
+    const defaultDistrcitIndex = city.findIndex(
+        (index) => index === details.city,
+    );
+    const [districtIndex, setDistrictIndex] = useState(
+        defaultDistrcitIndex === -1 ? null : defaultDistrcitIndex,
+    );
     const { t } = useTranslation();
     const {
         register,
         handleSubmit,
-        formState: { errors },
-    } = useForm<UpdateUserType>({
-        defaultValues,
+        formState: { errors, isDirty },
+    } = useForm<UserProfile>({
+        defaultValues: details,
     });
-    function onSubmit(input: UpdateUserType) {
-        updateUser(input);
+    console.log(details);
+    function onSubmit(input: UserProfile) {
+        if (isDirty) {
+            updateUser(input);
+            if (!isError) {
+                setPage(1);
+                window.scrollTo({ top: 0 });
+            }
+        } else {
+            setPage(1);
+            window.scrollTo({ top: 0 });
+        }
     }
     const handleOnChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setDistrictIndex(e.target.selectedIndex - 1);
@@ -53,18 +68,18 @@ const AccountEdit: React.FC<{ setPage: any }> = ({ setPage }) => {
                         <Input
                             labelClass="border-solid border-b border-[#101010] pb-2 mb-5"
                             labelKey="forms:label-first-name"
-                            {...register("firstName")}
+                            {...register("firstname")}
                             variant="jl"
                             className="w-full sm:w-1/2 pr-2"
-                            errorKey={errors.firstName?.message}
+                            errorKey={errors.firstname?.message}
                         />
                         <Input
                             labelClass="border-solid border-b border-[#101010] pb-2 mb-5"
                             labelKey="forms:label-last-name"
-                            {...register("lastName")}
+                            {...register("lastname")}
                             variant="jl"
                             className="w-full sm:w-1/2 pl-3"
-                            errorKey={errors.lastName?.message}
+                            errorKey={errors.lastname?.message}
                         />
                     </div>
                     <Input
@@ -149,8 +164,8 @@ const AccountEdit: React.FC<{ setPage: any }> = ({ setPage }) => {
                                             errors.district?.message &&
                                             "border-red-600"
                                         }`}
-                                        defaultValue=""
                                         disabled={!districtIndex}
+                                        defaultValue=""
                                         {...register("district")}
                                     >
                                         <option value="" disabled hidden>
@@ -197,10 +212,10 @@ const AccountEdit: React.FC<{ setPage: any }> = ({ setPage }) => {
                             labelClass="border-solid border-b border-[#101010] pb-2 mb-5"
                             type="tel"
                             labelKey="forms:label-phone"
-                            {...register("phoneNumber")}
+                            {...register("phone")}
                             variant="jl"
                             className="w-full sm:w-1/2 pr-3"
-                            errorKey={errors.phoneNumber?.message}
+                            errorKey={errors.phone?.message}
                         />
                         <Input
                             labelClass="border-solid border-b border-[#101010] pb-2 mb-5"
@@ -225,12 +240,12 @@ const AccountEdit: React.FC<{ setPage: any }> = ({ setPage }) => {
                             <RadioBox
                                 labelKey="forms:label-male"
                                 {...register("gender")}
-                                value="male"
+                                value="Nam"
                             />
                             <RadioBox
                                 labelKey="forms:label-female"
                                 {...register("gender")}
-                                value="female"
+                                value="Nữ"
                             />
                         </div>
                     </div>
@@ -250,6 +265,7 @@ const AccountEdit: React.FC<{ setPage: any }> = ({ setPage }) => {
                             className="h-12 mt-3 w-full sm:w-40 step-form-button-back"
                             onClick={() => {
                                 setPage(1);
+                                window.scrollTo({ top: 0 });
                             }}
                         >
                             Hủy
