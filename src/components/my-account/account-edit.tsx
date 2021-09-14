@@ -29,11 +29,10 @@ const AccountEdit: React.FC<{ setPage: any; details: UserProfile }> = ({
     } = useForm<UserProfile>({
         defaultValues: details,
     });
-    console.log(details);
     function onSubmit(input: UserProfile) {
         if (isDirty) {
             updateUser(input);
-            if (!isError) {
+            if (!isLoading && !isError) {
                 setPage(1);
                 window.scrollTo({ top: 0 });
             }
