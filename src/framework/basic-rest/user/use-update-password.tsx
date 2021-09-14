@@ -3,11 +3,12 @@ import http from "@framework/utils/http";
 import { toast } from "react-toastify";
 import { useMutation } from "react-query";
 import { useWindowSize } from "@utils/use-window-size";
+import { AxiosError } from "axios";
 
 export interface ChangePasswordInputType {
     newPassword: string;
     oldPassword: string;
-    confirmNewpassword: string;
+    confirmPassword: string;
 }
 async function changePassword(input: ChangePasswordInputType) {
     return http.put(
@@ -21,8 +22,7 @@ export const useChangePasswordMutation = () => {
     return useMutation(
         (input: ChangePasswordInputType) => changePassword(input),
         {
-            onSuccess: (data) => {
-                console.log(data, "ChangePassword success response");
+            onSuccess: () => {
                 toast("Cập nhật mật khẩu thành công", {
                     type: "dark",
                     progressClassName: "fancy-progress-bar",
@@ -34,18 +34,30 @@ export const useChangePasswordMutation = () => {
                     draggable: true,
                 });
             },
-            onError: (data) => {
-                console.log(data, "ChangePassword error response");
-                toast("Cập nhật thông tin không thành công", {
-                    type: "error",
-                    progressClassName: "fancy-progress-bar",
-                    position: width > 768 ? "bottom-right" : "top-right",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                });
+            onError: (error: AxiosError) => {
+                if (error.response.data.message === "Wrong password!") {
+                    toast("Mật khẫu cũ chưa đúng", {
+                        type: "error",
+                        progressClassName: "fancy-progress-bar",
+                        position: width > 768 ? "bottom-right" : "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                } else {
+                    toast("Cập nhật mật khẩu không thành công", {
+                        type: "error",
+                        progressClassName: "fancy-progress-bar",
+                        position: width > 768 ? "bottom-right" : "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                }
             },
         },
     );
