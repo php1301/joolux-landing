@@ -10,6 +10,7 @@ export type UserProfile = {
     email: string;
     password: string;
     confirmPassword: string;
+    provider: string;
     gender: string;
 };
 export type CollectionsQueryOptionsType = {
@@ -224,6 +225,15 @@ export interface Filter {
     sizes: string[];
     materials: string[];
     prices: string[];
+    subCategories: {
+        subCateFilterName: string;
+        subCateData: [
+            {
+                id: number;
+                value: string;
+            },
+        ];
+    };
 }
 
 export type OrderItem = {
