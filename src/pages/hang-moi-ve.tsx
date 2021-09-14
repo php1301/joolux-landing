@@ -106,7 +106,6 @@ export default Search;
 export const getServerSideProps: GetServerSideProps = async ({
     locale,
     query,
-    resolvedUrl,
 }) => {
     const queryClient = new QueryClient();
     await queryClient.prefetchQuery(
