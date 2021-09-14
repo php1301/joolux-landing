@@ -16,8 +16,7 @@ export const useUpdateUserMutation = () => {
     const { width } = useWindowSize();
     const queryClient = useQueryClient();
     return useMutation((input: UserProfile) => updateUser(input), {
-        onSuccess: async (data) => {
-            console.log(data, "UpdateUser success response");
+        onSuccess: async () => {
             toast("Cập nhật thông tin thành công", {
                 type: "dark",
                 progressClassName: "fancy-progress-bar",
@@ -30,8 +29,7 @@ export const useUpdateUserMutation = () => {
             });
             await queryClient.resetQueries({ active: true });
         },
-        onError: (data) => {
-            console.log(data, "UpdateUser error response");
+        onError: () => {
             toast("Cập nhật thông tin không thành công", {
                 type: "error",
                 progressClassName: "fancy-progress-bar",
