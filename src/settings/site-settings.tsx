@@ -28,6 +28,159 @@ export const siteSettings = {
                 id: 1,
                 path: "/hang-moi-ve",
                 label: "Hàng mới về",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                numOfCols: 5,
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve",
+                                label: "Thương hiệu",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?brands=Louis+Vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/hang-moi-ve?brands=Gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/hang-moi-ve?brands=Chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/hang-moi-ve?brands=Prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/hang-moi-ve?brands=Burberry",
+                                        label: "Burberry",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/hang-moi-ve?brands=Bottega+Veneta",
+                                        label: "Bottega Veneta",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=Balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/hang-moi-ve?brands=Dior",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/hang-moi-ve?brands=Saint+Laurent",
+                                        label: "Saint Laurent",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/hang-moi-ve?brands=Fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/hang-moi-ve?brands=Celine",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/hang-moi-ve",
+                                        bold: true,
+                                        label: "Xem tất cả",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nam",
+                                label: "Nam",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?genders=Nam",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi xách",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Giày & Sneaker",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                        label: "Đồng hồ",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        label: "Phụ kiện",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nữ",
+                                label: "Nữ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?genders=Nữ",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi xách",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Giày & Sneaker",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                        label: "Đồng hồ",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        label: "Phụ kiện",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 2,
@@ -56,50 +209,55 @@ export const siteSettings = {
                 path: "/hang-moi-ve",
                 label: "Thương hiệu",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
-                numOfCols: 5,
+                numOfCols: 4,
                 columns: [
                     {
                         id: 1,
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=top-wear",
+                                path: "/hang-moi-ve",
                                 label: "Thương hiệu nổi tiếng",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/hang-moi-ve?brands=louis-vuitton",
+                                        path: "/hang-moi-ve?brands=Louis+Vuitton",
                                         label: "Louis Vuitton",
                                     },
                                     {
                                         id: 2,
-                                        path: "/hang-moi-ve?brands=gucci",
+                                        path: "/hang-moi-ve?brands=Gucci",
                                         label: "Gucci",
                                     },
                                     {
                                         id: 3,
-                                        path: "/hang-moi-ve?brands=chanel",
+                                        path: "/hang-moi-ve?brands=Chanel",
                                         label: "Chanel",
                                     },
                                     {
                                         id: 4,
-                                        path: "/hang-moi-ve?brands=hermes",
-                                        label: "Hermès",
+                                        path: "/hang-moi-ve?brands=Prada",
+                                        label: "Prada",
                                     },
                                     {
                                         id: 5,
-                                        path: "/hang-moi-ve?brands=frederique-constant",
-                                        label: "Frederique Constant",
+                                        path: "/hang-moi-ve?brands=Burberry",
+                                        label: "Burberry",
                                     },
                                     {
                                         id: 6,
-                                        path: "/hang-moi-ve?brands=longines",
-                                        label: "Longines",
+                                        path: "/hang-moi-ve?brands=Bottega+Veneta",
+                                        label: "Bottega Veneta",
                                     },
                                     {
                                         id: 7,
-                                        path: "/hang-moi-ve?brands=adidas",
-                                        label: "adidas",
+                                        path: "/hang-moi-ve?brands=Balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/hang-moi-ve?brands=Dior",
+                                        label: "Dior",
                                     },
                                 ],
                             },
@@ -110,65 +268,49 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/hang-moi-ve?brands=adidas",
+                                path: "/hang-moi-ve",
                                 label: "",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/hang-moi-ve?brands=Nike",
-                                        label: "Nike",
+                                        path: "/hang-moi-ve?brands=Goyard",
+                                        label: "Goyard",
                                     },
                                     {
                                         id: 2,
-                                        path: "/hang-moi-ve?brands=adidas",
-                                        label: "Dior",
+                                        path: "/hang-moi-ve?brands=Saint+Laurent",
+                                        label: "Saint Laurent",
                                     },
                                     {
                                         id: 3,
-                                        path: "/hang-moi-ve?brands=dolce-gabbana",
-                                        label: "Dolce & Gabbana",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/hang-moi-ve?brands=valentino",
-                                        label: "Valentino",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/hang-moi-ve?brands=burberry",
-                                        label: "Burberry",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/hang-moi-ve?brands=prada",
-                                        label: "Prada",
-                                    },
-                                    {
-                                        id: 7,
-                                        path: "/hang-moi-ve?brands=zenith",
-                                        label: "Zenith",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 3,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=footwear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/hang-moi-ve?brands=fendi",
+                                        path: "/hang-moi-ve?brands=Fendi",
                                         label: "Fendi",
                                     },
                                     {
-                                        id: 2,
-                                        path: "/hang-moi-ve?brands=saint-laurent",
-                                        label: "Saint Laurent",
+                                        id: 4,
+                                        path: "/hang-moi-ve?brands=Celine",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/hang-moi-ve?brands=Longines",
+                                        label: "Longines",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/hang-moi-ve?brands=Chloé",
+                                        label: "Chloé",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=Alexander+McQueen",
+                                        label: "Alexander McQueen",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/hang-moi-ve",
+                                        bold: true,
+                                        label: "Xem tất cả",
                                     },
                                 ],
                             },
@@ -178,6 +320,246 @@ export const siteSettings = {
             },
             {
                 id: 4,
+                path: "/hang-moi-ve?genders=Nam",
+                label: "Nam",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                numOfCols: 4,
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nam",
+                                label: "Thương hiệu",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?brands=Louis+Vuitton&genders=Nam",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/hang-moi-ve?brands=Gucci&genders=Nam",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/hang-moi-ve?brands=Chanel&genders=Nam",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/hang-moi-ve?brands=Prada&genders=Nam",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/hang-moi-ve?brands=Burberry&genders=Nam",
+                                        label: "Burberry",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/hang-moi-ve?brands=Bottega+Veneta&genders=Nam",
+                                        label: "Bottega Veneta",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=Balenciaga&genders=Nam",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/hang-moi-ve?brands=Dior&genders=Nam",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/hang-moi-ve?brands=Saint+Laurent&genders=Nam",
+                                        label: "Saint Laurent",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/hang-moi-ve?brands=Fendi&genders=Nam",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/hang-moi-ve?brands=Celine&genders=Nam",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/hang-moi-ve",
+                                        bold: true,
+                                        label: "Xem tất cả",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nam",
+                                label: "Danh mục",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve&genders=Nam",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi xách",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Giày & Sneaker",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                        label: "Đồng hồ",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        label: "Phụ kiện",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 5,
+                path: "/hang-moi-ve?genders=Nữ",
+                label: "Nữ",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                numOfCols: 4,
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nữ",
+                                label: "Thương hiệu",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?brands=Louis+Vuitton&genders=Nữ",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/hang-moi-ve?brands=Gucci&genders=Nữ",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/hang-moi-ve?brands=Chanel&genders=Nữ",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/hang-moi-ve?brands=Prada&genders=Nữ",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/hang-moi-ve?brands=Burberry&genders=Nữ",
+                                        label: "Burberry",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/hang-moi-ve?brands=Bottega+Veneta&genders=Nữ",
+                                        label: "Bottega Veneta",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/hang-moi-ve?brands=Balenciaga&genders=Nữ",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/hang-moi-ve?brands=Dior&genders=Nữ",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/hang-moi-ve?brands=Saint+Laurent&genders=Nữ",
+                                        label: "Saint Laurent",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/hang-moi-ve?brands=Fendi&genders=Nữ",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/hang-moi-ve?brands=Celine&genders=Nữ",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/hang-moi-ve",
+                                        bold: true,
+                                        label: "Xem tất cả",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nữ",
+                                label: "Danh mục",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/hang-moi-ve?genders=Nữ",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi xách",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Giày & Sneaker",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                        label: "Đồng hồ",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        label: "Phụ kiện",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 6,
                 path: "/categories/tui-xach",
                 label: "Túi xách",
                 menuImage: "https://joolux.com/img/menu/mega-2.jpg",
@@ -188,43 +570,69 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=top-wear",
-                                label: "Thương hiệu nổi tiếng",
+                                path: "/categories/tui-xach",
+                                label: "Thương hiệu",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/tui-xach",
-                                        label: "Tất cả",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/tui-xach?brands=louis-vuitton",
+                                        path: "/categories/tui-xach?brands=Louis+Vuitton",
                                         label: "Louis Vuitton",
                                     },
                                     {
-                                        id: 3,
-                                        path: "/tui-xach?brands=gucci",
+                                        id: 2,
+                                        path: "/categories/tui-xach?brands=Gucci",
                                         label: "Gucci",
                                     },
                                     {
-                                        id: 4,
-                                        path: "/tui-xach?brands=dolce-gabbana",
-                                        label: "Dolce & Gabbana",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/tui-xach?brands=chanel",
+                                        id: 3,
+                                        path: "/categories/tui-xach?brands=Chanel",
                                         label: "Chanel",
                                     },
                                     {
+                                        id: 4,
+                                        path: "/categories/tui-xach?brands=Prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/tui-xach?brands=Burberry",
+                                        label: "Burberry",
+                                    },
+                                    {
                                         id: 6,
-                                        path: "/tui-xach?brands=hermes",
-                                        label: "Hermès",
+                                        path: "/categories/tui-xach?brands=Bottega+Veneta",
+                                        label: "Bottega Veneta",
                                     },
                                     {
                                         id: 7,
-                                        path: "/tui-xach?brands=dior",
+                                        path: "/categories/tui-xach?brands=Balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/tui-xach?brands=Dior",
                                         label: "Dior",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/categories/tui-xach?brands=Saint+Laurent",
+                                        label: "Saint Laurent",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/categories/tui-xach?brands=Fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/categories/tui-xach?brands=Celine",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/categories/tui-xach",
+                                        bold: true,
+                                        label: "Xem tất cả",
                                     },
                                 ],
                             },
@@ -235,43 +643,69 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Nam",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/tui-xach?brands=prada",
-                                        label: "Prada",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        bold: true,
+                                        label: "Tất cả",
                                     },
                                     {
                                         id: 2,
-                                        path: "/tui-xach?brands=burberry",
-                                        label: "Burberry",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Đeo Chéo",
                                     },
                                     {
                                         id: 3,
-                                        path: "/tui-xach?brands=celine",
-                                        label: "Celine",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Xách Tay",
                                     },
                                     {
                                         id: 4,
-                                        path: "/tui-xach?brands=fendi",
-                                        label: "Fendi",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Đeo Hông",
                                     },
                                     {
                                         id: 5,
-                                        path: "/tui-xach?brands=goyard",
-                                        label: "Goyard",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Đeo Vai",
                                     },
                                     {
                                         id: 6,
-                                        path: "/tui-xach?brands=yves-saint-laurent",
-                                        label: "Yves Saint Laurent",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Clutch",
                                     },
                                     {
                                         id: 7,
-                                        path: "/tui-xach?brands=saint-laurent",
-                                        label: "Saint Laurent",
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Tote",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Ví",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Cặp Hồ Sơ",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Ba Lô",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Vali",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/categories/tui-xach?genders=Nam",
+                                        label: "Túi Du Lịch",
                                     },
                                 ],
                             },
@@ -282,13 +716,64 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=footwear",
-                                label: "",
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Nữ",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/tui-xach?brands=balenciaga",
-                                        label: "Balenciaga",
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Đeo Chéo",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Xách Tay",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Đeo Hông",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Đeo Vai",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Clutch",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Tote",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Ví",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Ba Lô",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Vali",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/categories/tui-xach?genders=Nữ",
+                                        label: "Túi Du Lịch",
                                     },
                                 ],
                             },
@@ -297,7 +782,7 @@ export const siteSettings = {
                 ],
             },
             {
-                id: 5,
+                id: 7,
                 path: "/categories/giay-sneaker",
                 label: "GIÀY & SNEAKER",
                 menuImage: "https://joolux.com/img/menu/mega-3.jpg",
@@ -308,512 +793,461 @@ export const siteSettings = {
                         columnItems: [
                             {
                                 id: 1,
-                                path: "/search?q=top-wear",
-                                label: "Thương hiệu nổi tiếng",
+                                path: "/categories/giay-sneaker",
+                                label: "Thương hiệu",
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/giay-sneaker",
-                                        label: "Tất cả",
+                                        path: "/categories/giay-sneaker?brands=Louis+Vuitton",
+                                        label: "Louis Vuitton",
                                     },
                                     {
                                         id: 2,
-                                        path: "/giay-sneaker?brands=prada",
-                                        label: "Prada",
+                                        path: "/categories/giay-sneaker?brands=Gucci",
+                                        label: "Gucci",
                                     },
                                     {
                                         id: 3,
-                                        path: "/giay-sneaker?brands=christian-dior",
-                                        label: "Christian Dior",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/giay-sneaker?brands=adidas",
-                                        label: "Adidas",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/giay-sneaker?brands=chanel",
+                                        path: "/categories/giay-sneaker?brands=Chanel",
                                         label: "Chanel",
                                     },
                                     {
-                                        id: 6,
-                                        path: "/giay-sneaker?brands=nike",
-                                        label: "Nike",
-                                    },
-                                    {
-                                        id: 7,
-                                        path: "/giay-sneaker?brands=puma",
-                                        label: "Puma",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/giay-sneaker?brands=new-balance",
-                                        label: "New Balance",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/giay-sneaker?brands=hermes",
-                                        label: "Hermès",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/giay-sneaker?brands=dior",
-                                        label: "Dior",
-                                    },
-                                    {
                                         id: 4,
-                                        path: "/giay-sneaker?brands=gucci",
-                                        label: "Gucci",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/giay-sneaker?brands=fendi",
-                                        label: "Fendi",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/giay-sneaker?brands=louis-vuitton",
-                                        label: "Louis Vuitton",
-                                    },
-                                    {
-                                        id: 7,
-                                        path: "/giay-sneaker?brands=balenciaga",
-                                        label: "Balenciaga",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 3,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=footwear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/giay-sneaker?brands=salvatore-ferragamo",
-                                        label: "Salvatore Ferragamo",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/giay-sneaker?brands=dolce-gabbana",
-                                        label: "Dolce & Gabbana",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/giay-sneaker?brands=under-armour",
-                                        label: "Under Armour",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                id: 6,
-                path: "/categories/dong-ho-cao-cap",
-                label: "Đồng hồ",
-                menuImage: "https://joolux.com/img/menu/mega-4.jpg",
-                numOfCols: 6,
-                columns: [
-                    {
-                        id: 1,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=top-wear",
-                                label: "Thương hiệu nổi tiếng",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/dong-ho-cao-cap",
-                                        label: "Tất cả",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/dong-ho-cao-cap?brands=casio",
-                                        label: "Casio",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/dong-ho-cao-cap?brands=tag-heuer",
-                                        label: "Tag Heuer",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/dong-ho-cao-cap?brands=fendi",
-                                        label: "Fendi",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/dong-ho-cao-cap?brands=omega",
-                                        label: "Omega",
-                                    },
-                                    {
-                                        id: 6,
-
-                                        path: "/dong-ho-cao-cap?brands=longines",
-                                        label: "Longines",
-                                    },
-                                    {
-                                        id: 7,
-
-                                        path: "/dong-ho-cao-cap?brands=burberry",
-                                        label: "Burberry",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/dong-ho-cao-cap?brands=gucci",
-                                        label: "Gucci",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/dong-ho-cao-cap?brands=mont-blanc",
-                                        label: "Mont Blanc",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/dong-ho-cao-cap?brands=frederique-constant",
-                                        label: "Frederique Constant",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/dong-ho-cao-cap?brands=edox",
-                                        label: "Edox",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/dong-ho-cao-cap?brands=versace",
-                                        label: "Versace",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/dong-ho-cao-cap?brands=seiko",
-                                        label: "Seiko",
-                                    },
-                                    {
-                                        id: 7,
-                                        path: "/dong-ho-cao-cap?brands=citizen",
-                                        label: "Citizen",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 3,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/dong-ho-cao-cap?brands=eterna",
-                                        label: "Eterna",
-                                    },
-                                    {
-                                        id: 2,
-
-                                        path: "/dong-ho-cao-cap?brands=oris",
-                                        label: "Oris",
-                                    },
-                                    {
-                                        id: 3,
-
-                                        path: "/dong-ho-cao-cap?brands=mido",
-                                        label: "Mido",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/dong-ho-cao-cap?brands=maurice-lacroix",
-                                        label: "Maurice Lacroix",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/dong-ho-cao-cap?brands=orient",
-                                        label: "Orient",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/dong-ho-cao-cap?brands=victorinox",
-                                        label: "Victorinox",
-                                    },
-                                    {
-                                        id: 7,
-                                        path: "/dong-ho-cao-cap?brands=tissot",
-                                        label: "Tissot",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 4,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/dong-ho-cao-cap?brands=raymond-weil",
-                                        label: "Raymond Weil",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/dong-ho-cao-cap?brands=zenith",
-                                        label: "Zenith",
-                                    },
-                                    {
-                                        id: 3,
-
-                                        path: "/dong-ho-cao-cap?brands=hublot",
-                                        label: "Hublot",
-                                    },
-                                    {
-                                        id: 4,
-
-                                        path: "/dong-ho-cao-cap?brands=rolex",
-                                        label: "Rolex",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/dong-ho-cao-cap?brands=hermes",
-                                        label: "Hermès",
-                                    },
-                                    {
-                                        id: 6,
-
-                                        path: "/dong-ho-cao-cap?brands=louis-vuitton",
-                                        label: "Louis Vuitton",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                id: 7,
-                path: "/categories/phu-kien",
-                label: "Phụ kiện",
-                menuImage: "https://joolux.com/img/menu/mega-5.jpg",
-                numOfCols: 6,
-                columns: [
-                    {
-                        id: 1,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=top-wear",
-                                label: "Thương hiệu nổi tiếng",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/phu-kien",
-                                        label: "Tất cả",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/phu-kien?brands=oliver-peoples",
-                                        label: "Oliver Peoples",
-                                    },
-                                    {
-                                        id: 3,
-
-                                        path: "/phu-kien?brands=oakley",
-                                        label: "Oakley",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/phu-kien?brands=randolph-engineering",
-                                        label: "Randolph Engineering",
-                                    },
-                                    {
-                                        id: 5,
-
-                                        path: "/phu-kien?brands=spy+",
-                                        label: "Spy+",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/phu-kien?brands=ermenegildo-zegna",
-                                        label: "Ermenegildo Zegna",
-                                    },
-                                    {
-                                        id: 7,
-
-                                        path: "/phu-kien?brands=tom-ford",
-                                        label: "Tom Ford",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 2,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/phu-kien?brands=ray-ban",
-                                        label: "Ray Ban",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/phu-kien?brands=fendi",
-                                        label: "Fendi",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/phu-kien?brands=kenzo",
-                                        label: "Kenzo",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/phu-kien?brands=etnia-barcelona",
-                                        label: "ETNIA Barcelona",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/phu-kien?brands=louis-vuitton",
-                                        label: "Louis Vuitton",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/phu-kien?brands=persol",
-                                        label: "Persol",
-                                    },
-                                    {
-                                        id: 7,
-
-                                        path: "/phu-kien?brands=zink",
-                                        label: "Zink",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 3,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/phu-kien?brands=versace",
-                                        label: "Versace",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/phu-kien?brands=hugo-boss",
-                                        label: "Hugo Boss",
-                                    },
-                                    {
-                                        id: 3,
-                                        path: "/phu-kien?brands=ferragamo",
-                                        label: "Ferragamo",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/phu-kien?brands=tod%27s",
-                                        label: "TOD'S",
-                                    },
-                                    {
-                                        id: 5,
-                                        path: "/phu-kien?brands=salvatore-ferragamo",
-                                        label: "Salvatore Ferragamo",
-                                    },
-                                    {
-                                        id: 6,
-                                        path: "/phu-kien?brands=givenchy",
-                                        label: "Givenchy",
-                                    },
-                                    {
-                                        id: 7,
-                                        path: "/phu-kien?brands=balenciaga",
-                                        label: "Balenciaga",
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    {
-                        id: 4,
-                        columnItems: [
-                            {
-                                id: 1,
-                                path: "/search?q=western-wear",
-                                label: "",
-                                columnItemItems: [
-                                    {
-                                        id: 1,
-                                        path: "/phu-kien?brands=emilio-pucci",
-                                        label: "Emilio Pucci",
-                                    },
-                                    {
-                                        id: 2,
-                                        path: "/phu-kien?brands=prada",
+                                        path: "/categories/giay-sneaker?brands=Prada",
                                         label: "Prada",
                                     },
                                     {
-                                        id: 3,
-                                        path: "/phu-kien?brands=mont-blanc",
-                                        label: "Mont Blanc",
-                                    },
-                                    {
-                                        id: 4,
-                                        path: "/phu-kien?brands=dior",
-                                        label: "Dior",
-                                    },
-                                    {
                                         id: 5,
-                                        path: "/phu-kien?brands=gucci",
-                                        label: "Gucci",
+                                        path: "/categories/giay-sneaker?brands=Burberry",
+                                        label: "Burberry",
                                     },
                                     {
                                         id: 6,
-                                        path: "/phu-kien?brands=hermes",
-                                        label: "Hermès",
+                                        path: "/categories/giay-sneaker?brands=Bottega+Veneta",
+                                        label: "Bottega Veneta",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/categories/giay-sneaker?brands=Balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/giay-sneaker?brands=Dior",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/categories/giay-sneaker?brands=Saint+Laurent",
+                                        label: "Saint Laurent",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/categories/giay-sneaker?brands=Fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/categories/giay-sneaker?brands=Celine",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/categories/giay-sneaker",
+                                        bold: true,
+                                        label: "Xem tất cả",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Nam",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Sneaker",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Dép",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Sandal",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Giày Loafer",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/categories/giay-sneaker?genders=Nam",
+                                        label: "Giày Tây",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Nữ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Sneaker",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Dép",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Giày Boots",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Giày Cao Gót",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Giày Búp Bê",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Sandal",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/giay-sneaker?genders=Nữ",
+                                        label: "Giày Loafer",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 8,
+                path: "/categories/dong-ho-cao-cap",
+                label: "Đồng hồ",
+                menuImage: "https://joolux.com/img/menu/mega-4.jpg",
+                numOfCols: 5,
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/dong-ho-cao-cap",
+                                label: "Thương hiệu",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/dong-ho-cao-cap?brands=Louis+Vuitton",
+                                        label: "Rolex",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/dong-ho-cao-cap?brands=Frederique+Constant",
+                                        label: "Frederique Constant",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/dong-ho-cao-cap?brands=Maurice+Lacroix",
+                                        label: "Maurice Lacroix",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?brands=Longines",
+                                        label: "Longines",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/dong-ho-cao-cap?brands=Tissot",
+                                        label: "Tissot",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/categories/dong-ho-cao-cap?brands=Montblanc",
+                                        label: "Montblanc",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/categories/dong-ho-cao-cap?brands=Chopard",
+                                        label: "Chopard",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/dong-ho-cao-cap?brands=Edox",
+                                        label: "Edox",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/categories/dong-ho-cao-cap?brands=Omega",
+                                        label: "Omega",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/categories/dong-ho-cao-cap",
+                                        bold: true,
+                                        label: "Xem tất cả",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                label: "Nam",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                        label: "Quartz",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                        label: "Automatic",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                        label: "Eco-drive",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                label: "Nữ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                        label: "Quartz",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/dong-ho-cao-capr?genders=Nữ",
+                                        label: "Automatic",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                        label: "Eco-drive",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 9,
+                path: "/categories/phu-kien",
+                label: "Phụ kiện",
+                menuImage: "https://joolux.com/img/menu/mega-5.jpg",
+                numOfCols: 5,
+                columns: [
+                    {
+                        id: 1,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/phu-kien",
+                                label: "Thương hiệu",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/phu-kien?brands=Louis+Vuitton",
+                                        label: "Louis Vuitton",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/phu-kien?brands=Gucci",
+                                        label: "Gucci",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/phu-kien?brands=Chanel",
+                                        label: "Chanel",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/phu-kien?brands=Prada",
+                                        label: "Prada",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?brands=Burberry",
+                                        label: "Burberry",
+                                    },
+                                    {
+                                        id: 6,
+                                        path: "/categories/phu-kien?brands=Bottega+Veneta",
+                                        label: "Bottega Veneta",
+                                    },
+                                    {
+                                        id: 7,
+                                        path: "/categories/phu-kien?brands=Balenciaga",
+                                        label: "Balenciaga",
+                                    },
+                                    {
+                                        id: 8,
+                                        path: "/categories/phu-kien?brands=Dior",
+                                        label: "Dior",
+                                    },
+                                    {
+                                        id: 9,
+                                        path: "/categories/phu-kien?brands=Saint+Laurent",
+                                        label: "Saint Laurent",
+                                    },
+                                    {
+                                        id: 10,
+                                        path: "/categories/phu-kien?brands=Fendi",
+                                        label: "Fendi",
+                                    },
+                                    {
+                                        id: 11,
+                                        path: "/categories/phu-kien?brands=Celine",
+                                        label: "Celine",
+                                    },
+                                    {
+                                        id: 12,
+                                        path: "/categories/phu-kien",
+                                        bold: true,
+                                        label: "Xem tất cả",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Nam",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        label: "Kính Mắt",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        label: "Thắt Lưng",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        label: "Mũ",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?genders=Nam",
+                                        label: "Khăn",
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        columnItems: [
+                            {
+                                id: 1,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Nữ",
+                                columnItemItems: [
+                                    {
+                                        id: 1,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        bold: true,
+                                        label: "Tất cả",
+                                    },
+                                    {
+                                        id: 2,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        label: "Kính Mắt",
+                                    },
+                                    {
+                                        id: 3,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        label: "Thắt Lưng",
+                                    },
+                                    {
+                                        id: 4,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        label: "Mũ",
+                                    },
+                                    {
+                                        id: 5,
+                                        path: "/categories/phu-kien?genders=Nữ",
+                                        label: "Khăn",
                                     },
                                 ],
                             },
@@ -827,6 +1261,142 @@ export const siteSettings = {
                 id: 1,
                 path: "/hang-moi-ve",
                 label: "Hàng mới về",
+                subMenu: [
+                    {
+                        id: 1,
+                        path: "/hang-moi-ve",
+                        label: "Thương hiệu",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?brands=Louis+Vuitton",
+                                label: "Louis Vuitton",
+                            },
+                            {
+                                id: 2,
+                                path: "/hang-moi-ve?brands=Gucci",
+                                label: "Gucci",
+                            },
+                            {
+                                id: 3,
+                                path: "/hang-moi-ve?brands=Chanel",
+                                label: "Chanel",
+                            },
+                            {
+                                id: 4,
+                                path: "/hang-moi-ve?brands=Prada",
+                                label: "Prada",
+                            },
+                            {
+                                id: 5,
+                                path: "/hang-moi-ve?brands=Burberry",
+                                label: "Burberry",
+                            },
+                            {
+                                id: 6,
+                                path: "/hang-moi-ve?brands=Bottega+Veneta",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/hang-moi-ve?brands=Balenciaga",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/hang-moi-ve?brands=Dior",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/hang-moi-ve?brands=Saint+Laurent",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 10,
+                                path: "/hang-moi-ve?brands=Fendi",
+                                label: "Fendi",
+                            },
+                            {
+                                id: 11,
+                                path: "/hang-moi-ve?brands=Celine",
+                                label: "Celine",
+                            },
+                            {
+                                id: 12,
+                                path: "/hang-moi-ve",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/hang-moi-ve?genders=Nam",
+                        label: "Nam",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nam",
+                                bold: true,
+                                label: "Tất cả",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi xách",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Giày & Sneaker",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                label: "Đồng hồ",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Phụ kiện",
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        path: "/hang-moi-ve?genders=Nữ",
+                        label: "Nữ",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nữ",
+                                bold: true,
+                                label: "Tất cả",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi xách",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Giày & Sneaker",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                label: "Đồng hồ",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Phụ kiện",
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 2,
@@ -863,83 +1433,84 @@ export const siteSettings = {
                         subMenu: [
                             {
                                 id: 1,
-                                path: "/hang-moi-ve?brands=louis-vuitton",
+                                path: "/hang-moi-ve?brands=Louis+Vuitton",
                                 label: "Louis Vuitton",
                             },
                             {
                                 id: 2,
-                                path: "/hang-moi-ve?brands=gucci",
+                                path: "/hang-moi-ve?brands=Gucci",
                                 label: "Gucci",
                             },
                             {
                                 id: 3,
-                                path: "/hang-moi-ve?brands=chanel",
+                                path: "/hang-moi-ve?brands=Chanel",
                                 label: "Chanel",
                             },
                             {
                                 id: 4,
-                                path: "/hang-moi-ve?brands=hermes",
-                                label: "Hermès",
-                            },
-                            {
-                                id: 5,
-                                path: "/hang-moi-ve?brands=frederique-constant",
-                                label: "Frederique Constant",
-                            },
-                            {
-                                id: 6,
-                                path: "/hang-moi-ve?brands=longines",
-                                label: "Longines",
-                            },
-                            {
-                                id: 7,
-                                path: "/hang-moi-ve?brands=adidas",
-                                label: "adidas",
-                            },
-                            {
-                                id: 8,
-                                path: "/hang-moi-ve?brands=Nike",
-                                label: "Nike",
-                            },
-                            {
-                                id: 9,
-                                path: "/hang-moi-ve?brands=adidas",
-                                label: "Dior",
-                            },
-                            {
-                                id: 10,
-                                path: "/hang-moi-ve?brands=dolce-gabbana",
-                                label: "Dolce & Gabbana",
-                            },
-                            {
-                                id: 11,
-                                path: "/hang-moi-ve?brands=valentino",
-                                label: "Valentino",
-                            },
-                            {
-                                id: 12,
-                                path: "/hang-moi-ve?brands=burberry",
-                                label: "Burberry",
-                            },
-                            {
-                                id: 13,
-                                path: "/hang-moi-ve?brands=prada",
+                                path: "/hang-moi-ve?brands=Prada",
                                 label: "Prada",
                             },
                             {
-                                id: 14,
-                                path: "/hang-moi-ve?brands=zenith",
-                                label: "Zenith",
+                                id: 5,
+                                path: "/hang-moi-ve?brands=Burberry",
+                                label: "Burberry",
                             },
                             {
-                                id: 15,
-                                path: "/hang-moi-ve?brands=fendi",
+                                id: 6,
+                                path: "/hang-moi-ve?brands=Bottega+Veneta",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/hang-moi-ve?brands=Balenciaga",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/hang-moi-ve?brands=Dior",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/hang-moi-ve?brands=Goyard",
+                                label: "Goyard",
+                            },
+                            {
+                                id: 10,
+                                path: "/hang-moi-ve?brands=Saint+Laurent",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 11,
+                                path: "/hang-moi-ve?brands=Fendi",
                                 label: "Fendi",
                             },
                             {
+                                id: 12,
+                                path: "/hang-moi-ve?brands=Celine",
+                                label: "Celine",
+                            },
+                            {
+                                id: 13,
+                                path: "/hang-moi-ve?brands=Longines",
+                                label: "Longines",
+                            },
+                            {
+                                id: 14,
+                                path: "/hang-moi-ve?brands=Chloé",
+                                label: "Chloé",
+                            },
+                            {
+                                id: 15,
+                                path: "/hang-moi-ve?brands=Alexander+McQueen",
+                                label: "Alexander McQueen",
+                            },
+                            {
                                 id: 16,
-                                path: "/hang-moi-ve?brands=saint-laurent",
-                                label: "Saint Laurent",
+                                path: "/hang-moi-ve",
+                                bold: true,
+                                label: "Xem tất cả",
                             },
                         ],
                     },
@@ -947,90 +1518,108 @@ export const siteSettings = {
             },
             {
                 id: 4,
-                path: "/categories/tui-xach",
-                label: "Túi xách",
+                path: "/hang-moi-ve?genders=Nam",
+                label: "Nam",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
                     {
                         id: 1,
-                        path: "/tui-xach",
+                        path: "/hang-moi-ve?genders=Nam",
                         label: "Thương hiệu",
                         subMenu: [
                             {
                                 id: 1,
-                                path: "/tui-xach",
+                                path: "/hang-moi-ve?brands=Louis+Vuitton&genders=Nam",
+                                label: "Louis Vuitton",
+                            },
+                            {
+                                id: 2,
+                                path: "/hang-moi-ve?brands=Gucci&genders=Nam",
+                                label: "Gucci",
+                            },
+                            {
+                                id: 3,
+                                path: "/hang-moi-ve?brands=Chanel&genders=Nam",
+                                label: "Chanel",
+                            },
+                            {
+                                id: 4,
+                                path: "/hang-moi-ve?brands=Prada&genders=Nam",
+                                label: "Prada",
+                            },
+                            {
+                                id: 5,
+                                path: "/hang-moi-ve?brands=Burberry&genders=Nam",
+                                label: "Burberry",
+                            },
+                            {
+                                id: 6,
+                                path: "/hang-moi-ve?brands=Bottega+Veneta&genders=Nam",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/hang-moi-ve?brands=Balenciaga&genders=Nam",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/hang-moi-ve?brands=Dior&genders=Nam",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/hang-moi-ve?brands=Saint+Laurent&genders=Nam",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 10,
+                                path: "/hang-moi-ve?brands=Fendi&genders=Nam",
+                                label: "Fendi",
+                            },
+                            {
+                                id: 11,
+                                path: "/hang-moi-ve?brands=Celine&genders=Nam",
+                                label: "Celine",
+                            },
+                            {
+                                id: 12,
+                                path: "/hang-moi-ve",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/hang-moi-ve?genders=Nam",
+                        label: "Danh mục",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nam",
+                                bold: true,
                                 label: "Tất cả",
                             },
                             {
                                 id: 2,
-                                path: "/tui-xach?brands=louis-vuitton",
-                                label: "Louis Vuitton",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi xách",
                             },
                             {
                                 id: 3,
-                                path: "/tui-xach?brands=gucci",
-                                label: "Gucci",
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Giày & Sneaker",
                             },
                             {
                                 id: 4,
-                                path: "/tui-xach?brands=dolce-gabbana",
-                                label: "Dolce & Gabbana",
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                label: "Đồng hồ",
                             },
                             {
                                 id: 5,
-                                path: "/tui-xach?brands=chanel",
-                                label: "Chanel",
-                            },
-                            {
-                                id: 6,
-                                path: "/tui-xach?brands=hermes",
-                                label: "Hermès",
-                            },
-                            {
-                                id: 7,
-                                path: "/tui-xach?brands=dior",
-                                label: "Dior",
-                            },
-
-                            {
-                                id: 8,
-                                path: "/tui-xach?brands=prada",
-                                label: "Prada",
-                            },
-                            {
-                                id: 9,
-                                path: "/tui-xach?brands=burberry",
-                                label: "Burberry",
-                            },
-                            {
-                                id: 10,
-                                path: "/tui-xach?brands=celine",
-                                label: "Celine",
-                            },
-                            {
-                                id: 11,
-                                path: "/tui-xach?brands=fendi",
-                                label: "Fendi",
-                            },
-                            {
-                                id: 12,
-                                path: "/tui-xach?brands=goyard",
-                                label: "Goyard",
-                            },
-                            {
-                                id: 13,
-                                path: "/tui-xach?brands=yves-saint-laurent",
-                                label: "Yves Saint Laurent",
-                            },
-                            {
-                                id: 14,
-                                path: "/tui-xach?brands=saint-laurent",
-                                label: "Saint Laurent",
-                            },
-                            {
-                                id: 15,
-                                path: "/tui-xach?brands=balenciaga",
-                                label: "Balenciaga",
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Phụ kiện",
                             },
                         ],
                     },
@@ -1038,99 +1627,108 @@ export const siteSettings = {
             },
             {
                 id: 5,
-                path: "/categories/giay-sneaker",
-                label: "GIÀY & SNEAKER",
+                path: "/hang-moi-ve?genders=Nữ",
+                label: "Nữ",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
                     {
                         id: 1,
-                        path: "/giay-sneaker",
-                        label: "Thương hiệu nổi tiếng",
+                        path: "/hang-moi-ve?genders=Nữ",
+                        label: "Thương hiệu",
                         subMenu: [
                             {
                                 id: 1,
-                                path: "/giay-sneaker",
+                                path: "/hang-moi-ve?brands=Louis+Vuitton&genders=Nữ",
+                                label: "Louis Vuitton",
+                            },
+                            {
+                                id: 2,
+                                path: "/hang-moi-ve?brands=Gucci&genders=Nữ",
+                                label: "Gucci",
+                            },
+                            {
+                                id: 3,
+                                path: "/hang-moi-ve?brands=Chanel&genders=Nữ",
+                                label: "Chanel",
+                            },
+                            {
+                                id: 4,
+                                path: "/hang-moi-ve?brands=Prada&genders=Nữ",
+                                label: "Prada",
+                            },
+                            {
+                                id: 5,
+                                path: "/hang-moi-ve?brands=Burberry&genders=Nữ",
+                                label: "Burberry",
+                            },
+                            {
+                                id: 6,
+                                path: "/hang-moi-ve?brands=Bottega+Veneta&genders=Nữ",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/hang-moi-ve?brands=Balenciaga&genders=Nữ",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/hang-moi-ve?brands=Dior&genders=Nữ",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/hang-moi-ve?brands=Saint+Laurent&genders=Nữ",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 10,
+                                path: "/hang-moi-ve?brands=Fendi&genders=Nữ",
+                                label: "Fendi",
+                            },
+                            {
+                                id: 11,
+                                path: "/hang-moi-ve?brands=Celine&genders=Nữ",
+                                label: "Celine",
+                            },
+                            {
+                                id: 12,
+                                path: "/hang-moi-ve",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/hang-moi-ve?genders=Nữ",
+                        label: "Danh mục",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/hang-moi-ve?genders=Nữ",
+                                bold: true,
                                 label: "Tất cả",
                             },
                             {
                                 id: 2,
-                                path: "/giay-sneaker?brands=prada",
-                                label: "Prada",
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi xách",
                             },
                             {
                                 id: 3,
-                                path: "/giay-sneaker?brands=christian-dior",
-                                label: "Christian Dior",
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Giày & Sneaker",
                             },
                             {
                                 id: 4,
-                                path: "/giay-sneaker?brands=adidas",
-                                label: "Adidas",
+                                path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                label: "Đồng hồ",
                             },
                             {
                                 id: 5,
-                                path: "/giay-sneaker?brands=chanel",
-                                label: "Chanel",
-                            },
-                            {
-                                id: 6,
-                                path: "/giay-sneaker?brands=nike",
-                                label: "Nike",
-                            },
-                            {
-                                id: 7,
-                                path: "/giay-sneaker?brands=puma",
-                                label: "Puma",
-                            },
-                            {
-                                id: 8,
-                                path: "/giay-sneaker?brands=new-balance",
-                                label: "New Balance",
-                            },
-                            {
-                                id: 9,
-                                path: "/giay-sneaker?brands=hermes",
-                                label: "Hermès",
-                            },
-                            {
-                                id: 10,
-                                path: "/giay-sneaker?brands=dior",
-                                label: "Dior",
-                            },
-                            {
-                                id: 11,
-                                path: "/giay-sneaker?brands=gucci",
-                                label: "Gucci",
-                            },
-                            {
-                                id: 12,
-                                path: "/giay-sneaker?brands=fendi",
-                                label: "Fendi",
-                            },
-                            {
-                                id: 13,
-                                path: "/giay-sneaker?brands=louis-vuitton",
-                                label: "Louis Vuitton",
-                            },
-                            {
-                                id: 14,
-                                path: "/giay-sneaker?brands=balenciaga",
-                                label: "Balenciaga",
-                            },
-                            {
-                                id: 15,
-                                path: "/giay-sneaker?brands=salvatore-ferragamo",
-                                label: "Salvatore Ferragamo",
-                            },
-                            {
-                                id: 16,
-                                path: "/giay-sneaker?brands=dolce-gabbana",
-                                label: "Dolce & Gabbana",
-                            },
-                            {
-                                id: 17,
-                                path: "/giay-sneaker?brands=under-armour",
-                                label: "Under Armour",
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Phụ kiện",
                             },
                         ],
                     },
@@ -1138,150 +1736,206 @@ export const siteSettings = {
             },
             {
                 id: 6,
-                path: "/categories/dong-ho-cao-cap",
-                label: "Đồng hồ",
+                path: "/categories/tui-xach",
+                label: "Túi xách",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
                     {
                         id: 1,
-                        path: "/dong-ho-cao-cap",
-                        label: "Thương hiệu nổi tiếng",
+                        path: "/categories/tui-xach",
+                        label: "Thương hiệu",
                         subMenu: [
                             {
                                 id: 1,
-                                path: "/dong-ho-cao-cap",
+                                path: "/categories/tui-xach?brands=Louis+Vuitton",
+                                label: "Louis Vuitton",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/tui-xach?brands=Gucci",
+                                label: "Gucci",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/tui-xach?brands=Chanel",
+                                label: "Chanel",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/tui-xach?brands=Prada",
+                                label: "Prada",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/tui-xach?brands=Burberry",
+                                label: "Burberry",
+                            },
+                            {
+                                id: 6,
+                                path: "/categories/tui-xach?brands=Bottega+Veneta",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/categories/tui-xach?brands=Balenciaga",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/categories/tui-xach?brands=Dior",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/categories/tui-xach?brands=Saint+Laurent",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 10,
+                                path: "/categories/tui-xach?brands=Fendi",
+                                label: "Fendi",
+                            },
+                            {
+                                id: 11,
+                                path: "/categories/tui-xach?brands=Celine",
+                                label: "Celine",
+                            },
+                            {
+                                id: 12,
+                                path: "/categories/tui-xach",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/categories/tui-xach?genders=Nam",
+                        label: "Nam",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/tui-xach?genders=Nam",
+                                bold: true,
                                 label: "Tất cả",
                             },
                             {
                                 id: 2,
-                                path: "/dong-ho-cao-cap?brands=casio",
-                                label: "Casio",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Đeo Chéo",
                             },
                             {
                                 id: 3,
-                                path: "/dong-ho-cao-cap?brands=tag-heuer",
-                                label: "Tag Heuer",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Xách Tay",
                             },
                             {
                                 id: 4,
-                                path: "/dong-ho-cao-cap?brands=fendi",
-                                label: "Fendi",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Đeo Hông",
                             },
                             {
                                 id: 5,
-                                path: "/dong-ho-cao-cap?brands=omega",
-                                label: "Omega",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Đeo Vai",
                             },
                             {
                                 id: 6,
-
-                                path: "/dong-ho-cao-cap?brands=longines",
-                                label: "Longines",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Clutch",
                             },
                             {
                                 id: 7,
-
-                                path: "/dong-ho-cao-cap?brands=burberry",
-                                label: "Burberry",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Tote",
                             },
                             {
                                 id: 8,
-                                path: "/dong-ho-cao-cap?brands=gucci",
-                                label: "Gucci",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Ví",
                             },
                             {
                                 id: 9,
-                                path: "/dong-ho-cao-cap?brands=mont-blanc",
-                                label: "Mont Blanc",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Cặp Hồ Sơ",
                             },
                             {
                                 id: 10,
-                                path: "/dong-ho-cao-cap?brands=frederique-constant",
-                                label: "Frederique Constant",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Ba Lô",
                             },
                             {
                                 id: 11,
-                                path: "/dong-ho-cao-cap?brands=edox",
-                                label: "Edox",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Vali",
                             },
                             {
                                 id: 12,
-                                path: "/dong-ho-cao-cap?brands=versace",
-                                label: "Versace",
+                                path: "/categories/tui-xach?genders=Nam",
+                                label: "Túi Du Lịch",
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        path: "/categories/tui-xach?genders=Nữ",
+                        label: "Nữ",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                bold: true,
+                                label: "Tất cả",
                             },
                             {
-                                id: 13,
-                                path: "/dong-ho-cao-cap?brands=seiko",
-                                label: "Seiko",
+                                id: 2,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Đeo Chéo",
                             },
                             {
-                                id: 14,
-                                path: "/dong-ho-cao-cap?brands=citizen",
-                                label: "Citizen",
+                                id: 3,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Xách Tay",
                             },
                             {
-                                id: 15,
-                                path: "/dong-ho-cao-cap?brands=eterna",
-                                label: "Eterna",
+                                id: 4,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Đeo Hông",
                             },
                             {
-                                id: 16,
-                                path: "/dong-ho-cao-cap?brands=oris",
-                                label: "Oris",
+                                id: 5,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Đeo Vai",
                             },
                             {
-                                id: 17,
-                                path: "/dong-ho-cao-cap?brands=mido",
-                                label: "Mido",
+                                id: 6,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Clutch",
                             },
                             {
-                                id: 18,
-                                path: "/dong-ho-cao-cap?brands=maurice-lacroix",
-                                label: "Maurice Lacroix",
+                                id: 7,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Tote",
                             },
                             {
-                                id: 19,
-                                path: "/dong-ho-cao-cap?brands=orient",
-                                label: "Orient",
+                                id: 8,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Ví",
                             },
                             {
-                                id: 20,
-                                path: "/dong-ho-cao-cap?brands=victorinox",
-                                label: "Victorinox",
+                                id: 9,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Ba Lô",
                             },
                             {
-                                id: 21,
-                                path: "/dong-ho-cao-cap?brands=tissot",
-                                label: "Tissot",
+                                id: 10,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Vali",
                             },
                             {
-                                id: 22,
-                                path: "/dong-ho-cao-cap?brands=raymond-weil",
-                                label: "Raymond Weil",
-                            },
-                            {
-                                id: 23,
-                                path: "/dong-ho-cao-cap?brands=zenith",
-                                label: "Zenith",
-                            },
-                            {
-                                id: 24,
-                                path: "/dong-ho-cao-cap?brands=hublot",
-                                label: "Hublot",
-                            },
-                            {
-                                id: 25,
-                                path: "/dong-ho-cao-cap?brands=rolex",
-                                label: "Rolex",
-                            },
-                            {
-                                id: 26,
-                                path: "/dong-ho-cao-cap?brands=hermes",
-                                label: "Hermès",
-                            },
-                            {
-                                id: 27,
-                                path: "/dong-ho-cao-cap?brands=louis-vuitton",
-                                label: "Louis Vuitton",
+                                id: 11,
+                                path: "/categories/tui-xach?genders=Nữ",
+                                label: "Túi Du Lịch",
                             },
                         ],
                     },
@@ -1289,151 +1943,423 @@ export const siteSettings = {
             },
             {
                 id: 7,
-                path: "/categories/phu-kien",
-                label: "Phụ kiện",
-
+                path: "/categories/giay-sneaker",
+                label: "Giày & Sneaker",
+                menuImage: "https://joolux.com/img/menu/mega-1.jpg",
                 subMenu: [
                     {
-                        id: 7,
-                        path: "/phu-kien",
-                        label: "Thương hiệu nổi tiếng",
+                        id: 1,
+                        path: "/categories/giay-sneaker",
+                        label: "Thương hiệu",
                         subMenu: [
                             {
                                 id: 1,
-                                path: "/phu-kien",
+                                path: "/categories/giay-sneaker?brands=Louis+Vuitton",
+                                label: "Louis Vuitton",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/giay-sneaker?brands=Gucci",
+                                label: "Gucci",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/giay-sneaker?brands=Chanel",
+                                label: "Chanel",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/giay-sneaker?brands=Prada",
+                                label: "Prada",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/giay-sneaker?brands=Burberry",
+                                label: "Burberry",
+                            },
+                            {
+                                id: 6,
+                                path: "/categories/giay-sneaker?brands=Bottega+Veneta",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/categories/giay-sneaker?brands=Balenciaga",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/categories/giay-sneaker?brands=Dior",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/categories/giay-sneaker?brands=Saint+Laurent",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 10,
+                                path: "/categories/giay-sneaker?brands=Fendi",
+                                label: "Fendi",
+                            },
+                            {
+                                id: 11,
+                                path: "/categories/giay-sneaker?brands=Celine",
+                                label: "Celine",
+                            },
+                            {
+                                id: 12,
+                                path: "/categories/giay-sneaker",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/categories/giay-sneaker?genders=Nam",
+                        label: "Nam",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                bold: true,
                                 label: "Tất cả",
                             },
                             {
                                 id: 2,
-                                path: "/phu-kien?brands=oliver-peoples",
-                                label: "Oliver Peoples",
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Sneaker",
                             },
                             {
                                 id: 3,
-
-                                path: "/phu-kien?brands=oakley",
-                                label: "Oakley",
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Dép",
                             },
                             {
                                 id: 4,
-                                path: "/phu-kien?brands=randolph-engineering",
-                                label: "Randolph Engineering",
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Sandal",
                             },
                             {
                                 id: 5,
-
-                                path: "/phu-kien?brands=spy+",
-                                label: "Spy+",
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Giày Loafer",
                             },
                             {
                                 id: 6,
-                                path: "/phu-kien?brands=ermenegildo-zegna",
-                                label: "Ermenegildo Zegna",
+                                path: "/categories/giay-sneaker?genders=Nam",
+                                label: "Giày Tây",
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        path: "/categories/giay-sneaker?genders=Nữ",
+                        label: "Nữ",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                bold: true,
+                                label: "Tất cả",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Sneaker",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Dép",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Giày Boots",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Giày Cao Gót",
+                            },
+                            {
+                                id: 6,
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Giày Búp Bê",
                             },
                             {
                                 id: 7,
-                                path: "/phu-kien?brands=tom-ford",
-                                label: "Tom Ford",
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Sandal",
                             },
                             {
                                 id: 8,
-                                path: "/phu-kien?brands=ray-ban",
-                                label: "Ray Ban",
+                                path: "/categories/giay-sneaker?genders=Nữ",
+                                label: "Giày Loafer",
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 8,
+                path: "/categories/dong-ho-cao-cap",
+                label: "Đồng hồ",
+                subMenu: [
+                    {
+                        id: 1,
+                        path: "/categories/dong-ho-cao-cap",
+                        label: "Thương hiệu",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/dong-ho-cao-cap?brands=Louis+Vuitton",
+                                label: "Rolex",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/dong-ho-cao-cap?brands=Frederique+Constant",
+                                label: "Frederique Constant",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/dong-ho-cao-cap?brands=Maurice+Lacroix",
+                                label: "Maurice Lacroix",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/dong-ho-cao-cap?brands=Longines",
+                                label: "Longines",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/dong-ho-cao-cap?brands=Tissot",
+                                label: "Tissot",
+                            },
+                            {
+                                id: 6,
+                                path: "/categories/dong-ho-cao-cap?brands=Montblanc",
+                                label: "Montblanc",
+                            },
+                            {
+                                id: 7,
+                                path: "/categories/dong-ho-cao-cap?brands=Chopard",
+                                label: "Chopard",
+                            },
+                            {
+                                id: 8,
+                                path: "/categories/dong-ho-cao-cap?brands=Edox",
+                                label: "Edox",
                             },
                             {
                                 id: 9,
-                                path: "/phu-kien?brands=fendi",
-                                label: "Fendi",
+                                path: "/categories/dong-ho-cao-cap?brands=Omega",
+                                label: "Omega",
                             },
                             {
                                 id: 10,
-                                path: "/phu-kien?brands=kenzo",
-                                label: "Kenzo",
+                                path: "/categories/dong-ho-cao-cap",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/categories/dong-ho-cao-cap?genders=Nam",
+                        label: "Nam",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                bold: true,
+                                label: "Tất cả",
                             },
                             {
-                                id: 11,
-                                path: "/phu-kien?brands=etnia-barcelona",
-                                label: "ETNIA Barcelona",
+                                id: 2,
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                label: "Quartz",
                             },
                             {
-                                id: 12,
-                                path: "/phu-kien?brands=louis-vuitton",
+                                id: 3,
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                label: "Automatic",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/dong-ho-cao-cap?genders=Nam",
+                                label: "Eco-drive",
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                        label: "Nữ",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                bold: true,
+                                label: "Tất cả",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                label: "Quartz",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/dong-ho-cao-capr?genders=Nữ",
+                                label: "Automatic",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/dong-ho-cao-cap?genders=Nữ",
+                                label: "Eco-drive",
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                id: 9,
+                path: "/categories/phu-kien",
+                label: "Phụ kiện",
+                subMenu: [
+                    {
+                        id: 1,
+                        path: "/categories/phu-kien",
+                        label: "Thương hiệu",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/phu-kien?brands=Louis+Vuitton",
                                 label: "Louis Vuitton",
                             },
                             {
-                                id: 13,
-                                path: "/phu-kien?brands=persol",
-                                label: "Persol",
-                            },
-                            {
-                                id: 14,
-                                path: "/phu-kien?brands=zink",
-                                label: "Zink",
-                            },
-                            {
-                                id: 15,
-                                path: "/phu-kien?brands=versace",
-                                label: "Versace",
-                            },
-                            {
-                                id: 16,
-                                path: "/phu-kien?brands=hugo-boss",
-                                label: "Hugo Boss",
-                            },
-                            {
-                                id: 17,
-                                path: "/phu-kien?brands=ferragamo",
-                                label: "Ferragamo",
-                            },
-                            {
-                                id: 18,
-                                path: "/phu-kien?brands=tod%27s",
-                                label: "TOD'S",
-                            },
-                            {
-                                id: 19,
-                                path: "/phu-kien?brands=salvatore-ferragamo",
-                                label: "Salvatore Ferragamo",
-                            },
-                            {
-                                id: 20,
-                                path: "/phu-kien?brands=givenchy",
-                                label: "Givenchy",
-                            },
-                            {
-                                id: 21,
-                                path: "/phu-kien?brands=balenciaga",
-                                label: "Balenciaga",
-                            },
-                            {
-                                id: 22,
-                                path: "/phu-kien?brands=emilio-pucci",
-                                label: "Emilio Pucci",
-                            },
-                            {
-                                id: 23,
-                                path: "/phu-kien?brands=prada",
-                                label: "Prada",
-                            },
-                            {
-                                id: 24,
-                                path: "/phu-kien?brands=mont-blanc",
-                                label: "Mont Blanc",
-                            },
-                            {
-                                id: 25,
-                                path: "/phu-kien?brands=dior",
-                                label: "Dior",
-                            },
-                            {
-                                id: 26,
-                                path: "/phu-kien?brands=gucci",
+                                id: 2,
+                                path: "/categories/phu-kien?brands=Gucci",
                                 label: "Gucci",
                             },
                             {
-                                id: 27,
-                                path: "/phu-kien?brands=hermes",
-                                label: "Hermès",
+                                id: 3,
+                                path: "/categories/phu-kien?brands=Chanel",
+                                label: "Chanel",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/phu-kien?brands=Prada",
+                                label: "Prada",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/phu-kien?brands=Burberry",
+                                label: "Burberry",
+                            },
+                            {
+                                id: 6,
+                                path: "/categories/phu-kien?brands=Bottega+Veneta",
+                                label: "Bottega Veneta",
+                            },
+                            {
+                                id: 7,
+                                path: "/categories/phu-kien?brands=Balenciaga",
+                                label: "Balenciaga",
+                            },
+                            {
+                                id: 8,
+                                path: "/categories/phu-kien?brands=Dior",
+                                label: "Dior",
+                            },
+                            {
+                                id: 9,
+                                path: "/categories/phu-kien?brands=Saint+Laurent",
+                                label: "Saint Laurent",
+                            },
+                            {
+                                id: 10,
+                                path: "/categories/phu-kien?brands=Fendi",
+                                label: "Fendi",
+                            },
+                            {
+                                id: 11,
+                                path: "/categories/phu-kien?brands=Celine",
+                                label: "Celine",
+                            },
+                            {
+                                id: 12,
+                                path: "/categories/phu-kien",
+                                bold: true,
+                                label: "Xem tất cả",
+                            },
+                        ],
+                    },
+                    {
+                        id: 2,
+                        path: "/categories/phu-kien?genders=Nam",
+                        label: "Nam",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/phu-kien?genders=Nam",
+                                bold: true,
+                                label: "Tất cả",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Kính Mắt",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Thắt Lưng",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Mũ",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/phu-kien?genders=Nam",
+                                label: "Khăn",
+                            },
+                        ],
+                    },
+                    {
+                        id: 3,
+                        path: "/categories/phu-kien?genders=Nữ",
+                        label: "Nữ",
+                        subMenu: [
+                            {
+                                id: 1,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                bold: true,
+                                label: "Tất cả",
+                            },
+                            {
+                                id: 2,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Kính Mắt",
+                            },
+                            {
+                                id: 3,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Thắt Lưng",
+                            },
+                            {
+                                id: 4,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Mũ",
+                            },
+                            {
+                                id: 5,
+                                path: "/categories/phu-kien?genders=Nữ",
+                                label: "Khăn",
                             },
                         ],
                     },
