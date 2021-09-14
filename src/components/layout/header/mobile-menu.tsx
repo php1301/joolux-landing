@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Link from "@components/ui/link";
+import cn from "classnames";
 import { siteSettings } from "@settings/site-settings";
 import Scrollbar from "@components/common/scrollbar";
 import { IoIosArrowDown } from "react-icons/io";
@@ -76,7 +76,11 @@ export default function MobileMenu() {
                         onClick={() => handleArrowClick(menuName, dept, path)}
                         className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out cursor-pointer"
                     >
-                        <span className="block w-full">
+                        <span
+                            className={cn("block w-full", {
+                                "font-semibold": data?.bold,
+                            })}
+                        >
                             {t(`${data.label}`)}
                         </span>
                     </div>
