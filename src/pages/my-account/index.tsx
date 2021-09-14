@@ -32,10 +32,10 @@ const MyAccount: NextPage & { Layout: typeof Layout } = () => {
                 </Link>{" "}
                 {t("text-and")}{" "}
                 <Link
-                    href={ROUTES.CHANGE_PASSWORD}
+                    href={ROUTES.ACCOUNT_FAVORITES}
                     className="text-heading underline font-semibold"
                 >
-                    {t("text-change-your-password")}
+                    {t("Danh sách yêu thích của bạn")}
                 </Link>
                 .
             </p>
