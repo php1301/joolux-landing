@@ -16,6 +16,7 @@ import { PromotionFilter } from "./promotion-filter";
 import { SpecialFilter } from "./special-filter";
 import { useQueryClient } from "react-query";
 import { ROUTES } from "@utils/routes";
+import { SubCategoryFilter } from "./sub-categories-filter";
 
 interface IShopFilters {
     filter: Filter;
@@ -35,6 +36,7 @@ export const ShopFilters: React.FC<IShopFilters> = ({
     const {
         brands,
         categories,
+        subCategories,
         colors,
         conditions,
         genders,
@@ -90,6 +92,9 @@ export const ShopFilters: React.FC<IShopFilters> = ({
                 </div>
             </div>
             {categories && <CategoryFilter categoriesFilter={categories} />}
+            {subCategories?.subCateData?.length > 0 && (
+                <SubCategoryFilter subCategoryFilter={subCategories} />
+            )}
             {brands && <BrandFilter brandsFilter={brands} />}
             {genders && <GenderFilter gendersFilter={genders} />}
             {statuses && <StatusFilter statusesFilter={statuses} />}
