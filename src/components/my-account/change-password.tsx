@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import PasswordInput from "@components/ui/password-input";
 import { Button } from "@components/ui/button";
 import { useForm } from "react-hook-form";
@@ -14,15 +14,19 @@ const defaultValues = {
     oldPassword: "",
     newPassword: "",
 };
-const ChangePassword: React.FC = () => {
-    const { mutate: changePassword, isLoading } = useChangePasswordMutation();
+const ChangePassword: React.FC<{ setPage: any }> = ({ setPage }) => {
+    const {
+        mutate: changePassword,
+        isLoading,
+        isSuccess,
+    } = useChangePasswordMutation();
     const oldPassword = useRef({});
     const newPassword = useRef({});
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isDirty },
         watch,
     } = useForm<ChangePasswordInputType>({
         defaultValues,
@@ -31,8 +35,16 @@ const ChangePassword: React.FC = () => {
     newPassword.current = watch("newPassword", "");
 
     function onSubmit(input: ChangePasswordInputType) {
-        changePassword(input);
+        if (isDirty) {
+            changePassword(input);
+        }
     }
+    useEffect(() => {
+        if (isSuccess) {
+            setPage(1);
+            window.scrollTo({ top: 0 });
+        }
+    }, [isSuccess]);
     const { t } = useTranslation();
     return (
         <>
@@ -85,8 +97,8 @@ const ChangePassword: React.FC = () => {
                         <PasswordInput
                             labelKey="Xác nhận mật khẩu mới"
                             variant="jl"
-                            errorKey={errors.confirmNewpassword?.message}
-                            {...register("confirmNewpassword", {
+                            errorKey={errors.confirmPassword?.message}
+                            {...register("confirmPassword", {
                                 required: "Thông tin bắt buộc",
                                 validate: (value) =>
                                     value === newPassword.current ||
@@ -98,12 +110,23 @@ const ChangePassword: React.FC = () => {
                         <div className="relative">
                             <Button
                                 type="submit"
-                                variant="jl"
                                 loading={isLoading}
                                 disabled={isLoading}
-                                className="h-13 mt-3"
+                                variant="jl"
+                                className="h-12 mt-3 w-full sm:w-40 mr-3"
                             >
-                                {t("Đổi mật khẩu")}
+                                Đổi mật khẩu
+                            </Button>
+                            <Button
+                                type="button"
+                                variant="jl"
+                                className="h-12 mt-3 w-full sm:w-40 step-form-button-back"
+                                onClick={() => {
+                                    setPage(1);
+                                    window.scrollTo({ top: 0 });
+                                }}
+                            >
+                                Hủy
                             </Button>
                         </div>
                     </div>
