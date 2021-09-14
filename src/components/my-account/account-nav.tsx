@@ -10,6 +10,7 @@ import {
 import { ROUTES } from "@utils/routes";
 import { useLogoutMutation } from "@framework/auth/use-logout";
 import { useTranslation } from "next-i18next";
+import { BsHeart } from "react-icons/bs";
 
 const accountMenu = [
     {
@@ -28,9 +29,9 @@ const accountMenu = [
         icon: <IoPersonOutline className="w-5 h-5" />,
     },
     {
-        slug: ROUTES.CHANGE_PASSWORD,
-        name: "text-change-password",
-        icon: <IoSettingsOutline className="w-5 h-5" />,
+        slug: ROUTES.ACCOUNT_FAVORITES,
+        name: "Yêu thích",
+        icon: <BsHeart className="w-5 h-5" />,
     },
 ];
 export default function AccountNav() {
@@ -50,8 +51,8 @@ export default function AccountNav() {
                         <a
                             className={
                                 mainPath === menuPath
-                                    ? "bg-gray-100 font-semibold flex items-center cursor-pointer text-sm lg:text-base text-heading py-3.5 px-4 lg:px-5 rounded mb-2 "
-                                    : "flex items-center cursor-pointer text-sm lg:text-base text-heading font-normal py-3.5 px-4 lg:px-5 rounded mb-2"
+                                    ? "bg-gray-100 font-semibold flex items-center cursor-pointer text-sm lg:text-base text-heading py-3.5 px-4 lg:px-5 rounded mb-2 capitalize"
+                                    : "flex items-center cursor-pointer text-sm lg:text-base text-heading font-normal py-3.5 px-4 lg:px-5 rounded mb-2 capitalize"
                             }
                         >
                             {item.icon}
@@ -61,7 +62,7 @@ export default function AccountNav() {
                 );
             })}
             <button
-                className="flex items-center cursor-pointer text-sm lg:text-base text-heading font-normal py-3.5 px-4 lg:px-5 focus:outline-none"
+                className="flex items-center cursor-pointer text-sm lg:text-base text-heading font-normal py-3.5 px-4 lg:px-5 focus:outline-none capitalize"
                 onClick={() => logout()}
             >
                 <IoLogOutOutline className="w-5 h-5" />
