@@ -109,10 +109,22 @@ const AccountInfo: React.FC<{ setPage: any; setDetails: any }> = ({
                                         setPage(2);
                                     }}
                                     variant="jl"
-                                    className="h-12 mt-3 w-full sm:w-40"
+                                    className="h-12 mt-3 w-full sm:w-40 mr-3"
                                 >
                                     Sửa thông tin
                                 </Button>
+                                {data?.userProfile.provider === "normal" && (
+                                    <Button
+                                        type="button"
+                                        onClick={() => {
+                                            setPage(3);
+                                        }}
+                                        variant="jl"
+                                        className="h-12 mt-3 w-full sm:w-40"
+                                    >
+                                        Đổi mật khẩu
+                                    </Button>
+                                )}
                             </div>
                         </>
                     )}
