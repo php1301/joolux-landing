@@ -62,7 +62,8 @@ export const useLoginMutation = () => {
                 if (favoriteData) {
                     favoriteProduct({ product: favoriteData });
                     setFavoriteData("");
-                }            },
+                }
+            },
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
                 toast("Có lỗi đăng nhập", {

@@ -36,7 +36,7 @@ const Cart: FC = () => {
             setDisable(false);
         }
     }, [isEmpty]);
-   
+
     return (
         <div className="flex flex-col w-full h-full justify-between">
             <div className="w-full flex justify-between items-center relative ps-5 md:ps-7 py-4 border-b border-gray-100">

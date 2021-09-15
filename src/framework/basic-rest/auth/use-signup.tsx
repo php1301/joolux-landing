@@ -63,7 +63,8 @@ export const useSignUpMutation = () => {
                 if (favoriteData) {
                     favoriteProduct({ product: favoriteData });
                     setFavoriteData("");
-                }            },
+                }
+            },
             onError: (error: AxiosError) => {
                 console.log(error.response, "Sign Up error");
                 localStorage.removeItem("session_otp");
