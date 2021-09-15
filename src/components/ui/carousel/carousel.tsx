@@ -17,10 +17,10 @@ interface CarouselPropsType {
     centeredSlides?: boolean;
     breakpoints?: {} | any;
     pagination?: {} | any;
-    loopedSlides: number;
+    loopedSlides?: number;
     navigation?: {} | any;
     autoplay?: {} | any;
-    slidesPerGroup: number;
+    slidesPerGroup?: number;
     spaceBetween?: number;
     autoHeight?: boolean;
 }
