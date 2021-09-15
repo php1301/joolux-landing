@@ -1,3 +1,4 @@
+import { siteSettings } from "./site-settings";
 export const sitePages = {
     "hang-moi-ve": {
         page_title: "Hàng mới về | Joolux",
@@ -35,6 +36,55 @@ export const sitePages = {
         banner_title_id: "phuKienTitle",
         banner_description_id: "phuKienSubTitle",
         banner: "https://joolux.com/img/menu/mega-5.jpg",
+    },
+    "ve-chung-toi": {
+        page_title: "Về chúng tôi | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
+    "p/cam-ket-tu-joolux": {
+        page_title: "Cam kết từ Joolux | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
+    "p/chinh-sach-bao-mat": {
+        page_title: "Chính sách bảo mật | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
+    "p/chinh-sach-bao-hanh-doi-tra": {
+        page_title: "Chính sách bảo hành và đổi trả | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
+    "p/chinh-sach-thanh-toan": {
+        page_title: "Chính sách thanh toán | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
+    "p/chinh-sach-van-chuyen": {
+        page_title: "Chính sách vận chuyển | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
+    "p/quy-che-hoat-dong": {
+        page_title: "Quy chế hoạt động | Joolux",
+        page_description: siteSettings.description,
+        banner_title_id: "JooluxOtherPagesTitleId",
+        banner_description_id: "JooluxOtherPagesDescriptionId",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
     },
     error: {
         page_title: "Joolux - Trang không tồn tại",
