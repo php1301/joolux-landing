@@ -7,7 +7,7 @@ import { ESFlag } from "@components/icons/ESFlag";
 export const siteSettings = {
     name: "Joolux",
     description:
-        "Cập nhật những thông tin mới nhất về xu hướng thời trang với Joolux. Đăng ký nhận thông tin bằng cách nhập email của bạn.",
+        "Sàn mua bán và ký gửi đồ hiệu, hàng hiệu chính hãng mới cũ chuyên nghiệp. Mua bán chuyên nghiệp phí tốt, an toàn. Dịch vụ nhanh chóng đảm bảo.",
     author: {
         name: "Webdev Studios",
         websiteUrl: "https://joolux-client.ml",
@@ -1193,12 +1193,12 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 2,
-                                        path: "/categories/mat-kinh?genders=Nam",
-                                        label: "Kính Mắt",
+                                        path: "/categories/phu-kien?genders=Nam&subCategory=Kính+mát",
+                                        label: "Kính Mát",
                                     },
                                     {
                                         id: 3,
-                                        path: "/categories/phu-kien?genders=Nam&subCategory=Thắt+Lưng",
+                                        path: "/categories/phu-kien?genders=Nam&subCategory=Thắt+lưng",
                                         label: "Thắt Lưng",
                                     },
                                     {
@@ -1231,12 +1231,12 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 2,
-                                        path: "/categories/mat-kinh?genders=Nữ",
-                                        label: "Kính Mắt",
+                                        path: "/categories/phu-kien?genders=Nữ&subCategory=Kính+mát",
+                                        label: "Kính Mát",
                                     },
                                     {
                                         id: 3,
-                                        path: "/categories/phu-kien?genders=Nữ&subCategory=Thắt+Lưng",
+                                        path: "/categories/phu-kien?genders=Nữ&subCategory=Thắt+lưng",
                                         label: "Thắt Lưng",
                                     },
                                     {
@@ -2310,12 +2310,12 @@ export const siteSettings = {
                             },
                             {
                                 id: 2,
-                                path: "/categories/mat-kinh?genders=Nam",
-                                label: "Kính Mắt",
+                                path: "/categories/phu-kien?genders=Nam&subCategory=Kính+mát",
+                                label: "Kính Mát",
                             },
                             {
                                 id: 3,
-                                path: "/categories/phu-kien?genders=Nam&subCategory=Thắt+Lưng",
+                                path: "/categories/phu-kien?genders=Nam&subCategory=Thắt+lưng",
                                 label: "Thắt Lưng",
                             },
                             {
@@ -2343,12 +2343,12 @@ export const siteSettings = {
                             },
                             {
                                 id: 2,
-                                path: "/categories/phu-kien?genders=Nữ&subCategory=Kính+Mắt",
-                                label: "Kính Mắt",
+                                path: "/categories/phu-kien?genders=Nữ&subCategory=Kính+mát",
+                                label: "Kính Mát",
                             },
                             {
                                 id: 3,
-                                path: "/categories/phu-kien?genders=Nữ&subCategory=Thắt+Lưng",
+                                path: "/categories/phu-kien?genders=Nữ&subCategory=Thắt+lưng",
                                 label: "Thắt Lưng",
                             },
                             {
