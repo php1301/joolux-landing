@@ -17,8 +17,12 @@ interface CarouselPropsType {
     centeredSlides?: boolean;
     breakpoints?: {} | any;
     pagination?: {} | any;
+    loopedSlides: number;
     navigation?: {} | any;
     autoplay?: {} | any;
+    slidesPerGroup: number;
+    spaceBetween?: number;
+    autoHeight?: boolean;
 }
 
 const Carousel: React.FC<CarouselPropsType> = ({
