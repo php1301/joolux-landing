@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import ActiveLink from "@components/ui/active-link";
+import { ROUTES } from "@utils/routes";
 // import {
 //     PankodIcon,
 //     GithubIcon,
@@ -52,86 +54,119 @@ export const Footer: React.FC = () => {
                             <h6 className="Typography__H6-sc-18cqegv-5 hnzrVF mb-4 font-semibold uppercase">
                                 JOOLUX.COM
                             </h6>
-                            <ul className="FooterMenu__ListContainer-sc-1vxjdze-0 cvWduv">
+                            <ul className="smJl:mb-10">
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/ve-chung-toi"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.VE_CHUNG_TOI}
                                     >
-                                        Về chúng tôi
-                                    </a>
+                                        <a className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary">
+                                            Về chúng tôi
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/blog"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.BLOG}
                                     >
-                                        Blog
-                                    </a>
+                                        <a className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary">
+                                            Blog
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/p/quy-che-hoat-dong"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.QUY_CHE_HOAT_DONG}
                                     >
-                                        Quy chế hoạt động
-                                    </a>
+                                        <a className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary">
+                                            Quy chế hoạt động
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/p/chinh-sach-bao-mat"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.CHINH_SACH_BAO_MAT}
                                     >
-                                        Chính sách bảo mật
-                                    </a>
+                                        <a className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary">
+                                            Chính sách bảo mật
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                             </ul>
                             <div className="border-b border-gray-700 md:mb-10 mb-8 -mx-5 block md:hidden" />
                         </div>
                         <div className="px-4 w-full md:w-1/3 lg:w-1/4 order-2 md:order-none">
-                            <h6 className="Typography__H6-sc-18cqegv-5 hnzrVF mb-4 font-semibold uppercase">
+                            <h6 className="mb-4 font-semibold uppercase">
                                 Thương hiệu nổi tiếng
                             </h6>
-                            <ul className="FooterMenu__ListContainer-sc-1vxjdze-0 cvWduv pb-0">
+                            <ul className="smJl:mb-10 pb-0">
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=louis-vuitton"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Louis+Vuitton"
                                     >
-                                        Louis Vuitton
-                                    </a>
+                                        <a
+                                            href="/hang-moi-ve?brands=Louis+Vuitton"
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                        >
+                                            Louis Vuitton
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=gucci"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Gucci"
                                     >
-                                        Gucci
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Gucci"
+                                        >
+                                            Gucci
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=chanel"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Chanel"
                                     >
-                                        Chanel
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Chanel"
+                                        >
+                                            Chanel
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=hermes"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Prada"
                                     >
-                                        Hermès
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Prada"
+                                        >
+                                            Prada
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=frederique-constant"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Burberry"
                                     >
-                                        Frederique Constant
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Burberry"
+                                        >
+                                            Burberry
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                             </ul>
                         </div>
@@ -139,46 +174,71 @@ export const Footer: React.FC = () => {
                             <h6 className="Typography__H6-sc-18cqegv-5 hnzrVF mb-4 font-semibold uppercase hidden md:block opacity-0 pointer-events-none">
                                 Thương hiệu nổi tiếng
                             </h6>
-                            <ul className="FooterMenu__ListContainer-sc-1vxjdze-0 cvWduv">
+                            <ul className="smJl:mb-10">
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=longines"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Longines"
                                     >
-                                        Longines
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Longines"
+                                        >
+                                            Longines
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=adidas"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Saint+Laurent"
                                     >
-                                        Adidas
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Saint+Laurent"
+                                        >
+                                            Saint Laurent
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=nike"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Fendi"
                                     >
-                                        Nike
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Fendi"
+                                        >
+                                            Fendi
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=dior"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Celine"
                                     >
-                                        Dior
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Celine"
+                                        >
+                                            Celine
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/hang-moi-ve?brands=dolce-gabbana"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href="/hang-moi-ve?brands=Dior"
                                     >
-                                        Dolce &amp; Gabbana
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href="/hang-moi-ve?brands=Dior"
+                                        >
+                                            Dior
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                             </ul>
                             <div className="border-b border-gray-700 md:mb-10 mb-8 -mx-5 block md:hidden" />
@@ -208,13 +268,13 @@ export const Footer: React.FC = () => {
                             </p>
                         </div>
                         <div className="px-4 w-full md:w-1/3 lg:w-1/4 order-1 md:order-1 lg:order-none">
-                            <h6 className="Typography__H6-sc-18cqegv-5 hnzrVF mb-4 font-semibold uppercase">
+                            <h6 className="mb-4 font-semibold uppercase">
                                 dịch vụ của joolux
                             </h6>
-                            <ul className="FooterMenu__ListContainer-sc-1vxjdze-0 cvWduv">
+                            <ul className="smJl:mb-10">
                                 <li className="mb-3">
                                     <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                        className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
                                         href="/dich-vu/ki-gui-hang-hieu"
                                     >
                                         Ký gửi hàng hiệu
@@ -222,7 +282,7 @@ export const Footer: React.FC = () => {
                                 </li>
                                 <li className="mb-3">
                                     <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                        className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
                                         href="/dich-vu/kiem-dinh-hang-hieu"
                                     >
                                         Kiểm định hàng hiệu
@@ -230,7 +290,7 @@ export const Footer: React.FC = () => {
                                 </li>
                                 <li className="mb-3">
                                     <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                        className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
                                         href="/dich-vu/cham-soc-hang-hieu"
                                     >
                                         Joolux Care
@@ -243,38 +303,62 @@ export const Footer: React.FC = () => {
                             <h6 className="Typography__H6-sc-18cqegv-5 hnzrVF mb-4 font-semibold uppercase">
                                 Chăm sóc khách hàng
                             </h6>
-                            <ul className="FooterMenu__ListContainer-sc-1vxjdze-0 cvWduv mb-0 pb-4">
+                            <ul className="mb-0 pb-4">
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/p/chinh-sach-van-chuyen"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.CHINH_SACH_VAN_CHUYEN}
                                     >
-                                        Chính sách vận chuyển
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href={ROUTES.CHINH_SACH_VAN_CHUYEN}
+                                        >
+                                            Chính sách vận chuyển
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/p/chinh-sach-bao-hanh-doi-tra"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={
+                                            ROUTES.CHINH_SACH_BAO_HANH_DOI_TRA
+                                        }
                                     >
-                                        Chính sách đổi trả
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href={
+                                                ROUTES.CHINH_SACH_BAO_HANH_DOI_TRA
+                                            }
+                                        >
+                                            Chính sách đổi trả
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/p/chinh-sach-thanh-toan"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.CHINH_SACH_THANH_TOAN}
                                     >
-                                        Chính sách thanh toán
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href={ROUTES.CHINH_SACH_THANH_TOAN}
+                                        >
+                                            Chính sách thanh toán
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                                 <li className="mb-3">
-                                    <a
-                                        className=" transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
-                                        href="/p/cam-ket-tu-joolux"
+                                    <ActiveLink
+                                        activeClassName="!text-secondary"
+                                        href={ROUTES.CAM_KET_TU_JOOLUX}
                                     >
-                                        Cam kết từ Joolux
-                                    </a>
+                                        <a
+                                            className="transition-colors duration-200 inline-block mb-2px text-white hover:text-secondary"
+                                            href={ROUTES.CAM_KET_TU_JOOLUX}
+                                        >
+                                            Cam kết từ Joolux
+                                        </a>
+                                    </ActiveLink>
                                 </li>
                             </ul>
                             <div className="text-md mb-4 md:mb-10 font-light flex flex-col">
