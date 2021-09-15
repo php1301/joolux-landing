@@ -1193,7 +1193,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 2,
-                                        path: "/categories/phu-kien?genders=Nam&subCategory=Kính+Mắt",
+                                        path: "/categories/mat-kinh?genders=Nam",
                                         label: "Kính Mắt",
                                     },
                                     {
@@ -1231,7 +1231,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 2,
-                                        path: "/categories/phu-kien?genders=Nữ&subCategory=Kính+Mắt",
+                                        path: "/categories/mat-kinh?genders=Nữ",
                                         label: "Kính Mắt",
                                     },
                                     {
@@ -2310,7 +2310,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 2,
-                                path: "/categories/phu-kien?genders=Nam&subCategory=Kính+Mắt",
+                                path: "/categories/mat-kinh?genders=Nam",
                                 label: "Kính Mắt",
                             },
                             {
@@ -2337,7 +2337,7 @@ export const siteSettings = {
                         subMenu: [
                             {
                                 id: 1,
-                                path: "/categories/phu-kien?genders=Nữ",
+                                path: "/categories/mat-kinh?genders=Nữ",
                                 bold: true,
                                 label: "Tất cả",
                             },
