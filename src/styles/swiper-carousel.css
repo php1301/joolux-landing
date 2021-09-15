@@ -186,8 +186,57 @@
 	outline: 1px solid #101010;
 }
 
+
+/* News carousel */
+.news-carousel .swiper-container {
+	height: 160px;
+}
+
+.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet {
+	width: 8px;
+	height: 8px;
+	border: 0;
+	box-shadow: none;
+	background-color: #e7e7e7;
+	border-radius: 8px;
+	transition: all 0.3s ease-in-out;
+	opacity: 1;
+}
+.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+	width: 16px;
+	background-color: #dcaf66;
+}
+
+@media screen and (min-width: 480px) {
+	.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets {
+		bottom: 20px;
+	}
+	.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet {
+		width: 8px;
+		height: 8px;
+	}
+	.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+		width: 8px;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets {
+		bottom: 28px;
+	}
+	.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet {
+		width: 8px;
+		height: 8px;
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+	.news-carousel .carouselWrapper .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+		width: 8px;
+	}
+}
+
 /**
-   * Optionnal
+   * Optional
    */
 
 @-webkit-keyframes slide-in {
