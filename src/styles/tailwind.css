@@ -65,10 +65,100 @@
 			height: 48px;
 		}
 	}
+	.other-page {
+		font-size: 0.875rem;
+		color: #101010;
+		line-height: 1.5;
+		font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		text-align: left;
+	}
+	.other-page p {
+		margin-bottom: 1rem;
+		min-height: 1.5rem;
+	}
+	@media (min-width: 640px) {
+		.other-page h4 {
+			font-size: 1.5rem;
+		}
+	}
+	.other-page h4 {
+		font-weight: 600;
+		line-height: 1.333;
+		font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		margin-bottom: 1rem
+	}
+	.other-page h5 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		line-height: 1.333;
+		color: #101010;
+		font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		margin-bottom: 1rem;
+	}
+	.other-page h6 {
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 1.333;
+		color: #101010;
+		font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		margin-bottom: 1rem;
+	}
+	.other-page ul {
+		list-style: disc;
+    	margin-left: 1rem;
+	}
+	.other-page img {
+		display: block;
+		object-fit: contain;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 1rem;
+		max-width: 100%;
+	}
+	/* Other page - About page */
+	@media (min-width: 640px) {
+		.other-page .about-text-content {
+			padding-right: calc(70px + 2.5rem);
+		}
+	}
+	.other-page .about-text-content {
+		flex: 1 1 0%;
+		color: #424242;
+	}
+	.other-page blockquote p{
+		font-size: 1.125rem;
+		font-weight: 300;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		line-height: 1.555em;	
+	}
+	.other-page .about-team-container>div>div {
+		margin-left: auto;
+		margin-right: auto
+	}
+	@media (min-width: 640px) {
+		.other-page .about-team-container>div:nth-of-type(3n+1)>div {
+			margin-left: 0px;
+		}
+	}
+	@media (min-width: 640px) {
+		.other-page .about-team-member-wrapper {
+			max-width: 180px;
+		}
+	}
+	.other-page .about-team-member-wrapper {
+		display: flex;
+		flex-direction: column;
+		-webkit-box-align: center;
+		align-items: center;
+		text-align: center;
+		max-width: 150px
+	}
 	.typo-h6 {
 		font-size: 15px;
 		font-weight: 600;
 		line-height: 1.333;
+		color: #101010;
 		font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	}
 	.typo-paragraph {
