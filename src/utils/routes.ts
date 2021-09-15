@@ -13,6 +13,7 @@ export const ROUTES = {
     CHINH_SACH_VAN_CHUYEN: "/p/chinh-sach-van-chuyen",
     CAM_KET_TU_JOOLUX: "/p/cam-ket-tu-joolux",
     VE_CHUNG_TOI: "/ve-chung-toi",
+    BLOG: "/blog",
     FORGET_PASSWORD: "/forget-password",
     ACCOUNT: "/my-account",
     ORDERS: "/my-account/orders",
