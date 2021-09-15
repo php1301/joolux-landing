@@ -13,7 +13,7 @@ export const DefaultSeo = () => {
         "https://joolux.com/og-image.jpg";
     return (
         <NextDefaultSeo
-            title={(query.q && `${query.q} | Joolux`) || seoTitle}
+            title={(query.search && `${query.search} | Joolux`) || seoTitle}
             description={seoDescription}
             canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
             openGraph={{
