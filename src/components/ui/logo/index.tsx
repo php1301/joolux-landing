@@ -1,5 +1,5 @@
 import React from "react";
-import { JooLuxIcon, NewLogo } from "@components/icons";
+import { LogoNew } from "@components/icons";
 import Link from "@components/ui/link";
 import cn from "classnames";
 import { siteSettings } from "@settings/site-settings";
@@ -18,7 +18,7 @@ export const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
             )}
             {...props}
         >
-            <NewLogo
+            <LogoNew
                 data-test="icon"
                 // className="text-white mx-auto"
                 width="295"

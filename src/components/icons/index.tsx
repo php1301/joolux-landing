@@ -1,5 +1,6 @@
 export { default as GithubIcon } from "./GithubIcon";
 export { default as LinkedinIcon } from "./LinkedinIcon";
+export { default as LogoNew } from "./LogoNew";
 export { default as NewLogo } from "./NewLogo";
 export { default as NextjsIcon } from "./NextjsIcon";
 export { default as PankodIcon } from "./PankodIcon";
