@@ -35,6 +35,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                                             <MegaMenu
                                                 columns={item.columns}
                                                 image={item?.menuImage}
+                                                imageUrl={item?.menuImageUrl}
                                                 numOfCols={item?.numOfCols}
                                             />
                                         )}
