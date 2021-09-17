@@ -95,7 +95,10 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                 </ActiveLink>
                             </BreadcrumbItems>
                         </div>
-                        <ShopFilters filter={filter} />
+                        <ShopFilters
+                            totalItems={pagination?.total}
+                            filter={filter}
+                        />
                     </div>
                     <div className="w-full lg:-ms-9">
                         <div className="flex justify-between items-center mb-7">
