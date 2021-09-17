@@ -45,7 +45,6 @@ const Home: NextPage & {
         if (query.logoutExpired && isAuthorized) {
             unauthorize();
         }
-        window.scrollTo({ top: 0 });
         // if (!localStorage.getItem("showPopup")) {
         //     setModalView("NEWSLETTER_VIEW");
         //     setPopupBanner(popupBanner);
