@@ -27,6 +27,7 @@ const HeroBlock: React.FC<{ homepageBanner: HomepageBanner[] }> = ({
                 autoplay={{ delay: 3000 }}
                 className="mx-0"
                 buttonClassName="hidden"
+                autoHeight
                 pagination={{
                     clickable: true,
                 }}
