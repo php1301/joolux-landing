@@ -1,12 +1,13 @@
 import { Layout } from "@components/layout/layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import ErrorInformation from "@components/404/error-information";
 import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
+import ErrorPageComponent from "@components/404/error-page";
+import ErrorNavigation from "@components/404/error-navigation";
 
 export default function ErrorPage() {
     return (
-        <>
+        <div className="mx-auto max-w-[1234px] pt-4 smJl:pb-16 pb-10 px-8">
             <NextSeo
                 additionalMetaTags={[
                     {
@@ -37,8 +38,9 @@ export default function ErrorPage() {
                     ],
                 }}
             />
-            <ErrorInformation />
-        </>
+            <ErrorPageComponent />
+            <ErrorNavigation />
+        </div>
     );
 }
 
