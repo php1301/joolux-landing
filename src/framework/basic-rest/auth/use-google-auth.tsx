@@ -36,7 +36,7 @@ export const useGoogleAuthMutation = () => {
         {
             onSuccess: async (data: LoginResponseType) => {
                 toast("Đăng nhập Google thành công", {
-                    type: "success",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,
@@ -59,7 +59,7 @@ export const useGoogleAuthMutation = () => {
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
                 toast("Có lỗi đăng nhập với Google", {
-                    type: "error",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,

@@ -31,7 +31,7 @@ export const useUpdateUserMutation = () => {
         },
         onError: () => {
             toast("Cập nhật thông tin không thành công", {
-                type: "error",
+                type: "dark",
                 progressClassName: "fancy-progress-bar",
                 position: width > 768 ? "bottom-right" : "top-right",
                 autoClose: 2000,

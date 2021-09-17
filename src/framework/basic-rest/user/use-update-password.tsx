@@ -37,7 +37,7 @@ export const useChangePasswordMutation = () => {
             onError: (error: AxiosError) => {
                 if (error.response.data.message === "Wrong password!") {
                     toast("Mật khẫu cũ chưa đúng", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: width > 768 ? "bottom-right" : "top-right",
                         autoClose: 2000,
@@ -48,7 +48,7 @@ export const useChangePasswordMutation = () => {
                     });
                 } else {
                     toast("Cập nhật mật khẩu không thành công", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: width > 768 ? "bottom-right" : "top-right",
                         autoClose: 2000,

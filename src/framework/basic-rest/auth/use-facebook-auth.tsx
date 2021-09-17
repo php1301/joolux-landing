@@ -40,7 +40,7 @@ export const useFacebookAuthMutation = () => {
         {
             onSuccess: async (data: LoginResponseType) => {
                 toast("Đăng nhập Facebook thành công", {
-                    type: "success",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,
@@ -65,7 +65,7 @@ export const useFacebookAuthMutation = () => {
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
                 toast("Có lỗi đăng nhập với Facebook", {
-                    type: "error",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,

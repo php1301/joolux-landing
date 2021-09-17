@@ -44,7 +44,7 @@ export const useLoginMutation = () => {
         {
             onSuccess: async (data: LoginResponseType) => {
                 toast("Đăng nhập thành công", {
-                    type: "success",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,
@@ -67,7 +67,7 @@ export const useLoginMutation = () => {
             onError: (error: Error) => {
                 console.log(error.message, "Sign In error");
                 toast("Có lỗi đăng nhập", {
-                    type: "error",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,

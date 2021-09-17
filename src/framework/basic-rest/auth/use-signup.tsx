@@ -43,7 +43,7 @@ export const useSignUpMutation = () => {
         {
             onSuccess: async (data: SignUpResponseType) => {
                 toast("Đăng ký thành công bạn sẽ được chuyển hướng", {
-                    type: "success",
+                    type: "dark",
                     progressClassName: "fancy-progress-bar",
                     position: "top-right",
                     autoClose: 5000,
@@ -70,7 +70,7 @@ export const useSignUpMutation = () => {
                 localStorage.removeItem("session_otp");
                 if (error.response.data.message.split(" ")[0] === "Email") {
                     toast("Email này đã được đăng ký", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: "top-right",
                         autoClose: 5000,
@@ -82,7 +82,7 @@ export const useSignUpMutation = () => {
                     error.response.data.message.split(" ")[0] === "Please"
                 ) {
                     toast("Vui lòng nhập mã OTP hợp lệ", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: "top-right",
                         autoClose: 5000,
@@ -92,7 +92,7 @@ export const useSignUpMutation = () => {
                     });
                 } else {
                     toast("Có lỗi đăng ký", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: "top-right",
                         autoClose: 5000,

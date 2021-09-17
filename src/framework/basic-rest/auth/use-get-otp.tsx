@@ -47,7 +47,7 @@ export const useGetOtpMutation = () => {
                     "INVALID_PHONE_NUMBER : Invalid format."
                 ) {
                     toast("Số diện thoại không hợp lệ", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: "top-right",
                         autoClose: 5000,
@@ -57,7 +57,7 @@ export const useGetOtpMutation = () => {
                     });
                 } else {
                     toast("Có lỗi khi lấy mã OTP", {
-                        type: "error",
+                        type: "dark",
                         progressClassName: "fancy-progress-bar",
                         position: "top-right",
                         autoClose: 5000,
