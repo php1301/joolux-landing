@@ -241,7 +241,7 @@ const ProductSingleDetails: React.FC<{
                     </div>
                     {data?.retailPrice && (
                         <div className="flex items-center mt-6 mb-8">
-                            <div className="text-2xl font-semibold mr-4 text-black">
+                            <div className="text-base font-fontRetail mr-4 text-[#666]">
                                 Giá retail: {retailPrice}&nbsp;₫
                             </div>
                         </div>
@@ -300,6 +300,21 @@ const ProductSingleDetails: React.FC<{
                                 />
                                 <span className="py-2 3xl:px-8">
                                     Liên hệ người bán
+                                </span>
+                            </Button>
+                        </div>
+                    ) : isSelected ? (
+                        <div className="flex items-center space-s-4 pt-3">
+                            <Button
+                                onClick={() => {
+                                    router.push("/cart");
+                                }}
+                                variant="jl"
+                                className={`w-full md:w-6/12 xl:w-full`}
+                                loading={immeAddToCartLoader}
+                            >
+                                <span className="py-2 3xl:px-8">
+                                    Đến giỏ hàng
                                 </span>
                             </Button>
                         </div>
