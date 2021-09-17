@@ -29,6 +29,7 @@ export const siteSettings = {
                 path: "/hang-moi-ve",
                 label: "Hàng mới về",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                menuImageUrl: "/hang-moi-ve",
                 numOfCols: 5,
                 columns: [
                     {
@@ -209,6 +210,7 @@ export const siteSettings = {
                 path: "/hang-moi-ve",
                 label: "Thương hiệu",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                menuImageUrl: "/hang-moi-ve",
                 numOfCols: 4,
                 columns: [
                     {
@@ -323,6 +325,7 @@ export const siteSettings = {
                 path: "/hang-moi-ve?genders=Nam",
                 label: "Nam",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                menuImageUrl: "/hang-moi-ve?genders=Nam",
                 numOfCols: 4,
                 columns: [
                     {
@@ -390,7 +393,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 12,
-                                        path: "/hang-moi-ve",
+                                        path: "/hang-moi-ve?genders=Nam",
                                         bold: true,
                                         label: "Xem tất cả",
                                     },
@@ -408,7 +411,7 @@ export const siteSettings = {
                                 columnItemItems: [
                                     {
                                         id: 1,
-                                        path: "/hang-moi-ve&genders=Nam",
+                                        path: "/hang-moi-ve?genders=Nam",
                                         bold: true,
                                         label: "Tất cả",
                                     },
@@ -443,6 +446,7 @@ export const siteSettings = {
                 path: "/hang-moi-ve?genders=Nữ",
                 label: "Nữ",
                 menuImage: "https://joolux.com/img/menu/mega-1.jpg",
+                menuImageUrl: "/hang-moi-ve?genders=Nữ",
                 numOfCols: 4,
                 columns: [
                     {
@@ -510,7 +514,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 12,
-                                        path: "/hang-moi-ve",
+                                        path: "/hang-moi-ve?genders=Nữ",
                                         bold: true,
                                         label: "Xem tất cả",
                                     },
@@ -563,6 +567,7 @@ export const siteSettings = {
                 path: "/categories/tui-xach",
                 label: "Túi xách",
                 menuImage: "https://joolux.com/img/menu/mega-2.jpg",
+                menuImageUrl: "/categories/tui-xach",
                 numOfCols: 5,
                 columns: [
                     {
@@ -786,6 +791,7 @@ export const siteSettings = {
                 path: "/categories/giay-sneaker",
                 label: "GIÀY & SNEAKER",
                 menuImage: "https://joolux.com/img/menu/mega-3.jpg",
+                menuImageUrl: "/categories/giay-sneaker",
                 numOfCols: 5,
                 columns: [
                     {
@@ -964,6 +970,7 @@ export const siteSettings = {
                 path: "/categories/dong-ho-cao-cap",
                 label: "Đồng hồ",
                 menuImage: "https://joolux.com/img/menu/mega-4.jpg",
+                menuImageUrl: "/categories/dong-ho-cao-cap",
                 numOfCols: 5,
                 columns: [
                     {
@@ -1102,6 +1109,7 @@ export const siteSettings = {
                 path: "/categories/phu-kien",
                 label: "Phụ kiện",
                 menuImage: "https://joolux.com/img/menu/mega-5.jpg",
+                menuImageUrl: "/categories/phu-kien",
                 numOfCols: 5,
                 columns: [
                     {
@@ -1584,7 +1592,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 12,
-                                path: "/hang-moi-ve",
+                                path: "/hang-moi-ve?genders=Nam",
                                 bold: true,
                                 label: "Xem tất cả",
                             },
@@ -1693,7 +1701,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 12,
-                                path: "/hang-moi-ve",
+                                path: "/hang-moi-ve?genders=Nữ",
                                 bold: true,
                                 label: "Xem tất cả",
                             },
