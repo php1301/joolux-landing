@@ -22,10 +22,12 @@ interface IShopFilters {
     filter: Filter;
     modalTooltip?: boolean;
     mobile?: boolean;
+    totalItems?: number;
 }
 export const ShopFilters: React.FC<IShopFilters> = ({
     filter,
     modalTooltip = false,
+    totalItems = 2000,
     mobile = true,
 }) => {
     const queryClient = useQueryClient();
@@ -51,27 +53,30 @@ export const ShopFilters: React.FC<IShopFilters> = ({
         <div className="pt-1">
             <div className="block border-b border-gray-300 pb-7 mb-7">
                 <div className="flex items-center justify-between mb-2.5">
-                    {/* <h2 className="font-semibold text-heading text-xl md:text-2xl">
-                        {t("text-filters")}
-                    </h2> */}
                     <h2 className="font-semibold text-heading text-xl md:text-2xl">
                         {t("Hàng mới về")}
                     </h2>
-                    <button
-                        className="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading"
-                        aria-label="Clear All"
-                        onClick={async () => {
-                            const url = query.category
-                                ? ROUTES.HANG_MOI_VE
-                                : asPath.split("?")[0];
-                            router.push(url);
-                            await queryClient.resetQueries({
-                                active: true,
-                            });
-                        }}
-                    >
-                        {t("text-clear-all")}
-                    </button>
+                    <br />
+                    {(!isEmpty(restQuery) || category) && (
+                        <button
+                            className="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading"
+                            aria-label="Clear All"
+                            onClick={async () => {
+                                const url = query.category
+                                    ? ROUTES.HANG_MOI_VE
+                                    : asPath.split("?")[0];
+                                router.push(url);
+                                await queryClient.resetQueries({
+                                    active: true,
+                                });
+                            }}
+                        >
+                            {t("text-clear-all")}
+                        </button>
+                    )}
+                </div>
+                <div className="flex-shrink-0 text-black text-xs md:text-sm leading-4 pe-4 md:me-6 hidden lg:block mb-4">
+                    {totalItems} {t("text-items")}
                 </div>
                 <div className="flex flex-wrap -m-1.5 pt-2">
                     {!isEmpty(restQuery) &&
