@@ -54,7 +54,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     };
 
     useEffect(() => {
-        if (isMount) {
+        if (!isMount) {
             if (totalItems !== 0) {
                 setShow(true);
             }
@@ -81,7 +81,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                 <div
                     ref={setPopperElement}
                     style={styles.popper}
-                    className="cart-dropdown-item bg-white shadow-cart"
+                    className="cart-dropdown-item bg-white shadow-cart max-w-[600px]"
                     {...attributes.popper}
                     onMouseEnter={() => setShow(true)}
                     onMouseLeave={() => setShow(false)}
