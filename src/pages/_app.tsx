@@ -49,6 +49,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         queryClientRef.current = new QueryClient();
     }
     const router = useRouter();
+    // const dir = getDirection(router.locale);
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0 });
+        }
+    }, []);
+
     const dir = getDirection(router.locale);
     useEffect(() => {
         document.documentElement.dir = dir;
@@ -56,10 +63,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const Layout = (Component as any).Layout || Noop;
 
     return (
-        <AnimatePresence
-            exitBeforeEnter
-            // onExitComplete={handleExitComplete}
-        >
+        <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
             <ApolloProvider client={apolloClient}>
                 <QueryClientProvider client={queryClient}>
                     <Hydrate state={pageProps.dehydratedState}>
