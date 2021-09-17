@@ -24,16 +24,17 @@ export const CheckoutItem: React.FC<{ item: Item }> = ({ item }) => {
             </div>
             <h6 className="text-sm ps-3 font-regular text-heading">
                 {generateCartItemName(item.name, item.attributes)}{" "}
-                <span className="text-[#101010] text-base font-semibold">{`X ${item.quantity}`}</span>
+                {/* <span className="text-[#101010] text-base font-semibold">{`X ${item.quantity}`}</span> */}
+                <div className="flex ms-auto text-heading text-sm font-semibold flex-shrink-0">
+                    {price}&nbsp;₫
+                    {basePrice && (
+                        <del className="ps-2 text-gray-400 font-normal">
+                            {basePrice}&nbsp;₫
+                        </del>
+                    )}
+                </div>
             </h6>
-            <div className="flex ms-auto text-heading text-sm ps-2 font-semibold flex-shrink-0">
-                {price}&nbsp;₫
-                {basePrice && (
-                    <del className="ps-2 text-gray-400 font-normal">
-                        {basePrice}&nbsp;₫
-                    </del>
-                )}
-            </div>
+
             {/* <div className="flex ms-auto text-heading text-sm ps-2 flex-shrink-0">
                 {basePrice || price}&nbsp;₫
             </div>
