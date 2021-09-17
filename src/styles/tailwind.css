@@ -5,6 +5,10 @@
 /* Write your own custom base styles here */
 
 @layer base {
+	@font-face {
+		font-family: 'SuisseIntl';
+		src: url('https://assets.therealreal.com/fonts/Suisse/SuisseInternational/SuisseIntl-Regular-WebXL-3a6d8b032cc2135cf580467ea026a5f4.woff?vsn=d');
+	}
 	html {
 		-webkit-tap-highlight-color: transparent;
 	}
@@ -274,7 +278,7 @@
 		@apply flex absolute bg-body top-1/2 start-1.5 md:start-3 w-1.5 md:w-2;
 	}
 	/* Hero Banner */
-	@media (min-width: 1500px) {
+	/* @media (min-width: 1500px) {
 		.heroBannerOne>div {
 			margin-left: -500px;
 			margin-right: -500px;
@@ -291,7 +295,7 @@
 			margin-left: -850px;
 			margin-right: -850px;
 		}
-	}
+	} */
 	.heroBannerOne a {
 		width: 100%!important;
 	}
@@ -1051,7 +1055,34 @@
 	}
 }
 
+/* 404 */
+.not-found-page-wrapper {
+	color: #e7e7e7;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    font-weight: 700;
+    font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1;
+    pointer-events: none;
+    font-size: 150px;
+}
+.not-found-page-text {
+	position: absolute;
+    font-size: 0.75rem;
+    color: #101010;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
 
+}
 /* Breadcrumb truncate last child */
 
 .breadcrumb-search li:last-child {
