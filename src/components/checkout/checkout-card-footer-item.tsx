@@ -12,7 +12,7 @@ export const CheckoutCardFooterItem: React.FC<FooterItemProps> = ({
 }) => {
     return (
         <div className="bg-gray-100 sm:p-10 p-5">
-            <div className="flex -mx-2 text-15px mb-2">
+            <div className="flex -mx-2 text-15px">
                 <div className="w-3/5 px-2">
                     {`Tạm tính ${totalItems} sản phẩm):`}
                 </div>
