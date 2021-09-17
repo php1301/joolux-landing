@@ -48,10 +48,10 @@ const BannerCard: FC<IBannerProps> = ({
                     // height={selectedImage.height}
                     layout="fill"
                     alt={title}
-                    objectFit="none"
+                    objectFit="fill"
                     // quality={100}
                     //  so when we resize the browser window, the aspect ratio of the images is preserved:
-                    className={cn("bg-gray-300 object-none w-full", {
+                    className={cn("bg-gray-300 object-fill w-full", {
                         "rounded-md": variant === "rounded",
                     })}
                 />
