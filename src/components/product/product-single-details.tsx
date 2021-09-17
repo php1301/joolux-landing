@@ -1,14 +1,10 @@
 /* eslint-disable no-prototype-builtins */
-import React, { useState } from "react";
-import { Button } from "@components/ui/button";
+import React from "react";
 // import { Counter } from "@components/common/counter";
 // import { getVariations } from "@framework/utils/get-variations";
 import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
-import { generateCartItem } from "@utils/generate-cart-item";
-import { AiFillPhone } from "react-icons/ai";
 import Link from "@components/ui/link";
-import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
 import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
@@ -23,8 +19,33 @@ import ProductDescription from "./product-description";
 import ProductNumber from "./product-number";
 import ProductPolicy from "./product-policy";
 import { Product } from "@framework/types";
-import { useRouter } from "next/router";
 import Favorite from "@components/common/favorite";
+import dynamic from "next/dynamic";
+const ProductButtonLogic = dynamic(() => import("./product-button-logic"), {
+    ssr: false,
+    loading: () => (
+        <svg
+            className={`animate-spin -me-1 ms-3 h-5 w-5 text-black`}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+        >
+            <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+            />
+            <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+        </svg>
+    ),
+});
 
 const productGalleryCarouselResponsive = {
     "768": {
@@ -39,14 +60,10 @@ const ProductSingleDetails: React.FC<{
     data: Product;
     isFavorite: boolean;
 }> = ({ data, isFavorite }) => {
-    const router = useRouter();
     const { width } = useWindowSize();
-    const { addItemToCart, isInCart } = useCart();
+    const { isInCart } = useCart();
     // const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
     // const [quantity, setQuantity] = useState(1);
-    const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
-    const [immeAddToCartLoader, setImmeAddToCartLoader] =
-        useState<boolean>(false);
 
     // const gallery = [
     //     {
@@ -127,44 +144,7 @@ const ProductSingleDetails: React.FC<{
         //     content: <ReviewForm />,
         // },
     ];
-    function addToCart() {
-        if (isSelected) return;
-        // to show btn feedback while product carting
-        setAddToCartLoader(true);
-        setTimeout(() => {
-            setAddToCartLoader(false);
-        }, 600);
 
-        const item = generateCartItem(data!, {});
-        addItemToCart(item, 1);
-        toast("Đã thêm vào giỏ hàng", {
-            type: "dark",
-            progressClassName: "fancy-progress-bar",
-            position: width > 768 ? "bottom-right" : "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-        });
-    }
-
-    function immediatelyCheckout() {
-        if (isSelected) return;
-        setImmeAddToCartLoader(true);
-        setTimeout(() => {
-            setImmeAddToCartLoader(false);
-        }, 600);
-
-        const item = generateCartItem(data!, {});
-        addItemToCart(item, 1);
-        router.push("/cart");
-    }
-
-    // Debounce onclick with other value
-    function contactSeller() {
-        console.log("contact seller clicked");
-    }
     // function handleAttribute(attribute: any) {
     //     setAttributes((prev) => ({
     //         ...prev,
@@ -271,90 +251,14 @@ const ProductSingleDetails: React.FC<{
                             </h3>
                         </div>
                     </div>
-                    {data?.qty === 0 || data?.is_in_stock === "2" ? (
-                        <Button
-                            variant="jl"
-                            className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white opacity-60`}
-                            disabled
-                            loading={addToCartLoader}
-                        >
-                            <span className="py-2 3xl:px-8">
-                                {data?.qty === 0 && data?.is_in_stock !== "2"
-                                    ? "Tạm hết hàng"
-                                    : "Đang giao dịch"}
-                            </span>
-                        </Button>
-                    ) : hasToContact ? (
-                        <div className="flex items-center space-s-4 pt-3">
-                            <Button
-                                onClick={contactSeller}
-                                variant="jl"
-                                className={`w-full md:w-6/12 xl:w-full`}
-                                disabled={false}
-                                loading={immeAddToCartLoader}
-                            >
-                                <AiFillPhone
-                                    color="white"
-                                    className="mr-3"
-                                    size={24}
-                                />
-                                <span className="py-2 3xl:px-8">
-                                    Liên hệ người bán
-                                </span>
-                            </Button>
-                        </div>
-                    ) : isSelected ? (
-                        <div className="flex items-center space-s-4 pt-3">
-                            <Button
-                                onClick={() => {
-                                    router.push("/cart");
-                                }}
-                                variant="jl"
-                                className={`w-full md:w-6/12 xl:w-full`}
-                                loading={immeAddToCartLoader}
-                            >
-                                <span className="py-2 3xl:px-8">
-                                    Đến giỏ hàng
-                                </span>
-                            </Button>
-                        </div>
-                    ) : (
-                        <>
-                            <div className="flex items-center space-s-4  pt-3">
-                                <Button
-                                    onClick={addToCart}
-                                    variant="jl"
-                                    className={`w-full md:w-6/12 xl:w-full mb-4 bg-white text-black border solid border-[#101010] hover:opacity-60 hover:bg-white ${
-                                        isSelected &&
-                                        "hover:opacity-65 hover:bg-white"
-                                    }`}
-                                    iconCart
-                                    disabled={isSelected}
-                                    loading={addToCartLoader}
-                                >
-                                    <span className="py-2 3xl:px-8">
-                                        Thêm vào giỏ hàng
-                                    </span>
-                                </Button>
-                            </div>
-                            <div className="flex items-center space-s-4 pt-3">
-                                <Button
-                                    onClick={immediatelyCheckout}
-                                    variant="jl"
-                                    className={`w-full md:w-6/12 xl:w-full ${
-                                        isSelected &&
-                                        "bg-gray-400 hover:bg-gray-400"
-                                    }`}
-                                    disabled={isSelected}
-                                    loading={immeAddToCartLoader}
-                                >
-                                    <span className="py-2 3xl:px-8">
-                                        Thanh toán ngay
-                                    </span>
-                                </Button>
-                            </div>
-                        </>
-                    )}
+                    <ProductButtonLogic
+                        data={data}
+                        hasToContact={hasToContact}
+                        width={width}
+                        isInStock={data?.is_in_stock}
+                        quantity={data?.qty}
+                        isSelected={isSelected}
+                    />
                 </div>
                 {/* <div className="pb-3 border-b border-gray-300">
                     {Object.keys(variations).map((variation) => {
