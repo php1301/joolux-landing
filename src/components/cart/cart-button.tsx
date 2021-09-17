@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartIcon from "@components/icons/cart-icon";
 import cn from "classnames";
 import { useRouter } from "next/router";
@@ -11,6 +11,7 @@ import CartItem from "./cart-item";
 import EmptyCart from "./cart-empty";
 import { usePopper } from "react-popper";
 import { useTranslation } from "next-i18next";
+import { useIsMount } from "@utils/use-is-mount";
 
 interface ICartButton {
     className: string;
@@ -18,12 +19,9 @@ interface ICartButton {
 }
 const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const { t } = useTranslation("common");
+    const { isMount } = useIsMount();
     const { items, total, isEmpty, totalItems, specialPriceTotal } = useCart();
-    const {
-        price: cartTotal,
-        basePrice,
-        discount,
-    } = usePrice({
+    const { price: cartTotal, discount } = usePrice({
         amount: specialPriceTotal || total,
         baseAmount: total,
         currencyCode: "VND",
@@ -54,6 +52,14 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
             locale: router.locale,
         });
     };
+
+    useEffect(() => {
+        if (isMount) {
+            if (totalItems !== 0) {
+                setShow(true);
+            }
+        }
+    }, [totalItems]);
     return (
         <>
             <button
