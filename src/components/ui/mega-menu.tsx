@@ -17,13 +17,26 @@ type MegaMenuProps = {
         columnItems: MenuItem[];
     }[]; // ep kieu array
     image?: string;
+    imageUrl?: string;
     numOfCols: number;
 };
 
-const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image, numOfCols }) => {
+const MegaMenu: React.FC<MegaMenuProps> = ({
+    columns,
+    image,
+    imageUrl,
+    numOfCols,
+}) => {
     const { t } = useTranslation("menu");
     return (
-        <div className="megaMenu shadow-header bg-white absolute -start-1 xl:start-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible z-20">
+        <div
+            className={cn(
+                "megaMenu shadow-header bg-white absolute -start-1 xl:start-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible z-20 px-8",
+                {
+                    "max-w-[1000px]": numOfCols === 4,
+                },
+            )}
+        >
             {/* <ul
                 className="even:bg-gray-150 pt-6 2xl:pt-7"
                 key={`image-menu-${image}-${columns[0].columnItems[0].label}`}
@@ -105,7 +118,9 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ columns, image, numOfCols }) => {
                             {t("­­­­")}
                         </span>
                         <li className="mb-1.5">
-                            <Image src={image} width={442} height={218} />
+                            <Link href={imageUrl}>
+                                <Image src={image} width={442} height={218} />
+                            </Link>
                         </li>
                     </ul>
                 )}
