@@ -301,7 +301,7 @@
 	}
 	.heroBannerOne a div {
 		position: unset!important;
-		width: 100%;
+		/* width: 100%; */
 	}
 	.heroBannerOne a img {
 		width: 100%!important;
