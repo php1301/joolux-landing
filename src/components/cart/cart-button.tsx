@@ -19,7 +19,7 @@ interface ICartButton {
 }
 const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const { t } = useTranslation("common");
-    const { isMount } = useIsMount();
+    const isMount = useIsMount();
     const { items, total, isEmpty, totalItems, specialPriceTotal } = useCart();
     const { price: cartTotal, discount } = usePrice({
         amount: specialPriceTotal || total,
