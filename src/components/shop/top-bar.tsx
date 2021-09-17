@@ -34,9 +34,9 @@ const SearchTopBar: FC<ISerarchTopBar> = ({ totalItems = 2000, filter }) => {
                 <span className="ps-2.5">{t("text-filters")}</span>
             </button>
             <div className="flex items-center justify-end">
-                <div className="flex-shrink-0 text-body text-xs md:text-sm leading-4 pe-4 md:me-6 ps-2 hidden lg:block">
+                {/* <div className="flex-shrink-0 text-body text-xs md:text-sm leading-4 pe-4 md:me-6 ps-2 hidden lg:block">
                     {totalItems} {t("text-items")}
-                </div>
+                </div> */}
                 <ListBox
                     options={[
                         // { name: "text-sorting-options", value: "options" },
