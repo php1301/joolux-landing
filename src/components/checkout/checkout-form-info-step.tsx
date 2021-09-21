@@ -52,20 +52,21 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                 Họ và tên{/* */} *
                             </div>
                             <input
-                                {...register("fullname", {
+                                {...register("customerName", {
                                     required: "Thông tin bắt buộc",
                                 })}
                                 type="text"
-                                name="fullname"
+                                name="customerName"
                                 defaultValue=""
                                 className={`step-form-input w-full ${
-                                    errors.fullname?.message && "border-red-600"
+                                    errors.customerName?.message &&
+                                    "border-red-600"
                                 }`}
                                 placeholder="Nhập họ và tên đầy đủ"
                             />
-                            {errors.fullname?.message && (
+                            {errors.customerName?.message && (
                                 <p className="step-form-input-error">
-                                    {errors.fullname?.message}
+                                    {errors.customerName?.message}
                                 </p>
                             )}
                         </label>
@@ -79,19 +80,20 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             </div>
                             <input
                                 type="text"
-                                {...register("address", {
+                                {...register("customerAddress", {
                                     required: "Thông tin bắt buộc",
                                 })}
-                                name="address"
+                                name="customerAddress"
                                 defaultValue=""
                                 className={`step-form-input w-full ${
-                                    errors.address?.message && "border-red-600"
+                                    errors.customerAddress?.message &&
+                                    "border-red-600"
                                 }`}
                                 placeholder="Vui lòng ghi cụ thể địa chỉ, tòa nhà..."
                             />
-                            {errors.address?.message && (
+                            {errors.customerAddress?.message && (
                                 <p className="step-form-input-error">
-                                    {errors.address?.message}
+                                    {errors.customerAddress?.message}
                                 </p>
                             )}
                         </label>
@@ -105,13 +107,14 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             </div>
                             <div className="step-form-select-container">
                                 <select
-                                    name="city"
+                                    name="customerProvince"
                                     defaultValue=""
                                     autoComplete="nope"
                                     className={`step-form-select-box w-full ${
-                                        errors.city?.message && "border-red-600"
+                                        errors.customerProvince?.message &&
+                                        "border-red-600"
                                     }`}
-                                    {...register("city", {
+                                    {...register("customerProvince", {
                                         required: "Thông tin bắt buộc",
                                     })}
                                     onChange={(e) => {
@@ -154,9 +157,9 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                     </span>
                                 </div>
                             </div>
-                            {errors.city?.message && (
+                            {errors.customerProvince?.message && (
                                 <p className="step-form-input-error">
-                                    {errors.city?.message}
+                                    {errors.customerProvince?.message}
                                 </p>
                             )}
                         </label>
@@ -168,14 +171,14 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             </div>
                             <div className="step-form-select-container">
                                 <select
-                                    name="district"
+                                    name="customerDistrict"
                                     className={`step-form-select-box w-full ${
-                                        errors.district?.message &&
+                                        errors.customerDistrict?.message &&
                                         "border-red-600"
                                     }`}
                                     defaultValue=""
                                     disabled={!districtIndex}
-                                    {...register("district", {
+                                    {...register("customerDistrict", {
                                         required: "Thông tin bắt buộc",
                                     })}
                                 >
@@ -215,9 +218,9 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                     </span>
                                 </div>
                             </div>
-                            {errors.district?.message && (
+                            {errors.customerDistrict?.message && (
                                 <p className="step-form-input-error">
-                                    {errors.district?.message}
+                                    {errors.customerDistrict?.message}
                                 </p>
                             )}
                         </label>
@@ -259,13 +262,14 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             </div>
                             <input
                                 type="text"
-                                name="phone"
+                                name="customerPhone"
                                 defaultValue=""
                                 className={`step-form-input w-full ${
-                                    errors.phone?.message && "border-red-600"
+                                    errors.customerPhone?.message &&
+                                    "border-red-600"
                                 }`}
                                 placeholder="Số điện thoại để nhận hàng"
-                                {...register("phone", {
+                                {...register("customerPhone", {
                                     required: "Thông tin bắt buộc",
                                     pattern: {
                                         value: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/,
@@ -273,9 +277,9 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                     },
                                 })}
                             />
-                            {errors.phone?.message && (
+                            {errors.customerPhone?.message && (
                                 <p className="step-form-input-error">
-                                    {errors.phone?.message}
+                                    {errors.customerPhone?.message}
                                 </p>
                             )}
                         </label>
@@ -287,13 +291,14 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                             </div>
                             <input
                                 type="text"
-                                name="email"
+                                name="customerEmail"
                                 defaultValue=""
                                 className={`step-form-input w-full ${
-                                    errors.email?.message && "border-red-600"
+                                    errors.customerEmail?.message &&
+                                    "border-red-600"
                                 }`}
                                 placeholder="Địa chỉ email để xác nhận đơn hàng"
-                                {...register("email", {
+                                {...register("customerEmail", {
                                     required: "Thông tin bắt buộc",
                                     pattern: {
                                         // eslint-disable-next-line no-useless-escape
@@ -302,9 +307,9 @@ const CheckoutFormInfoStep: FC<IInfoStepProps> = ({
                                     },
                                 })}
                             />
-                            {errors.email?.message && (
+                            {errors.customerEmail?.message && (
                                 <p className="step-form-input-error">
-                                    {errors.email?.message}
+                                    {errors.customerEmail?.message}
                                 </p>
                             )}
                         </label>
