@@ -14,15 +14,15 @@ const CheckoutFormConfirmStep: FC<IConfirmStepProps> = ({
             <div>
                 <h6 className="typo-h6 mb-1">Địa chỉ nhận hàng</h6>
                 <h6 className="typo-paragraph  mb-4 leading-relaxed">
-                    {values.fullname}
+                    {values.customerName}
                     <br />
-                    {`${values.address}, ${values.district.split(" - ")[1]}, ${
-                        values.city.split(" - ")[1]
-                    }`}
+                    {`${values.customerAddress}, ${
+                        values.customerDistrict.split(" - ")[1]
+                    }, ${values.customerProvince.split(" - ")[1]}`}
                     <br />
-                    <b>Điện thoại:</b> {values.phone}
+                    <b>Điện thoại:</b> {values.customerPhone}
                     <br />
-                    <b>Email:</b> {values.email}
+                    <b>Email:</b> {values.customerEmail}
                 </h6>
                 <h6 className="typo-h6 mb-1">Phương thức thanh toán</h6>
                 <h6 className="typo-paragraph ">Chuyển khoản ngân hàng</h6>
