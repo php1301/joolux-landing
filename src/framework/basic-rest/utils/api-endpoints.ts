@@ -29,6 +29,7 @@ export const API_ENDPOINTS = {
     FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
     SEARCH: "/api/search.json",
     REVIEW: "/user/comment",
+    CHECKOUT: "/user/create-order",
     FAVORITE: "/user/wishList",
     ORDERS: "/api/orders.json",
     ORDER: "/api/order.json",
