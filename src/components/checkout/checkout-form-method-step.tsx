@@ -6,12 +6,12 @@ const radioList = [
     {
         id: 1,
         labelText: "Chuyển khoản ngân hàng",
-        value: "banking",
+        value: "Transfer",
     },
     {
         id: 2,
         labelText: "Thanh toán bằng MOMO",
-        value: "momo",
+        value: "Momo",
     },
 ];
 const CheckoutFormMethodStep: FC<IMethodStepProps> = ({
@@ -44,7 +44,7 @@ const CheckoutFormMethodStep: FC<IMethodStepProps> = ({
                                                     radioItem === i.id
                                                 }
                                                 register={register}
-                                                name="method"
+                                                name="paymentMethod"
                                                 labelText={i.labelText}
                                                 setRadioItem={setRadioItem}
                                                 value={i.value}
