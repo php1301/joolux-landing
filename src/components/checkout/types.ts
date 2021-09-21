@@ -1,3 +1,4 @@
+import { ICheckoutInputType } from "@framework/checkout/use-checkout";
 import { DeepMap, FieldError } from "react-hook-form";
 
 export declare type CheckoutErrorsType = DeepMap<
@@ -9,16 +10,16 @@ export declare type CheckoutTouchedFieldsType = DeepMap<
     true
 >;
 
-export interface ICheckoutInputType {
-    fullname: string;
-    address: string;
-    city: string;
-    district: string;
-    gender: string;
-    phone: string;
-    method: string;
-    email: string;
-}
+// export interface ICheckoutInputType {
+//     fullname: string;
+//     address: string;
+//     city: string;
+//     district: string;
+//     gender: string;
+//     phone: string;
+//     method: string;
+//     email: string;
+// }
 
 export interface IInfoStepProps {
     nextStep?: () => void;
