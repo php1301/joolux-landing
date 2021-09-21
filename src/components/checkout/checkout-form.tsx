@@ -2,8 +2,10 @@ import MultiStepForm from "@components/common/form/multi-step-form";
 import React, { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
-import { useCheckoutMutation } from "@framework/checkout/use-checkout";
-import { ICheckoutInputType } from "./types";
+import {
+    ICheckoutInputType,
+    useCheckoutMutation,
+} from "@framework/checkout/use-checkout";
 // import Router from "next/router";
 // import { ROUTES } from "@utils/routes";
 
@@ -12,6 +14,7 @@ import { ICheckoutInputType } from "./types";
 //     { ssr: false },
 // );
 import CheckoutFormInfoStep from "@components/checkout/checkout-form-info-step";
+import { useCart } from "@contexts/cart/cart.context";
 
 const CheckoutFormMethodStep = dynamic(
     () => import("@components/checkout/checkout-form-method-step"),
@@ -27,7 +30,7 @@ const CheckoutForm: FC = () => {
     const [step, setStep] = useState<number>(1);
     const { mutate: beginCheckoutTransaction, isLoading } =
         useCheckoutMutation();
-
+    const { items, total, specialPriceTotal } = useCart();
     const {
         register,
         handleSubmit,
@@ -37,7 +40,20 @@ const CheckoutForm: FC = () => {
         mode: "all",
     });
     function onSubmit(input: ICheckoutInputType) {
-        beginCheckoutTransaction(input);
+        const productsList = [];
+        items.map((i) => {
+            productsList.push({
+                products: i.id,
+                price: i.specialPrice,
+            });
+        });
+        const request = {
+            ...input,
+            productsList: productsList.length > 0 && productsList,
+            totalCost: total,
+            finalCost: specialPriceTotal,
+        };
+        beginCheckoutTransaction(request);
         // Router.push(ROUTES.ORDER);
     }
     const nextStep = () => {
