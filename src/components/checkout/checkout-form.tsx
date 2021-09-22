@@ -43,7 +43,7 @@ const CheckoutForm: FC = () => {
         const productsList = [];
         items.map((i) => {
             productsList.push({
-                products: i.id,
+                product: i.id,
                 price: i.specialPrice,
             });
         });
