@@ -32,5 +32,5 @@ export const API_ENDPOINTS = {
     CHECKOUT: "/user/create-order",
     FAVORITE: "/user/wishList",
     ORDERS: "/api/orders.json",
-    ORDER: "/api/order.json",
+    ORDER: "/orders/details",
 };
