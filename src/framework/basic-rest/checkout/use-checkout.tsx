@@ -1,6 +1,11 @@
+import { useCart } from "@contexts/cart/cart.context";
+import { useUI } from "@contexts/ui.context";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import http from "@framework/utils/http";
+import { useWindowSize } from "@utils/use-window-size";
+import { useRouter } from "next/router";
 import { useMutation } from "react-query";
+import { toast } from "react-toastify";
 
 export interface ProductsList {
     product: string;
@@ -45,12 +50,28 @@ async function checkout(input: ICheckoutInputType) {
     );
 }
 export const useCheckoutMutation = () => {
+    const { width } = useWindowSize();
+    const router = useRouter();
+    const { setDisplaySuccess } = useUI();
+    const { items, clearCart } = useCart();
     return useMutation((input: ICheckoutInputType) => checkout(input), {
-        onSuccess: (data) => {
-            console.log(data, "Checkout success response");
+        onSuccess: () => {
+            setDisplaySuccess(true);
+            window.scrollTo({ top: 0 });
+            clearCart(items);
+            router.replace("/order/success");
         },
-        onError: (data) => {
-            console.log(data, "Checkout error response");
+        onError: () => {
+            toast("Có lỗi khi tiến hành thanh toán", {
+                type: "dark",
+                progressClassName: "fancy-progress-bar",
+                position: width > 768 ? "bottom-right" : "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
         },
     });
 };
