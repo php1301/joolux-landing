@@ -8,6 +8,7 @@ interface CartProviderState extends State {
     // updateItem: (id: Item["id"], payload: object) => void;
     // updateItemQuantity: (id: Item["id"], quantity: number) => void;
     clearItemFromCart: (id: Item["id"]) => void;
+    clearCart: (items: Item[]) => void;
     getItemFromCart: (id: Item["id"]) => any | undefined;
     isInCart: (id: Item["id"]) => boolean;
     // updateCartMetadata: (metadata: Metadata) => void;
@@ -48,6 +49,12 @@ export const CartProvider: React.FC = (props) => {
         dispatch({ type: "REMOVE_ITEM", id });
     const isInCart = (id: Item["id"]) => !!getItem(state.items, id);
     const getItemFromCart = (id: Item["id"]) => getItem(state.items, id);
+    const clearCart = (items: Item[]) => {
+        items.map((i: Item) => {
+            dispatch({ type: "REMOVE_ITEM_OR_QUANTITY", id: i["id"] });
+        });
+        localStorage.removeItem("joolux-cart");
+    };
     // const inStock=()=>{}
     const value = React.useMemo(
         () => ({
@@ -57,6 +64,7 @@ export const CartProvider: React.FC = (props) => {
             clearItemFromCart,
             getItemFromCart,
             isInCart,
+            clearCart,
         }),
         [state],
     );
