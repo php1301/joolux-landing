@@ -16,6 +16,7 @@ export interface State {
     toastText: string;
     popupBanner: PopupBanner;
     favoriteData: string;
+    displaySuccess: boolean;
 }
 
 const initialState = {
@@ -31,6 +32,7 @@ const initialState = {
     toastText: "",
     popupBanner: null,
     favoriteData: "",
+    displaySuccess: false,
 };
 
 type Action =
@@ -97,6 +99,10 @@ type Action =
     | {
           type: "SET_FAVORITE_DATA";
           value: string;
+      }
+    | {
+          type: "SET_DISPLAY_SUCCESS";
+          value: boolean;
       };
 
 type MODAL_VIEWS =
@@ -229,6 +235,12 @@ function uiReducer(state: State, action: Action) {
                 userAvatar: action.value,
             };
         }
+        case "SET_DISPLAY_SUCCESS": {
+            return {
+                ...state,
+                displaySuccess: action.value,
+            };
+        }
     }
 }
 
@@ -274,6 +286,8 @@ export const UIProvider: React.FC = (props) => {
         dispatch({ type: "SET_MODAL_DATA", data });
     const setFavoriteData = (data: string) =>
         dispatch({ type: "SET_FAVORITE_DATA", value: data });
+    const setDisplaySuccess = (data: boolean) =>
+        dispatch({ type: "SET_DISPLAY_SUCCESS", value: data });
     const value = React.useMemo(
         () => ({
             ...state,
@@ -299,6 +313,7 @@ export const UIProvider: React.FC = (props) => {
             setModalData,
             setPopupBanner,
             setFavoriteData,
+            setDisplaySuccess,
         }),
         [state],
     );
