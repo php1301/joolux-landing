@@ -4,7 +4,9 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useQuery } from "react-query";
 
 export const fetchOrder = async (_id: string) => {
-    const { data } = await http.get(`${API_ENDPOINTS.ORDER}`);
+    const { data } = await http.get(
+        `https://api.joolux-client.ml${API_ENDPOINTS.ORDER}?id=${_id}`,
+    );
     return data;
 };
 export const useOrderQuery = (id: string) => {
