@@ -237,10 +237,16 @@ export interface Filter {
 }
 
 export type OrderItem = {
-    id: number | string;
-    name: string;
+    _id: number | string;
+    productName: string;
     price: number;
-    quantity: number;
+};
+
+export type OrderLog = {
+    _id: string;
+    action: string;
+    description: string;
+    time: string;
 };
 export type Order = {
     id: string | number;
@@ -255,6 +261,43 @@ export type Order = {
     };
     shipping_fee: number;
     payment_gateway: string;
+    customerProvince: string;
+    customerDistrict: string;
+    customerPhone: string;
+    customerWard: string;
+    customerAddress: String;
+    customerName: string;
+    customerEmail: string;
+    _id: string;
+    // note
+    customerNote: string;
+    showingProductsList: OrderItem[];
+    orderLogs: OrderLog[];
+    status: string;
+    user: string;
+    totalCost: number;
+    vat: number;
+    couponApply: {
+        coupon: string;
+        totalMoneyDiscount: number;
+        allowMoneyDiscount: number;
+    };
+    campaignApply: {
+        campaign: string;
+        totalMoneyDiscount: number;
+        allowMoneyDiscount: number;
+    };
+    finalPrice: number;
+    createdAt: Date;
+    updatedAt: Date;
+    paymentMethod: string;
+    paid: Boolean;
+    deliverySupplier: string;
+    deliveryCode: string;
+    deliveryStatus: string;
+    deliveryFee: number;
+    deliveryText: string;
+    isFreeShip: Boolean;
 };
 
 export type HomepageBanner = {
