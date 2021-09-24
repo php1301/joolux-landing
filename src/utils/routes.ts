@@ -15,7 +15,7 @@ export const ROUTES = {
     VE_CHUNG_TOI: "/ve-chung-toi",
     BLOG: "/blog",
     FORGET_PASSWORD: "/forget-password",
-    ACCOUNT: "/my-account",
+    ACCOUNT: "/my-account/info",
     ORDERS: "/my-account/orders",
     ACCOUNT_DETAILS: "/my-account/account-details",
     ACCOUNT_FAVORITES: "/my-account/account-favorites",
