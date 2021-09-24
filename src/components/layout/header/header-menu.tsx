@@ -45,10 +45,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                     })}
                 </nav>
                 <nav className="flex items-center">
-                    <div
-                        className={`menuItem group cursor-pointer py-7 `}
-                        key={7}
-                    >
+                    <div className={`menuItem group cursor-pointer`} key={7}>
                         <Link
                             href={"/ky-gui"}
                             className="uppercase font-semibold inline-flex items-center text-sm xl:text-base text-secondary px-3 xl:px-4 py-2 relative group-hover:text-black"
@@ -57,7 +54,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
                         </Link>
                     </div>
                     <div
-                        className={`menuItem group cursor-pointer py-7`}
+                        className={`menuItem group cursor-pointer`}
                         key={data[0].id}
                     >
                         <Link
