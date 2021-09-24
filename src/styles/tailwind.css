@@ -1,14 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap'); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* Write your own custom base styles here */
 
 @layer base {
-	@font-face {
-		font-family: 'SuisseIntl';
-		src: url('https://assets.therealreal.com/fonts/Suisse/SuisseInternational/SuisseIntl-Regular-WebXL-3a6d8b032cc2135cf580467ea026a5f4.woff?vsn=d');
-	}
 	html {
 		-webkit-tap-highlight-color: transparent;
 	}
@@ -254,6 +250,7 @@
 		@apply w-full end-auto start-0;
 	}
 	.headerMenu .menuItem:hover>.megaMenu, .headerMenu .menuItem:hover>.subMenu {
+		transition: .4s ease .25s;
 		visibility: visible;
 		@apply top-full;
 	}
