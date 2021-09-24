@@ -64,11 +64,11 @@ export const Header: React.FC = () => {
                             >
                                 <SearchIcon />
                             </button>
-                            <div className="-mt-0.5 flex-shrink-0 h-7">
+                            <div className="flex-shrink-0 h-7">
                                 <AuthMenu
                                     href={ROUTES.ACCOUNT}
                                     isAuthorized={isAuthorized}
-                                    className="text-sm xl:text-base  text-white font-semibold"
+                                    className="text-sm xl:text-base text-white font-semibold"
                                     btnProps={{
                                         className:
                                             "text-sm xl:text-base text-white font-semibold focus:outeline-none",
