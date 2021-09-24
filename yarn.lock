@@ -1304,6 +1304,16 @@
   resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.4.5.tgz#07b31617e62ed753c94cabcf552ebaed4de497ce"
   integrity sha512-PDWEvO1/p8OAHHiielvEmwGXHNbZhrZn96ojV7+/mKgFu+cCUcGVJl9sFs97rCWLe3hKQsYLEsJs4EiLjwa+UQ==
 
+"@fontsource/prata@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/prata/-/prata-4.5.0.tgz#3a9e7dc7100aa9ef4cbd685641560958f6965dfb"
+  integrity sha512-/U2UI0tthXAP44VrE9d+lTvYDNg5+24e+DEZGqxXFIeSVxMrEPdWnOIFtWNNeaOWvvI7FurU5Je1vp9Dalh+2Q==
+
+"@fontsource/roboto@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.0.tgz#d6f925668ba6af46707f1040c43aff498ba204bb"
+  integrity sha512-ja4XYw/9kNRFM5Ndk9vwzHWsdBMXczyBazFkTXJQ74QQBnT0BbSsHn0pF60AU0Iznig1Wt9x3rADfG8LANvMpw==
+
 "@fontsource/satisfy@^4.4.5":
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/@fontsource/satisfy/-/satisfy-4.4.5.tgz#c4c46a5ea0d352a4de4dfd74f89a5985cf4d1fc5"
