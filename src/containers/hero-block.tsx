@@ -1,7 +1,7 @@
 import BannerCard from "@components/common/banner-card";
 import Carousel from "@components/ui/carousel/carousel";
 // import { homeOneHeroBanner as banners } from "@framework/static/banner";
-import { useWindowSize } from "@utils/use-window-size";
+// import { useWindowSize } from "@utils/use-window-size";
 import { ROUTES } from "@utils/routes";
 import { SwiperSlide } from "swiper/react";
 import { HomepageBanner } from "@framework/types";
@@ -18,12 +18,12 @@ const breakpoints = {
 const HeroBlock: React.FC<{ homepageBanner: HomepageBanner[] }> = ({
     homepageBanner,
 }) => {
-    const { width } = useWindowSize();
+    // const { width } = useWindowSize();
     return (
         <div className="heroBannerOne relative mb-5 md:mb-12 lg:mb-14 2xl:mb-16 mx-auto overflow-hidden px-0">
             <Carousel
                 breakpoints={breakpoints}
-                centeredSlides={width < 1500 ? false : true}
+                // centeredSlides={width < 1500 ? false : true}
                 autoplay={{ delay: 3000 }}
                 className="mx-0"
                 buttonClassName="hidden"
