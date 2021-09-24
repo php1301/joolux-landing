@@ -20,10 +20,13 @@ import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
 
 // Load Open Sans and satisfy typeface font
-import "@fontsource/open-sans";
-import "@fontsource/open-sans/600.css";
-import "@fontsource/open-sans/700.css";
-import "@fontsource/satisfy";
+// import "@fontsource/open-sans";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/300-italic.css";
+// import "@fontsource/open-sans/600.css";
+// import "@fontsource/open-sans/700.css";
+// import "@fontsource/satisfy";
+import "@fontsource/prata";
 // external
 import "react-toastify/dist/ReactToastify.css";
 // base css file
