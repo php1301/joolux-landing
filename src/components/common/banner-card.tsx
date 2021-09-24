@@ -1,5 +1,5 @@
 import Link from "@components/ui/link";
-import Image from "next/image";
+// import Image from "next/image";
 import type { FC } from "react";
 import { useWindowSize } from "@utils/use-window-size";
 import cn from "classnames";
@@ -39,17 +39,17 @@ const BannerCard: FC<IBannerProps> = ({
                     classNameInner,
                 )}
             >
-                <Image
+                <img
                     src={
                         selectedImage?.url ||
                         "/assets/images/hero/banner-2-jl.jpg"
                     }
                     // width={selectedImage.width}
                     // height={selectedImage.height}
-                    layout="fill"
+                    // layout="fill"
                     alt={title}
-                    objectFit="fill"
-                    quality={100}
+                    // objectFit="fill"
+                    // quality={100}
                     //  so when we resize the browser window, the aspect ratio of the images is preserved:
                     className={cn("bg-gray-300 object-fill w-full", {
                         "rounded-md": variant === "rounded",
