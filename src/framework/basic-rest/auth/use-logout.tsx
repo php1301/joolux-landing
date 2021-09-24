@@ -23,8 +23,8 @@ export const useLogoutMutation = () => {
     return useMutation(() => logout(), {
         onSuccess: (_data) => {
             Cookies.remove("access_token");
-            unauthorize();
             Router.push("/");
+            unauthorize();
         },
         onError: (data) => {
             console.log(data, "logout error response");
