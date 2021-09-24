@@ -3,6 +3,7 @@ import CartIcon from "@components/icons/cart-icon";
 import cn from "classnames";
 import { useRouter } from "next/router";
 import { useCart } from "@contexts/cart/cart.context";
+import { useUI } from "@contexts/ui.context";
 import usePrice from "@framework/product/use-price";
 import { ROUTES } from "@utils/routes";
 import Scrollbar from "@components/common/scrollbar";
@@ -20,6 +21,7 @@ interface ICartButton {
 const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const { t } = useTranslation("common");
     const isMount = useIsMount();
+    const { displaySuccess } = useUI();
     const { items, total, isEmpty, totalItems, specialPriceTotal } = useCart();
     const { price: cartTotal, discount } = usePrice({
         amount: specialPriceTotal || total,
@@ -55,7 +57,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
 
     useEffect(() => {
         if (!isMount) {
-            if (totalItems !== 0) {
+            if (totalItems !== 0 && !displaySuccess) {
                 setShow(true);
             }
         }
@@ -129,8 +131,8 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                         )}
                     >
                         <span className="w-full pe-5 -mt-0.5 py-0.5">
-                            {`Đã giảm: ${discount || 0} ₫`}
-                            <br />
+                            {/* {`Đã giảm: ${discount || 0} ₫`}
+                            <br /> */}
                             <h2 className="font-semibold">
                                 {t("Đến trang giỏ hàng")}
                             </h2>
