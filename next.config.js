@@ -55,6 +55,25 @@ const config = {
     //         ],
     //     };
     // },
+    redirects: async () => {
+        return [
+            {
+                source: "/categories",
+                destination: "/hang-moi-ve",
+                permanent: true,
+            },
+            {
+                source: "/my-account",
+                destination: "/my-account/info",
+                permanent: true,
+            },
+            {
+                source: "/promotions",
+                destination: "/hang-moi-ve",
+                permanent: true,
+            },
+        ];
+    },
     publicRuntimeConfig: {
         localeSubpaths,
     },
