@@ -87,15 +87,12 @@ module.exports = {
             cookies: "0 -2px 3px rgba(0, 0, 0, 0.04)",
         },
         fontFamily: {
-            body: ["'Open Sans', sans-serif"],
+            body: ["'Roboto'"],
+            bodyItalic: ["'Roboto Italic'"],
             satisfy: ["'Satisfy', cursive"],
             segoe: ["'Segoe UI', sans-serif"],
-            brand: [
-                "'Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif",
-            ],
-            htmlJl: [
-                "Nunito Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'",
-            ],
+            brand: ["'Prata'"],
+            htmlJl: ["'Roboto'"],
             fontRetail: ["'SuisseIntl',Helvetica,Arial"],
         },
     },
