@@ -220,8 +220,8 @@ const ProductSingleDetails: React.FC<{
                         )}
                     </div>
                     {data?.retailPrice && (
-                        <div className="flex items-center mt-6 mb-8">
-                            <div className="text-base font-fontRetail mr-4 text-[#666]">
+                        <div className="flex items-center mb-6">
+                            <div className="text-base mr-4 text-[#666]">
                                 Giá retail: {retailPrice}&nbsp;₫
                             </div>
                         </div>
