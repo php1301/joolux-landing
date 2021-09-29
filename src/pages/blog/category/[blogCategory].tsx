@@ -1,24 +1,22 @@
-import { NextSeo } from "next-seo";
-import BlogReviewPost from "@components/blog/blog-review-post";
+import BlogContainer from "@components/blog/blog-container";
 import { Layout } from "@components/layout/layout";
 import { NextPage, GetServerSideProps } from "next";
+import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React from "react";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
+import React from "react";
+import { fetchBlogs, useGetBlogsQuery } from "@framework/blog/get-blogs";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import PageHeader from "@components/ui/page-header";
 import { useRouter } from "next/router";
-import { fetchBlog, useBlogQuery } from "@framework/blog/get-blog";
-const BlogDetail: NextPage & { Layout: typeof Layout } = () => {
+const BlogPage: NextPage & { Layout: typeof Layout } = () => {
     const { query, asPath } = useRouter();
-    const { isLoading, data, error } = useBlogQuery(
-        query?.post as unknown as string,
-    );
+    const { isLoading, data, error } = useGetBlogsQuery(query);
     if (error) return <p>{error.message}</p>;
-    const { currentBlog, prevBlog, nextBlog, seo } = data ?? {};
-
+    const { pagination, blogs, seo } = data ?? {};
     return (
-        <div>
+        <>
             <NextSeo
                 additionalMetaTags={[
                     {
@@ -53,27 +51,28 @@ const BlogDetail: NextPage & { Layout: typeof Layout } = () => {
                     ],
                 }}
             />
-            <BlogReviewPost
-                currentBlog={currentBlog}
-                prevBlog={prevBlog}
-                nextBlog={nextBlog}
-                seo={seo}
-                isLoading={isLoading}
-            />
-        </div>
+            <PageHeader />
+            <div>
+                <BlogContainer
+                    isLoading={isLoading}
+                    pagination={pagination}
+                    blogs={blogs}
+                    seo={seo}
+                />
+            </div>
+        </>
     );
 };
 
-BlogDetail.Layout = Layout;
-export default BlogDetail;
+BlogPage.Layout = Layout;
+export default BlogPage;
 export const getServerSideProps: GetServerSideProps = async ({
     locale,
     query,
 }) => {
     const queryClient = new QueryClient();
-    await queryClient.prefetchQuery(
-        [API_ENDPOINTS.BLOG, query?.post as unknown as string],
-        async () => fetchBlog(query?.post as unknown as string),
+    await queryClient.prefetchQuery([API_ENDPOINTS.BLOG, query], async () =>
+        fetchBlogs(query),
     );
     return {
         props: {
