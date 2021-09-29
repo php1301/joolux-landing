@@ -1445,7 +1445,6 @@
     position: relative;
     flex: 0 0 auto;
     max-width: 100%;
-    width: 130px;
 }
 
 
@@ -1490,7 +1489,6 @@
     position: relative;
     flex: 0 0 auto;
     max-width: 100%;
-    width: 130px;
 }
 
 .img-right::before {
