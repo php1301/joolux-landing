@@ -331,3 +331,20 @@ export type PopupBanner = {
     description: string;
     image: string;
 };
+
+export type Blog = {
+    images: any[];
+    metaKeyWords: string[];
+    tags: string[];
+    _id: string;
+    title: string;
+    slug: string;
+    category: string;
+    shortBody: string;
+    body: string;
+    metaDescription: string;
+    thumbnail: string;
+    createdAt: Date;
+    updatedAt: Date;
+    __v: number;
+};
