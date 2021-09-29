@@ -7,6 +7,13 @@ export const sitePages = {
         banner_description_id: "hangMoiVeSubtitle",
         banner: "https://joolux.com/img/menu/mega-1.jpg",
     },
+    blog: {
+        page_title: "Blog | Joolux",
+        page_description: "Thương hiệu được các tín đồ thời trang yêu thích",
+        banner_title_id: "blogId",
+        banner_description_id: "blogSubtitle",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
     "tui-xach": {
         page_title: "Túi xách | Joolux",
         page_description: "Một chiếc túi sẽ cho người khác biết nhiều về bạn",
