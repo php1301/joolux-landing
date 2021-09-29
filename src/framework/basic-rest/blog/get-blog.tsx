@@ -21,7 +21,7 @@ export const fetchBlog = async (_id: string) => {
     } = await http.get(
         `https://api.joolux-client.ml${API_ENDPOINTS.BLOG}?id=${_id}&seo=true`,
     );
-    return { currentBlog, nextBlog, prevBlog };
+    return { currentBlog, nextBlog, prevBlog, seo };
 };
 export const useBlogQuery = (id: string) => {
     return useQuery<PaginatedBlogs, Error>([API_ENDPOINTS.BLOG, id], () =>
