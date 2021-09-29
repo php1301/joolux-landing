@@ -7,6 +7,7 @@ import { dehydrate } from "react-query/hydration";
 import React from "react";
 import { fetchBlogs, useGetBlogsQuery } from "@framework/blog/get-blogs";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
+import PageHeader from "@components/ui/page-header";
 import { useRouter } from "next/router";
 const BlogPage: NextPage & { Layout: typeof Layout } = () => {
     const { query } = useRouter();
@@ -15,13 +16,16 @@ const BlogPage: NextPage & { Layout: typeof Layout } = () => {
     const { pagination, blogs } = data ?? {};
 
     return (
-        <div>
-            <BlogContainer
-                isLoading={isLoading}
-                pagination={pagination}
-                blogs={blogs}
-            />
-        </div>
+        <>
+            <PageHeader />
+            <div>
+                <BlogContainer
+                    isLoading={isLoading}
+                    pagination={pagination}
+                    blogs={blogs}
+                />
+            </div>
+        </>
     );
 };
 
@@ -32,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     query,
 }) => {
     const queryClient = new QueryClient();
-    await queryClient.prefetchQuery([API_ENDPOINTS.BLOG], async () =>
+    await queryClient.prefetchQuery([API_ENDPOINTS.BLOG, query], async () =>
         fetchBlogs(query),
     );
     return {
