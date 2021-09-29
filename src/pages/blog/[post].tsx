@@ -1,4 +1,4 @@
-import BlogContainer from "@components/blog/blog-container";
+import { NextSeo } from "next-seo";
 import BlogReviewPost from "@components/blog/blog-review-post";
 import { Layout } from "@components/layout/layout";
 import { NextPage, GetServerSideProps } from "next";
@@ -10,7 +10,7 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useRouter } from "next/router";
 import { fetchBlog, useBlogQuery } from "@framework/blog/get-blog";
 const BlogDetail: NextPage & { Layout: typeof Layout } = () => {
-    const { query } = useRouter();
+    const { query, asPath } = useRouter();
     const { isLoading, data, error } = useBlogQuery(
         query?.post as unknown as string,
     );
@@ -19,6 +19,40 @@ const BlogDetail: NextPage & { Layout: typeof Layout } = () => {
 
     return (
         <div>
+            <NextSeo
+                additionalMetaTags={[
+                    {
+                        name: "viewport",
+                        content: "width=device-width, initial-scale=1.0",
+                    },
+                ]}
+                title={`${seo?.name} | Joolux` || "Joolux"}
+                description={seo?.description || "Bộ sưu tập"}
+                canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
+                openGraph={{
+                    url: asPath,
+                    title: `${seo?.name} | Joolux` || "Joolux",
+                    description: seo?.description || "Pending",
+                    images: [
+                        {
+                            url:
+                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${seo?.image?.[0]}` ||
+                                "https://joolux.com/og-image.jpg",
+                            width: 800,
+                            height: 600,
+                            alt: "Og Image Alt",
+                        },
+                        {
+                            url:
+                                `${process.env.NEXT_PUBLIC_BASE_IMAGE}${seo?.image?.[0]}` ||
+                                "https://joolux.com/og-image.jpg",
+                            width: 900,
+                            height: 800,
+                            alt: "Og Image Alt Second",
+                        },
+                    ],
+                }}
+            />
             <BlogReviewPost
                 currentBlog={currentBlog}
                 prevBlog={prevBlog}
