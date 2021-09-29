@@ -13,7 +13,7 @@ interface IBlogCategoryProps {
 
 const BlogCategory: FC<IBlogCategoryProps> = ({ ...props }) => {
     return (
-        <div className="BlogLayout__SidebarWrapper-sc-1ragf6m-1  blog-layout-sidebar">
+        <div className="BlogLayout__SidebarWrapper-sc-1ragf6m-1  blog-layout-sidebar w-full">
             <aside className="block">
                 <BlogMenu />
                 <BlogNews />

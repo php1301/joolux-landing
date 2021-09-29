@@ -1,15 +1,12 @@
 import { Blog } from "@framework/types";
-import { ProxyTypeSet } from "immer/dist/internal";
 import React, { FC } from "react";
 import BlogCategory from "./blog-category";
-import BlogMenu from "./blog-menu";
-import BlogNews from "./blog-news";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import parse from "html-react-parser";
 import { DateTime } from "luxon";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
-import { Router } from "next/router";
+import BlogItemCenter from "./blog-breadcrumb";
 interface IBlogReviewPostProps {
     currentBlog: Blog;
     prevBlog: Blog;
@@ -22,6 +19,7 @@ interface IBlogReviewPostProps {
     };
     isLoading: boolean;
 }
+const placeholderImage = `/assets/placeholder/products/product-list.svg`;
 
 const BlogReviewPost: FC<IBlogReviewPostProps> = ({
     currentBlog,
@@ -31,12 +29,18 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
     isLoading,
 }) => {
     return (
-        <div className="LayoutWrapper-oftn6b-0 main-blog-review lg:px-8">
-            <div className="flex flex-wrap mt-8 mb-12">
+        <div className="max-w-[1440px] py-4 lg:px-8 px-5 blogContainer mx-auto">
+            <div className="pt-8">
+                <BlogItemCenter seo={seo} />
+            </div>
+            <div className="flex flex-wrap mt-2 mb-12">
                 {isLoading ? (
-                    <ProductFeedLoader limit={20} uniqueKey="search-product" />
+                    <ProductFeedLoader
+                        limit={20}
+                        uniqueKey="blog-review-post loader"
+                    />
                 ) : (
-                    <div className="BlogLayout__Body-sc-1ragf6m-0 review-post">
+                    <div className="BlogLayout__Body-sc-1ragf6m-0 review-post w-full mb-10">
                         <h1 className="Typography__H1-sc-18cqegv-0 h1-review-blog text-3xl smJl:text-4xl mb-3">
                             {currentBlog?.title}
                         </h1>
@@ -44,10 +48,10 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                         <div className="text-xs flex items-center mb-8">
                             <span className="createIcon__SvgWrapper-sc-7pbd21-1 time-blog mr-2">
                                 <svg
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    stroke-linejoin="round"
-                                    stroke-miterlimit="1.414"
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    strokeLinejoin="round"
+                                    strokeMiterlimit="1.414"
                                     xmlns="http://www.w3.org/2000/svg"
                                     aria-labelledby="title"
                                     viewBox="0 0 24 24"
@@ -61,7 +65,7 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                 </svg>
                             </span>
                             {DateTime.fromISO(currentBlog?.createdAt).toFormat(
-                                "dd/MM/YYYY",
+                                "dd/MM/yyyy",
                             )}
                         </div>
 
@@ -72,16 +76,16 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
 
                         <div className="flex -mx-5 flex-wrap">
                             <div className="w-1/2 px-5">
-                                {prevBlog && (
+                                {prevBlog?.title && (
                                     <>
                                         {" "}
                                         <div className="flex items-center text-sm smJl:text-15px font-semibold text-gray-700 mb-5 whitespace-no-wrap">
                                             <span className="createIcon__SvgWrapper-sc-7pbd21-1 iSSfWs mr-2 sm:mr-4  span-left">
                                                 <svg
-                                                    fill-rule="evenodd"
-                                                    clip-rule="evenodd"
-                                                    stroke-linejoin="round"
-                                                    stroke-miterlimit="1.414"
+                                                    fillRule="evenodd"
+                                                    clipRule="evenodd"
+                                                    strokeLinejoin="round"
+                                                    strokeMiterlimit="1.414"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     aria-labelledby="title"
                                                     viewBox="0 0 24 24"
@@ -101,10 +105,12 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                                 className="flex-none mr-4 smJl:block hidden"
                                                 href={`${ROUTES.BLOG}/${prevBlog?._id}`}
                                             >
-                                                <div className="ThumbImage__Container-sc-1m3pb9t-0 img-left">
+                                                <div className="ThumbImage__Container-sc-1m3pb9t-0 img-left smJl:w-[130px] w-0">
                                                     <img
+                                                        className=""
                                                         src={
-                                                            prevBlog?.thumbnail
+                                                            prevBlog?.thumbnail ||
+                                                            placeholderImage
                                                         }
                                                     />
                                                 </div>
@@ -113,7 +119,7 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                                 className="text-primary hover:text-secondary text-15px font-semibold transition-colors duration-200"
                                                 href={`${ROUTES.BLOG}/${prevBlog?._id}`}
                                             >
-                                                {prevBlog.title}
+                                                {prevBlog?.title}
                                             </Link>
                                         </div>
                                     </>
@@ -121,17 +127,17 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                             </div>
 
                             <div className="w-1/2 px-5">
-                                {nextBlog && (
+                                {nextBlog?.title && (
                                     <>
                                         {" "}
                                         <div className="flex items-center text-sm smJl:text-15px font-semibold text-gray-700 mb-5 justify-end text-right whitespace-no-wrap">
                                             Bài Viết Kế Tiếp
                                             <span className="createIcon__SvgWrapper-sc-7pbd21-1 iSSfWs ml-2 smJl:ml-4 span-right">
                                                 <svg
-                                                    fill-rule="evenodd"
-                                                    clip-rule="evenodd"
-                                                    stroke-linejoin="round"
-                                                    stroke-miterlimit="1.414"
+                                                    fillRule="evenodd"
+                                                    clipRule="evenodd"
+                                                    strokeLinejoin="round"
+                                                    strokeMiterlimit="1.414"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     aria-labelledby="title"
                                                     viewBox="0 0 24 24"
@@ -150,16 +156,17 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                                 className="text-primary hover:text-secondary text-15px font-semibold transition-colors duration-200 w-full"
                                                 href={`${ROUTES.BLOG}/${nextBlog?._id}`}
                                             >
-                                                {nextBlog.title}
+                                                {nextBlog?.title}
                                             </Link>
                                             <Link
                                                 className="flex-none ml-4 sm:block hidden"
                                                 href={`${ROUTES.BLOG}/${nextBlog?._id}`}
                                             >
-                                                <div className="ThumbImage__Container-sc-1m3pb9t-0 hKeRoM img-right">
+                                                <div className="ThumbImage__Container-sc-1m3pb9t-0 hKeRoM img-right smJl:w-[130px] w-0">
                                                     <img
                                                         src={
-                                                            nextBlog?.thumbnail
+                                                            nextBlog?.thumbnail ||
+                                                            placeholderImage
                                                         }
                                                     />
                                                 </div>
