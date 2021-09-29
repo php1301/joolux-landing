@@ -33,4 +33,5 @@ export const API_ENDPOINTS = {
     FAVORITE: "/user/wishList",
     ORDERS: "/api/orders.json",
     ORDER: "/orders/details",
+    BLOG: "/client/blogs",
 };
