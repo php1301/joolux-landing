@@ -50,6 +50,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                 </ActiveLink>
                                 <ActiveLink
                                     href={ROUTES.HANG_MOI_VE}
+                                    excludeQuery
                                     activeClassName="font-semibold text-heading"
                                 >
                                     <a className="capitalize">
