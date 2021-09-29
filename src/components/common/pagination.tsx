@@ -10,8 +10,12 @@ interface IPagination {
         total: number;
         totalPage: number;
     };
+    className?: string;
 }
-const Pagination: FC<IPagination> = ({ pagination }) => {
+const Pagination: FC<IPagination> = ({
+    pagination,
+    className = "container flex justify-start mx-auto product-paginate mt-6 overflow-x-auto",
+}) => {
     const router = useRouter();
     const { pathname, query } = router;
     const { page, ...restQuery } = query;
@@ -35,7 +39,7 @@ const Pagination: FC<IPagination> = ({ pagination }) => {
         router.push(decodeURI(url), undefined, { scroll: false });
     };
     return (
-        <div className="container flex justify-start mx-auto product-paginate mt-6 overflow-x-auto">
+        <div className={className}>
             <ReactPaginate
                 previousLabel={"<"}
                 previousLinkClassName="inline-flex h-8 w-8 text-gray-600 bg-white border border-solid border-[#cfcfcf] leading-8 mx-1 justify-center items-center cursor-pointer text-sm"
