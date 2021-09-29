@@ -85,7 +85,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                                             speed: 500,
                                         }}
                                     />
-                                    <ReactQueryDevtools initialIsOpen={false} />
                                     <Component
                                         {...pageProps}
                                         key={router.route}
@@ -95,6 +94,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                                 <ManagedModal />
                             </ManagedUIContext>
                         </Provider>
+                        <ReactQueryDevtools initialIsOpen={false} />
                     </Hydrate>
                 </QueryClientProvider>
             </ApolloProvider>
