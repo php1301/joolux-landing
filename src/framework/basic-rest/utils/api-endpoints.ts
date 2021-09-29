@@ -34,4 +34,6 @@ export const API_ENDPOINTS = {
     ORDERS: "/api/orders.json",
     ORDER: "/orders/details",
     BLOG: "/client/blogs",
+    BLOG_NEWEST_BLOGS: "/client/blogs/newest-blogs",
+    BLOG_CATEGORIES: "/client/blogs/category",
 };
