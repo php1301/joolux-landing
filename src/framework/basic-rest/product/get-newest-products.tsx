@@ -1,4 +1,6 @@
+import { fetchNewestBlogs } from "@framework/blog/get-newest-blogs";
 import {
+    Blog,
     CollectionBanner,
     HomepageBanner,
     PopupBanner,
@@ -13,6 +15,7 @@ type NewestProducts = {
     homepageBanner: HomepageBanner[];
     collectionBanner: CollectionBanner[];
     popupBanner: PopupBanner;
+    blogs: Blog[];
 };
 
 const fetchNewestProducts = async () => {
@@ -28,11 +31,13 @@ const fetchNewestProducts = async () => {
     const { data: popupBanner } = await http.get(
         `https://api.joolux-client.ml${API_ENDPOINTS.POPUP_BANNER}`,
     );
+    const data = await fetchNewestBlogs();
     return {
         newestProducts,
         homepageBanner,
         collectionBanner,
         popupBanner,
+        blogs: data?.data,
     };
 };
 
