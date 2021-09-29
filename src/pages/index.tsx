@@ -39,8 +39,13 @@ const Home: NextPage & {
         setModalView,
     } = useUI();
     const { query } = useRouter();
-    const { collectionBanner, homepageBanner, newestProducts, popupBanner } =
-        data ?? {};
+    const {
+        collectionBanner,
+        homepageBanner,
+        newestProducts,
+        popupBanner,
+        blogs,
+    } = data ?? {};
     useEffect(() => {
         if (query.logoutExpired && isAuthorized) {
             unauthorize();
@@ -104,7 +109,7 @@ const Home: NextPage & {
                 )}
                 <AssuranceBlock />
                 {data && <NewestProducts data={newestProducts} />}
-                <BlogBlock />
+                <BlogBlock blogs={blogs} />
             </Container>
             {/* <Cards /> */}
         </>
