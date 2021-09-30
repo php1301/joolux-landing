@@ -104,6 +104,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                         <ShopFilters
                             totalItems={pagination?.total}
                             filter={filter}
+                            filterName={seo?.name}
                         />
                     </div>
                     <div className="w-full lg:-ms-9">
@@ -112,6 +113,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                 <SearchTopBar
                                     totalItems={pagination?.total}
                                     filter={filter}
+                                    filterName={seo?.name}
                                 />
                             )}
                         </div>
