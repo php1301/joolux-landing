@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 import { getDirection } from "@utils/get-direction";
 import { useRouter } from "next/router";
 
-const FilterSidebar = ({ filter, totalItems }) => {
+const FilterSidebar = ({ filter, totalItems, filterName }) => {
     const { closeFilter } = useUI();
     const router = useRouter();
     const { t } = useTranslation("common");
@@ -32,12 +32,18 @@ const FilterSidebar = ({ filter, totalItems }) => {
 
             <Scrollbar className="menu-scrollbar flex-grow mb-auto">
                 <div className="flex flex-col py-7 px-5 md:px-7 text-heading">
-                    <ShopFilters filter={filter} modalTooltip mobile={false} />
+                    <ShopFilters
+                        filter={filter}
+                        modalTooltip
+                        mobile={false}
+                        totalItems={totalItems}
+                        filterName={filterName}
+                    />
                 </div>
             </Scrollbar>
 
             <div className="text-sm md:text-base leading-4 flex items-center justify-center px-7 flex-shrink-0 h-14 bg-heading text-white">
-                {totalItems} {t("text-items")}
+                {/* {totalItems} {t("text-items")} */}
             </div>
         </div>
     );
