@@ -571,6 +571,52 @@
 		border-color: var(--primary);
 	}
 	/* Footer */
+	.go-top-button {
+		position: fixed;
+		box-sizing: border-box;
+		height: 40px;
+		width: 40px;
+		bottom: 70px;
+		right: 10px;
+		border-radius: 40px;
+		border: 1px solid #000;
+		opacity: 1;
+		z-index: 9;
+		background: #fff;
+		font-size: 0px;
+		text-transform: uppercase;
+		text-align: center;
+		color: #000;
+		cursor: pointer;
+		padding: 25px 4px 4px 4px;
+		transition: all .3s ease;
+	}
+	@media (min-width: 750px){
+		.go-top-button {
+			bottom: 0px;
+			right: 40px;
+			height: 100px;
+			width: 70px;
+			border-radius: 0;
+			font-size: 14px;
+		}
+	}
+	.go-top-button::before {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #000;
+		border-width: 1px 1px 0 0;
+		margin: -5px auto 5px auto;
+		transform: rotate( -45deg);
+	}
+
+	@media (min-width: 750px){
+		.go-top-button::before {
+			margin: 0 auto 6px auto;
+		}
+	}
 	.footer-container {
 		padding-top: 1.25rem;
 	}
@@ -1552,4 +1598,98 @@
 
 .breadcrumb-search li:last-child {
 	@apply truncate;
+}
+
+
+/* Branding pages */
+
+.brand-layout {
+	width: auto;
+}
+@media  (min-width: 980px) {
+	.brand-layout {
+		width: 980px
+	}
+}
+
+.brand-layout .all-brands {
+	padding: 0 0 50px;
+}
+
+
+.letters-list {
+	width: 100%;
+}
+@media  (min-width: 980px) {
+	.letters-list {
+		width: 25%;
+		text-align: center;
+		color: #333;
+	}
+}
+
+.all-brands .letters-list>li:first-child {
+	margin-top: 0;
+}
+
+.all-brands .letters-list>li {
+	margin: 20px 0 0;
+}
+
+.all-brands .letter {
+	font-size: 81px;
+	line-height: 104px;
+}
+
+@media (min-width: 980px) {
+	.all-brands .letter {
+		font-size: 92px;
+		line-height: 92px;
+	}
+}
+
+
+.all-brands .brands-list {
+	margin-top: 0;
+}
+@media (min-width: 980px) {
+	.all-brands .brands-list {
+		margin: 16px 0 0;
+	}
+}
+
+.all-brands .brand:first-child {
+	margin-top: 0;
+}
+
+.all-brands .brand {
+	font-size: 14px;
+	line-height: 27px;
+	margin: 0;
+}
+@media(min-width: 980px) {
+	.all-brands .brand {
+		margin: 7px 0 0;
+		line-height: 12px;
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+}
+
+
+.brands-nav {
+    font-weight: normal;
+    line-height: 46px;
+    font-size: 21px;
+    color: #000;
+    text-align: center;
+    margin: 0 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid #cecece;
+}
+
+.brand-nav-item {
+	display: inline-block;
+    padding: 0 6px;
+    cursor: pointer;
 }
