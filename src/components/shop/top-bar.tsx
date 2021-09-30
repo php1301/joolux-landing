@@ -13,9 +13,14 @@ import { Filter } from "@framework/types";
 interface ISerarchTopBar {
     totalItems: number;
     filter: Filter;
+    filterName?: string;
 }
 
-const SearchTopBar: FC<ISerarchTopBar> = ({ totalItems = 2000, filter }) => {
+const SearchTopBar: FC<ISerarchTopBar> = ({
+    totalItems = 2000,
+    filter,
+    filterName,
+}) => {
     const { openFilter, displayFilter, closeFilter } = useUI();
     const { t } = useTranslation("common");
     const { locale } = useRouter();
@@ -63,7 +68,11 @@ const SearchTopBar: FC<ISerarchTopBar> = ({ totalItems = 2000, filter }) => {
                 contentWrapperStyle={contentWrapperCSS}
                 wrapperClassName="product-drawer"
             >
-                <FilterSidebar filter={filter} totalItems={totalItems} />
+                <FilterSidebar
+                    filter={filter}
+                    totalItems={totalItems}
+                    filterName={filterName}
+                />
             </Drawer>
         </>
     );
