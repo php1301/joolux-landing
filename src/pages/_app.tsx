@@ -35,6 +35,7 @@ import "@styles/swiper-carousel.css";
 import "@styles/custom-plugins.css";
 import "@styles/tailwind.css";
 import { getDirection } from "@utils/get-direction";
+import ScrollToTop from "@components/common/scroll-to-top";
 
 const Noop: React.FC = ({ children }) => <>{children}</>;
 
@@ -90,6 +91,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                                         key={router.route}
                                     />
                                     <ToastContainer />
+                                    <ScrollToTop />
                                 </Layout>{" "}
                                 <ManagedModal />
                             </ManagedUIContext>
