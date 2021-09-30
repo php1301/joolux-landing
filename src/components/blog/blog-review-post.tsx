@@ -103,7 +103,7 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                         <div className="flex smJl:flex-row flex-col-reverse">
                                             <Link
                                                 className="flex-none mr-4 smJl:block hidden"
-                                                href={`${ROUTES.BLOG}/${prevBlog?._id}`}
+                                                href={`${ROUTES.BLOG}/${prevBlog?.slug}`}
                                             >
                                                 <div className="ThumbImage__Container-sc-1m3pb9t-0 img-left smJl:w-[130px] w-0">
                                                     <img
@@ -117,7 +117,7 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                             </Link>
                                             <Link
                                                 className="text-primary hover:text-secondary text-15px font-semibold transition-colors duration-200"
-                                                href={`${ROUTES.BLOG}/${prevBlog?._id}`}
+                                                href={`${ROUTES.BLOG}/${prevBlog?.slug}`}
                                             >
                                                 {prevBlog?.title}
                                             </Link>
@@ -154,13 +154,13 @@ const BlogReviewPost: FC<IBlogReviewPostProps> = ({
                                         <div className="flex smJl:flex-row flex-col-reverse">
                                             <Link
                                                 className="text-primary hover:text-secondary text-15px font-semibold transition-colors duration-200 w-full"
-                                                href={`${ROUTES.BLOG}/${nextBlog?._id}`}
+                                                href={`${ROUTES.BLOG}/${nextBlog?.slug}`}
                                             >
                                                 {nextBlog?.title}
                                             </Link>
                                             <Link
                                                 className="flex-none ml-4 sm:block hidden"
-                                                href={`${ROUTES.BLOG}/${nextBlog?._id}`}
+                                                href={`${ROUTES.BLOG}/${nextBlog?.slug}`}
                                             >
                                                 <div className="ThumbImage__Container-sc-1m3pb9t-0 hKeRoM img-right smJl:w-[130px] w-0">
                                                     <img

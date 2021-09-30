@@ -41,7 +41,7 @@ const BlogLayoutBody: FC<IBlogLayoutBodyProps> = ({
 
                         <div className="pl-5 smJl:pl-7 content-post">
                             <Link
-                                href={`${ROUTES.BLOG}/${blog?._id}`}
+                                href={`${ROUTES.BLOG}/${blog?.slug}`}
                                 className="hover:text-secondary transition-colors duration-200"
                             >
                                 <h4 className="m-0 font-body text-xl mb-3 font-semibold">
@@ -76,7 +76,7 @@ const BlogLayoutBody: FC<IBlogLayoutBodyProps> = ({
                                 {blog?.shortBody}
                             </h6>
                             <Link
-                                href={`${ROUTES.BLOG}/${blog?._id}`}
+                                href={`${ROUTES.BLOG}/${blog?.slug}`}
                                 className="ml-0 pl-0 BaseButton__Anchor-x7xjk1-0 UxMA"
                             >
                                 <button

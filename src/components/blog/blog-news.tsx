@@ -49,7 +49,7 @@ const BlogNews: FC<IBlogNewsProps> = () => {
 
                                             <div className="w-full pl-5 smJl:pl-6 content-news">
                                                 <Link
-                                                    href={`${ROUTES.BLOG}/${blog?._id}`}
+                                                    href={`${ROUTES.BLOG}/${blog?.slug}`}
                                                     className="font-semibold text-primary hover:text-secondary transition-colors duration-200 text-15px block mb-2"
                                                 >
                                                     {blog?.title}
@@ -88,7 +88,7 @@ const BlogNews: FC<IBlogNewsProps> = () => {
                                             <div className="w-full">
                                                 <Link
                                                     className="font-semibold text-primary hover:text-secondary transition-colors duration-200 text-15px block mb-2"
-                                                    href={`${ROUTES.BLOG}/${blog?._id}`}
+                                                    href={`${ROUTES.BLOG}/${blog?.slug}`}
                                                 >
                                                     {blog?.title}
                                                 </Link>

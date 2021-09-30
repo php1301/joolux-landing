@@ -20,7 +20,7 @@ const BlogBlock: FC<{ blogs: Blog[] }> = ({ blogs }) => (
             {blogs?.map((blog) => {
                 return (
                     <div key={blog?._id} className="px-4 w-1/2 md:w-1/4 mb-4">
-                        <a href="/blog/ngoc-thanh-tam-xa-kho-hang-hieu-ung-ho-quy-vaccine">
+                        <Link href={`${ROUTES.BLOG}/${blog?.slug}`}>
                             <div className="blog-thumb-image">
                                 <div className="blog-lazyload-image h-full">
                                     <Image
@@ -33,10 +33,10 @@ const BlogBlock: FC<{ blogs: Blog[] }> = ({ blogs }) => (
                                     />
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                         <Link
                             className="text-primary hover:text-secondary transition-colors duration-200"
-                            href={`${ROUTES.BLOG}/${blog?._id}`}
+                            href={`${ROUTES.BLOG}/${blog?.slug}`}
                         >
                             <h6
                                 className="font-semibold leading-[1.333] mt-5 mb-2 text-[15px]"
