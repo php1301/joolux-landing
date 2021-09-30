@@ -28,9 +28,11 @@ const BlogItemCenter: FC<IBlogItemProps> = ({ seo }) => {
                         {t("blog")}
                     </a>
                 </ActiveLink>
-                <span className="font-semibold text-heading">
-                    <a>{seo?.name}</a>
-                </span>
+                {seo?.name && (
+                    <span className="font-semibold text-heading">
+                        <a>{seo?.name}</a>
+                    </span>
+                )}
             </BreadcrumbItems>
         </div>
     );

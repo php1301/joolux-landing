@@ -25,7 +25,7 @@ const ProductCard: FC<IProductProps> = ({
     product,
     className = "",
     contactClassName = "",
-    imageContentClassName = "",
+    imageContentClassName = "text-center",
     variant = "list",
     imgWidth = 254,
     imgHeight = 254,

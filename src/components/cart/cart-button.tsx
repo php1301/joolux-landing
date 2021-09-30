@@ -152,10 +152,12 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                                 {t("Đến trang giỏ hàng")}
                             </h2>
                         </span>
-                        <span className="ms-auto flex-shrink-0 -mt-0.5 py-0.5">
-                            <span className="border-s border-white pe-5 py-0.5" />
-                            {cartTotal}&nbsp;₫
-                        </span>
+                        {!isEmpty && (
+                            <span className="ms-auto flex-shrink-0 -mt-0.5 py-0.5">
+                                <span className="border-s border-white pe-5 py-0.5" />
+                                {cartTotal}&nbsp;₫
+                            </span>
+                        )}
                     </Link>
                 </div>
             )}
