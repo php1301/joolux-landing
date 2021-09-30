@@ -85,13 +85,13 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                     <a>{t("Trang chủ")}</a>
                                 </ActiveLink>
                                 <ActiveLink
-                                    href={`/categories/${seo.slug}`}
+                                    href={`/categories/${seo?.slug}`}
                                     excludeQuery
                                     activeClassName="font-semibold text-heading"
                                 >
                                     <a className="capitalize">
                                         {/* {t("breadcrumb-search")} */}
-                                        {t(seo.name)}
+                                        {t(seo?.name)}
                                     </a>
                                 </ActiveLink>
                             </BreadcrumbItems>
@@ -99,6 +99,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                         <ShopFilters
                             totalItems={pagination?.total}
                             filter={filter}
+                            filterName={seo?.name}
                         />
                     </div>
                     <div className="w-full lg:-ms-9">
@@ -107,6 +108,7 @@ const Search: NextPage<{}> & { Layout: typeof Layout } = () => {
                                 <SearchTopBar
                                     totalItems={pagination?.total}
                                     filter={filter}
+                                    filterName={seo?.name}
                                 />
                             )}
                         </div>
