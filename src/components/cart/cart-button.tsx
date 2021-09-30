@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CartIcon from "@components/icons/cart-icon";
 import cn from "classnames";
 import { useRouter } from "next/router";
@@ -23,7 +23,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
     const isMount = useIsMount();
     const { displaySuccess } = useUI();
     const { items, total, isEmpty, totalItems, specialPriceTotal } = useCart();
-    const { price: cartTotal, discount } = usePrice({
+    const { price: cartTotal } = usePrice({
         amount: specialPriceTotal || total,
         baseAmount: total,
         currencyCode: "VND",
@@ -54,6 +54,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
             locale: router.locale,
         });
     };
+    const timer = useRef(null);
 
     useEffect(() => {
         if (!isMount) {
@@ -68,8 +69,15 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                 className="cart-button-hover flex items-center justify-center flex-shrink-0 h-auto relative focus:outline-none transform"
                 onClick={handleOpenCart}
                 ref={setReferenceElement}
-                onMouseEnter={() => setShow(true)}
-                onMouseLeave={() => setShow(false)}
+                onMouseEnter={() => {
+                    clearTimeout(timer.current);
+                    setShow(true);
+                }}
+                onMouseLeave={() => {
+                    timer.current = setTimeout(() => {
+                        setShow(false);
+                    }, 1000);
+                }}
                 aria-label="cart-button"
             >
                 <CartIcon color={backgroundCart} />
@@ -85,8 +93,15 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                     style={styles.popper}
                     className="cart-dropdown-item bg-white shadow-cart max-w-[600px]"
                     {...attributes.popper}
-                    onMouseEnter={() => setShow(true)}
-                    onMouseLeave={() => setShow(false)}
+                    onMouseEnter={() => {
+                        clearTimeout(timer.current);
+                        setShow(true);
+                    }}
+                    onMouseLeave={() => {
+                        timer.current = setTimeout(() => {
+                            setShow(false);
+                        }, 1000);
+                    }}
                 >
                     {!isEmpty ? (
                         <Scrollbar className="cart-scrollbar w-full flex-grow overflow-hidden">
