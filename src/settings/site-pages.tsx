@@ -14,6 +14,13 @@ export const sitePages = {
         banner_description_id: "blogSubtitle",
         banner: "https://joolux.com/img/menu/mega-1.jpg",
     },
+    brands: {
+        page_title: "Tất cả thương hiệu | Joolux",
+        page_description: "Thương hiệu được các tín đồ thời trang yêu thích",
+        banner_title_id: "brandsId",
+        banner_description_id: "brandsSubtitle",
+        banner: "https://joolux.com/img/menu/mega-1.jpg",
+    },
     "tui-xach": {
         page_title: "Túi xách | Joolux",
         page_description: "Một chiếc túi sẽ cho người khác biết nhiều về bạn",
