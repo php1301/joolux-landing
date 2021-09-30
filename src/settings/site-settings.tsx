@@ -97,7 +97,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 12,
-                                        path: "/hang-moi-ve",
+                                        path: "/brands",
                                         bold: true,
                                         label: "Xem tất cả",
                                     },
@@ -310,7 +310,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 8,
-                                        path: "/hang-moi-ve",
+                                        path: "/brands",
                                         bold: true,
                                         label: "Xem tất cả",
                                     },
@@ -393,7 +393,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 12,
-                                        path: "/hang-moi-ve?genders=Nam",
+                                        path: "/brands",
                                         bold: true,
                                         label: "Xem tất cả",
                                     },
@@ -1332,7 +1332,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 12,
-                                path: "/hang-moi-ve",
+                                path: "/brands",
                                 bold: true,
                                 label: "Xem tất cả",
                             },
@@ -1516,7 +1516,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 16,
-                                path: "/hang-moi-ve",
+                                path: "/brands",
                                 bold: true,
                                 label: "Xem tất cả",
                             },
@@ -1592,7 +1592,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 12,
-                                path: "/hang-moi-ve?genders=Nam",
+                                path: "/brands",
                                 bold: true,
                                 label: "Xem tất cả",
                             },
@@ -1701,7 +1701,7 @@ export const siteSettings = {
                             },
                             {
                                 id: 12,
-                                path: "/hang-moi-ve?genders=Nữ",
+                                path: "/brands",
                                 bold: true,
                                 label: "Xem tất cả",
                             },
