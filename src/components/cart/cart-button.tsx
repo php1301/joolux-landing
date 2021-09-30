@@ -76,7 +76,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                 onMouseLeave={() => {
                     timer.current = setTimeout(() => {
                         setShow(false);
-                    }, 1000);
+                    }, 500);
                 }}
                 aria-label="cart-button"
             >
@@ -100,7 +100,7 @@ const CartButton: React.FC<ICartButton> = ({ className, backgroundCart }) => {
                     onMouseLeave={() => {
                         timer.current = setTimeout(() => {
                             setShow(false);
-                        }, 1000);
+                        }, 500);
                     }}
                 >
                     {!isEmpty ? (
