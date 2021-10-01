@@ -514,7 +514,7 @@ export const siteSettings = {
                                     },
                                     {
                                         id: 12,
-                                        path: "/hang-moi-ve?genders=Nữ",
+                                        path: "/brands",
                                         bold: true,
                                         label: "Xem tất cả",
                                     },
