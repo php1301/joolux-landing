@@ -353,4 +353,28 @@ export type Article = {
     _id: string;
     slug: string;
     body: string;
+    teamMembers: {
+        _id: string;
+        name: string;
+        role: string;
+        img: string;
+        alt: string;
+    }[];
+    newsCarousel: {
+        id: number;
+        title: string;
+        slug: string;
+        image: {
+            mobile: {
+                url: string;
+                width: number;
+                height: number;
+            };
+            desktop: {
+                url: string;
+                width: number;
+                height: number;
+            };
+        };
+    }[];
 };
