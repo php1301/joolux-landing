@@ -56,6 +56,7 @@ export default function MobileMenu() {
         }
         if (dept === 3) {
             router.push(path);
+            return closeSidebar();
         }
         setActiveMenus(newActiveMenus);
     };
