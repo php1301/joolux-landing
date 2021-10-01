@@ -28,14 +28,15 @@ const BrandsLayout: FC<{
                             >
                                 {column.map((item) => {
                                     return (
-                                        <li
-                                            ref={
-                                                dynamicRefs.current?.[item?.id]
-                                            }
-                                            className="ink"
-                                            key={item?.letters}
-                                        >
-                                            <p className="letter">
+                                        <li className="ink" key={item?.letters}>
+                                            <p
+                                                ref={
+                                                    dynamicRefs.current?.[
+                                                        item?.id - 1
+                                                    ]
+                                                }
+                                                className="letter"
+                                            >
                                                 {item?.letters}
                                             </p>
                                             <ul className="brands-list">
