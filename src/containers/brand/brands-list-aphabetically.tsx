@@ -5,7 +5,14 @@ const BrandsListAlphabetically: FC<{ dynamicRefs: any }> = ({
 }) => {
     const handleClick = (id) => {
         const index = dynamicRefs.findIndex((i) => i.id === id);
-        dynamicRefs?.[index]?.current?.scrollIntoView();
+        if (index !== -1) {
+            const element = dynamicRefs?.[index]?.current;
+            // const yOffset = -10;
+            // const y =
+            //     element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            // window.scrollTo(0, y);
+            element.scrollIntoView();
+        }
     };
     const alphabet = [
         "123",
