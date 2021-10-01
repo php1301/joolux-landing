@@ -6,6 +6,8 @@ import { FC } from "react";
 import usePrice from "@framework/product/use-price";
 import { Product } from "@framework/types";
 import Favorite from "@components/common/favorite";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
 
 interface IProductProps {
     product: Product;
@@ -111,6 +113,10 @@ const ProductCard: FC<IProductProps> = ({
                             : placeholderImage
                     }
                     width={imgWidth}
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                        shimmer(565, 275),
+                    )}`}
                     height={imgHeight}
                     loading={imgLoading}
                     quality={100}

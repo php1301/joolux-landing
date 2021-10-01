@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Blog } from "@framework/types";
 import { DateTime } from "luxon";
 import { ROUTES } from "@utils/routes";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
 const placeholderImage = `/assets/placeholder/products/product-list.svg`;
 const BlogBlock: FC<{ blogs: Blog[] }> = ({ blogs }) => (
     <div className="mx-auto max-w-[1234px] text-center pt-4 smJl:pb-16 pb-10 px-8">
@@ -27,6 +29,10 @@ const BlogBlock: FC<{ blogs: Blog[] }> = ({ blogs }) => (
                                         className="w-full h-full object-cover"
                                         alt="blog"
                                         layout="fill"
+                                        placeholder="blur"
+                                        blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                                            shimmer(565, 275),
+                                        )}`}
                                         src={
                                             blog?.thumbnail || placeholderImage
                                         }

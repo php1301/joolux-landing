@@ -5,6 +5,8 @@ import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
 import Pagination from "@components/common/pagination";
 import Image from "next/image";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
 interface IBlogLayoutBodyProps {
     blogs: Blog[];
     pagination: {
@@ -35,6 +37,10 @@ const BlogLayoutBody: FC<IBlogLayoutBodyProps> = ({
                                 <Image
                                     src={blog?.thumbnail || placeholderImage}
                                     layout="fill"
+                                    placeholder="blur"
+                                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                                        shimmer(565, 275),
+                                    )}`}
                                 />
                             </div>
                         </div>

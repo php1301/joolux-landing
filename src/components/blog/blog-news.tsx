@@ -5,6 +5,8 @@ import Image from "next/image";
 import { DateTime } from "luxon";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
 interface IBlogNewsProps {
     banner?: any;
     variant?: "rounded" | "default";
@@ -39,6 +41,10 @@ const BlogNews: FC<IBlogNewsProps> = () => {
                                             <div className="ThumbImage__Container-sc-1m3pb9t-0 jtCWvI flex-none relative w-[60px] overflow-hidden smJl:w-24">
                                                 <Image
                                                     layout="fill"
+                                                    placeholder="blur"
+                                                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                                                        shimmer(565, 275),
+                                                    )}`}
                                                     src={
                                                         blog?.thumbnail ||
                                                         placeholderImage

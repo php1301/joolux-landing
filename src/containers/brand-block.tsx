@@ -3,6 +3,9 @@ import Image from "next/image";
 import { CollectionBanner } from "@framework/types";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
+
 const BrandBlock: FC<{
     collectionBanner: CollectionBanner[];
 }> = ({ collectionBanner }) => (
@@ -21,14 +24,19 @@ const BrandBlock: FC<{
                             <div>
                                 <div className="brand-image">
                                     <Image
+                                        width={565}
+                                        height={275}
                                         alt="Louis Vuitton"
-                                        layout="fill"
                                         src={item.image}
+                                        placeholder="blur"
+                                        blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                                            shimmer(565, 275),
+                                        )}`}
                                     />
                                 </div>
                             </div>
                             <div className="p-4">
-                                <p className="font-semibold leading-[1.33] jqBAH text-xl mb-2 mb-2px">
+                                <p className="font-semibold leading-[1.33] text-xl mb-2 mb-2px">
                                     {item.name}
                                 </p>
                                 <p className="text-sm text-gray-700">

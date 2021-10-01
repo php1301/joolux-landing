@@ -15,7 +15,7 @@ const NewestProducts: React.FC<ProductsProps> = ({
     // if (error) return <p>{error}</p>;
     return (
         data && (
-            <div className="max-w-[1234px] mx-auto pt-4 pb-4 px-8">
+            <div className="max-w-[1234px] mx-auto smJl:pb-16 pb-10 px-8">
                 <div className="border-t border-[#e7e7e7] mb-8 md:mb-14"></div>
                 <div className={className}>
                     <h1
