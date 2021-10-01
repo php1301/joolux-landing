@@ -85,7 +85,7 @@ const DynamicArticles: NextPage & {
                         <h1 className="leading-[1.333] text-4xl font-bold">
                             {seoTitle}
                         </h1>
-                        {parse(article?.body)}
+                        <div className="py-10">{parse(article?.body)}</div>
                     </>
                 )}
             </div>
@@ -117,7 +117,8 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
     const res = await fetchArticles();
     const paths = res?.data?.map((post) => ({
-        params: { slug: post.slug },
+        params: { slug: post?.slug },
     }));
+    console.log(paths);
     return { paths, fallback: false };
 };
