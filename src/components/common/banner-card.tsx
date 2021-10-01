@@ -54,7 +54,7 @@ const BannerCard: FC<IBannerProps> = ({
                     blurDataURL={`data:image/svg+xml;base64,${toBase64(
                         shimmer(1500, 550),
                     )}`}
-                    className={cn("bg-gray-300 object-fill w-full", {
+                    className={cn("bg-gray-300 w-full", {
                         "rounded-md": variant === "rounded",
                     })}
                 />
