@@ -298,7 +298,8 @@
 	}
 	.heroBannerOne a div {
 		position: unset!important;
-		/* width: 100%; */
+		width: 100%;
+		height: auto;
 	}
 	.heroBannerOne a img {
 		width: 100%!important;

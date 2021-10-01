@@ -1,10 +1,11 @@
 import Link from "@components/ui/link";
-// import Image from "next/image";
+import Image from "next/image";
 import type { FC } from "react";
 import { useWindowSize } from "@utils/use-window-size";
 import cn from "classnames";
 import { LinkProps } from "next/link";
-
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
 interface IBannerProps {
     banner: any;
     variant?: "rounded" | "default";
@@ -35,22 +36,24 @@ const BannerCard: FC<IBannerProps> = ({
                 href={href}
                 // https://tailwindcss.com/docs/hover-focus-and-other-states#group-hover
                 className={cn(
-                    "h-full group flex justify-center relative overflow-hidden",
+                    "group flex justify-center relative overflow-hidden smJl:h-[550px] h-[180px]",
                     classNameInner,
                 )}
             >
-                <img
+                <Image
                     src={
                         selectedImage?.url ||
                         "/assets/images/hero/banner-2-jl.jpg"
                     }
                     // width={selectedImage.width}
                     // height={selectedImage.height}
-                    // layout="fill"
+                    layout="fill"
                     alt={title}
-                    // objectFit="fill"
-                    // quality={100}
-                    //  so when we resize the browser window, the aspect ratio of the images is preserved:
+                    quality={100}
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                        shimmer(1500, 550),
+                    )}`}
                     className={cn("bg-gray-300 object-fill w-full", {
                         "rounded-md": variant === "rounded",
                     })}
