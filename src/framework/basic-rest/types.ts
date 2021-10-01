@@ -348,3 +348,9 @@ export type Blog = {
     updatedAt: Date;
     __v: number;
 };
+
+export type Article = {
+    _id: string;
+    slug: string;
+    body: string;
+};
