@@ -27,7 +27,7 @@ export const API_ENDPOINTS = {
     COLLECTION_BANNER: "/client/collections",
     POPUP_BANNER: "/client/homepage-banner-email",
     FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
-    SEARCH: "/api/search.json",
+    SEARCH: "/client/products/search-overview",
     REVIEW: "/user/comment",
     CHECKOUT: "/user/create-order",
     FAVORITE: "/user/wishList",
@@ -36,4 +36,5 @@ export const API_ENDPOINTS = {
     BLOG: "/client/blogs",
     BLOG_NEWEST_BLOGS: "/client/blogs/newest-blogs",
     BLOG_CATEGORIES: "/client/blogs/category",
+    ARTICLES: "/client/articles",
 };
