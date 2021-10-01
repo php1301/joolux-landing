@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 
 export const fetchSearchedProducts = async (text) => {
     const { data } = await http.get(
-        `https://api.joolux-client.ml/client/products/search-overview?search=${text}`,
+        `https://api.joolux-client.ml${API_ENDPOINTS.SEARCH}?search=${text}`,
     );
     return data;
 };
