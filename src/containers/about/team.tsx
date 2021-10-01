@@ -1,15 +1,27 @@
 import React, { FC } from "react";
+import Image from "next/image";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
+import parse from "html-react-parser";
 
-const Team: FC = () => {
+const Team: FC<{
+    teams: {
+        _id: string;
+        name: string;
+        role: string;
+        img: string;
+        alt: string;
+    }[];
+}> = ({ teams }) => {
     return (
         <div>
-            <div className="mx-auto max-w-[1234px] pt-8 border-t border-[#cfcfcf] font-body other-page">
+            <div className="mx-auto max-w-[1234px] pt-8 border-t border-[#cfcfcf] font-body other-page px-8">
                 <div className="max-w-[900px] mx-auto">
                     <h5 className="text-2xl text-center mb-2 text-primary">
                         Đội Ngũ
                     </h5>
                     <div
-                        className="text-gray-700 text-15px mx-auto mb-16 text-center"
+                        className="text-[#424242] text-15px mx-auto mb-16 text-center"
                         style={{ maxWidth: 700 }}
                     >
                         Chúng tôi là những người có cùng đam mê với thị trường
@@ -19,173 +31,39 @@ const Team: FC = () => {
                         hoàn hảo nhất của bản thân.
                     </div>
                     <div className="about-team-container flex flex-wrap -mx-3 justify-center">
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/ta-hien.jpg"
-                                    className="rounded-full"
-                                    alt="ta-hien"
-                                />
+                        {teams.map((member) => {
+                            return (
                                 <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Tạ Hiển
+                                    key={member._id}
+                                    className="w-1/2 smJl:w-1/3 px-3 mb-16"
+                                >
+                                    <div className="about-team-member-wrapper">
+                                        <Image
+                                            src={member.img}
+                                            // layout="fill"
+                                            className="rounded-full"
+                                            placeholder="blur"
+                                            width={180}
+                                            height={180}
+                                            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                                                shimmer(565, 275),
+                                            )}`}
+                                            alt={member.alt}
+                                        />
+                                        <div
+                                            className="mb-3 mt-4 border-t-2 border-[#101010]"
+                                            style={{ width: 80 }}
+                                        />
+                                        <div className="text-xl mb-1 font-semibold">
+                                            {member.name}
+                                        </div>
+                                        <div className="text-sm text-[#424242]">
+                                            {parse(member.role)}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="text-sm text-gray-700">
-                                    CEO &amp; Founder
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/han-ngo.jpg"
-                                    className="rounded-full"
-                                    alt="han-ngo"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Ngô Hân
-                                </div>
-                                <div className="text-sm text-gray-700">CTO</div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/nguyen-uyen.jpg"
-                                    className="rounded-full"
-                                    alt="nguyen-uyen"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Nguyễn Uyên
-                                </div>
-                                <div className="text-sm text-gray-700">
-                                    Operation Manager
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/jennifer-do.jpg"
-                                    className="rounded-full"
-                                    alt="jennifer-do"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Jennifer Đỗ
-                                </div>
-                                <div className="text-sm text-gray-700">CMO</div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/nguyen-duy.jpg"
-                                    className="rounded-full"
-                                    alt="nguyen-duy"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Nguyễn Duy
-                                </div>
-                                <div className="text-sm text-gray-700">
-                                    Head of Hanoi Office
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/phan-minh.jpg"
-                                    className="rounded-full"
-                                    alt="phan-minh"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Phan Minh
-                                </div>
-                                <div className="text-sm text-gray-700">
-                                    Sale Manager
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/nghiem-duc.jpg"
-                                    className="rounded-full"
-                                    alt="nghiem-duc"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Nghiêm Đức
-                                </div>
-                                <div className="text-sm text-gray-700">
-                                    Business Analyst Manager
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/le-khai.jpg"
-                                    className="rounded-full"
-                                    alt="le-khai"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Lê Khải
-                                </div>
-                                <div className="text-sm text-gray-700">
-                                    Product Manager
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-1/2 sm:w-1/3 px-3 mb-16">
-                            <div className="about-team-member-wrapper">
-                                <img
-                                    src="https://joolux.com/img/team/la-hung.jpg"
-                                    className="rounded-full"
-                                    alt="la-hung"
-                                />
-                                <div
-                                    className="mb-3 mt-4 border-t-2 border-[#101010]"
-                                    style={{ width: 80 }}
-                                />
-                                <div className="text-xl mb-1 font-semibold">
-                                    Lã Hùng
-                                </div>
-                                <div className="text-sm text-gray-700">
-                                    Financial Manager
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
