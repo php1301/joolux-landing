@@ -11,10 +11,11 @@ import { useRouter } from "next/router";
 // File Layout này sẽ được các Pages . đến để appply Layout dynamically
 const Layout: React.FC = ({ children }) => {
     const { site_header, name, description } = siteSettings;
-    const { asPath, pathname } = useRouter();
+    const { asPath, pathname, query } = useRouter();
     const seoTitle = sitePages?.[pathname.substring(1)]?.["page_title"] || name;
     const seoDescription =
         sitePages?.[pathname.substring(1)]?.["page_description"] || description;
+    console.log(query);
     return (
         <div className="flex flex-col min-h-screen">
             <NextSeo
@@ -62,8 +63,13 @@ const Layout: React.FC = ({ children }) => {
                 </a>
             </Button> */}
             {children}
-            <Footer />
-            <MobileNavigation />
+            {!query?.layout && (
+                <>
+                    {" "}
+                    <Footer />
+                    <MobileNavigation />
+                </>
+            )}
             <Search />
         </div>
     );
