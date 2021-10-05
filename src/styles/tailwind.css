@@ -387,6 +387,37 @@
 		}
 	}
 	/* Your own custom utilities */
+	.page-header div {
+		position: unset!important;
+		width: 100%;
+		height: 600px;
+	}
+	.countdown-item {
+		background: rgba(229, 194, 137, 0.5);
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+		border-radius: 10px;
+	}
+	.countdown-button {
+		position: relative;
+		background:  #E5C289!important;
+		border-radius: 10px;
+	}
+
+	.divider::after {
+		@apply absolute end-0 w-0 bg-heading;
+		@apply w-full end-auto start-0;
+		content: "";
+		height: 2px;
+		background-color: #E5C289;
+		transition: all 0.3s ease-in-out 0s;
+		visibility: visible;
+	}
+	/* .page-
+	/* .page-header img {
+		width: 100%!important;
+		height: 100%!important;
+		position: unset!important;
+	} */
 	.productColor.active {
 		@apply border-heading;
 	}
@@ -1414,7 +1445,6 @@
     fill: currentcolor;
 }
 
-.
 
 
 /* review post */
