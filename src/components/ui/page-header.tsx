@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { toBase64 } from "@utils/toBase64";
+import { shimmer } from "@utils/shimmer";
 interface HeaderProps {
     pageSubHeader?: string;
     pageHeader?: string;
@@ -19,6 +21,11 @@ const PageHeader: React.FC<HeaderProps> = ({
             {/* <div className="absolute top-0 start-0 bg-black w-full h-full opacity-50 transition-opacity duration-500 group-hover:opacity-80" /> */}
             <Image
                 src="/assets/images/banner/banner-charity.png"
+                quality={100}
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(565, 275),
+                )}`}
                 layout="fill"
             />
         </div>

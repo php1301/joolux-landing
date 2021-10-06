@@ -66,6 +66,7 @@
         "react-google-login": "^5.2.2",
         "react-google-recaptcha": "^2.1.0",
         "react-hook-form": "^7.8.8",
+        "react-horizontal-timeline": "^1.5.3",
         "react-icons": "^4.2.0",
         "react-paginate": "^7.1.3",
         "react-popper": "^2.2.5",

@@ -109,7 +109,7 @@ const CountdownComponent: FC = () => {
         <div className="text-center mt-8">
             <Countdown date={date} intervalDelay={1000} renderer={renderer} />
             <div>
-                <Button className="h-full w-1/2 md:w-1/4 mt-5  text-[#101010] text-xs md:text-md font-normal text-center uppercase countdown-button hover:text-[#101010]">
+                <Button className="h-full w-1/2 md:w-1/4 mt-5  text-[#101010] text-xs md:text-md font-bold text-center uppercase countdown-button hover:text-[#101010]">
                     Xem chương Trình
                 </Button>
             </div>

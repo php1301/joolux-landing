@@ -7,10 +7,14 @@ export const config = {
     hybrid: false,
 };
 import { Layout } from "@components/layout/layout";
-import { Container, Subscription } from "@components";
+import { Container } from "@components";
 // import { I18NExample } from "@components/examples/translate";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import CharityLayout from "@containers/campaigns/charity/charity-layout";
+import SectionTwo from "@containers/campaigns/charity/section-2";
+import SectionThree from "@containers/campaigns/charity/section-3";
+import SectionFour from "@containers/campaigns/charity/section-4";
+import SectionFive from "@containers/campaigns/charity/section-5";
 
 // Các pages sẽ không cần gắn types như :React.FC
 const Home: NextPage & {
@@ -38,6 +42,10 @@ const Home: NextPage & {
             <I18NExample /> */}
             <Container>
                 <CharityLayout />
+                <SectionTwo />
+                <SectionThree />
+                <SectionFour />
+                <SectionFive />
             </Container>
             {/* <Cards /> */}
         </>
