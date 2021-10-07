@@ -6,13 +6,13 @@ const SectionThree: FC = () => {
             <div
                 data-aos="fade-up"
                 data-aos-delay="1000"
-                className="mx-auto max-w-[1400px] text-center pt-8 smJl:pb-16 pb-10 px-8 overflow-hidden"
+                className="mx-auto max-w-[1400px] text-center pt-8 smJl:pb-16 pb-10 px-4 sm:px-8 overflow-hidden"
             >
                 <h2 className="font-brand text-black uppercase text-lg md:text-3xl">
                     "Tủ Đồ Yêu Thương"
                 </h2>
                 <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch">
-                    <div className="section-three-card w-full smJl:w-1/3 max-w-[400px] p-4 flex flex-col items-center px-4 mb-10">
+                    <div className="section-three-card w-full md:w-1/3 max-w-[400px] p-4 flex flex-col items-center px-4 mb-10">
                         <Image
                             src="/assets/images/Group.svg"
                             width={70}
@@ -29,7 +29,7 @@ const SectionThree: FC = () => {
                             ngày đêm cứu từng sinh mệnh.
                         </p>
                     </div>
-                    <div className="section-three-card w-full smJl:w-1/3 max-w-[400px] p-4 flex flex-col items-center px-4 mb-10">
+                    <div className="section-three-card w-full md:w-1/3 max-w-[400px] p-4 flex flex-col items-center px-4 mb-10">
                         <Image
                             src="/assets/images/heart.svg"
                             width={70}
@@ -47,7 +47,7 @@ const SectionThree: FC = () => {
                             chia.
                         </p>
                     </div>
-                    <div className="section-three-card  w-full smJl:w-1/3 max-w-[400px]  p-4 flex flex-col items-center px-4 mb-10">
+                    <div className="section-three-card  w-full md:w-1/3 max-w-[400px]  p-4 flex flex-col items-center px-4 mb-10">
                         <Image
                             src="/assets/images/heart-share.svg"
                             width={70}

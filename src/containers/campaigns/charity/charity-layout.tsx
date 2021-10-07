@@ -4,18 +4,16 @@ import CountdownComponent from "@components/common/countdown";
 import dynamic from "next/dynamic";
 // import Timeline from "@components/ui/timeline";
 
-const Timeline = dynamic(
-    () => import("@components/ui/timeline"),
-    { ssr: false },
-);
+const Timeline = dynamic(() => import("@components/ui/timeline"), {
+    ssr: false,
+});
 
 const CharityLayout: FC = () => {
-    
     return (
         <div className="section-1">
             <PageHeader />
             <div className="mx-auto max-w-[1400px] text-center pt-8 smJl:pb-16 pb-10 px-8 overflow-hidden">
-                <div data-aos="fade-up" data-aos-delay="1200">
+                <div data-aos="fade-up" data-aos-delay="800">
                     <h2 className="font-brand text-black uppercase text-lg md:text-3xl">
                         Sự kiện mở bán gây quỹ
                     </h2>
@@ -23,7 +21,7 @@ const CharityLayout: FC = () => {
                 </div>
                 <div
                     data-aos="fade-up"
-                    data-aos-delay="1500"
+                    data-aos-delay="1000"
                     className="mt-16 relative"
                 >
                     <img className="mx-auto" src="/assets/images/divider.jpg" />

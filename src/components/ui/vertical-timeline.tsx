@@ -13,8 +13,7 @@ const VerticalTimeline: FC = () => {
                     <div
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1800"
-                    >
+                        data-aos-delay="1200"
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
                         <div className="order-1  rounded-lg shadow-xl w-5/12 px-6 py-4 ">
@@ -26,11 +25,27 @@ const VerticalTimeline: FC = () => {
                             </p>
                         </div>
                     </div>
-                    {/* left timeline */}
                     <div
+                        className="mb-8 flex justify-between items-center w-full right-timeline"
+                        data-aos="fade-right"
+                        data-aos-delay="1300"
+                    >
+                        <div className="order-1 w-5/12" />
+                        <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
+                        <div className="order-1  rounded-lg shadow-xl w-5/12 px-6 py-4 ">
+                            <h3 className="!text-[#E5C289] !text-[22px]">
+                                09/10
+                            </h3>
+                            <p className="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">
+                                Livestream đấu giá và mở bán chính thức - Lần 1
+                            </p>
+                        </div>
+                    </div>
+                    {/* left timeline */}
+                    {/* <div
                         className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
                         data-aos="fade-left"
-                        data-aos-delay="2000"
+                        data-aos-delay="1400"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
@@ -42,12 +57,12 @@ const VerticalTimeline: FC = () => {
                                 Livestream đấu giá và mở bán chính thức - Lần 1
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                     {/* right timeline */}
                     <div
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="2200"
+                        data-aos-delay="1400"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
