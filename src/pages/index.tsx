@@ -6,7 +6,7 @@ export const config = {
     amp: false,
     hybrid: false,
 };
-import { Layout } from "@components/layout/layout";
+// import { Layout } from "@components/layout/layout";
 import { Container } from "@components";
 // import { I18NExample } from "@components/examples/translate";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -19,9 +19,7 @@ import SectionSix from "@containers/campaigns/charity/section-6";
 import SectionSeven from "@containers/campaigns/charity/section-7";
 
 // Các pages sẽ không cần gắn types như :React.FC
-const Home: NextPage & {
-    Layout: typeof Layout;
-} = () => {
+const Home: NextPage = () => {
     return (
         <>
             <SiteLinksSearchBoxJsonLd

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 const VerticalTimeline: FC = () => {
     return (
@@ -14,7 +14,6 @@ const VerticalTimeline: FC = () => {
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
                         data-aos-delay="1200"
-                    >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
                         <div className="order-1  rounded-lg shadow-xl w-5/12 px-6 py-4 ">
