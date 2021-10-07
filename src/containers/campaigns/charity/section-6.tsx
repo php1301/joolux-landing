@@ -265,15 +265,15 @@ const SectionSix: FC = () => {
             <div
                 data-aos="fade-up"
                 data-aos-delay="1000"
-                className="mx-auto max-w-[1400px] text-center pt-4 lg:pb-16 pb-10 px-2 overflow-hidden"
+                className="mx-auto max-w-[1400px] text-center pt-4 lg:pb-14 pb-10 px-2 md:px-12 overflow-hidden"
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-10 items-center md:items-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-2 mt-10 items-center md:auto-cols-[170px] md:items-stretch">
                     {/* x0 y0 */}
                     <div className="w-full p-4 flex flex-col items-start px-4">
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
                             Đơn vị tổ chức
                         </p>
-                        <div className="grid grid-cols-3 justify-items-between lg:justify-items-start gap-7 w-full overflow-hidden">
+                        <div className="grid grid-cols-3 justify-items-between lg:justify-items-start gap-4 w-full overflow-hidden">
                             <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
@@ -283,7 +283,7 @@ const SectionSix: FC = () => {
                                     quality={100}
                                 />
                             </div>
-                            <div className="col-span-2 flex justify-center items-center w-[205px] h-[85px] px-2 lg:h-[170px] lg:w-[370px] bg-white rounded-lg">
+                            <div className="col-span-2 flex justify-center items-center w-[205px] h-[85px] px-2 lg:h-[170px] lg:w-[380px] bg-white rounded-lg">
                                 <Image
                                     className=""
                                     src="/assets/images/funders/f2.png"
@@ -299,7 +299,7 @@ const SectionSix: FC = () => {
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
                             Bảo trợ truyền thông
                         </p>
-                        <div className="grid grid-cols-3 justify-items-start gap-7 w-full">
+                        <div className="grid grid-cols-3 justify-items-start gap-4 w-full">
                             <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
@@ -336,7 +336,7 @@ const SectionSix: FC = () => {
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
                             Đơn vị tài trợ
                         </p>
-                        <div className="grid grid-cols-3 justify-items-start gap-7 w-full">
+                        <div className="grid grid-cols-3 justify-items-start gap-4 lg:gap-y-8 w-full">
                             {/* Grid 6 items: Row 1 */}
                             <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
@@ -375,7 +375,7 @@ const SectionSix: FC = () => {
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center pl-5 h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
                                     src="/assets/images/funders/f10.png"
@@ -397,9 +397,9 @@ const SectionSix: FC = () => {
                     </div>
                     <div className="w-full p-4 flex flex-col items-start px-4 text-left">
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
-                            Đơn vị tài trợ
+                            Đơn vị tổ chức
                         </p>
-                        <div className="grid grid-cols-3 justify-items-start gap-7 w-full">
+                        <div className="grid grid-cols-3 justify-items-start gap-4 lg:gap-x-0 lg:gap-y-8 w-full">
                             {/* Grid 6 items: Row 1 */}
                             <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
@@ -429,7 +429,7 @@ const SectionSix: FC = () => {
                                 />
                             </div>
                             {/* Grid5 items: Row 2 */}
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center pl-6 h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
                                     src="/assets/images/funders/f15.png"
