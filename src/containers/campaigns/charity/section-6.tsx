@@ -9,7 +9,7 @@ const SectionSix: FC = () => {
             <div className="mx-auto max-w-[1400px] text-center pt-4 smJl:pb-16 pb-10 px-8 overflow-hidden">
                 {/* Row 1 */}
                 <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch">
-                    <div className="w-full smJl:w-1/2 p-4 flex flex-col items-center smJl:items-start px-4 mb-0 text-left">
+                    <div className="w-full smJl:w-1/2 p-4 flex flex-col items-center smJl:items-start px-4 mb-10 text-left">
                         <p className="text-[#231f20] font-normal text-[28px] pt-0 pb-4 px-0">
                             Đơn vị tổ chức
                         </p>
