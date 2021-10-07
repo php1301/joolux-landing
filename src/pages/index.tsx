@@ -15,6 +15,8 @@ import SectionTwo from "@containers/campaigns/charity/section-2";
 import SectionThree from "@containers/campaigns/charity/section-3";
 import SectionFour from "@containers/campaigns/charity/section-4";
 import SectionFive from "@containers/campaigns/charity/section-5";
+import SectionSix from "@containers/campaigns/charity/section-6";
+import SectionSeven from "@containers/campaigns/charity/section-7";
 
 // Các pages sẽ không cần gắn types như :React.FC
 const Home: NextPage & {
@@ -46,6 +48,8 @@ const Home: NextPage & {
                 <SectionThree />
                 <SectionFour />
                 <SectionFive />
+                <SectionSix />
+                <SectionSeven />
             </Container>
             {/* <Cards /> */}
         </>

@@ -12,14 +12,14 @@ const VALUES = [
     "2019-08-01",
 ];
 const Timeline: FC = () => {
-    const [value, setValue] = useState<any>({ value: 0, previous: 0 });
-    const dates = [
-        "6/12/2015",
-        "8/15/2015",
-        "10/22/2015",
-        "11/2/2015",
-        "12/22/2015",
-    ];
+    // const [value, setValue] = useState<any>({ value: 0, previous: 0 });
+    // const dates = [
+    //     "6/12/2015",
+    //     "8/15/2015",
+    //     "10/22/2015",
+    //     "11/2/2015",
+    //     "12/22/2015",
+    // ];
     const { width } = useWindowSize();
     return width < 780 ? (
         <VerticalTimeline />
@@ -33,7 +33,7 @@ const Timeline: FC = () => {
             /> */}
             <div className="timeline-wrapper">
                 <div className="middle-line" />
-                <div className="box box-bottom">
+                <div className="box box-bottom" data-aos="fade-up" data-aos-delay="1800">
                     <div className="date"></div>
                     <div className="box-content">
                         <p className="!text-[#E5C289] !text-[22px]">07/10</p>
@@ -41,7 +41,7 @@ const Timeline: FC = () => {
                     </div>
                 </div>
 
-                <div className="box box-bottom">
+                <div className="box box-bottom" data-aos="fade-up" data-aos-delay="2000">
                     <div className="date"></div>
                     <div className="box-content">
                         <p className="!text-[#E5C289] !text-[22px]">09/10</p>
@@ -49,7 +49,7 @@ const Timeline: FC = () => {
                     </div>
                 </div>
 
-                <div className="box box-bottom">
+                <div className="box box-bottom" data-aos="fade-up" data-aos-delay="2200">
                     <div className="date"></div>
                     <div className="box-content">
                         <p className="!text-[#E5C289] !text-[22px]">30/10</p>

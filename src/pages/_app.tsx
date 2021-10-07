@@ -19,6 +19,9 @@ import { ApolloProvider } from "@apollo/client";
 import { appWithTranslation } from "next-i18next";
 import { DefaultSeo } from "@components/common/default-seo";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // Load Open Sans and satisfy typeface font
 // import "@fontsource/open-sans";
 import "@fontsource/roboto/300.css";
@@ -64,6 +67,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         if (typeof window !== "undefined") {
             window.scrollTo({ top: 0 });
         }
+
+        AOS.init();
+        AOS.refresh();
     }, []);
 
     const dir = getDirection(router.locale);
