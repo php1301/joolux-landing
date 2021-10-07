@@ -7,7 +7,7 @@ const SectionFour: FC = () => {
     return (
         <div>
             <div
-                data-aos="fade-left"
+                data-aos="fade-up"
                 data-aos-delay="1000"
                 className="mx-auto max-w-[1400px] text-center pt-8 pb-4 px-2 md:px-8 overflow-hidden"
             >
