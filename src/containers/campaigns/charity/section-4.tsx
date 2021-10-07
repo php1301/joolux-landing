@@ -4,7 +4,11 @@ import { toBase64 } from "@utils/toBase64";
 import { shimmer } from "@utils/shimmer";
 const SectionFour: FC = () => {
     return (
-        <div className="mx-auto max-w-[1400px] text-center pt-8 pb-4 px-8 overflow-hidden">
+        <div
+            data-aos="fade-left"
+            data-aos-delay="1000"
+            className="mx-auto max-w-[1400px] text-center pt-8 pb-4 px-8 overflow-hidden"
+        >
             <h2 className="font-brand text-black uppercase text-lg md:text-3xl mb-6">
                 Sản phẩm đấu giá
             </h2>

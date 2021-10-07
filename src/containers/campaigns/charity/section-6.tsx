@@ -6,14 +6,18 @@ import Image from "next/image";
 const SectionSix: FC = () => {
     return (
         <div className="section-1">
-            <div className="mx-auto max-w-[1400px] text-center pt-4 smJl:pb-16 pb-10 px-8 overflow-hidden">
+            <div
+                data-aos="fade-up"
+                data-aos-delay="1000"
+                className="mx-auto max-w-[1400px] text-center pt-4 lg:pb-16 pb-10 px-8 overflow-hidden"
+            >
                 {/* Row 1 */}
                 <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch">
-                    <div className="w-full smJl:w-1/2 p-4 flex flex-col items-center smJl:items-start px-4 mb-10">
+                    <div className="w-full lg:w-1/2 p-4 flex flex-col items-center lg:items-start px-4 mb-10">
                         <p className="text-[#231f20] font-normal text-[28px] pt-0 pb-4 px-0">
                             Đơn vị tổ chức
                         </p>
-                        <div className="grid grid-cols-1 smJl:grid-cols-3 justify-items-center smJl:justify-items-start gap-x-0 gap-y-7 smJl:gap-7 w-full overflow-hidden">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center lg:justify-items-start gap-x-0 gap-y-7 lg:gap-7 w-full overflow-hidden">
                             <div className="flex justify-center items-center h-[170px] w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
@@ -34,11 +38,11 @@ const SectionSix: FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full smJl:w-1/2 p-4 flex flex-col items-center smJl:items-start px-4 mb-10 text-left">
+                    <div className="w-full lg:w-1/2 p-4 flex flex-col items-center lg:items-start px-4 mb-10 text-left">
                         <p className="text-[#231f20] font-normal text-[28px] pt-0 pb-4 px-0">
                             Bảo trợ truyền thông
                         </p>
-                        <div className="grid grid-cols-1 smJl:grid-cols-3 justify-items-center smJl:justify-items-start gap-7 w-full">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center lg:justify-items-start gap-7 w-full">
                             <div className="flex justify-center items-center h-[170px] w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
@@ -71,11 +75,11 @@ const SectionSix: FC = () => {
                 </div>
                 {/* Row 2 */}
                 <div className="flex justify-between md:flex-row flex-col mt-0 items-center md:items-stretch">
-                    <div className="w-full smJl:w-1/2 p-4 flex flex-col items-center smJl:items-start px-4 mb-10 text-left">
+                    <div className="w-full lg:w-1/2 p-4 flex flex-col items-center lg:items-start px-4 mb-10 text-left">
                         <p className="text-[#231f20] font-normal text-[28px] pt-0 pb-4 px-0">
                             Đơn vị tài trợ
                         </p>
-                        <div className="grid grid-cols-1 justify-items-center smJl:justify-items-start smJl:grid-cols-3 gap-x-7 gap-y-7 w-full">
+                        <div className="grid grid-cols-1 justify-items-center lg:justify-items-start lg:grid-cols-3 gap-x-7 gap-y-7 w-full">
                             {/* Grid 5 items: Row 1 */}
                             <div className="flex justify-center items-center h-[170px] w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
@@ -125,11 +129,11 @@ const SectionSix: FC = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full smJl:w-1/2 p-4 flex flex-col items-center smJl:items-start px-4 mb-10 text-left">
+                    <div className="w-full lg:w-1/2 p-4 flex flex-col items-center lg:items-start px-4 mb-10 text-left">
                         <p className="text-[#231f20] font-normal text-[28px] pt-0 pb-4 px-0">
                             Đơn vị đồng hành
                         </p>
-                        <div className="grid grid-cols-1 justify-items-center smJl:justify-items-start smJl:grid-cols-3 gap-7 w-full">
+                        <div className="grid grid-cols-1 justify-items-center lg:justify-items-start lg:grid-cols-3 gap-7 w-full">
                             <div className="flex justify-center items-center h-[170px] w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""

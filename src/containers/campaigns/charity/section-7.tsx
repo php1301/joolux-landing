@@ -4,8 +4,16 @@ import Image from "next/image";
 // import { Button } from "@components/ui/button";
 // import { shimmer } from "@utils/shimmer";
 const SectionSeven: FC = () => {
+    function handleClick(url: string) {
+        window.open(url, "_blank");
+    }
+
     return (
-        <div className="mx-auto max-w-[1400px] text-center pt-10 smJl:pb-16 pb-10 px-8 overflow-hidden">
+        <div
+            data-aos="fade-up"
+            data-aos-delay="1000"
+            className="mx-auto max-w-[1400px] text-center pt-10 smJl:pb-16 pb-10 px-8 overflow-hidden"
+        >
             <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch">
                 <div className="w-full smJl:w-1/2 max-w-full p-4 flex flex-col items-center px-4 mb-10 text-left">
                     <Image
@@ -23,7 +31,12 @@ const SectionSeven: FC = () => {
                 </div>
                 <div className="w-full smJl:w-1/2 max-w-full flex justify-center p-4 px-4 mb-10">
                     <div className="h-full flex flex-col justify-between items-start">
-                        <div className="flex flex-row items-center justify-between">
+                        <div
+                            className="flex flex-row items-center justify-between cursor-pointer"
+                            onClick={() =>
+                                handleClick("https://www.facebook.com/jooluxvn")
+                            }
+                        >
                             <Image
                                 className="bg-white"
                                 src="/assets/images/contact/g1.png"
@@ -35,7 +48,10 @@ const SectionSeven: FC = () => {
                                 fb.com/joolux
                             </p>
                         </div>
-                        <div className="flex flex-row items-center justify-between">
+                        <div
+                            className="flex flex-row items-center justify-between cursor-pointer"
+                            onClick={() => handleClick("https://joolux.com")}
+                        >
                             <Image
                                 className="bg-white"
                                 src="/assets/images/contact/g2.png"

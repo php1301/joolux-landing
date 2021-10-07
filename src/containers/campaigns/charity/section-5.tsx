@@ -4,8 +4,16 @@ import { toBase64 } from "@utils/toBase64";
 import { Button } from "@components/ui/button";
 import { shimmer } from "@utils/shimmer";
 const SectionFive: FC = () => {
+    function handleClick(url: string) {
+        window.open(url, "_blank");
+    }
+
     return (
-        <div className="mx-auto max-w-[1400px] text-center pt-4 smJl:pb-16 pb-10 px-8 overflow-hidden">
+        <div
+            data-aos="fade-right"
+            data-aos-delay="1000"
+            className="mx-auto max-w-[1400px] text-center pt-4 smJl:pb-16 pb-10 px-8 overflow-hidden"
+        >
             <h2 className="font-brand text-black uppercase text-lg md:text-3xl mb-6">
                 Sản phẩm bán
             </h2>
@@ -170,7 +178,10 @@ const SectionFive: FC = () => {
                     </p>
                 </div>
             </div>
-            <Button className="h-full w-1/2 md:w-1/4 mt-5  text-white text-xs md:text-md font-medium text-center uppercase countdown-button hover:text-[#101010]">
+            <Button
+                className="h-full w-1/2 md:w-1/4 mt-5  text-white text-xs md:text-md font-medium text-center uppercase countdown-button hover:text-[#101010]"
+                onClick={() => handleClick("https://joolux.com")}
+            >
                 Xem thêm
             </Button>
         </div>

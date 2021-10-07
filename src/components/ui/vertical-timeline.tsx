@@ -10,7 +10,7 @@ const VerticalTimeline: FC = () => {
                         style={{ left: "50%" }}
                     />
                     {/* right timeline */}
-                    <div className="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div className="mb-8 flex justify-between items-center w-full right-timeline" data-aos="fade-right" data-aos-delay="1800">
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
                         <div className="order-1  rounded-lg shadow-xl w-5/12 px-6 py-4 ">
@@ -23,7 +23,7 @@ const VerticalTimeline: FC = () => {
                         </div>
                     </div>
                     {/* left timeline */}
-                    <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline" data-aos="fade-left" data-aos-delay="2000">
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
                         <div className="order-1 rounded-lg shadow-xl w-5/12 px-6 py-4">
@@ -36,7 +36,7 @@ const VerticalTimeline: FC = () => {
                         </div>
                     </div>
                     {/* right timeline */}
-                    <div className="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div className="mb-8 flex justify-between items-center w-full right-timeline" data-aos="fade-right" data-aos-delay="2200">
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
                         <div className="order-1  rounded-lg shadow-xl w-5/12 px-6 py-4">

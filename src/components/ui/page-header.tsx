@@ -12,6 +12,8 @@ const PageHeader: React.FC<HeaderProps> = ({
 }) => {
     return (
         <div
+            data-aos="fade-up"
+            data-aos-delay="1000"
             className="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover h-full page-header"
             // style={{
             //     backgroundImage:

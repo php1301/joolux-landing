@@ -105,11 +105,19 @@ const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
 
 const CountdownComponent: FC = () => {
     const date = "2021-10-09T00:00:00+0700";
+    const url = "https://www.facebook.com/events/806937079986486/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D";
+
+    function handleClick(url: string) {
+        window.open(url, "_blank");
+    }
+
     return (
         <div className="text-center mt-8">
             <Countdown date={date} intervalDelay={1000} renderer={renderer} />
             <div>
-                <Button className="h-full w-1/2 md:w-1/4 mt-5  text-[#101010] text-xs md:text-md font-bold text-center uppercase countdown-button hover:text-[#101010]">
+                <Button className="h-full w-1/2 md:w-1/4 mt-5  text-[#101010] text-xs md:text-md font-bold text-center uppercase countdown-button hover:text-[#101010]"
+                    onClick={() => handleClick(url)}
+                >
                     Xem chương Trình
                 </Button>
             </div>
