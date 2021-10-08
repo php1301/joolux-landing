@@ -16,7 +16,7 @@ const CharityLayout: FC = () => {
         <div className="section-1">
             <PageHeader />
             <div className="mx-auto max-w-[1400px] text-center pt-8 smJl:pb-16 pb-10 px-8 overflow-hidden">
-                <div data-aos="fade-up" data-aos-delay="800">
+                <div data-aos="fade-up" data-aos-delay="300">
                     <h2 className="font-brand text-black uppercase text-lg md:text-3xl">
                         Sự kiện mở bán gây quỹ
                     </h2>
@@ -24,7 +24,7 @@ const CharityLayout: FC = () => {
                 </div>
                 <div
                     data-aos="fade-up"
-                    data-aos-delay="1000"
+                    data-aos-delay="500"
                     className="mt-16 relative section-timeline"
                 >
                     <img className="mx-auto" src="/assets/images/divider.jpg" />

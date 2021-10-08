@@ -6,14 +6,14 @@ const VerticalTimeline: FC = () => {
             <div className="container bg-gray-200 mx-auto w-full h-1/2">
                 <div className="relative wrap overflow-hidden p-10 h-1/2">
                     <div
-                        className="absolute h-[63%] vertical-timeline-line"
-                        style={{ left: "50%", top: "16%" }}
+                        className="absolute h-[61%] vertical-timeline-line"
+                        style={{ left: "50%", top: "19%" }}
                     />
                     {/* right timeline */}
                     <div
-                        className="mb-8 flex justify-between items-center w-full right-timeline"
+                        className="mb-1 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1100"
+                        data-aos-delay="800"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
@@ -27,9 +27,9 @@ const VerticalTimeline: FC = () => {
                         </div>
                     </div>
                     <div
-                        className="mb-8 flex justify-between items-center w-full right-timeline"
+                        className="mb-1 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1150"
+                        data-aos-delay="900"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
@@ -61,9 +61,9 @@ const VerticalTimeline: FC = () => {
                     </div> */}
                     {/* right timeline */}
                     <div
-                        className="mb-8 flex justify-between items-center w-full right-timeline"
+                        className="mb-1 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1175"
+                        data-aos-delay="1000"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>

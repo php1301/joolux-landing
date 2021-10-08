@@ -35,7 +35,7 @@ const Timeline: FC = () => {
                 <div
                     className="box box-bottom"
                     data-aos="fade-up"
-                    data-aos-delay="1100"
+                    data-aos-delay="800"
                 >
                     <div className="date"></div>
                     <div className="box-content">
@@ -47,7 +47,7 @@ const Timeline: FC = () => {
                 <div
                     className="box box-bottom"
                     data-aos="fade-up"
-                    data-aos-delay="1150"
+                    data-aos-delay="900"
                 >
                     <div className="date"></div>
                     <div className="box-content">
@@ -59,7 +59,7 @@ const Timeline: FC = () => {
                 <div
                     className="box box-bottom"
                     data-aos="fade-up"
-                    data-aos-delay="1200"
+                    data-aos-delay="1000"
                 >
                     <div className="date"></div>
                     <div className="box-content">

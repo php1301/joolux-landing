@@ -18,9 +18,9 @@ const SectionSeven: FC = () => {
                 <div className="w-full lg:w-1/2 max-w-full p-4 flex flex-col items-center px-4 mb-10 text-left">
                     <Image
                         className="mx-auto bg-white"
-                        src="/assets/images/joolux-logo.png"
-                        width={336}
-                        height={118.92}
+                        src="/assets/images/funder-v2/f1.png"
+                        width={236}
+                        height={220}
                         quality={100}
                     />
                     <p className="w-full text-center text-[#231f20] font-normal text-[16px] tracking-wider px-0">

@@ -94,7 +94,7 @@ const SectionFive: FC = () => {
                 <div
                     onClick={() =>
                         handleClick(
-                            "https://joolux.com/i/versace-wallet/18948.",
+                            "https://joolux.com/i/versace-wallet/18948",
                         )
                     }
                     className="w-full  max-w-[400px] p-4  px-4 mb-10 text-left cursor-pointer"
@@ -113,7 +113,7 @@ const SectionFive: FC = () => {
                         MVIO
                     </p>
                     <p className="text-[#231f20] font-normal text-[16px] smJl:text-[20px] mb-0">
-                       Ví Versace
+                        Ví Versace
                     </p>
                     <p className="text-[#231f20] font-normal text-[16px] smJl:text-[20px] mb-0">
                         Giá gốc:{" "}
