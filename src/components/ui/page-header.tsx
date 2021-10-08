@@ -35,7 +35,7 @@ const PageHeader: React.FC<HeaderProps> = ({
                     shimmer(565, 275),
                 )}`}
                 width={width < 520 ? 500 : 1600}
-                height={width < 520 ? 700 : 700}
+                height={width < 520 ? 750 : 700}
             />
         </div>
     );

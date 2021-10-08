@@ -24,7 +24,7 @@ const SectionFour: FC = () => {
                 </h2>
                 <img className="mx-auto" src="/assets/images/divider.jpg" />
                 {/* <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch"> */}
-                <div className="grid grid-cols-2 md:grid-cols-3 mt-10 justify-items-center items-center md:items-stretch auction-grid">
+                <div className="grid grid-cols-2 md:grid-cols-3 mt-10 justify-items-center sm:items-center md:items-stretch auction-grid">
                     <div
                         onClick={() => {
                             openModalView("/assets/images/popup1.png");

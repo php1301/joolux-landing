@@ -10,7 +10,7 @@ const SectionTwo: FC = () => {
             <h2 className="font-brand text-black uppercase text-lg md:text-3xl">
                 Khởi nguồn yêu thương
             </h2>
-            <p className="mt-4 font-light text-[18px] font-body">
+            <p className="mt-4 font-light text-[18px] font-body text-justify md:text-center">
                 Tuy dịch bệnh đã được phần nào kiểm soát nhưng bao nhiêu khó
                 khăn, ảnh hưởng vẫn còn đó, với khao khát được đóng góp vì cộng
                 đồng trong sự nghiệp chống dịch. Chính động lực đó đã thôi thúc

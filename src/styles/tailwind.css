@@ -1816,14 +1816,14 @@
 }
 
 .vertical-timeline-date {
-	background: rgba(229, 194, 137, 0.6);
+	background: #EED8B3;
 	border: 2px solid #d9d9d9;
 }
 
 .section-three-card {
-	background: rgba(229, 194, 137, 0.15);
+	background: #FCF8F3;
 	mix-blend-mode: normal;
-	border: 3px solid #E5C289;
+	border: 3px solid #F6EAD7;
 	box-sizing: border-box;
 	border-radius: 15px;
 }

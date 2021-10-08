@@ -1,5 +1,4 @@
-import React, { useState, FC } from "react";
-import Image from "next/image";
+import React, { FC } from "react";
 import { useWindowSize } from "@utils/use-window-size";
 import VerticalTimeline from "./vertical-timeline";
 const VALUES = [
@@ -36,7 +35,7 @@ const Timeline: FC = () => {
                 <div
                     className="box box-bottom"
                     data-aos="fade-up"
-                    data-aos-delay="1200"
+                    data-aos-delay="1100"
                 >
                     <div className="date"></div>
                     <div className="box-content">
@@ -48,7 +47,7 @@ const Timeline: FC = () => {
                 <div
                     className="box box-bottom"
                     data-aos="fade-up"
-                    data-aos-delay="1300"
+                    data-aos-delay="1150"
                 >
                     <div className="date"></div>
                     <div className="box-content">
@@ -60,7 +59,7 @@ const Timeline: FC = () => {
                 <div
                     className="box box-bottom"
                     data-aos="fade-up"
-                    data-aos-delay="1400"
+                    data-aos-delay="1200"
                 >
                     <div className="date"></div>
                     <div className="box-content">

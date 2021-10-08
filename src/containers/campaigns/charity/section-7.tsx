@@ -12,7 +12,7 @@ const SectionSeven: FC = () => {
         <div
             data-aos="fade-up"
             data-aos-delay="1000"
-            className="mx-auto max-w-[1400px] text-center pt-10 lg:pb-16 pb-10 px-8 overflow-hidden"
+            className="mx-auto max-w-[1400px] text-center pt-2 lg:pb-12 pb-10 px-8 overflow-hidden"
         >
             <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch">
                 <div className="w-full lg:w-1/2 max-w-full p-4 flex flex-col items-center px-4 mb-10 text-left">
@@ -23,7 +23,7 @@ const SectionSeven: FC = () => {
                         height={118.92}
                         quality={100}
                     />
-                    <p className="w-full text-center text-[#231f20] font-normal text-[30px] tracking-wider px-0">
+                    <p className="w-full text-center text-[#231f20] font-normal text-[16px] tracking-wider px-0">
                         Sàn giao dịch hàng hiệu
                         <br />
                         chính hãng đã qua sử dụng
@@ -32,7 +32,7 @@ const SectionSeven: FC = () => {
                 <div className="w-full lg:w-1/2 max-w-full flex justify-center p-4 px-4 mb-10">
                     <div className="h-full flex flex-col justify-between items-start">
                         <div
-                            className="flex flex-row items-center justify-between cursor-pointer"
+                            className="flex flex-row items-center justify-between mt-4 cursor-pointer"
                             onClick={() =>
                                 handleClick("https://www.facebook.com/jooluxvn")
                             }
@@ -44,12 +44,12 @@ const SectionSeven: FC = () => {
                                 height={37.58}
                                 quality={100}
                             />
-                            <p className="w-full text-center text-[body] text-[#231f20] font-normal text-[18px] smJl:text-[24px] tracking-wider px-4">
+                            <p className="w-full text-center text-[body] text-[#231f20] font-normal text-[13px] tracking-wider px-4">
                                 fb.com/joolux
                             </p>
                         </div>
                         <div
-                            className="flex flex-row items-center justify-between cursor-pointer"
+                            className="flex flex-row items-center justify-between mt-4 cursor-pointer"
                             onClick={() => handleClick("https://joolux.com")}
                         >
                             <Image
@@ -59,11 +59,11 @@ const SectionSeven: FC = () => {
                                 height={37.58}
                                 quality={100}
                             />
-                            <p className="w-full text-center text-[#231f20] font-normal text-[18px] smJl:text-[24px] tracking-wider px-4">
+                            <p className="w-full text-center text-[#231f20] font-normal text-[13px] tracking-wider px-4">
                                 www.joolux.com
                             </p>
                         </div>
-                        <div className="flex flex-row items-center justify-between">
+                        <div className="flex flex-row items-center justify-between mt-4">
                             <Image
                                 className="bg-white"
                                 src="/assets/images/contact/g3.png"
@@ -71,11 +71,11 @@ const SectionSeven: FC = () => {
                                 height={37.58}
                                 quality={100}
                             />
-                            <p className="w-full text-center text-[body] text-[#231f20] font-normal text-[18px] smJl:text-[24px] tracking-wider px-4">
+                            <p className="w-full text-center text-[body] text-[#231f20] font-normal text-[13px] tracking-wider px-4">
                                 1900 292984
                             </p>
                         </div>
-                        <div className="flex flex-row items-center justify-between">
+                        <div className="flex flex-row items-center justify-between mt-4">
                             <Image
                                 className="bg-white"
                                 src="/assets/images/contact/g4.png"
@@ -83,7 +83,7 @@ const SectionSeven: FC = () => {
                                 height={37.58}
                                 quality={100}
                             />
-                            <p className="w-full text-center text-[body] text-[#231f20] font-normal text-[18px] smJl:text-[24px] tracking-wider px-4">
+                            <p className="w-full text-center text-[body] text-[#231f20] font-normal text-[13px] tracking-wider px-4">
                                 info@joolux.com
                             </p>
                         </div>

@@ -6,14 +6,14 @@ const VerticalTimeline: FC = () => {
             <div className="container bg-gray-200 mx-auto w-full h-1/2">
                 <div className="relative wrap overflow-hidden p-10 h-1/2">
                     <div
-                        className="absolute h-full vertical-timeline-line"
-                        style={{ left: "50%" }}
+                        className="absolute h-[63%] vertical-timeline-line"
+                        style={{ left: "50%", top: "16%" }}
                     />
                     {/* right timeline */}
                     <div
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1200"
+                        data-aos-delay="1100"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
@@ -29,7 +29,7 @@ const VerticalTimeline: FC = () => {
                     <div
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1300"
+                        data-aos-delay="1150"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>
@@ -63,7 +63,7 @@ const VerticalTimeline: FC = () => {
                     <div
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1400"
+                        data-aos-delay="1200"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>

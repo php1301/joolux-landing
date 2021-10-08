@@ -104,7 +104,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
 };
 
 const CountdownComponent: FC = () => {
-    const date = "2021-10-09T00:00:00+0700";
+    const date = "2021-10-09T19:30:00+0700";
     const url =
         "https://www.facebook.com/events/806937079986486/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22page%22%7D]%7D";
 

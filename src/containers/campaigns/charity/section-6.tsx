@@ -265,7 +265,7 @@ const SectionSix: FC = () => {
             <div
                 data-aos="fade-up"
                 data-aos-delay="1000"
-                className="mx-auto max-w-[1400px] text-center pt-4 lg:pb-14 pb-10 px-2 md:px-12 overflow-hidden"
+                className="mx-auto max-w-[1400px] text-center pt-2 lg:pb-12 pb-10 px-2 md:px-12 overflow-hidden"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 mt-10 items-center md:auto-cols-[170px] md:items-stretch">
                     {/* x0 y0 */}
@@ -405,8 +405,8 @@ const SectionSix: FC = () => {
                                 <Image
                                     className=""
                                     src="/assets/images/funders/f12.png"
-                                    width={100}
-                                    height={100}
+                                    width={getImage(width, 12).width}
+                                    height={getImage(width, 12).height}
                                     quality={100}
                                 />
                             </div>
