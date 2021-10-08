@@ -276,9 +276,9 @@ const SectionSix: FC = () => {
             <div
                 data-aos="fade-up"
                 data-aos-delay="700"
-                className="mx-auto max-w-[1400px] text-center pt-2 lg:pb-12 pb-10 px-2 md:px-12 overflow-hidden"
+                className="mx-auto max-w-[1400px] text-center pt-2 lg:pb-8 pb-6 px-2 md:px-12 overflow-hidden"
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 mt-10 items-center md:auto-cols-[170px] md:items-stretch">
+                <div className="grid grid-cols-1 md:grid-cols-2 mt-6 items-center md:auto-cols-[170px] md:items-stretch">
                     {/* x0 y0 */}
                     <div className="w-full p-4 flex flex-col items-start px-4">
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
