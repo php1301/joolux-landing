@@ -17,6 +17,7 @@ export interface State {
     popupBanner: PopupBanner;
     favoriteData: string;
     displaySuccess: boolean;
+    imageView: string;
 }
 
 const initialState = {
@@ -33,6 +34,7 @@ const initialState = {
     popupBanner: null,
     favoriteData: "",
     displaySuccess: false,
+    imageView: null,
 };
 
 type Action =
@@ -95,6 +97,10 @@ type Action =
     | {
           type: "SET_POPUP_BANNER";
           value: PopupBanner;
+      }
+    | {
+          type: "SET_IMAGE_VIEW";
+          value: string;
       }
     | {
           type: "SET_FAVORITE_DATA";
@@ -205,6 +211,12 @@ function uiReducer(state: State, action: Action) {
                 popupBanner: action.value,
             };
         }
+        case "SET_IMAGE_VIEW": {
+            return {
+                ...state,
+                imageView: action.value,
+            };
+        }
         case "SET_DRAWER_VIEW": {
             return {
                 ...state,
@@ -278,6 +290,8 @@ export const UIProvider: React.FC = (props) => {
         dispatch({ type: "SET_USER_AVATAR", value: _value });
     const setPopupBanner = (_value: PopupBanner) =>
         dispatch({ type: "SET_POPUP_BANNER", value: _value });
+    const setImageView = (_value: string) =>
+        dispatch({ type: "SET_IMAGE_VIEW", value: _value });
     const setModalView = (view: MODAL_VIEWS) =>
         dispatch({ type: "SET_MODAL_VIEW", view });
     const setDrawerView = (view: DRAWER_VIEWS) =>
@@ -314,6 +328,7 @@ export const UIProvider: React.FC = (props) => {
             setPopupBanner,
             setFavoriteData,
             setDisplaySuccess,
+            setImageView,
         }),
         [state],
     );

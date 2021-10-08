@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { toBase64 } from "@utils/toBase64";
 import { shimmer } from "@utils/shimmer";
+import { useWindowSize } from "@utils/use-window-size";
 interface HeaderProps {
     pageSubHeader?: string;
     pageHeader?: string;
@@ -10,11 +11,12 @@ const PageHeader: React.FC<HeaderProps> = ({
     pageSubHeader = "",
     pageHeader = "",
 }) => {
+    const { width } = useWindowSize();
     return (
         <div
             data-aos="fade-up"
             data-aos-delay="1000"
-            className="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover h-full page-header"
+            className="flex justify-center relative bg-no-repeat bg-center bg-cover h-full page-header"
             // style={{
             //     backgroundImage:
             //         "url(/assets/images/banner/banner-charity.png)",
@@ -22,13 +24,18 @@ const PageHeader: React.FC<HeaderProps> = ({
         >
             {/* <div className="absolute top-0 start-0 bg-black w-full h-full opacity-50 transition-opacity duration-500 group-hover:opacity-80" /> */}
             <Image
-                src="/assets/images/banner/banner-charity.png"
+                src={
+                    width < 520
+                        ? "/assets/images/banner/banner-charity-mobile.png"
+                        : "/assets/images/banner/banner-charity.png"
+                }
                 quality={100}
                 placeholder="blur"
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                     shimmer(565, 275),
                 )}`}
-                layout="fill"
+                width={width < 520 ? 500 : 1600}
+                height={width < 520 ? 700 : 700}
             />
         </div>
     );

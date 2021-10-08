@@ -387,11 +387,11 @@
 		}
 	}
 	/* Your own custom utilities */
-	.page-header div {
+	/* .page-header div {
 		position: unset!important;
 		width: 100%;
 		height: 600px;
-	}
+	} */
 	.countdown-item {
 		background: rgba(229, 194, 137, 0.5);
 		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
@@ -1826,4 +1826,36 @@
 	border: 3px solid #E5C289;
 	box-sizing: border-box;
 	border-radius: 15px;
+}
+
+
+.auction-grid .auction-item {
+	position: relative;
+}
+.auction-grid .auction-item-hover {
+	opacity: 0;
+	transition-delay: 0.5s; 
+	transition-duration: 0.5s all;   
+	position: absolute;
+}
+.auction-grid .auction-item-hover-right {
+	opacity: 0;
+	transition-delay: 0.5s; 
+	transition-duration: 0.5s all;   
+	position: absolute;
+}
+
+@media (min-width: 750px) {
+	.auction-grid .auction-item:hover .auction-item-hover {
+		opacity: 1;
+		left: 108px;
+		top: -100px;
+		z-index: 20;
+	}
+	.auction-grid .auction-item:hover .auction-item-hover-right {
+		opacity: 1;
+		right: 8px;
+		top: -100px;
+		z-index: 20;
+	}
 }

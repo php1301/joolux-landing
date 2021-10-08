@@ -1,10 +1,13 @@
 import React, { FC } from "react";
-import PageHeader from "@components/ui/page-header";
 import CountdownComponent from "@components/common/countdown";
 import dynamic from "next/dynamic";
 // import Timeline from "@components/ui/timeline";
 
 const Timeline = dynamic(() => import("@components/ui/timeline"), {
+    ssr: false,
+});
+
+const PageHeader = dynamic(() => import("@components/ui/page-header"), {
     ssr: false,
 });
 

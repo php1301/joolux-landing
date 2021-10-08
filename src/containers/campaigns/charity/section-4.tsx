@@ -2,12 +2,20 @@ import React, { FC } from "react";
 import Image from "next/image";
 import { toBase64 } from "@utils/toBase64";
 import { shimmer } from "@utils/shimmer";
+import { useUI } from "@contexts/ui.context";
 
 const SectionFour: FC = () => {
+    const { setModalView, setImageView, openModal } = useUI();
+    const openModalView = (url) => {
+        console.log(url);
+        setImageView(url);
+        setModalView("IMAGE_VIEW");
+        openModal();
+    };
     return (
         <div>
             <div
-                data-aos="fade-left"
+                data-aos="fade-right"
                 data-aos-delay="1000"
                 className="mx-auto max-w-[1400px] text-center pt-8 pb-4 px-2 md:px-8 overflow-hidden"
             >
@@ -16,8 +24,13 @@ const SectionFour: FC = () => {
                 </h2>
                 <img className="mx-auto" src="/assets/images/divider.jpg" />
                 {/* <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch"> */}
-                <div className="grid grid-cols-2 md:grid-cols-3 mt-10 justify-items-center items-center md:items-stretch">
-                    <div className="w-full max-w-[400px] p-1 px-3 mb-10 text-left">
+                <div className="grid grid-cols-2 md:grid-cols-3 mt-10 justify-items-center items-center md:items-stretch auction-grid">
+                    <div
+                        onClick={() => {
+                            openModalView("/assets/images/popup1.png");
+                        }}
+                        className="w-full max-w-[400px] p-1 px-3 mb-10 text-left auction-item"
+                    >
                         <Image
                             src="/assets/images/sp-1.jpg"
                             width={350}
@@ -41,8 +54,27 @@ const SectionFour: FC = () => {
                                 3.000.000đ
                             </span>
                         </p>
+                        <span className="w-[400px] lg:w-[500px]] h-[500px] bg-[#fcf9f3] overflow-hidden rounded-md auction-item-hover">
+                            <div className="items-center">
+                                <div className="flex-shrink-0 items-center justify-center bg-gray-200 flex lg:w-[520px] xl:w-auto">
+                                    <Image
+                                        src="/assets/images/popup1.png"
+                                        alt="Thumbnail"
+                                        width={755}
+                                        height={655}
+                                        quality={100}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                            </div>
+                        </span>
                     </div>
-                    <div className="w-full max-w-[400px] p-1 px-3 mb-10 text-left">
+                    <div
+                        onClick={() => {
+                            openModalView("/assets/images/popup3.png");
+                        }}
+                        className="w-full max-w-[400px] p-1 px-3 mb-10 text-left auction-item"
+                    >
                         <Image
                             src="/assets/images/sp-2.jpg"
                             width={350}
@@ -66,8 +98,27 @@ const SectionFour: FC = () => {
                                 2.000.000đ
                             </span>
                         </p>
+                        <span className="w-[400px] lg:w-[500px]] h-[500px] bg-[#fcf9f3] overflow-hidden rounded-md auction-item-hover">
+                            <div className="items-center">
+                                <div className="flex-shrink-0 items-center justify-center bg-gray-200 flex lg:w-[520px] xl:w-auto">
+                                    <Image
+                                        src="/assets/images/popup3.png"
+                                        alt="Thumbnail"
+                                        width={755}
+                                        height={655}
+                                        quality={100}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                            </div>
+                        </span>
                     </div>
-                    <div className="w-full max-w-[400px] p-1 items-start px-3 mb-10 text-left">
+                    <div
+                        onClick={() => {
+                            openModalView("/assets/images/popup2.png");
+                        }}
+                        className="w-full max-w-[400px] p-1 items-start px-3 mb-10 text-left auction-item"
+                    >
                         <Image
                             src="/assets/images/sp-10.png"
                             width={350}
@@ -91,6 +142,20 @@ const SectionFour: FC = () => {
                                 6.500.000đ
                             </span>
                         </p>
+                        <span className="w-[400px] lg:w-[500px]] h-[500px] bg-[#fcf9f3] overflow-hidden rounded-md auction-item-hover-right">
+                            <div className="items-center">
+                                <div className="flex-shrink-0 items-center justify-center bg-gray-200 flex lg:w-[520px] xl:w-auto">
+                                    <Image
+                                        src="/assets/images/popup2.png"
+                                        alt="Thumbnail"
+                                        width={755}
+                                        height={655}
+                                        quality={100}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                            </div>
+                        </span>
                     </div>
                     {/* </div>
                 <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch"> */}
