@@ -1856,7 +1856,9 @@
 	border-top-color: transparent;
 	bottom: -20px;
 }
-
+.vertical-timeline-wrapper {
+	transform: translateX(-8%);
+}
 .vertical-timeline-line {
 	border-left: 2px dashed rgba(229, 194, 137, 0.5);
 }
@@ -1864,6 +1866,16 @@
 .vertical-timeline-date {
 	background: #EED8B3;
 	border: 2px solid #d9d9d9;
+}
+
+.vertical-timeline-text {
+	transform: translateY(27px);
+}
+@media (min-width: 640px){
+	.vertical-timeline-text {
+		transform: translateY(16px);
+	}
+	
 }
 
 .section-three-card {

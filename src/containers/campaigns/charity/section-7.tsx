@@ -11,7 +11,7 @@ const SectionSeven: FC = () => {
     return (
         <div
             data-aos="fade-up"
-            data-aos-delay="1000"
+            data-aos-delay="700"
             className="mx-auto max-w-[1400px] text-center pt-2 lg:pb-12 pb-10 px-8 overflow-hidden"
         >
             <div className="flex justify-between md:flex-row flex-col mt-10 items-center md:items-stretch">

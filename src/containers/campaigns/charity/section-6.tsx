@@ -275,7 +275,7 @@ const SectionSix: FC = () => {
         <div className="section-1">
             <div
                 data-aos="fade-up"
-                data-aos-delay="1000"
+                data-aos-delay="700"
                 className="mx-auto max-w-[1400px] text-center pt-2 lg:pb-12 pb-10 px-2 md:px-12 overflow-hidden"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 mt-10 items-center md:auto-cols-[170px] md:items-stretch">
@@ -408,7 +408,7 @@ const SectionSix: FC = () => {
                     </div>
                     <div className="w-full p-4 flex flex-col items-start px-4 text-left">
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
-                            Đơn vị tổ chức
+                            Đơn vị đồng hành
                         </p>
                         <div className="grid grid-cols-3 justify-items-start gap-4 lg:gap-x-0 lg:gap-y-8 w-full">
                             {/* Grid 6 items: Row 1 */}

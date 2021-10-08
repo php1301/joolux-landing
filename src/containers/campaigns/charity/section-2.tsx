@@ -4,7 +4,7 @@ const SectionTwo: FC = () => {
     return (
         <div
             data-aos="fade-up"
-            data-aos-delay="1000"
+            data-aos-delay="700"
             className="mx-auto max-w-[1400px] text-center pt-8 smJl:pb-16 pb-10 px-8 overflow-hidden"
         >
             <h2 className="font-brand text-black uppercase text-lg md:text-3xl">

@@ -11,7 +11,7 @@ const SectionFive: FC = () => {
     return (
         <div
             data-aos="fade-right"
-            data-aos-delay="1000"
+            data-aos-delay="700"
             className="mx-auto max-w-[1400px] text-center pt-4 smJl:pb-16 pb-10 px-8 overflow-hidden"
         >
             <h2 className="font-brand text-black uppercase text-lg md:text-3xl mb-6">
@@ -93,9 +93,7 @@ const SectionFive: FC = () => {
                 </div>
                 <div
                     onClick={() =>
-                        handleClick(
-                            "https://joolux.com/i/versace-wallet/18948",
-                        )
+                        handleClick("https://joolux.com/i/versace-wallet/18948")
                     }
                     className="w-full  max-w-[400px] p-4  px-4 mb-10 text-left cursor-pointer"
                 >
