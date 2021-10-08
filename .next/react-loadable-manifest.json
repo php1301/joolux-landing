@@ -1,0 +1,93 @@
+{
+  "..\\components\\common\\countdown.tsx -> react-countdown": {
+    "id": 8130,
+    "files": []
+  },
+  "..\\components\\common\\modal\\managed-modal.tsx -> @components/auth/forget-password-form": {
+    "id": 9436,
+    "files": [
+      "static/chunks/1bfc9850.7eb6c41b7daac451e9fc.js",
+      "static/chunks/commons-d32fd8568e8ce0b55a1c.js",
+      "static/chunks/436.261c17d4eda840979f5e.js"
+    ]
+  },
+  "..\\components\\common\\modal\\managed-modal.tsx -> @components/auth/login-form": {
+    "id": 3945,
+    "files": [
+      "static/chunks/d0447323.b4950eb0aba8df9c137c.js",
+      "static/chunks/b98bc7c3.ddcda7c5165ccf893a0e.js",
+      "static/chunks/commons-d32fd8568e8ce0b55a1c.js",
+      "static/chunks/669-06f60c9db8d478c0f5da.js",
+      "static/chunks/833.10ab42a83fa864f1df3f.js",
+      "static/chunks/559.e446605f38a79351461d.js",
+      "static/chunks/945.dc1e165bffc33836ba21.js"
+    ]
+  },
+  "..\\components\\common\\modal\\managed-modal.tsx -> @components/auth/refactor-sign-up-form": {
+    "id": 4594,
+    "files": [
+      "static/chunks/d0447323.b4950eb0aba8df9c137c.js",
+      "static/chunks/b98bc7c3.ddcda7c5165ccf893a0e.js",
+      "static/chunks/commons-d32fd8568e8ce0b55a1c.js",
+      "static/chunks/669-06f60c9db8d478c0f5da.js",
+      "static/chunks/833.10ab42a83fa864f1df3f.js",
+      "static/chunks/559.e446605f38a79351461d.js",
+      "static/chunks/594.9c88adb2ba7ad577989e.js"
+    ]
+  },
+  "..\\components\\common\\modal\\managed-modal.tsx -> @components/common/condition-tooltip": {
+    "id": 6262,
+    "files": [
+      "static/chunks/262.351fbd97b9ad8d943f9a.js"
+    ]
+  },
+  "..\\components\\layout\\header\\index.tsx -> ./auth-menu": {
+    "id": 3642,
+    "files": [
+      "static/chunks/642.60f24c20fd24a2933d60.js"
+    ]
+  },
+  "..\\components\\layout\\header\\index.tsx -> @components/cart/cart-button": {
+    "id": 2195,
+    "files": [
+      "static/chunks/95b64a6e.b37e7713d8056c721279.js",
+      "static/chunks/632cba62-e1e21b79ceee142f5905.js",
+      "static/chunks/51.798de82a4d97773c943d.js",
+      "static/css/6b3d2abe8d3e8223e197.css",
+      "static/chunks/195.200069964c620aa2ad02.js"
+    ]
+  },
+  "..\\components\\layout\\mobile\\mobile.tsx -> @components/cart/cart-button": {
+    "id": 2195,
+    "files": [
+      "static/chunks/95b64a6e.b37e7713d8056c721279.js",
+      "static/chunks/51.798de82a4d97773c943d.js",
+      "static/chunks/989.c61d9f911c4af00ff69e.js"
+    ]
+  },
+  "..\\components\\layout\\mobile\\mobile.tsx -> @components/layout/header/auth-menu": {
+    "id": 3642,
+    "files": [
+      "static/chunks/642.60f24c20fd24a2933d60.js"
+    ]
+  },
+  "..\\components\\layout\\mobile\\mobile.tsx -> @components/layout/header/mobile-menu": {
+    "id": 1265,
+    "files": [
+      "static/chunks/95b64a6e.b37e7713d8056c721279.js",
+      "static/chunks/265.fc30eaf9b24d7a9d34ff.js"
+    ]
+  },
+  "..\\containers\\campaigns\\charity\\charity-layout.tsx -> @components/ui/page-header": {
+    "id": 6722,
+    "files": [
+      "static/chunks/722.cc413c871dae08d986a7.js"
+    ]
+  },
+  "..\\containers\\campaigns\\charity\\charity-layout.tsx -> @components/ui/timeline": {
+    "id": 7754,
+    "files": [
+      "static/chunks/754.49b4040b9045f08164c1.js"
+    ]
+  }
+}
