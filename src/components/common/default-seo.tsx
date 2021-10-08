@@ -13,24 +13,27 @@ export const DefaultSeo = () => {
         "https://joolux.com/og-image.jpg";
     return (
         <NextDefaultSeo
-            title={(query.search && `${query.search} | Joolux`) || seoTitle}
-            description={seoDescription}
+            title={
+                (query.search && `${query.search} | Joolux`) ||
+                "Trao Tủ Đồ Yêu Thương"
+            }
+            description={"Góp xe cứu thương - Rút Ngắn Đại Dịch"}
             canonical={`${process.env.NEXT_PUBLIC_WEBSITE_URL}${asPath}`}
             openGraph={{
                 type: "website",
-                description: seoDescription,
+                description: "Góp xe cứu thương - Rút Ngắn Đại Dịch",
                 locale: "en_IE",
                 site_name: seoTitle,
-                title: seoTitle,
+                title: "Trao Tủ Đồ Yêu Thương",
                 images: [
                     {
-                        url: seoOgBanner,
+                        url: "/assets/images/banner/Cover-Event-Charity.png",
                         width: 800,
                         height: 600,
                         alt: "Og Image Alt",
                     },
                     {
-                        url: seoOgBanner,
+                        url: "/assets/images/banner/Mobile-Landing-Page.png",
                         width: 900,
                         height: 800,
                         alt: "Og Image Alt Second",

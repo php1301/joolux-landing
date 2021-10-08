@@ -25,7 +25,7 @@ const CharityLayout: FC = () => {
                 <div
                     data-aos="fade-up"
                     data-aos-delay="1000"
-                    className="mt-16 relative"
+                    className="mt-16 relative section-timeline"
                 >
                     <img className="mx-auto" src="/assets/images/divider.jpg" />
                     <h2 className="font-body text-[#18191f] text-lg md:text-3xl mt-6 font-medium">

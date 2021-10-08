@@ -18,7 +18,7 @@ const SectionFive: FC = () => {
                 Sản phẩm bán
             </h2>
             <img className="mx-auto" src="/assets/images/divider.jpg" />
-            <div className="grid grid-cols-2 md:grid-cols-3 mt-10 justify-items-center sm:items-center md:items-stretch">
+            <div className="grid grid-cols-2 md:grid-cols-3 mt-10 justify-items-center smJl:items-center md:items-stretch">
                 <div
                     onClick={() =>
                         handleClick(

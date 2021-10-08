@@ -63,7 +63,7 @@ const VerticalTimeline: FC = () => {
                     <div
                         className="mb-8 flex justify-between items-center w-full right-timeline"
                         data-aos="fade-right"
-                        data-aos-delay="1200"
+                        data-aos-delay="1175"
                     >
                         <div className="order-1 w-5/12" />
                         <div className="z-20 flex items-center order-1 shadow-xl w-8 h-8 rounded-full vertical-timeline-date"></div>

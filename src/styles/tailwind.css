@@ -643,10 +643,56 @@
 		margin: -5px auto 5px auto;
 		transform: rotate( -45deg);
 	}
-
 	@media (min-width: 750px){
 		.go-top-button::before {
 			margin: 0 auto 6px auto;
+		}
+	}
+
+
+	.go-next-button {
+		position: fixed;
+		box-sizing: border-box;
+		height: 40px;
+		width: 40px;
+		bottom: 70px;
+		right: 10px;
+		border-radius: 40px;
+		border: 1px solid #000;
+		opacity: 1;
+		z-index: 9;
+		background: #fff;
+		font-size: 0px;
+		text-transform: uppercase;
+		text-align: center;
+		color: #000;
+		cursor: pointer;
+		padding: 25px 4px 4px 4px;
+		transition: all .3s ease;
+	}
+	@media (min-width: 750px){
+		.go-next-button {
+			bottom: 0px;
+			right: 40px;
+			height: 100px;
+			width: 70px;
+			border-radius: 0;
+			font-size: 14px;
+		}
+	}
+	.go-next-button::before {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 20px;
+		border: 1px solid #000;
+		border-width: 1px 1px 0 0;
+		margin: -20px auto 5px auto;
+		transform: rotate( 134deg);
+	}
+	@media (min-width: 750px){
+		.go-next-button::before {
+			margin: -10px auto 15px auto;
 		}
 	}
 	.footer-container {

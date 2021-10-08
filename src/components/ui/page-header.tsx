@@ -26,8 +26,8 @@ const PageHeader: React.FC<HeaderProps> = ({
             <Image
                 src={
                     width < 520
-                        ? "/assets/images/banner/banner-charity-mobile.png"
-                        : "/assets/images/banner/banner-charity.png"
+                        ? "/assets/images/banner/Mobile-Landing-Page.png"
+                        : "/assets/images/banner/Cover-Event-Charity.png"
                 }
                 quality={100}
                 placeholder="blur"
@@ -35,7 +35,7 @@ const PageHeader: React.FC<HeaderProps> = ({
                     shimmer(565, 275),
                 )}`}
                 width={width < 520 ? 500 : 1600}
-                height={width < 520 ? 750 : 700}
+                height={width < 520 ? 850 : 700}
             />
         </div>
     );

@@ -37,7 +37,7 @@ const fundersImg: IFunderImg[] = [
         id: 2,
         image: {
             mobile: {
-                width: 206.88,
+                width: 200.88,
                 height: 41.5,
             },
             desktop: {
@@ -128,12 +128,12 @@ const fundersImg: IFunderImg[] = [
         id: 9,
         image: {
             mobile: {
-                width: 90,
-                height: 21,
+                width: 172,
+                height: 178,
             },
             desktop: {
                 width: 172,
-                height: 38,
+                height: 178,
             },
         },
     },
@@ -145,8 +145,8 @@ const fundersImg: IFunderImg[] = [
                 height: 68.96,
             },
             desktop: {
-                width: 176,
-                height: 113,
+                width: 250,
+                height: 200,
             },
         },
     },
@@ -184,8 +184,8 @@ const fundersImg: IFunderImg[] = [
                 height: 37.84,
             },
             desktop: {
-                width: 95,
-                height: 62.01,
+                width: 145,
+                height: 67,
             },
         },
     },
@@ -219,8 +219,8 @@ const fundersImg: IFunderImg[] = [
         id: 16,
         image: {
             mobile: {
-                width: 33.56,
-                height: 33.56,
+                width: 127,
+                height: 63,
             },
             desktop: {
                 width: 55,
@@ -247,10 +247,21 @@ function getImage(deviceWidth: number, imgIndex: number) {
     const imgObj: IFunderImg = fundersImg.filter(
         (img) => img.id == imgIndex,
     )[0];
+    if (imgIndex === 2) {
+        return deviceWidth < 942
+            ? {
+                  width: imgObj.image.mobile.width,
+                  height: imgObj.image.mobile.height,
+              }
+            : {
+                  width: imgObj.image.desktop.width,
+                  height: imgObj.image.desktop.height,
+              };
+    }
     return deviceWidth < 640
         ? {
-              width: imgObj.image.mobile.width,
-              height: imgObj.image.mobile.height,
+              width: imgObj.image.desktop.width,
+              height: imgObj.image.desktop.height,
           }
         : {
               width: imgObj.image.desktop.width,
@@ -274,19 +285,19 @@ const SectionSix: FC = () => {
                             Đơn vị tổ chức
                         </p>
                         <div className="grid grid-cols-3 justify-items-between lg:justify-items-start gap-4 w-full overflow-hidden">
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f1.png"
+                                    src="/assets/images/funder-v2/f1.png"
                                     width={getImage(width, 1).width}
                                     height={getImage(width, 1).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="col-span-2 flex justify-center items-center w-[205px] h-[85px] px-2 lg:h-[170px] lg:w-[380px] bg-white rounded-lg">
+                            <div className="col-span-2 flex sm:justify-center items-center w-[255px] h-[102px] px-1 lg:h-[170px] lg:w-[380px] bg-white rounded-lg">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f2.png"
+                                    src="/assets/images/funder-v2/f2.png"
                                     width={getImage(width, 2).width}
                                     height={getImage(width, 2).height}
                                     quality={100}
@@ -300,28 +311,28 @@ const SectionSix: FC = () => {
                             Bảo trợ truyền thông
                         </p>
                         <div className="grid grid-cols-3 justify-items-start gap-4 w-full">
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f3.png"
+                                    src="/assets/images/funder-v2/f3.png"
                                     width={getImage(width, 3).width}
                                     height={getImage(width, 3).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f4.png"
+                                    src="/assets/images/funder-v2/f4.png"
                                     width={getImage(width, 4).width}
                                     height={getImage(width, 4).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f5.png"
+                                    src="/assets/images/funder-v2/f5.png"
                                     width={getImage(width, 5).width}
                                     height={getImage(width, 5).height}
                                     quality={100}
@@ -338,56 +349,56 @@ const SectionSix: FC = () => {
                         </p>
                         <div className="grid grid-cols-3 justify-items-start gap-4 lg:gap-y-8 w-full">
                             {/* Grid 6 items: Row 1 */}
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f6.png"
+                                    src="/assets/images/funder-v2/f6.png"
                                     width={getImage(width, 6).width}
                                     height={getImage(width, 6).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f7.png"
+                                    src="/assets/images/funder-v2/f7.png"
                                     width={getImage(width, 7).width}
                                     height={getImage(width, 7).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f8.png"
+                                    src="/assets/images/funder-v2/f8.jpg"
                                     width={getImage(width, 8).width}
                                     height={getImage(width, 8).height}
                                     quality={100}
                                 />
                             </div>
                             {/* Grid5 items: Row 2 */}
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f9.png"
+                                    src="/assets/images/funder-v2/f9.jpg"
                                     width={getImage(width, 9).width}
                                     height={getImage(width, 9).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center pl-5 h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center pl-5 h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f10.png"
+                                    src="/assets/images/funder-v2/f10.png"
                                     width={getImage(width, 10).width}
                                     height={getImage(width, 10).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f11.png"
+                                    src="/assets/images/funder-v2/f11.jpg"
                                     width={getImage(width, 11).width}
                                     height={getImage(width, 11).height}
                                     quality={100}
@@ -401,56 +412,56 @@ const SectionSix: FC = () => {
                         </p>
                         <div className="grid grid-cols-3 justify-items-start gap-4 lg:gap-x-0 lg:gap-y-8 w-full">
                             {/* Grid 6 items: Row 1 */}
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f12.png"
+                                    src="/assets/images/funder-v2/f12.png"
                                     width={getImage(width, 12).width}
                                     height={getImage(width, 12).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f13.png"
+                                    src="/assets/images/funder-v2/f13.png"
                                     width={getImage(width, 13).width}
                                     height={getImage(width, 13).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f14.png"
+                                    src="/assets/images/funder-v2/f14.jpg"
                                     width={getImage(width, 14).width}
                                     height={getImage(width, 14).height}
                                     quality={100}
                                 />
                             </div>
                             {/* Grid5 items: Row 2 */}
-                            <div className="flex justify-center items-center pl-6 h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f15.png"
+                                    src="/assets/images/funder-v2/f15.svg"
                                     width={getImage(width, 15).width}
                                     height={getImage(width, 15).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f16.png"
+                                    src="/assets/images/funder-v2/f16.png"
                                     width={getImage(width, 16).width}
                                     height={getImage(width, 16).height}
                                     quality={100}
                                 />
                             </div>
-                            <div className="flex justify-center items-center h-[85px] px-2 w-[85px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
+                            <div className="flex justify-center items-center h-[102px] px-2 w-[102px] lg:h-[170px] lg:w-[170px] bg-white rounded-lg overflow-hidden">
                                 <Image
                                     className=""
-                                    src="/assets/images/funders/f17.png"
+                                    src="/assets/images/funder-v2/f17.jpeg"
                                     width={getImage(width, 17).width}
                                     height={getImage(width, 17).height}
                                     quality={100}
