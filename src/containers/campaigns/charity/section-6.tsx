@@ -405,8 +405,8 @@ const SectionSix: FC = () => {
                                 <Image
                                     className=""
                                     src="/assets/images/funders/f12.png"
-                                    width={getImage(width, 12).width}
-                                    height={getImage(width, 12).height}
+                                    width={100}
+                                    height={100}
                                     quality={100}
                                 />
                             </div>
