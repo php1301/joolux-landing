@@ -29,7 +29,7 @@ const SectionFour: FC = () => {
                         onClick={() => {
                             openModalView("/assets/images/popup1.png");
                         }}
-                        className="w-full max-w-[400px] p-1 px-3 mb-10 text-left auction-item"
+                        className="w-full max-w-[400px] p-1 px-3 mb-10 text-left auction-item cursor-pointer"
                     >
                         <Image
                             src="/assets/images/sp-1.jpg"
@@ -73,7 +73,7 @@ const SectionFour: FC = () => {
                         onClick={() => {
                             openModalView("/assets/images/popup3.png");
                         }}
-                        className="w-full max-w-[400px] p-1 px-3 mb-10 text-left auction-item"
+                        className="w-full max-w-[400px] p-1 px-3 mb-10 text-left auction-item cursor-pointer"
                     >
                         <Image
                             src="/assets/images/sp-2.jpg"
@@ -117,7 +117,7 @@ const SectionFour: FC = () => {
                         onClick={() => {
                             openModalView("/assets/images/popup2.png");
                         }}
-                        className="w-full max-w-[400px] p-1 items-start px-3 mb-10 text-left auction-item"
+                        className="w-full max-w-[400px] p-1 items-start px-3 mb-10 text-left auction-item cursor-pointer"
                     >
                         <Image
                             src="/assets/images/sp-10.png"
