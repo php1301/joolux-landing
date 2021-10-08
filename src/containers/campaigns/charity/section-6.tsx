@@ -306,7 +306,7 @@ const SectionSix: FC = () => {
                         </div>
                     </div>
                     {/* x0 y1 */}
-                    <div className="w-full p-4 flex flex-col items-start text-left">
+                    <div className="w-full p-4 flex flex-col items-start px-4 py-4 text-left">
                         <p className="text-[#231f20] font-medium smJl:font-normal smJl:text-[16px] lg:text-[28px] pt-0 pb-4 px-0">
                             Bảo trợ truyền thông
                         </p>
