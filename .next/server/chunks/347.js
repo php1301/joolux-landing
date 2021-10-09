@@ -40,7 +40,7 @@ const fundersImg = [{
   id: 2,
   image: {
     mobile: {
-      width: 200.88,
+      width: 180.88,
       height: 41.5
     },
     desktop: {
