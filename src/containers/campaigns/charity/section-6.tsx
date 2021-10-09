@@ -37,7 +37,7 @@ const fundersImg: IFunderImg[] = [
         id: 2,
         image: {
             mobile: {
-                width: 180.88,
+                width: 185.88,
                 height: 41.5,
             },
             desktop: {
