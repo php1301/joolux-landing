@@ -9,13 +9,20 @@ export const config = {
 // import { Layout } from "@components/layout/layout";
 import { Container } from "@components";
 // import { I18NExample } from "@components/examples/translate";
+import dynamic from "next/dynamic";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import CharityLayout from "@containers/campaigns/charity/charity-layout";
 import SectionTwo from "@containers/campaigns/charity/section-2";
 import SectionThree from "@containers/campaigns/charity/section-3";
 import SectionFour from "@containers/campaigns/charity/section-4";
 import SectionFive from "@containers/campaigns/charity/section-5";
-import SectionSix from "@containers/campaigns/charity/section-6";
+const SectionSix = dynamic(
+    () => import("@containers/campaigns/charity/section-6"),
+    {
+        ssr: false,
+    },
+);
+// import SectionSix from "@containers/campaigns/charity/section-6";
 import SectionSeven from "@containers/campaigns/charity/section-7";
 
 // Các pages sẽ không cần gắn types như :React.FC
